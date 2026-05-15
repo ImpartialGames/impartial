@@ -1,0 +1,8 @@
+{
+  "name": "IMPARTIAL Studio",
+  "short_name": "IMPARTIAL",
+  "icons": [{"src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"}],
+  "theme_color": "#FBFAF7",
+  "background_color": "#FBFAF7",
+  "display": "browser"
+}

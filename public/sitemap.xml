@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://impartialgames.com/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://impartialgames.com/studio</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://impartialgames.com/portfolio</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://impartialgames.com/portfolio/eclipsia</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://impartialgames.com/portfolio/altarys</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://impartialgames.com/portfolio/prophecia</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://impartialgames.com/contact</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://impartialgames.com/services/web</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://impartialgames.com/services/mobile</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://impartialgames.com/services/backoffice</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://impartialgames.com/services/360</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+</urlset>
