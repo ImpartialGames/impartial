@@ -17,7 +17,7 @@ export function HeroPremium() {
         alt=""
         aria-hidden
         fetchPriority="high"
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+        className="absolute inset-0 w-full h-full object-cover object-center md:object-[60%_center] pointer-events-none select-none"
         draggable={false}
         animate={{
           scale: [1, 1.06, 1.02, 1.07, 1],
