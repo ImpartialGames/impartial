@@ -64,7 +64,7 @@ export function ProofStrip() {
       <Marquee speed={38} pauseOnHover={false} className="mb-4">
         {rowOne.map((item, i) => (
           <div key={i} className="flex items-center gap-8 whitespace-nowrap">
-            <span className="font-serif italic text-[15px] md:text-[17px] text-white/90 tracking-wide">
+            <span className="font-syne font-semibold text-[15px] md:text-[17px] text-white/90 tracking-wide">
               {item}
             </span>
             <Diamond />

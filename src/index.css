@@ -1113,15 +1113,15 @@ body:has(.theme-solaire) {
   color: #0E0B14;
 }
 
-/* Typographie Prisme — serif éditorial pour titres + UI sans pour body */
+/* Typographie Prisme — Syne bold pour tous les titres */
 .theme-solaire h1,
 .theme-solaire h2,
 .theme-solaire h3,
 .theme-solaire .font-serif,
 .theme-solaire .prisme-serif {
-  font-family: 'Instrument Serif', 'Cormorant Garamond', serif;
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 .theme-solaire h4,
 .theme-solaire .font-syne {
@@ -1155,11 +1155,11 @@ body:has(.theme-solaire) {
 }
 .theme-solaire .text-logo-gradient::after { content: none; }
 
-/* Italique gradient (mots accentués) */
+/* Mots accentués gradient — Syne bold, sans italique */
 .theme-solaire .prisme-italic-grad {
-  font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  font-weight: 400;
+  font-family: 'Syne', sans-serif;
+  font-style: normal;
+  font-weight: 800;
   background: var(--prisme-gradient);
   -webkit-background-clip: text;
   background-clip: text;

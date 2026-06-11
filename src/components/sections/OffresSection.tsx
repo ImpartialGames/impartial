@@ -176,7 +176,7 @@ export function OffresSection() {
 
                 <div className="mb-6 pt-6 border-t border-[#EEEAF4] text-center">
                   <div className="inline-flex items-baseline gap-1">
-                    <span className="font-serif italic text-[40px] sm:text-[48px] leading-none text-[#7C3AED]">
+                    <span className="font-syne font-black text-[40px] sm:text-[48px] leading-none text-[#7C3AED]">
                       {pack.price}
                     </span>
                     <span className="text-[18px] font-semibold text-[#7C3AED] leading-none mb-auto">*</span>

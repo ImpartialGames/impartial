@@ -18,8 +18,8 @@ export default {
         syne: ['Syne', 'Inter', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],
-        serif: ['"Instrument Serif"', 'Cormorant Garamond', 'serif'],
-        display: ['"Instrument Serif"', 'serif'],
+        serif: ['Syne', 'sans-serif'],
+        display: ['Syne', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
