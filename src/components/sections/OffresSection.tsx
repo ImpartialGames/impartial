@@ -9,6 +9,7 @@ interface Pack {
   tagline: string;
   description: string;
   price: string;
+  priceCAD?: string;
   delay?: string;
   features: string[];
   recommended?: boolean;
@@ -19,7 +20,8 @@ const packs: Pack[] = [
     name: "PACK LAUNCH",
     tagline: "Landing / One-page premium",
     description: "Lancer vite, marquer fort.",
-    price: "1500€",
+    price: "À partir de 1 500 €",
+    priceCAD: "2 500 $CA",
     delay: "2-3 semaines",
     features: [
       "Direction artistique + UI premium",
@@ -33,7 +35,8 @@ const packs: Pack[] = [
     name: "PACK STUDIO",
     tagline: "Site multi-pages signature",
     description: "Une présence digitale complète et élégante.",
-    price: "3000€",
+    price: "À partir de 3 000 €",
+    priceCAD: "5 000 $CA",
     delay: "4-6 semaines",
     features: [
       "Design (typo, couleurs, composants)",
@@ -48,7 +51,8 @@ const packs: Pack[] = [
     name: "PACK ELITE",
     tagline: "Application / Backoffice / Logiciel",
     description: "Un produit robuste, scalable, premium.",
-    price: "6000€",
+    price: "À partir de 8 000 €",
+    priceCAD: "12 000 $CA",
     delay: "8-12 semaines",
     features: [
       "UI complexe + états (empty/loading/error)",
@@ -93,7 +97,7 @@ export function OffresSection() {
             </span>
           </h2>
           <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
-            Choisissez un cadre simple, on l&apos;élève au niveau studio : design, motion, performance et finitions.
+            Tu choisis le bon format. On livre un produit dont tu seras fier.
           </p>
         </div>
 
@@ -175,12 +179,17 @@ export function OffresSection() {
                 </div>
 
                 <div className="mb-6 pt-6 border-t border-[#EEEAF4] text-center">
-                  <div className="inline-flex items-baseline gap-1">
-                    <span className="font-syne font-black text-[40px] sm:text-[48px] leading-none text-[#7C3AED]">
+                  <div className="inline-flex items-baseline gap-1 flex-wrap justify-center">
+                    <span className="font-syne font-black text-[32px] sm:text-[38px] leading-none text-[#7C3AED]">
                       {pack.price}
                     </span>
                     <span className="text-[18px] font-semibold text-[#7C3AED] leading-none mb-auto">*</span>
                   </div>
+                  {pack.priceCAD && (
+                    <p className="mt-1 text-[12px] text-[#6F6580] font-medium">
+                      ou {pack.priceCAD}
+                    </p>
+                  )}
                   {pack.delay && (
                     <p className="mt-2 text-sm text-[#6F6580] flex items-center justify-center gap-1.5">
                       <Clock className="h-3.5 w-3.5" />

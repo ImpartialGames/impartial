@@ -88,14 +88,12 @@ export function Header() {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 flex-shrink-0 group">
-            <div className="flex-shrink-0 h-9 w-9 rounded-full bg-[#0E0B14] border border-[rgba(124,58,237,0.3)] flex items-center justify-center overflow-hidden shadow-[0_0_12px_rgba(124,58,237,0.2)]">
-              <img
-                src={logoHero}
-                alt="Impartial"
-                className="h-7 w-7 object-contain"
-                style={{ filter: "saturate(1.4) brightness(1.05)" }}
-              />
-            </div>
+            <img
+              src={logoHero}
+              alt="Impartial"
+              className="h-9 w-9 object-contain flex-shrink-0"
+              style={{ filter: "saturate(1.4) brightness(1.05)" }}
+            />
             <div className="flex flex-col leading-none gap-[3px]">
               <span className="font-syne text-[16px] font-black tracking-[-0.03em] text-[#0E0B14]">
                 IMPARTIAL

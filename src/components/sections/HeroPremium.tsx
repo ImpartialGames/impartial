@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { MagneticButton, RevealText } from "@/components/wow";
 import fondHero from "@/assets/fond-hero.png";
 
-const heroBadges = ["Design éditorial", "Motion maîtrisé", "Performance & SEO", "Stack moderne"];
+const heroBadges = ["Design premium", "Code solide", "Mobile-first", "Zéro compromis"];
 
 export function HeroPremium() {
   return (
@@ -123,14 +123,14 @@ export function HeroPremium() {
           {/* Colonne gauche */}
           <div>
             <h1 className="font-serif text-[34px] sm:text-[48px] lg:text-[72px] xl:text-[88px] 2xl:text-[100px] leading-[0.98] tracking-[-0.03em] text-[#0E0B14]">
-              <RevealText by="word" stagger={0.06}>Créateurs</RevealText>
+              <RevealText by="word" stagger={0.06}>De l&apos;idée</RevealText>
               <span className="block">
                 <RevealText by="word" stagger={0.06} delay={0.15}>
-                  d&apos;expériences
+                  au produit.
                 </RevealText>
               </span>
               <span className="block">
-                <span className="prisme-italic-grad prisme-shimmer">digitales sur-mesure.</span>
+                <span className="prisme-italic-grad prisme-shimmer">On gère tout.</span>
               </span>
             </h1>
 
@@ -140,7 +140,7 @@ export function HeroPremium() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="mt-6 text-[16px] md:text-[18px] text-[#6F6580] leading-[1.6] max-w-2xl"
             >
-              Web, mobile &amp; SaaS, design raffiné, performance et animations maîtrisées.
+              Sites web, apps et logiciels sur-mesure. Plus de 30 clients accompagnés, 4 produits opérés par nos soins.
             </motion.p>
 
             <motion.div
