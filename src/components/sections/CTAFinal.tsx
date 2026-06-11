@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Mail } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, MagneticButton } from "@/components/wow";
+import { CalendlyQuiz } from "@/components/CalendlyQuiz";
 
 export function CTAFinal() {
+  const [quizOpen, setQuizOpen] = useState(false);
+
   return (
     <section id="contact" className="relative py-20 md:py-28 bg-[#FBFAF7] overflow-hidden">
 
@@ -63,20 +67,18 @@ export function CTAFinal() {
               </div>
 
               <h2 className="font-serif text-[26px] sm:text-[32px] md:text-[44px] lg:text-[52px] leading-[1.05] tracking-[-0.02em] text-white mb-6">
-                Prêt à rendre votre{" "}
-                <span className="prisme-italic-grad">produit inoubliable ?</span>
+                Prêt à lancer{" "}
+                <span className="prisme-italic-grad">ton projet ?</span>
               </h2>
 
               <p className="text-[#B8A8D8] text-base md:text-lg leading-relaxed mb-12 max-w-xl mx-auto">
-                On vous répond sous 24–48h avec une proposition claire et sans engagement.
+                On te répond sous 24–48h avec une proposition claire et sans engagement.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <MagneticButton
-                  as="a"
-                  href="https://calendly.com/yannis-bezriche/impartial-games"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  as="button"
+                  onClick={() => setQuizOpen(true)}
                   className="btn-prisme inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white font-medium text-[15px]"
                 >
                   Planifier un appel
@@ -108,6 +110,10 @@ export function CTAFinal() {
           </div>
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {quizOpen && <CalendlyQuiz onClose={() => setQuizOpen(false)} />}
+      </AnimatePresence>
     </section>
   );
 }

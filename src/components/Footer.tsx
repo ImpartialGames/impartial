@@ -118,9 +118,9 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-[14px] leading-relaxed text-[#9B8EC4] max-w-xs">
-              Studio digital spécialisé dans la création d'expériences web et mobiles immersives pour les marques ambitieuses.
+              Studio digital et éditeur SaaS. On conçoit, développe et opère des produits digitaux pour les marques ambitieuses en France et au Canada.
             </p>
-            <p className="text-[12px] text-[#7B6AAD]">Delaware, États-Unis</p>
+            <p className="text-[12px] text-[#7B6AAD]">Montréal, QC · Paris, France</p>
             <a
               href="mailto:studio@impartialgames.com"
               className="inline-flex items-center gap-2 text-[13px] font-medium text-[#A78BFA] hover:text-white hover:gap-3 transition-all duration-200"

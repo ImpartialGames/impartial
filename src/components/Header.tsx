@@ -4,6 +4,7 @@ import { Menu, X, Globe, Smartphone, LayoutDashboard, Layers, Grid2X2, Users, Ma
 import { motion, AnimatePresence } from "framer-motion";
 import { GlowMenu, GlowMenuItem } from "@/components/ui/glow-menu";
 import logoHero from "@/assets/logo-hero.png";
+import { CalendlyQuiz } from "@/components/CalendlyQuiz";
 
 const glowNavItems: GlowMenuItem[] = [
   {
@@ -60,6 +61,7 @@ const glowNavItems: GlowMenuItem[] = [
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [quizOpen, setQuizOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -111,14 +113,12 @@ export function Header() {
 
           {/* CTA droite */}
           <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
-            <a
-              href="https://calendly.com/yannis-bezriche/impartial-games"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setQuizOpen(true)}
               className="btn-prisme inline-flex items-center gap-2 text-[13px] font-medium text-white px-5 py-2.5 rounded-full"
             >
               Planifier un appel
-            </a>
+            </button>
           </div>
 
           {/* Burger mobile */}
@@ -187,21 +187,22 @@ export function Header() {
                   </Link>
                 ))}
                 <div className="mt-4">
-                  <a
-                    href="https://calendly.com/yannis-bezriche/impartial-games"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="btn-prisme block py-3 rounded-full text-white font-medium text-center text-[14px]"
+                  <button
+                    onClick={() => { setIsMobileMenuOpen(false); setQuizOpen(true); }}
+                    className="btn-prisme block w-full py-3 rounded-full text-white font-medium text-center text-[14px]"
                   >
                     Planifier un appel
-                  </a>
+                  </button>
                 </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
+
+      <AnimatePresence>
+        {quizOpen && <CalendlyQuiz onClose={() => setQuizOpen(false)} />}
+      </AnimatePresence>
     </motion.header>
   );
 }

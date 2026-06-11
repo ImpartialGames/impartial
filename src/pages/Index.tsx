@@ -11,28 +11,35 @@ import {
   PrincipesSection,
   CTAFinal,
 } from "@/components/sections";
+import { SocialProofBand } from "@/components/sections/SocialProofBand";
+import { EcosystemeSection } from "@/components/sections/EcosystemeSection";
 
 const Index = () => {
   return (
     <Layout>
       <SEO
-        title="Studio Digital Premium"
-        description="Agence digitale spécialisée en création de sites web, apps mobiles et logiciels sur-mesure. Design éditorial, motion et performance A+."
+        title="Studio Digital Montréal et Paris | Sites Web, Apps, SaaS"
+        description="Studio digital premium à Montréal et Paris. Sites web, apps mobiles et SaaS sur-mesure. Design premium, code solide. Plus de 30 clients accompagnés."
         canonical="/"
         schemaJson={{
           "@context": "https://schema.org",
           "@type": "Organization",
-          "name": "IMPARTIAL Studio",
+          "name": "ImpartialGames",
           "url": "https://impartialgames.com",
           "logo": "https://impartialgames.com/og-image.jpg",
           "email": "studio@impartialgames.com",
-          "address": { "@type": "PostalAddress", "addressCountry": "US" },
+          "address": [
+            { "@type": "PostalAddress", "addressLocality": "Montréal", "addressRegion": "QC", "addressCountry": "CA" },
+            { "@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR" }
+          ],
           "sameAs": []
         }}
       />
       <HeroPremium />
+      <SocialProofBand />
       <OffresSection />
       <ServicesSection />
+      <EcosystemeSection />
       <RealisationsSection />
 
       {/* Velocity divider */}

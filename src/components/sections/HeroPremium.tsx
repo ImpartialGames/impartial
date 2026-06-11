@@ -1,12 +1,16 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { MagneticButton, RevealText } from "@/components/wow";
 import fondHero from "@/assets/fond-hero.png";
+import { CalendlyQuiz } from "@/components/CalendlyQuiz";
 
 const heroBadges = ["Design premium", "Code solide", "Mobile-first", "Zéro compromis"];
 
 export function HeroPremium() {
+  const [quizOpen, setQuizOpen] = useState(false);
+
   return (
     <section className="relative h-[100svh] flex items-center justify-center overflow-hidden pt-20 pb-8 md:pt-20 md:pb-8">
 
@@ -150,10 +154,8 @@ export function HeroPremium() {
               className="mt-7 flex flex-col sm:flex-row gap-3"
             >
               <MagneticButton
-                as="a"
-                href="https://calendly.com/yannis-bezriche/impartial-games"
-                target="_blank"
-                rel="noopener noreferrer"
+                as="button"
+                onClick={() => setQuizOpen(true)}
                 className="btn-prisme group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white font-medium text-[15px]"
               >
                 Planifier un appel
@@ -197,6 +199,9 @@ export function HeroPremium() {
         </div>
       </div>
 
+      <AnimatePresence>
+        {quizOpen && <CalendlyQuiz onClose={() => setQuizOpen(false)} />}
+      </AnimatePresence>
     </section>
   );
 }

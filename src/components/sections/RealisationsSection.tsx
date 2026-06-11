@@ -37,6 +37,37 @@ const projects = [
     externalUrl: "https://goprophecia.gg?inviteCode=YANNI-DZ94",
     tags: ["Design", "Développement", "Gaming"],
   },
+  {
+    title: "Umel Couture",
+    objective: "Landing page premium pour une maison de couture sur-mesure",
+    role: "Direction artistique & Développement",
+    result: "Identité visuelle forte, avis Google intégrés",
+    image: null,
+    url: "/portfolio/umel",
+    externalUrl: null,
+    tags: ["Design éditorial", "Landing page", "Mode"],
+  },
+  {
+    title: "Fitbyval",
+    objective: "Plateforme fitness & coaching",
+    role: "Design & Développement",
+    result: "Parcours utilisateur mobile-first fluide",
+    image: null,
+    url: "/portfolio/fitbyval",
+    externalUrl: null,
+    tags: ["App mobile", "Coaching", "SaaS"],
+  },
+  {
+    title: "ELEV8",
+    objective: "Application complète de coaching sportif",
+    role: "Design & Développement",
+    result: "Produit opéré par ImpartialGames — à partir de 59 € / 87 $CA / mois",
+    image: null,
+    url: "/portfolio/elev8",
+    externalUrl: "https://myelev8.app",
+    tags: ["Application SaaS", "Coaching", "Mobile"],
+    badge: "Produit ImpartialGames",
+  },
 ];
 
 export function RealisationsSection() {
@@ -52,11 +83,11 @@ export function RealisationsSection() {
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <div className="section-label justify-center mb-6">Réalisations</div>
           <h2 className="font-serif text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-6">
-            Quelques projets{" "}
-            <span className="prisme-italic-grad">qui parlent d'eux-mêmes.</span>
+            Ils nous ont{" "}
+            <span className="prisme-italic-grad">fait confiance.</span>
           </h2>
           <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
-            Chaque réalisation illustre notre approche : design intentionnel, code solide, résultats mesurables.
+            De la landing page à l&apos;application complexe, chaque projet est traité avec la même exigence.
           </p>
         </div>
 
@@ -75,12 +106,20 @@ export function RealisationsSection() {
 
                   {/* Image */}
                   <div className="relative h-36 sm:h-44 md:h-48 overflow-hidden bg-[#F3EEFB]">
-                    <img
-                      src={p.image}
-                      alt={p.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
-                    />
+                    {p.image ? (
+                      <img
+                        src={p.image}
+                        alt={p.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center">
+                        <span className="font-syne font-black text-[28px] tracking-tight text-[#7C3AED]/30">
+                          {p.title[0]}
+                        </span>
+                      </div>
+                    )}
                     {/* Overlay gradient prisme */}
                     <div
                       aria-hidden
@@ -138,15 +177,17 @@ export function RealisationsSection() {
                         Voir le projet
                         <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
-                      <a
-                        href={p.externalUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="ml-auto text-[#6F6580] hover:text-[#7C3AED] transition-colors"
-                        aria-label={`Visiter ${p.title}`}
-                      >
-                        <ExternalLink className="h-4 w-4" />
-                      </a>
+                      {p.externalUrl && (
+                        <a
+                          href={p.externalUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="ml-auto text-[#6F6580] hover:text-[#7C3AED] transition-colors"
+                          aria-label={`Visiter ${p.title}`}
+                        >
+                          <ExternalLink className="h-4 w-4" />
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
