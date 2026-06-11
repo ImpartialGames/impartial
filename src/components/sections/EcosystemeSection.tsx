@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 
 const produits = [
   {
@@ -52,16 +51,7 @@ export function EcosystemeSection() {
               On ne fait pas que builder.
             </VerticalCutReveal>
             {" "}
-            <span className="prisme-italic-grad">
-              <VerticalCutReveal
-                splitBy="words"
-                staggerDuration={0.12}
-                staggerFrom="first"
-                transition={{ type: "spring", stiffness: 250, damping: 40, delay: 0.3 }}
-              >
-                On opère.
-              </VerticalCutReveal>
-            </span>
+            <span className="prisme-italic-grad">On opère.</span>
           </h2>
           <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
             ELEV8, Prospectoss, MBA, Guardian of Prophecia. Quatre produits live, des milliers

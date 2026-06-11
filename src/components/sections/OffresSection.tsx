@@ -85,16 +85,7 @@ export function OffresSection() {
               Des offres claires.
             </VerticalCutReveal>
             {" "}
-            <span className="prisme-italic-grad">
-              <VerticalCutReveal
-                splitBy="words"
-                staggerDuration={0.12}
-                staggerFrom="first"
-                transition={{ type: "spring", stiffness: 250, damping: 40, delay: 0.3 }}
-              >
-                Un rendu premium.
-              </VerticalCutReveal>
-            </span>
+            <span className="prisme-italic-grad">Un rendu premium.</span>
           </h2>
           <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
             Tu choisis le bon format. On livre un produit dont tu seras fier.
