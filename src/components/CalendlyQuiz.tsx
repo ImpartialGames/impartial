@@ -1,30 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { X, ArrowRight, CheckCircle } from "lucide-react";
+import { useLang } from "@/contexts/LanguageContext";
 
 const CALENDLY_URL = "https://calendly.com/yannis-bezriche/impartial-games";
 
 type Step = 1 | 2 | 3 | "disqualified" | "done";
-
-const projectTypes = [
-  "Landing page",
-  "Site multi-pages",
-  "App ou logiciel",
-  "Je ne sais pas encore",
-];
-
-const budgets = [
-  { label: "Moins de 1 500 € / 2 500 $CA", qualified: false },
-  { label: "1 500 – 3 000 € / 2 500 – 5 000 $CA", qualified: true },
-  { label: "3 000 – 8 000 € / 5 000 – 12 000 $CA", qualified: true },
-  { label: "Plus de 8 000 € / 12 000 $CA", qualified: true },
-];
-
-const delays = [
-  "Urgent (moins de 4 semaines)",
-  "Normal (1 à 3 mois)",
-  "Pas encore décidé",
-];
 
 interface Props {
   onClose: () => void;
@@ -32,6 +13,27 @@ interface Props {
 
 export function CalendlyQuiz({ onClose }: Props) {
   const [step, setStep] = useState<Step>(1);
+  const { t } = useLang();
+
+  const projectTypes = [
+    "Landing page",
+    t("Site multi-pages", "Multi-page website"),
+    t("App ou logiciel", "App or software"),
+    t("Je ne sais pas encore", "Not sure yet"),
+  ];
+
+  const budgets = [
+    { label: t("Moins de 1 500 € / 2 500 $CA", "Under 1,500 € / $2,500 CA"), qualified: false },
+    { label: "1 500 – 3 000 € / 2 500 – 5 000 $CA", qualified: true },
+    { label: "3 000 – 8 000 € / 5 000 – 12 000 $CA", qualified: true },
+    { label: t("Plus de 8 000 € / 12 000 $CA", "Over 8,000 € / $12,000 CA"), qualified: true },
+  ];
+
+  const delays = [
+    t("Urgent (moins de 4 semaines)", "Urgent (under 4 weeks)"),
+    t("Normal (1 à 3 mois)", "Normal (1 to 3 months)"),
+    t("Pas encore décidé", "Not decided yet"),
+  ];
 
   function handleBudget(budget: (typeof budgets)[0]) {
     if (!budget.qualified) {
@@ -57,7 +59,7 @@ export function CalendlyQuiz({ onClose }: Props) {
         <button
           onClick={onClose}
           className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-[#EEE9F4] transition-colors"
-          aria-label="Fermer"
+          aria-label={t("Fermer", "Close")}
         >
           <X className="h-4 w-4 text-[#6F6580]" />
         </button>
@@ -65,9 +67,11 @@ export function CalendlyQuiz({ onClose }: Props) {
         {step === 1 && (
           <div>
             <h3 className="font-syne font-black text-[22px] text-[#0E0B14] mb-2">
-              Quel type de projet ?
+              {t("Quel type de projet ?", "What type of project?")}
             </h3>
-            <p className="text-[13px] text-[#6F6580] mb-6">2 autres questions après celle-ci.</p>
+            <p className="text-[13px] text-[#6F6580] mb-6">
+              {t("2 autres questions après celle-ci.", "2 more questions after this.")}
+            </p>
             <div className="flex flex-col gap-2.5">
               {projectTypes.map((pt) => (
                 <button
@@ -85,10 +89,10 @@ export function CalendlyQuiz({ onClose }: Props) {
         {step === 2 && (
           <div>
             <h3 className="font-syne font-black text-[22px] text-[#0E0B14] mb-2">
-              Quel est ton budget ?
+              {t("Quel est ton budget ?", "What's your budget?")}
             </h3>
             <p className="text-[13px] text-[#6F6580] mb-6">
-              Nos packs partent à partir de 1 500 €.
+              {t("Nos packs partent à partir de 1 500 €.", "Our packages start at 1,500 €.")}
             </p>
             <div className="flex flex-col gap-2.5">
               {budgets.map((b) => (
@@ -107,10 +111,13 @@ export function CalendlyQuiz({ onClose }: Props) {
         {step === 3 && (
           <div>
             <h3 className="font-syne font-black text-[22px] text-[#0E0B14] mb-2">
-              Ton délai souhaité ?
+              {t("Ton délai souhaité ?", "Your timeline?")}
             </h3>
             <p className="text-[13px] text-[#6F6580] mb-6">
-              Pour qu&apos;on puisse mieux préparer l&apos;appel.
+              {t(
+                "Pour qu'on puisse mieux préparer l'appel.",
+                "So we can better prepare for the call."
+              )}
             </p>
             <div className="flex flex-col gap-2.5">
               {delays.map((d) => (
@@ -132,17 +139,19 @@ export function CalendlyQuiz({ onClose }: Props) {
               <span className="text-2xl">💬</span>
             </div>
             <h3 className="font-syne font-black text-[20px] text-[#0E0B14] mb-3">
-              On peut quand même trouver une solution
+              {t("On peut quand même trouver une solution", "We can still find a solution")}
             </h3>
             <p className="text-[14px] text-[#6F6580] leading-relaxed mb-6">
-              Notre pack d&apos;entrée est à 1 500 € / 2 200 $CA. Écris-nous, on trouvera une
-              solution adaptée.
+              {t(
+                "Notre pack d'entrée est à 1 500 € / 2 200 $CA. Écris-nous, on trouvera une solution adaptée.",
+                "Our entry pack starts at 1,500 € / $2,200 CA. Write to us, we'll find something that works."
+              )}
             </p>
             <a
               href="mailto:studio@impartialgames.com"
               className="btn-prisme inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-medium text-[14px]"
             >
-              Envoyer un message
+              {t("Envoyer un message", "Send a message")}
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
@@ -152,10 +161,13 @@ export function CalendlyQuiz({ onClose }: Props) {
           <div className="text-center">
             <CheckCircle className="h-10 w-10 text-[#7C3AED] mx-auto mb-4" />
             <h3 className="font-syne font-black text-[20px] text-[#0E0B14] mb-3">
-              Parfait, tu es qualifié !
+              {t("Parfait, tu es qualifié !", "Great, you qualify!")}
             </h3>
             <p className="text-[14px] text-[#6F6580] leading-relaxed mb-6">
-              Choisis un créneau directement dans notre calendrier. On te répond sous 24-48h.
+              {t(
+                "Choisis un créneau directement dans notre calendrier. On te répond sous 24-48h.",
+                "Pick a slot directly in our calendar. We reply within 24–48h."
+              )}
             </p>
             <a
               href={CALENDLY_URL}
@@ -164,7 +176,7 @@ export function CalendlyQuiz({ onClose }: Props) {
               onClick={onClose}
               className="btn-prisme inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-medium text-[14px]"
             >
-              Réserver un appel
+              {t("Réserver un appel", "Book a call")}
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>

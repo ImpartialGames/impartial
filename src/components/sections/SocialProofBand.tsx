@@ -1,13 +1,16 @@
 import { motion } from "framer-motion";
-
-const stats = [
-  { value: "+30", label: "clients accompagnés" },
-  { value: "13 ans", label: "d'expérience" },
-  { value: "4 produits", label: "opérés par nos soins" },
-  { value: "France & Montréal", label: "nos deux marchés" },
-];
+import { useLang } from "@/contexts/LanguageContext";
 
 export function SocialProofBand() {
+  const { t } = useLang();
+
+  const stats = [
+    { value: "+30", label: t("clients accompagnés", "clients served") },
+    { value: "13 ans", label: t("d'expérience", "years of experience") },
+    { value: "4 produits", label: t("opérés par nos soins", "products operated in-house") },
+    { value: "France & Montréal", label: t("nos deux marchés", "our two markets") },
+  ];
+
   return (
     <section className="bg-[#FBFAF7] border-y border-[#EEE9F4] py-8">
       <div className="container mx-auto px-6">

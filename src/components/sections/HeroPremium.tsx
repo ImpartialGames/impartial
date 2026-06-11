@@ -5,11 +5,18 @@ import { ArrowRight } from "lucide-react";
 import { MagneticButton, RevealText } from "@/components/wow";
 import fondHero from "@/assets/fond-hero.png";
 import { CalendlyQuiz } from "@/components/CalendlyQuiz";
-
-const heroBadges = ["Design premium", "Code solide", "Mobile-first", "Zéro compromis"];
+import { useLang } from "@/contexts/LanguageContext";
 
 export function HeroPremium() {
   const [quizOpen, setQuizOpen] = useState(false);
+  const { t } = useLang();
+
+  const heroBadges = [
+    t("Design premium", "Premium design"),
+    t("Code solide", "Solid code"),
+    "Mobile-first",
+    t("Zéro compromis", "Zero compromise"),
+  ];
 
   return (
     <section className="relative h-[100svh] flex items-center justify-center overflow-hidden pt-20 pb-8 md:pt-20 md:pb-8">
@@ -127,14 +134,14 @@ export function HeroPremium() {
           {/* Colonne gauche */}
           <div>
             <h1 className="font-serif text-[34px] sm:text-[48px] lg:text-[72px] xl:text-[88px] 2xl:text-[100px] leading-[0.98] tracking-[-0.03em] text-[#0E0B14]">
-              <RevealText by="word" stagger={0.06}>De l&apos;idée</RevealText>
+              <RevealText by="word" stagger={0.06}>{t("De l'idée", "From idea")}</RevealText>
               <span className="block">
                 <RevealText by="word" stagger={0.06} delay={0.15}>
-                  au produit.
+                  {t("au produit.", "to product.")}
                 </RevealText>
               </span>
               <span className="block">
-                <span className="prisme-italic-grad prisme-shimmer">On gère tout.</span>
+                <span className="prisme-italic-grad prisme-shimmer">{t("On gère tout.", "We handle everything.")}</span>
               </span>
             </h1>
 
@@ -144,7 +151,10 @@ export function HeroPremium() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="mt-6 text-[16px] md:text-[18px] text-[#6F6580] leading-[1.6] max-w-2xl"
             >
-              Sites web, apps et logiciels sur-mesure. Plus de 30 clients accompagnés, 4 produits opérés par nos soins.
+              {t(
+                "Sites web, apps et logiciels sur-mesure. Plus de 30 clients accompagnés, 4 produits opérés par nos soins.",
+                "Custom websites, apps and software. 30+ clients served, 4 products operated in-house."
+              )}
             </motion.p>
 
             <motion.div
@@ -158,7 +168,7 @@ export function HeroPremium() {
                 onClick={() => setQuizOpen(true)}
                 className="btn-prisme group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white font-medium text-[15px]"
               >
-                Planifier un appel
+                {t("Planifier un appel", "Book a call")}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </MagneticButton>
               <MagneticButton
@@ -170,7 +180,7 @@ export function HeroPremium() {
                 }}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-[#0E0B14] text-[#0E0B14] font-medium text-[15px] hover:bg-[#0E0B14] hover:text-[#FBFAF7] transition-colors"
               >
-                Découvrir nos offres
+                {t("Découvrir nos offres", "See our packages")}
               </MagneticButton>
             </motion.div>
 

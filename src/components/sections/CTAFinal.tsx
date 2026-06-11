@@ -4,9 +4,11 @@ import { ArrowRight, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, MagneticButton } from "@/components/wow";
 import { CalendlyQuiz } from "@/components/CalendlyQuiz";
+import { useLang } from "@/contexts/LanguageContext";
 
 export function CTAFinal() {
   const [quizOpen, setQuizOpen] = useState(false);
+  const { t } = useLang();
 
   return (
     <section id="contact" className="relative py-20 md:py-28 bg-[#FBFAF7] overflow-hidden">
@@ -63,16 +65,19 @@ export function CTAFinal() {
             {/* Contenu */}
             <div className="relative">
               <div className="section-label justify-center mb-8" style={{ color: "#A78BFA", borderColor: "rgba(124,58,237,0.25)", background: "rgba(124,58,237,0.12)" }}>
-                Travaillons ensemble
+                {t("Travaillons ensemble", "Let's work together")}
               </div>
 
               <h2 className="font-serif text-[26px] sm:text-[32px] md:text-[44px] lg:text-[52px] leading-[1.05] tracking-[-0.02em] text-white mb-6">
-                Prêt à lancer{" "}
-                <span className="prisme-italic-grad">ton projet ?</span>
+                {t("Prêt à lancer", "Ready to launch")}{" "}
+                <span className="prisme-italic-grad">{t("ton projet ?", "your project?")}</span>
               </h2>
 
               <p className="text-[#B8A8D8] text-base md:text-lg leading-relaxed mb-12 max-w-xl mx-auto">
-                On te répond sous 24–48h avec une proposition claire et sans engagement.
+                {t(
+                  "On te répond sous 24–48h avec une proposition claire et sans engagement.",
+                  "We get back to you within 24–48h with a clear, no-commitment proposal."
+                )}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -81,7 +86,7 @@ export function CTAFinal() {
                   onClick={() => setQuizOpen(true)}
                   className="btn-prisme inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white font-medium text-[15px]"
                 >
-                  Planifier un appel
+                  {t("Planifier un appel", "Book a call")}
                   <ArrowRight className="h-4 w-4" />
                 </MagneticButton>
 
@@ -91,7 +96,7 @@ export function CTAFinal() {
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white/80 font-medium text-[15px] hover:border-white/50 hover:text-white transition-colors duration-200"
                 >
                   <Mail className="h-4 w-4" />
-                  Écrire un message
+                  {t("Écrire un message", "Send a message")}
                 </MagneticButton>
               </div>
 

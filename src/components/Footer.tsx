@@ -8,6 +8,7 @@ import {
   Linkedin,
   Twitter,
 } from "lucide-react";
+import { useLang } from "@/contexts/LanguageContext";
 
 /* ─── Données ─────────────────────────────────────────────────── */
 
@@ -77,6 +78,7 @@ function AnimatedContainer({ className, delay = 0.1, children }: AnimatedContain
 /* ─── Footer ──────────────────────────────────────────────────── */
 
 export function Footer() {
+  const { t } = useLang();
   const openCookieSettings = () => {
     localStorage.removeItem("cookie-consent");
     window.location.reload();
@@ -118,7 +120,10 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-[14px] leading-relaxed text-[#9B8EC4] max-w-xs">
-              Studio digital et éditeur SaaS. On conçoit, développe et opère des produits digitaux pour les marques ambitieuses en France et au Canada.
+              {t(
+                "Studio digital et éditeur SaaS. On conçoit, développe et opère des produits digitaux pour les marques ambitieuses en France et au Canada.",
+                "Digital studio and SaaS publisher. We design, build, and operate digital products for ambitious brands in France and Canada."
+              )}
             </p>
             <p className="text-[12px] text-[#7B6AAD]">Montréal, QC · Paris, France</p>
             <a
@@ -179,14 +184,14 @@ export function Footer() {
           style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
         >
           <p className="text-[12px] text-[#7B6AAD]">
-            © {new Date().getFullYear()} IMPARTIAL GAMES. Tous droits réservés.
+            © {new Date().getFullYear()} IMPARTIAL GAMES. {t("Tous droits réservés.", "All rights reserved.")}
           </p>
           <button
             onClick={openCookieSettings}
             className="inline-flex items-center gap-1.5 text-[12px] text-[#7B6AAD] hover:text-white transition-colors duration-200"
           >
             <Cookie className="h-3 w-3" />
-            Préférences cookies
+            {t("Préférences cookies", "Cookie preferences")}
           </button>
         </div>
       </div>

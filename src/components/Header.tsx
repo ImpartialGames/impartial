@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { GlowMenu, GlowMenuItem } from "@/components/ui/glow-menu";
 import logoHero from "@/assets/logo-hero.png";
 import { CalendlyQuiz } from "@/components/CalendlyQuiz";
+import { useLang } from "@/contexts/LanguageContext";
 
 const glowNavItems: GlowMenuItem[] = [
   {
@@ -63,6 +64,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [quizOpen, setQuizOpen] = useState(false);
   const location = useLocation();
+  const { lang, setLang, t } = useLang();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 30);
@@ -114,10 +116,17 @@ export function Header() {
           {/* CTA droite */}
           <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
             <button
+              onClick={() => setLang(lang === "fr" ? "en" : "fr")}
+              className="text-[12px] font-semibold text-[#6F6580] hover:text-[#0E0B14] border border-[#DDD9E8] px-3 py-1.5 rounded-full transition-colors"
+              aria-label="Changer la langue"
+            >
+              {lang === "fr" ? "EN" : "FR"}
+            </button>
+            <button
               onClick={() => setQuizOpen(true)}
               className="btn-prisme inline-flex items-center gap-2 text-[13px] font-medium text-white px-5 py-2.5 rounded-full"
             >
-              Planifier un appel
+              {t("Planifier un appel", "Book a call")}
             </button>
           </div>
 
@@ -186,12 +195,18 @@ export function Header() {
                     {item.label}
                   </Link>
                 ))}
-                <div className="mt-4">
+                <div className="mt-4 flex flex-col gap-2">
                   <button
                     onClick={() => { setIsMobileMenuOpen(false); setQuizOpen(true); }}
                     className="btn-prisme block w-full py-3 rounded-full text-white font-medium text-center text-[14px]"
                   >
-                    Planifier un appel
+                    {t("Planifier un appel", "Book a call")}
+                  </button>
+                  <button
+                    onClick={() => setLang(lang === "fr" ? "en" : "fr")}
+                    className="block w-full py-2.5 rounded-full border border-[#DDD9E8] text-[#6F6580] font-semibold text-[13px] text-center hover:text-[#0E0B14] transition-colors"
+                  >
+                    {lang === "fr" ? "Switch to English" : "Passer en français"}
                   </button>
                 </div>
               </div>
