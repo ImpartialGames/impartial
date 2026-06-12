@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 
 const produits = [
   {
