@@ -2,48 +2,55 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
-import { Newsletter } from "@/components/Newsletter";
-import { Mail, MapPin, Send, Loader2, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { motion } from "framer-motion";
-import { MagneticButton, RevealText } from "@/components/wow";
+import { motion, useReducedMotion } from "framer-motion";
+import { Loader2 } from "lucide-react";
 
-/* ─── Variants ─────────────────────────────────────────────── */
+function useLocalTime(timezone: string) {
+  const [time, setTime] = useState("");
+  useEffect(() => {
+    const fmt = () =>
+      new Intl.DateTimeFormat("fr-CA", {
+        hour: "2-digit",
+        minute: "2-digit",
+        timeZone: timezone,
+      }).format(new Date());
+    setTime(fmt());
+    const id = setInterval(() => setTime(fmt()), 30000);
+    return () => clearInterval(id);
+  }, [timezone]);
+  return time;
+}
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i = 0) => ({
-    opacity: 1, y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
-  }),
+const inputStyle: React.CSSProperties = {
+  width: "100%",
+  padding: "0.875rem 1rem",
+  borderRadius: "4px",
+  border: "1px solid var(--ig-border)",
+  backgroundColor: "var(--ig-bg)",
+  color: "var(--ig-ink)",
+  fontSize: "0.9375rem",
+  lineHeight: 1.6,
+  outline: "none",
+  transition: "border-color 0.2s",
 };
 
-/* ─── Input styles ──────────────────────────────────────────── */
-
-const inputClass =
-  "w-full px-4 py-3.5 rounded-[14px] bg-white border border-[#EEEAF4] text-[#0E0B14] text-[14px] placeholder:text-[#B8A8D8] focus:border-[#7C3AED] focus:outline-none focus:ring-2 focus:ring-[rgba(124,58,237,0.12)] transition-all duration-200";
-
-/* ─── Page ──────────────────────────────────────────────────── */
-
-const Contact = () => {
+export default function Contact() {
   const [searchParams] = useSearchParams();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const reduced = useReducedMotion();
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    company: "",
-    subject: "",
-    message: "",
+    message: searchParams.get("subject") ? `Sujet : ${decodeURIComponent(searchParams.get("subject")!)}` : "",
   });
 
-  useEffect(() => {
-    const subject = searchParams.get("subject");
-    if (subject) {
-      setFormData(prev => ({ ...prev, subject: decodeURIComponent(subject) }));
-    }
-  }, [searchParams]);
+  const [focused, setFocused] = useState<string | null>(null);
+
+  const montrealTime = useLocalTime("America/Toronto");
+  const parisTime = useLocalTime("Europe/Paris");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -52,321 +59,204 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    await new Promise(r => setTimeout(r, 1200));
     toast({
-      title: "Message envoyé !",
-      description: "Nous vous recontacterons dans les plus brefs délais.",
+      title: "Message envoyé",
+      description: "On revient vers toi sous 24h.",
     });
-    setFormData({ name: "", email: "", company: "", subject: "", message: "" });
+    setFormData({ name: "", email: "", message: "" });
     setIsLoading(false);
   };
 
   return (
     <Layout>
       <SEO
-        title="Contactez-nous"
-        description="Parlons de votre projet. Réponse sous 24–48h avec une proposition claire et sans engagement."
+        title="Contact — ImpartialGames"
+        description="Parlons de ton projet. Réponse sous 24h avec une proposition claire."
         canonical="/contact"
       />
 
-      {/* ══════════════════════════════════════════
-          1. HERO
-      ══════════════════════════════════════════ */}
-      <section className="relative min-h-[70svh] flex items-center overflow-hidden pt-24 pb-12 bg-[#FBFAF7]">
-        <span className="prisme-halo-violet" style={{ top: "-10%", right: "-6%" }} />
-        <span className="prisme-halo-rose"   style={{ bottom: "-8%", left: "8%" }} />
+      {/* Hero */}
+      <section
+        style={{
+          backgroundColor: "var(--ig-bg)",
+          paddingTop: "clamp(6rem, 12vw, 9rem)",
+          paddingBottom: "clamp(3rem, 6vw, 5rem)",
+        }}
+      >
+        <div className="ig-container">
+          <div style={{ borderTop: "1px solid var(--ig-border)", marginBottom: "2rem" }} />
 
-        <div className="w-full px-6 lg:px-12 xl:px-16 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+          <p className="ig-label mb-6">Contact</p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="section-label justify-center mb-6"
+          <div className="overflow-hidden mb-4">
+            <motion.h1
+              className="font-display"
+              style={{
+                fontSize: "var(--text-hero)",
+                lineHeight: 1.0,
+                letterSpacing: "-0.03em",
+                color: "var(--ig-ink)",
+              }}
+              initial={reduced ? false : { y: "100%" }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.75, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
             >
-              Contact
-            </motion.div>
-
-            <h1 className="font-serif text-[32px] sm:text-[48px] lg:text-[66px] leading-[0.97] tracking-[-0.03em] text-[#0E0B14]">
-              <RevealText by="word" stagger={0.06}>Parlons de votre</RevealText>
-              <span className="block">
-                <span className="prisme-italic-grad prisme-shimmer">projet.</span>
-              </span>
-            </h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
-              className="mt-6 text-[17px] md:text-[19px] text-[#6F6580] leading-[1.65] max-w-xl mx-auto"
-            >
-              Une idée ? Un besoin ? Contactez-nous et donnons vie ensemble à votre vision digitale.
-            </motion.p>
+              Parlons de{" "}
+              <em style={{ fontStyle: "italic", color: "var(--ig-accent)" }}>ton projet.</em>
+            </motion.h1>
           </div>
-        </div>
 
-        <div
-          aria-hidden
-          className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-[5]"
-          style={{ background: "linear-gradient(to bottom, transparent, #FBFAF7)" }}
-        />
+          <motion.div
+            className="mt-8 flex flex-wrap gap-10"
+            initial={reduced ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div>
+              <p className="ig-label mb-1">Montréal</p>
+              <p
+                className="font-mono text-[0.9375rem]"
+                style={{ color: "var(--ig-ink)", fontFamily: "var(--font-mono)" }}
+              >
+                {montrealTime || "--:--"}
+              </p>
+            </div>
+            <div>
+              <p className="ig-label mb-1">Paris</p>
+              <p
+                className="font-mono text-[0.9375rem]"
+                style={{ color: "var(--ig-ink)", fontFamily: "var(--font-mono)" }}
+              >
+                {parisTime || "--:--"}
+              </p>
+            </div>
+            <div>
+              <p className="ig-label mb-1">Email</p>
+              <a
+                href="mailto:studio@impartialgames.com"
+                className="text-[0.9375rem] transition-colors duration-200 hover:opacity-70"
+                style={{ color: "var(--ig-ink)" }}
+              >
+                studio@impartialgames.com
+              </a>
+            </div>
+          </motion.div>
+
+          <div style={{ borderTop: "1px solid var(--ig-border)", marginTop: "2.5rem" }} />
+        </div>
       </section>
 
-      {/* ══════════════════════════════════════════
-          2. FORMULAIRE + INFOS
-      ══════════════════════════════════════════ */}
-      <section className="relative py-16 md:py-24 bg-[#FBFAF7] overflow-hidden">
-        <span className="prisme-halo-peach" style={{ top: "0%", right: "-8%" }} />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-
-            {/* Infos */}
-            <div className="lg:col-span-1 space-y-5">
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#A78BFA] mb-6"
-              >
-                Informations
-              </motion.p>
-
-              {[
-                {
-                  icon: Mail,
-                  label: "Email",
-                  content: (
-                    <a href="mailto:studio@impartialgames.com"
-                      className="text-[14px] text-[#0E0B14] hover:text-[#7C3AED] transition-colors duration-200">
-                      studio@impartialgames.com
-                    </a>
-                  ),
-                  delay: 0.1,
-                },
-                {
-                  icon: MapPin,
-                  label: "Localisation",
-                  content: <p className="text-[14px] text-[#0E0B14]">Delaware, États-Unis</p>,
-                  delay: 0.2,
-                },
-                {
-                  icon: Clock,
-                  label: "Horaires",
-                  content: (
-                    <div className="space-y-1">
-                      <p className="text-[14px] text-[#0E0B14]">Lun – Ven : 9h00 – 18h00</p>
-                      <p className="text-[13px] text-[#6F6580]">Weekend : Sur rendez-vous</p>
-                    </div>
-                  ),
-                  delay: 0.3,
-                },
-              ].map((item) => {
-                const Icon = item.icon;
-                return (
-                  <motion.div
-                    key={item.label}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    custom={item.delay * 10}
-                    variants={fadeUp}
+      {/* Formulaire */}
+      <section className="ig-section" style={{ backgroundColor: "var(--ig-bg)" }}>
+        <div className="ig-container">
+          <div className="max-w-[640px]">
+            <form onSubmit={handleSubmit} noValidate>
+              <div className="flex flex-col gap-5">
+                {/* Nom */}
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="ig-label block mb-2"
+                    style={{ letterSpacing: "0.08em" }}
                   >
-                    <div className="group p-6 rounded-[20px] bg-white border border-[#EEEAF4] hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_8px_24px_rgba(124,58,237,0.08)] transition-all duration-500">
-                      <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-[#F3EEFB] border border-[#EEEAF4] flex items-center justify-center shrink-0 group-hover:bg-[rgba(124,58,237,0.10)] transition-colors duration-300">
-                          <Icon className="h-4 w-4 text-[#7C3AED]" strokeWidth={1.5} />
-                        </div>
-                        <div>
-                          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#A78BFA] mb-1">{item.label}</p>
-                          {item.content}
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
+                    Ton nom
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    autoComplete="name"
+                    placeholder="Dylan Rose"
+                    value={formData.name}
+                    onChange={handleChange}
+                    onFocus={() => setFocused("name")}
+                    onBlur={() => setFocused(null)}
+                    style={{
+                      ...inputStyle,
+                      borderColor: focused === "name" ? "var(--ig-accent)" : "var(--ig-border)",
+                    }}
+                  />
+                </div>
 
-            {/* Formulaire */}
-            <div className="lg:col-span-2">
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <form onSubmit={handleSubmit} className="p-8 md:p-10 rounded-[28px] bg-white border border-[#EEEAF4]">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#A78BFA] mb-8">
-                    Envoyez-nous un message
-                  </p>
+                {/* Email */}
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="ig-label block mb-2"
+                    style={{ letterSpacing: "0.08em" }}
+                  >
+                    Ton email
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    autoComplete="email"
+                    placeholder="dylan@monentreprise.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    onFocus={() => setFocused("email")}
+                    onBlur={() => setFocused(null)}
+                    style={{
+                      ...inputStyle,
+                      borderColor: focused === "email" ? "var(--ig-accent)" : "var(--ig-border)",
+                    }}
+                  />
+                </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
-                    <div>
-                      <label htmlFor="name" className="block text-[13px] font-medium text-[#6F6580] mb-2">
-                        Nom complet *
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        value={formData.name}
-                        onChange={handleChange}
-                        className={inputClass}
-                        placeholder="John Doe"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-[13px] font-medium text-[#6F6580] mb-2">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        className={inputClass}
-                        placeholder="john@example.com"
-                      />
-                    </div>
-                  </div>
+                {/* Message */}
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="ig-label block mb-2"
+                    style={{ letterSpacing: "0.08em" }}
+                  >
+                    Ton projet
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows={6}
+                    placeholder="Dis-nous ce que tu veux construire..."
+                    value={formData.message}
+                    onChange={handleChange}
+                    onFocus={() => setFocused("message")}
+                    onBlur={() => setFocused(null)}
+                    style={{
+                      ...inputStyle,
+                      resize: "vertical",
+                      borderColor: focused === "message" ? "var(--ig-accent)" : "var(--ig-border)",
+                    }}
+                  />
+                </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
-                    <div>
-                      <label htmlFor="company" className="block text-[13px] font-medium text-[#6F6580] mb-2">
-                        Entreprise
-                      </label>
-                      <input
-                        type="text"
-                        id="company"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        className={inputClass}
-                        placeholder="Votre entreprise"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="subject" className="block text-[13px] font-medium text-[#6F6580] mb-2">
-                        Sujet *
-                      </label>
-                      <input
-                        type="text"
-                        id="subject"
-                        name="subject"
-                        required
-                        value={formData.subject}
-                        onChange={handleChange}
-                        className={inputClass}
-                        placeholder="Votre projet"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="mb-8">
-                    <label htmlFor="message" className="block text-[13px] font-medium text-[#6F6580] mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={6}
-                      value={formData.message}
-                      onChange={handleChange}
-                      className={inputClass + " resize-none"}
-                      placeholder="Décrivez votre projet, vos besoins, vos délais..."
-                    />
-                  </div>
-
-                  <MagneticButton
-                    as="button"
+                <div>
+                  <button
                     type="submit"
                     disabled={isLoading}
-                    className="btn-prisme inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white font-medium text-[15px] disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="btn-studio flex items-center gap-2"
+                    style={{ opacity: isLoading ? 0.7 : 1 }}
                   >
-                    {isLoading ? "Envoi en cours..." : "Envoyer le message"}
-                    {isLoading
-                      ? <Loader2 className="h-4 w-4 animate-spin" />
-                      : <Send className="h-4 w-4" />
-                    }
-                  </MagneticButton>
-                </form>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════
-          3. CALENDLY
-      ══════════════════════════════════════════ */}
-      <section className="relative py-16 md:py-24 bg-[#FBFAF7] overflow-hidden">
-        <span className="prisme-halo-violet" style={{ bottom: "0%", left: "-8%" }} />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="text-center mb-12"
-            >
-              <div className="section-label justify-center mb-6">Rendez-vous</div>
-              <h2 className="font-serif text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14]">
-                Choisissez un créneau pour{" "}
-                <span className="prisme-italic-grad">discuter.</span>
-              </h2>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="rounded-[28px] overflow-hidden border border-[#EEEAF4] bg-white">
-                <iframe
-                  src="https://calendly.com/yannis-bezriche/impartial-games"
-                  width="100%"
-                  height="600"
-                  frameBorder="0"
-                  title="Calendly"
-                  className="bg-transparent min-h-[500px] md:min-h-[600px] lg:min-h-[700px] h-[600px] md:h-[700px]"
-                />
+                    {isLoading && <Loader2 className="h-4 w-4 animate-spin" />}
+                    {isLoading ? "Envoi..." : "Envoyer"}
+                  </button>
+                </div>
               </div>
-            </motion.div>
+            </form>
+
+            <p
+              className="mt-6 text-[0.875rem]"
+              style={{ color: "var(--ig-ink-muted)" }}
+            >
+              Réponse sous 24h. Pas de relances commerciales.
+            </p>
           </div>
         </div>
       </section>
-
-      {/* ══════════════════════════════════════════
-          4. NEWSLETTER
-      ══════════════════════════════════════════ */}
-      <section className="relative py-16 md:py-20 bg-[#FBFAF7] overflow-hidden">
-        <span className="prisme-halo-peach" style={{ top: "-5%", right: "-8%" }} />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-2xl mx-auto"
-          >
-            <Newsletter variant="card" />
-          </motion.div>
-        </div>
-      </section>
-
     </Layout>
   );
-};
-
-export default Contact;
+}
