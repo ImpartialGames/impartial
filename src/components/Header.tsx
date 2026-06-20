@@ -1,214 +1,223 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe, Smartphone, LayoutDashboard, Layers, Grid2X2, Users, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { GlowMenu, GlowMenuItem } from "@/components/ui/glow-menu";
 import logoHero from "@/assets/logo-hero.png";
 import { CalendlyQuiz } from "@/components/CalendlyQuiz";
 import { useLang } from "@/contexts/LanguageContext";
 
-const navLinks = [
-  { label: "Services", href: "/services/web" },
-  { label: "Projets", href: "/portfolio" },
-  { label: "Studio", href: "/studio" },
-  { label: "Contact", href: "/contact" },
+const glowNavItems: GlowMenuItem[] = [
+  {
+    icon: Globe,
+    label: "Web",
+    href: "/services/web",
+    gradient: "radial-gradient(circle, rgba(124,58,237,0.18) 0%, rgba(124,58,237,0.06) 50%, transparent 100%)",
+    iconColor: "text-[#7C3AED]",
+  },
+  {
+    icon: Smartphone,
+    label: "Mobile",
+    href: "/services/mobile",
+    gradient: "radial-gradient(circle, rgba(167,139,250,0.20) 0%, rgba(167,139,250,0.06) 50%, transparent 100%)",
+    iconColor: "text-[#A78BFA]",
+  },
+  {
+    icon: LayoutDashboard,
+    label: "Backoffice",
+    href: "/services/backoffice",
+    gradient: "radial-gradient(circle, rgba(240,175,200,0.22) 0%, rgba(240,175,200,0.07) 50%, transparent 100%)",
+    iconColor: "text-[#C084A0]",
+  },
+  {
+    icon: Layers,
+    label: "360°",
+    href: "/services/360",
+    gradient: "radial-gradient(circle, rgba(255,185,150,0.22) 0%, rgba(255,185,150,0.07) 50%, transparent 100%)",
+    iconColor: "text-[#D97B4F]",
+  },
+  {
+    icon: Grid2X2,
+    label: "Portfolio",
+    href: "/portfolio",
+    gradient: "radial-gradient(circle, rgba(124,58,237,0.18) 0%, rgba(124,58,237,0.06) 50%, transparent 100%)",
+    iconColor: "text-[#7C3AED]",
+  },
+  {
+    icon: Users,
+    label: "Studio",
+    href: "/studio",
+    gradient: "radial-gradient(circle, rgba(167,139,250,0.20) 0%, rgba(167,139,250,0.06) 50%, transparent 100%)",
+    iconColor: "text-[#A78BFA]",
+  },
+  {
+    icon: Mail,
+    label: "Contact",
+    href: "/contact",
+    gradient: "radial-gradient(circle, rgba(240,175,200,0.22) 0%, rgba(240,175,200,0.07) 50%, transparent 100%)",
+    iconColor: "text-[#C084A0]",
+  },
 ];
 
 export function Header() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [quizOpen, setQuizOpen] = useState(false);
   const location = useLocation();
   const { lang, setLang, t } = useLang();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 30);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [location.pathname]);
-
-  const isActive = (href: string) =>
-    location.pathname === href || location.pathname.startsWith(href + "/");
+  // Trouve le label de l'item actif depuis le pathname
+  const activeLabel =
+    glowNavItems.find((item) => item.href === location.pathname)?.label ?? "";
 
   return (
-    <>
-      <motion.header
-        className="fixed top-0 left-0 right-0 z-50 transition-colors duration-500"
-        style={{
-          backgroundColor: scrolled ? "var(--ig-bg)" : "transparent",
-          borderBottom: scrolled ? "1px solid var(--ig-border)" : "1px solid transparent",
-        }}
-        initial={{ y: -64, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      >
-        <div className="ig-container">
-          <nav className="flex items-center justify-between h-[68px]">
+    <motion.header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? "backdrop-blur-md border-b border-white/20"
+          : "border-b border-transparent"
+      }`}
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <div className="w-full px-6 lg:px-12 xl:px-16">
+        <nav className="flex items-center justify-between h-[72px] max-w-[1600px] mx-auto">
 
-            {/* Logo */}
-            <Link
-              to="/"
-              className="flex items-center gap-2.5 flex-shrink-0 group"
-              aria-label="ImpartialGames — Accueil"
-            >
-              <img
-                src={logoHero}
-                alt=""
-                aria-hidden
-                className="h-8 w-8 object-contain flex-shrink-0"
-              />
-              <div className="flex flex-col leading-none gap-0.5">
-                <span
-                  className="font-display text-[15px] font-normal tracking-[-0.025em] transition-colors duration-200"
-                  style={{ color: "var(--ig-ink)" }}
-                >
-                  Impartial
-                </span>
-                <span
-                  className="ig-label text-[9px]"
-                  style={{ letterSpacing: "0.18em" }}
-                >
-                  Studio
-                </span>
-              </div>
-            </Link>
-
-            {/* Desktop nav */}
-            <ul className="hidden lg:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    to={link.href}
-                    className={`ig-link-hover text-[14px] font-medium transition-colors duration-200 ${
-                      isActive(link.href)
-                        ? "active"
-                        : ""
-                    }`}
-                    style={{
-                      color: isActive(link.href)
-                        ? "var(--ig-accent)"
-                        : "var(--ig-ink-muted)",
-                    }}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            {/* Right side */}
-            <div className="hidden lg:flex items-center gap-3">
-              <button
-                onClick={() => setLang(lang === "fr" ? "en" : "fr")}
-                className="ig-label text-[11px] transition-colors duration-200 hover:opacity-70"
-                aria-label="Changer la langue"
-              >
-                {lang === "fr" ? "EN" : "FR"}
-              </button>
-              <button
-                onClick={() => setQuizOpen(true)}
-                className="btn-studio text-[13px] px-5 py-2.5"
-              >
-                {t("Discutons", "Let's talk")}
-              </button>
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2.5 flex-shrink-0 group">
+            <img
+              src={logoHero}
+              alt="Impartial"
+              className="h-9 w-9 object-contain flex-shrink-0"
+              style={{ filter: "saturate(1.4) brightness(1.05)" }}
+            />
+            <div className="flex flex-col leading-none gap-[3px]">
+              <span className="font-syne text-[16px] font-black tracking-[-0.03em] text-[#0E0B14]">
+                IMPARTIAL
+              </span>
+              <span className="text-[9px] font-semibold tracking-[0.22em] uppercase text-[#7C3AED]">
+                Games
+              </span>
             </div>
+          </Link>
 
-            {/* Burger mobile */}
+          {/* GlowMenu — nav centre */}
+          <div className="hidden lg:block absolute left-1/2 -translate-x-1/2">
+            <GlowMenu items={glowNavItems} activeItem={activeLabel} />
+          </div>
+
+          {/* CTA droite */}
+          <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
             <button
-              className="lg:hidden p-2"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
-              aria-expanded={mobileOpen}
+              onClick={() => setLang(lang === "fr" ? "en" : "fr")}
+              className="text-[12px] font-semibold text-[#6F6580] hover:text-[#0E0B14] border border-[#DDD9E8] px-3 py-1.5 rounded-full transition-colors"
+              aria-label="Changer la langue"
             >
-              <AnimatePresence mode="wait" initial={false}>
-                {mobileOpen ? (
-                  <motion.span
-                    key="close"
-                    initial={{ rotate: -45, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 45, opacity: 0 }}
-                    transition={{ duration: 0.15 }}
-                  >
-                    <X className="h-5 w-5" style={{ color: "var(--ig-ink)" }} />
-                  </motion.span>
-                ) : (
-                  <motion.span
-                    key="menu"
-                    initial={{ rotate: 45, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -45, opacity: 0 }}
-                    transition={{ duration: 0.15 }}
-                  >
-                    <Menu className="h-5 w-5" style={{ color: "var(--ig-ink)" }} />
-                  </motion.span>
-                )}
-              </AnimatePresence>
+              {lang === "fr" ? "EN" : "FR"}
             </button>
-          </nav>
-        </div>
+            <button
+              onClick={() => setQuizOpen(true)}
+              className="btn-prisme inline-flex items-center gap-2 text-[13px] font-medium text-white px-5 py-2.5 rounded-full"
+            >
+              {t("Planifier un appel", "Book a call")}
+            </button>
+          </div>
 
-        {/* Mobile menu */}
+          {/* Burger mobile */}
+          <button
+            className="lg:hidden p-2 rounded-xl border border-[#EEEAF4] bg-[#FBFAF7]"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          >
+            <AnimatePresence mode="wait">
+              {isMobileMenuOpen ? (
+                <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                  <X className="h-5 w-5 text-[#0E0B14]" />
+                </motion.div>
+              ) : (
+                <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                  <Menu className="h-5 w-5 text-[#0E0B14]" />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </button>
+        </nav>
+
+        {/* Menu mobile */}
         <AnimatePresence>
-          {mobileOpen && (
+          {isMobileMenuOpen && (
             <motion.div
-              className="lg:hidden overflow-hidden"
+              className="lg:hidden overflow-hidden pb-6"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div
-                className="ig-container pb-6 pt-2"
-                style={{ borderTop: "1px solid var(--ig-border)" }}
-              >
-                <nav>
-                  <ul className="flex flex-col">
-                    {navLinks.map((link) => (
-                      <li key={link.href}>
-                        <Link
-                          to={link.href}
-                          className="flex items-center justify-between py-4 text-[16px] font-medium transition-colors duration-200"
-                          style={{
-                            color: isActive(link.href)
-                              ? "var(--ig-accent)"
-                              : "var(--ig-ink)",
-                            borderBottom: "1px solid var(--ig-border)",
-                          }}
-                        >
-                          {link.label}
-                          <span className="ig-label" style={{ letterSpacing: "0.06em" }}>→</span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-6 flex flex-col gap-3">
-                    <button
-                      onClick={() => { setMobileOpen(false); setQuizOpen(true); }}
-                      className="btn-studio w-full justify-center py-3.5 text-[15px]"
-                    >
-                      {t("Discutons de ton projet", "Let's discuss your project")}
-                    </button>
-                    <button
-                      onClick={() => setLang(lang === "fr" ? "en" : "fr")}
-                      className="btn-studio-outline w-full justify-center py-3 text-[13px]"
-                    >
-                      {lang === "fr" ? "Switch to English" : "Passer en français"}
-                    </button>
-                  </div>
-                </nav>
+              <div className="bg-[#FBFAF7] rounded-2xl p-4 mt-2 border border-[#EEEAF4] shadow-[0_8px_32px_rgba(124,58,237,0.08)]">
+                <div className="px-4 py-2 text-[#7C3AED] text-[10px] font-semibold uppercase tracking-[0.2em]">
+                  Services
+                </div>
+                {glowNavItems.slice(0, 4).map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`flex items-center gap-3 px-4 py-3 rounded-xl text-[14px] transition-colors ${
+                      location.pathname === item.href
+                        ? "bg-[#F3EEFB] text-[#7C3AED] font-medium"
+                        : "text-[#0E0B14] hover:bg-[#F3EEFB]"
+                    }`}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                ))}
+                <div className="h-px my-3 bg-[#EEEAF4]" />
+                {glowNavItems.slice(4).map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`flex items-center gap-3 px-4 py-3 rounded-xl text-[14px] transition-colors ${
+                      location.pathname === item.href
+                        ? "bg-[#F3EEFB] text-[#7C3AED] font-medium"
+                        : "text-[#0E0B14] hover:bg-[#F3EEFB]"
+                    }`}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                ))}
+                <div className="mt-4 flex flex-col gap-2">
+                  <button
+                    onClick={() => { setIsMobileMenuOpen(false); setQuizOpen(true); }}
+                    className="btn-prisme block w-full py-3 rounded-full text-white font-medium text-center text-[14px]"
+                  >
+                    {t("Planifier un appel", "Book a call")}
+                  </button>
+                  <button
+                    onClick={() => setLang(lang === "fr" ? "en" : "fr")}
+                    className="block w-full py-2.5 rounded-full border border-[#DDD9E8] text-[#6F6580] font-semibold text-[13px] text-center hover:text-[#0E0B14] transition-colors"
+                  >
+                    {lang === "fr" ? "Switch to English" : "Passer en français"}
+                  </button>
+                </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.header>
+      </div>
 
       <AnimatePresence>
         {quizOpen && <CalendlyQuiz onClose={() => setQuizOpen(false)} />}
       </AnimatePresence>
-    </>
+    </motion.header>
   );
 }

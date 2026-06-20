@@ -1,15 +1,18 @@
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/Layout";
-import { Marquee } from "@/components/wow/Marquee";
+import { FAQ } from "@/components/FAQ";
+import { ScrollVelocityText } from "@/components/wow";
 import {
-  HeroSection,
-  ProjetsSection,
-  ServicesLignesSection,
-  ManifestSection,
-  PreuveSection,
-  EquipeSection,
+  HeroPremium,
+  OffresSection,
+  ServicesSection,
+  RealisationsSection,
+  MethodeSection,
+  PrincipesSection,
   CTAFinal,
 } from "@/components/sections";
+import { SocialProofBand } from "@/components/sections/SocialProofBand";
+import { EcosystemeSection } from "@/components/sections/EcosystemeSection";
 
 const Index = () => {
   return (
@@ -32,27 +35,25 @@ const Index = () => {
           "sameAs": []
         }}
       />
-      <HeroSection />
-      <ProjetsSection />
+      <HeroPremium />
+      <SocialProofBand />
+      <OffresSection />
+      <ServicesSection />
+      <EcosystemeSection />
+      <RealisationsSection />
 
-      {/* Bande studio — entre Projets et Services */}
-      <div
-        className="overflow-hidden py-5"
-        style={{ borderTop: "1px solid var(--ig-border)", borderBottom: "1px solid var(--ig-border)" }}
-      >
-        <Marquee speed={35} pauseOnHover={false}>
-          {["IMPARTIAL GAMES", "STUDIO DIGITAL", "MONTRÉAL", "PARIS", "WEB", "MOBILE", "SAAS", "DESIGN", "CODE"].map((item) => (
-            <span key={item} className="ig-label mx-10" style={{ letterSpacing: "0.14em", opacity: 0.5 }}>
-              {item}
-            </span>
-          ))}
-        </Marquee>
-      </div>
+      {/* Velocity divider */}
+      <section aria-hidden className="bg-[#FAFAF7] py-10 md:py-14 overflow-hidden">
+        <ScrollVelocityText
+          text="Design · Code · Impact · Studio · "
+          baseVelocity={-2}
+          className="text-[#1C1917]/10"
+        />
+      </section>
 
-      <ServicesLignesSection />
-      <ManifestSection />
-      <PreuveSection />
-      <EquipeSection />
+      <MethodeSection />
+      <PrincipesSection />
+      <FAQ />
       <CTAFinal />
     </Layout>
   );

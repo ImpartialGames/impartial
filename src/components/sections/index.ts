@@ -1,7 +1,8 @@
-export { HeroSection } from "./HeroSection";
-export { ProjetsSection } from "./ProjetsSection";
-export { ServicesLignesSection } from "./ServicesLignesSection";
-export { ManifestSection } from "./ManifestSection";
-export { PreuveSection } from "./PreuveSection";
-export { EquipeSection } from "./EquipeSection";
+export { HeroPremium } from "./HeroPremium";
+export { ProofStrip } from "./ProofStrip";
+export { OffresSection } from "./OffresSection";
+export { ServicesSection } from "./ServicesSection";
+export { RealisationsSection } from "./RealisationsSection";
+export { MethodeSection } from "./MethodeSection";
+export { PrincipesSection } from "./PrincipesSection";
 export { CTAFinal } from "./CTAFinal";
