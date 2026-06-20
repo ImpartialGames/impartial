@@ -5,6 +5,9 @@ import { TiltCard, MagneticButton } from "@/components/wow";
 import eclipsiaImg from "@/assets/portfolio/eclipsia.png";
 import altarysImg from "@/assets/portfolio/altarys-logo.png";
 import propheciaImg from "@/assets/portfolio/prophecia-logo.jpeg";
+import elev8Img from "@/assets/portfolio/elev8.webp";
+import umelImg from "@/assets/portfolio/umel.webp";
+import fitbyvalImg from "@/assets/portfolio/fitbyval.webp";
 
 const projects = [
   {
@@ -42,7 +45,7 @@ const projects = [
     objective: "Landing page premium pour une maison de couture sur-mesure",
     role: "Direction artistique & Développement",
     result: "Identité visuelle forte, avis Google intégrés",
-    image: null,
+    image: umelImg,
     url: "/portfolio/umel",
     externalUrl: null,
     tags: ["Design éditorial", "Landing page", "Mode"],
@@ -52,7 +55,7 @@ const projects = [
     objective: "Plateforme fitness & coaching",
     role: "Design & Développement",
     result: "Parcours utilisateur mobile-first fluide",
-    image: null,
+    image: fitbyvalImg,
     url: "/portfolio/fitbyval",
     externalUrl: null,
     tags: ["App mobile", "Coaching", "SaaS"],
@@ -62,7 +65,7 @@ const projects = [
     objective: "Application complète de coaching sportif",
     role: "Design & Développement",
     result: "Produit opéré par ImpartialGames — à partir de 59 € / 87 $CA / mois",
-    image: null,
+    image: elev8Img,
     url: "/portfolio/elev8",
     externalUrl: "https://myelev8.app",
     tags: ["Application SaaS", "Coaching", "Mobile"],

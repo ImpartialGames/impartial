@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 
 const produits = [
   {
@@ -43,16 +42,7 @@ export function EcosystemeSection() {
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <div className="section-label justify-center mb-6">Nos produits</div>
           <h2 className="font-serif text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-6">
-            <span className="block">
-              <VerticalCutReveal
-                splitBy="words"
-                staggerDuration={0.12}
-                staggerFrom="first"
-                transition={{ type: "spring", stiffness: 250, damping: 40, delay: 0.1 }}
-              >
-                On ne fait pas que builder.
-              </VerticalCutReveal>
-            </span>
+            <span className="block">On ne fait pas que builder.</span>
             <span className="block prisme-italic-grad">On opère.</span>
           </h2>
           <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
