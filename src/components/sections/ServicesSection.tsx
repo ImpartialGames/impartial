@@ -49,8 +49,8 @@ export function ServicesSection() {
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <div className="section-label justify-center mb-6">Services</div>
           <h2 className="font-serif text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-6">
-            L'ensemble de la{" "}
-            <span className="prisme-italic-grad">chaîne digitale.</span>
+            <span className="block">L'ensemble de la</span>
+            <span className="block prisme-italic-grad">chaîne digitale.</span>
           </h2>
           <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
             Du concept à la production, chaque discipline maîtrisée, pour des livrables à la hauteur de votre ambition.

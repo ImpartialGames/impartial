@@ -19,8 +19,8 @@ export function PrincipesSection() {
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <div className="section-label justify-center mb-6">Standards</div>
           <h2 className="font-serif text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-6">
-            Ce qui fait{" "}
-            <span className="prisme-italic-grad">la différence.</span>
+            <span className="block">Ce qui fait</span>
+            <span className="block prisme-italic-grad">la différence.</span>
           </h2>
           <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
             Des principes non-négociables qui guident chacune de nos réalisations.

@@ -52,8 +52,8 @@ export function FAQ() {
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <div className="section-label justify-center mb-6">FAQ</div>
           <h2 className="font-serif text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-6">
-            Vos questions,{" "}
-            <span className="prisme-italic-grad">nos réponses.</span>
+            <span className="block">Vos questions,</span>
+            <span className="block prisme-italic-grad">nos réponses.</span>
           </h2>
           <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
             Retrouvez les réponses aux questions les plus courantes sur nos services et notre façon de travailler.

@@ -43,8 +43,8 @@ export function MethodeSection() {
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <div className="section-label justify-center mb-6">Méthode</div>
           <h2 className="font-serif text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-6">
-            Un processus{" "}
-            <span className="prisme-italic-grad">éprouvé.</span>
+            <span className="block">Un processus</span>
+            <span className="block prisme-italic-grad">éprouvé.</span>
           </h2>
           <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
             Quatre étapes structurées, aucune improvisation, des études au lancement, tout est maîtrisé.

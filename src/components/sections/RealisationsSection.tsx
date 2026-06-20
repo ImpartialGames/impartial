@@ -83,8 +83,8 @@ export function RealisationsSection() {
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <div className="section-label justify-center mb-6">Réalisations</div>
           <h2 className="font-serif text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-6">
-            Ils nous ont{" "}
-            <span className="prisme-italic-grad">fait confiance.</span>
+            <span className="block">Ils nous ont</span>
+            <span className="block prisme-italic-grad">fait confiance.</span>
           </h2>
           <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
             De la landing page à l&apos;application complexe, chaque projet est traité avec la même exigence.

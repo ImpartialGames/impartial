@@ -76,16 +76,17 @@ export function OffresSection() {
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <div className="section-label justify-center mb-6">Nos offres</div>
           <h2 className="font-serif text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-6">
-            <VerticalCutReveal
-              splitBy="words"
-              staggerDuration={0.12}
-              staggerFrom="first"
-              transition={{ type: "spring", stiffness: 250, damping: 40, delay: 0.1 }}
-            >
-              Des offres claires.
-            </VerticalCutReveal>
-            {" "}
-            <span className="prisme-italic-grad">Un rendu premium.</span>
+            <span className="block">
+              <VerticalCutReveal
+                splitBy="words"
+                staggerDuration={0.12}
+                staggerFrom="first"
+                transition={{ type: "spring", stiffness: 250, damping: 40, delay: 0.1 }}
+              >
+                Des offres claires.
+              </VerticalCutReveal>
+            </span>
+            <span className="block prisme-italic-grad">Un rendu premium.</span>
           </h2>
           <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
             Tu choisis le bon format. On livre un produit dont tu seras fier.

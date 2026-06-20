@@ -69,8 +69,8 @@ export function CTAFinal() {
               </div>
 
               <h2 className="font-serif text-[26px] sm:text-[32px] md:text-[44px] lg:text-[52px] leading-[1.05] tracking-[-0.02em] text-white mb-6">
-                {t("Prêt à lancer", "Ready to launch")}{" "}
-                <span className="prisme-italic-grad">{t("ton projet ?", "your project?")}</span>
+                <span className="block">{t("Prêt à lancer", "Ready to launch")}</span>
+                <span className="block prisme-italic-grad">{t("ton projet ?", "your project?")}</span>
               </h2>
 
               <p className="text-[#B8A8D8] text-base md:text-lg leading-relaxed mb-12 max-w-xl mx-auto">
