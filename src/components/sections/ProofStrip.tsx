@@ -35,7 +35,7 @@ const rowTwo = [
 
 export function ProofStrip() {
   return (
-    <div className="relative bg-[#0E0B14] py-8 overflow-hidden">
+    <div className="relative bg-[#0E0B14] dark:bg-[#120B24] py-8 overflow-hidden">
       {/* Lignes gradient top & bottom */}
       <div
         className="absolute top-0 left-0 right-0 h-px pointer-events-none"
