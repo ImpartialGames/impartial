@@ -1423,3 +1423,86 @@ body:has(.theme-solaire) #root::before {
   }
 }
 
+/* ============================================================
+   MODE SOMBRE — scope sur .theme-solaire quand dark class active
+   ============================================================ */
+html.dark body:has(.theme-solaire) {
+  background-color: #0E0B14;
+}
+
+html.dark .theme-solaire {
+  /* shadcn tokens overrides */
+  --background: 265 30% 6%;
+  --foreground: 40 30% 98%;
+  --card: 265 20% 10%;
+  --card-foreground: 40 30% 98%;
+  --muted: 265 20% 14%;
+  --muted-foreground: 262 12% 60%;
+  --border: 265 20% 20%;
+  --input: 265 20% 20%;
+
+  /* Prisme palette dark overrides */
+  --prisme-ivory: #0E0B14;
+  --prisme-cream: #120B24;
+  --prisme-lavender: #1C1028;
+  --prisme-ink: #F5F3FF;
+  --prisme-ink-soft: #C4B5FD;
+  --prisme-muted: #9F8FB0;
+  --prisme-border: rgba(255,255,255,0.10);
+
+  /* Glass devient surface sombre */
+  --glass-bg: 265 25% 12%;
+  --glass-border: 265 30% 25%;
+  --glass-alpha: 0.08;
+  --glass-blur: 28px;
+  --glass-border-alpha: 0.18;
+  --glass-shadow-alpha: 0.25;
+  --glass-shadow-diffuse: 0 25px 60px -20px hsl(265 50% 15% / 0.6);
+  --glass-shadow-sharp: 0 10px 40px hsl(0 0% 0% / 0.4);
+  --glass-shadow-glow: 0 0 80px -15px hsl(265 85% 60% / 0.35);
+  --glass-shadow-inner: inset 0 1px 1px hsl(0 0% 100% / 0.06);
+}
+
+/* Body background dark */
+html.dark .theme-solaire,
+html.dark body {
+  background-color: #0E0B14;
+  color: #F5F3FF;
+}
+
+/* Glass cards → surfaces sombres */
+html.dark .theme-solaire .glass-base,
+html.dark .theme-solaire .glass-surface,
+html.dark .theme-solaire .glass-card,
+html.dark .theme-solaire .glass-card-specular,
+html.dark .theme-solaire .glass-modal,
+html.dark .theme-solaire .glass-ultra,
+html.dark .theme-solaire .glass-input {
+  background: rgba(28, 14, 66, 0.85) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.3);
+}
+
+/* Section-label pill en mode sombre */
+html.dark .theme-solaire .section-label {
+  background: rgba(124, 58, 237, 0.15);
+  border-color: rgba(124, 58, 237, 0.25);
+  color: #A78BFA;
+}
+
+/* Prisme pills */
+html.dark .theme-solaire .prisme-pill {
+  background: rgba(124, 58, 237, 0.15);
+  color: #A78BFA;
+  border-color: rgba(124, 58, 237, 0.20);
+}
+
+/* Halos — garder l'intensité en dark */
+html.dark .theme-solaire .prisme-halo-violet,
+html.dark .theme-solaire .prisme-halo-peach,
+html.dark .theme-solaire .prisme-halo-rose {
+  opacity: 0.6;
+}
+

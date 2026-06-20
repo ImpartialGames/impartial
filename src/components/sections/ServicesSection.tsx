@@ -39,7 +39,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="relative py-24 md:py-32 bg-[#FBFAF7] overflow-hidden">
+    <section id="services" className="relative py-24 md:py-32 bg-[#FBFAF7] dark:bg-[#120B24] overflow-hidden">
       {/* Halos */}
       <span className="prisme-halo-rose" style={{ top: "5%", right: "-10%" }} />
       <span className="prisme-halo-violet" style={{ bottom: "10%", left: "-12%" }} />
@@ -48,11 +48,11 @@ export function ServicesSection() {
         {/* Header */}
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <div className="section-label justify-center mb-6">Services</div>
-          <h2 className="font-serif text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-6">
+          <h2 className="font-serif text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] dark:text-white/90 mb-6">
             <span className="block">L'ensemble de la</span>
             <span className="block prisme-italic-grad">chaîne digitale.</span>
           </h2>
-          <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
+          <p className="text-[#6F6580] dark:text-white/60 text-base md:text-lg leading-relaxed">
             Du concept à la production, chaque discipline maîtrisée, pour des livrables à la hauteur de votre ambition.
           </p>
         </div>
@@ -69,7 +69,7 @@ export function ServicesSection() {
             >
               <Link
                 to={s.href}
-                className="group relative flex flex-col h-full p-9 rounded-[28px] bg-white/85 border border-[#EEEAF4] shadow-[0_12px_40px_-15px_rgba(124,58,237,0.10)] hover:shadow-[0_28px_60px_-20px_rgba(124,58,237,0.22)] hover:-translate-y-1 transition-all duration-500 overflow-hidden"
+                className="group relative flex flex-col h-full p-9 rounded-[28px] bg-white/85 dark:bg-white/5 border border-[#EEEAF4] dark:border-white/10 shadow-[0_12px_40px_-15px_rgba(124,58,237,0.10)] hover:shadow-[0_28px_60px_-20px_rgba(124,58,237,0.22)] hover:-translate-y-1 transition-all duration-500 overflow-hidden"
               >
                 {/* Numéro en filigrane */}
                 <span
@@ -86,14 +86,14 @@ export function ServicesSection() {
                 </span>
 
                 {/* Icône */}
-                <div className="w-12 h-12 rounded-2xl bg-[#F3EEFB] flex items-center justify-center mb-7 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-2xl bg-[#F3EEFB] dark:bg-white/10 flex items-center justify-center mb-7 group-hover:scale-110 transition-transform duration-300">
                   <s.icon className="h-5 w-5 text-[#7C3AED]" />
                 </div>
 
-                <h3 className="font-serif text-[22px] md:text-[26px] text-[#0E0B14] mb-3 leading-tight tracking-tight">
+                <h3 className="font-serif text-[22px] md:text-[26px] text-[#0E0B14] dark:text-white/90 mb-3 leading-tight tracking-tight">
                   {s.title}
                 </h3>
-                <p className="text-[15px] text-[#6F6580] leading-relaxed flex-1 mb-6">
+                <p className="text-[15px] text-[#6F6580] dark:text-white/60 leading-relaxed flex-1 mb-6">
                   {s.description}
                 </p>
 
@@ -107,7 +107,7 @@ export function ServicesSection() {
                 </div>
 
                 {/* Link */}
-                <div className="inline-flex items-center gap-2 text-[13px] font-medium text-[#7C3AED] group-hover:gap-3 transition-all duration-300">
+                <div className="inline-flex items-center gap-2 text-[13px] font-medium text-[#7C3AED] dark:text-[#A78BFA] group-hover:gap-3 transition-all duration-300">
                   <span>Découvrir</span>
                   <ArrowRight className="h-3.5 w-3.5" />
                 </div>

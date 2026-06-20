@@ -75,7 +75,7 @@ const projects = [
 
 export function RealisationsSection() {
   return (
-    <section id="realisations" className="relative py-24 md:py-32 bg-[#F3EEFB]/30 overflow-hidden">
+    <section id="realisations" className="relative py-24 md:py-32 bg-[#F3EEFB]/30 dark:bg-[#0E0B14] overflow-hidden">
       {/* Halos */}
       <span className="prisme-halo-peach" style={{ top: "0%", right: "-8%" }} />
       <span className="prisme-halo-violet" style={{ bottom: "5%", left: "-10%" }} />
@@ -85,11 +85,11 @@ export function RealisationsSection() {
         {/* Header */}
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <div className="section-label justify-center mb-6">Réalisations</div>
-          <h2 className="font-serif text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-6">
+          <h2 className="font-serif text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] dark:text-white/90 mb-6">
             <span className="block">Ils nous ont</span>
             <span className="block prisme-italic-grad">fait confiance.</span>
           </h2>
-          <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
+          <p className="text-[#6F6580] dark:text-white/60 text-base md:text-lg leading-relaxed">
             De la landing page à l&apos;application complexe, chaque projet est traité avec la même exigence.
           </p>
         </div>
@@ -105,15 +105,19 @@ export function RealisationsSection() {
               transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
             >
               <TiltCard max={6} className="h-full rounded-[28px]">
-                <div className="group h-full bg-white/85 rounded-[28px] border border-[#EEEAF4] overflow-hidden shadow-[0_12px_40px_-15px_rgba(124,58,237,0.10)] hover:shadow-[0_28px_60px_-20px_rgba(124,58,237,0.24)] hover:-translate-y-1 transition-all duration-500">
+                <div className="group h-full bg-white/85 dark:bg-white/5 rounded-[28px] border border-[#EEEAF4] dark:border-white/10 overflow-hidden shadow-[0_12px_40px_-15px_rgba(124,58,237,0.10)] hover:shadow-[0_28px_60px_-20px_rgba(124,58,237,0.24)] hover:-translate-y-1 transition-all duration-500">
 
                   {/* Image */}
-                  <div className="relative h-36 sm:h-44 md:h-48 overflow-hidden bg-[#F3EEFB]">
+                  <div className="relative h-36 sm:h-44 md:h-48 overflow-hidden bg-[#F3EEFB] dark:bg-[#1C1028]">
                     {p.image ? (
                       <img
                         src={p.image}
                         alt={p.title}
-                        loading="lazy"
+                        width={800}
+                        height={450}
+                        loading={i === 0 ? "eager" : "lazy"}
+                        decoding="async"
+                        {...(i === 0 ? { fetchPriority: "high" } : {})}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
                       />
                     ) : (
@@ -123,16 +127,18 @@ export function RealisationsSection() {
                         </span>
                       </div>
                     )}
-                    {/* Overlay gradient prisme */}
+
+                    {/* Overlay slide depuis le bas */}
                     <div
                       aria-hidden
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
                       style={{
-                        background: "linear-gradient(to top, rgba(124,58,237,0.55) 0%, transparent 60%)",
+                        background: "linear-gradient(to top, rgba(124,58,237,0.85) 0%, rgba(124,58,237,0.30) 60%, transparent 100%)",
                       }}
                     />
+
                     {/* Tags flottants sur l'image au hover */}
-                    <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">
                       {p.tags.map((t) => (
                         <span
                           key={t}
@@ -141,6 +147,13 @@ export function RealisationsSection() {
                           {t}
                         </span>
                       ))}
+                    </div>
+
+                    {/* Bouton "Voir" centré bas */}
+                    <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
+                      <span className="inline-flex items-center gap-1 text-white text-[12px] font-semibold">
+                        Voir <ArrowRight className="h-3 w-3" />
+                      </span>
                     </div>
                   </div>
 
@@ -155,27 +168,27 @@ export function RealisationsSection() {
                       ))}
                     </div>
 
-                    <h3 className="font-serif text-[22px] text-[#0E0B14] mb-5 leading-tight">{p.title}</h3>
+                    <h3 className="font-serif text-[22px] text-[#0E0B14] dark:text-white/90 mb-5 leading-tight">{p.title}</h3>
 
                     <dl className="space-y-2.5 mb-6">
                       <div className="text-[13.5px]">
-                        <dt className="text-[#6F6580] inline">Objectif : </dt>
-                        <dd className="text-[#0E0B14] inline">{p.objective}</dd>
+                        <dt className="text-[#6F6580] dark:text-white/50 inline">Objectif : </dt>
+                        <dd className="text-[#0E0B14] dark:text-white/80 inline">{p.objective}</dd>
                       </div>
                       <div className="text-[13.5px]">
-                        <dt className="text-[#6F6580] inline">Rôle : </dt>
-                        <dd className="text-[#0E0B14] inline">{p.role}</dd>
+                        <dt className="text-[#6F6580] dark:text-white/50 inline">Rôle : </dt>
+                        <dd className="text-[#0E0B14] dark:text-white/80 inline">{p.role}</dd>
                       </div>
                       <div className="text-[13.5px]">
-                        <dt className="text-[#6F6580] inline">Résultat : </dt>
-                        <dd className="text-[#7C3AED] font-medium inline">{p.result}</dd>
+                        <dt className="text-[#6F6580] dark:text-white/50 inline">Résultat : </dt>
+                        <dd className="text-[#7C3AED] dark:text-[#A78BFA] font-medium inline">{p.result}</dd>
                       </div>
                     </dl>
 
-                    <div className="flex items-center gap-4 pt-5 border-t border-[#EEEAF4]">
+                    <div className="flex items-center gap-4 pt-5 border-t border-[#EEEAF4] dark:border-white/10">
                       <Link
                         to={p.url}
-                        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[#7C3AED] hover:gap-2.5 transition-all duration-200"
+                        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[#7C3AED] dark:text-[#A78BFA] hover:gap-2.5 transition-all duration-200"
                       >
                         Voir le projet
                         <ArrowRight className="h-3.5 w-3.5" />
@@ -185,7 +198,7 @@ export function RealisationsSection() {
                           href={p.externalUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="ml-auto text-[#6F6580] hover:text-[#7C3AED] transition-colors"
+                          className="ml-auto text-[#6F6580] dark:text-white/40 hover:text-[#7C3AED] dark:hover:text-[#A78BFA] transition-colors"
                           aria-label={`Visiter ${p.title}`}
                         >
                           <ExternalLink className="h-4 w-4" />

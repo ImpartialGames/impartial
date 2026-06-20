@@ -9,6 +9,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { DemoAuthProvider } from "@/contexts/DemoAuthContext";
 import { DemoDataProvider } from "@/contexts/DemoDataContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <ThemeProvider>
         <LanguageProvider>
         <DemoAuthProvider>
           <DemoDataProvider>
@@ -29,6 +31,7 @@ const App = () => {
           </DemoDataProvider>
         </DemoAuthProvider>
         </LanguageProvider>
+        </ThemeProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );

@@ -133,15 +133,15 @@ export function HeroPremium() {
         <div className="grid lg:grid-cols-[1.2fr_0.9fr] gap-10 lg:gap-12 items-center max-w-[1600px] mx-auto">
           {/* Colonne gauche */}
           <div>
-            <h1 className="font-serif text-[34px] sm:text-[48px] lg:text-[72px] xl:text-[88px] 2xl:text-[100px] leading-[0.98] tracking-[-0.03em] text-[#0E0B14]">
-              <RevealText by="word" stagger={0.06}>{t("De l'idée", "From idea")}</RevealText>
+            <h1 className="font-serif text-[34px] sm:text-[48px] lg:text-[72px] xl:text-[88px] 2xl:text-[100px] leading-[0.98] tracking-[-0.03em] text-[#0E0B14] dark:text-white/90">
+              <RevealText by="word" stagger={0.06}>{t("On ne livre pas", "We don't just ship")}</RevealText>
               <span className="block">
                 <RevealText by="word" stagger={0.06} delay={0.15}>
-                  {t("au produit.", "to product.")}
+                  {t("du code.", "code.")}
                 </RevealText>
               </span>
               <span className="block">
-                <span className="prisme-italic-grad prisme-shimmer">{t("On gère tout.", "We handle everything.")}</span>
+                <span className="prisme-italic-grad prisme-shimmer">{t("On lance des produits.", "We launch products.")}</span>
               </span>
             </h1>
 
@@ -149,11 +149,11 @@ export function HeroPremium() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-6 text-[16px] md:text-[18px] text-[#6F6580] leading-[1.6] max-w-2xl"
+              className="mt-6 text-[16px] md:text-[18px] text-[#6F6580] dark:text-white/60 leading-[1.6] max-w-2xl"
             >
               {t(
-                "Sites web, apps et logiciels sur-mesure. Plus de 30 clients accompagnés, 4 produits opérés par nos soins.",
-                "Custom websites, apps and software. 30+ clients served, 4 products operated in-house."
+                "Développement web, mobile et logiciel sur-mesure. 30+ clients. 4 produits en production.",
+                "Custom web, mobile & software. 30+ clients. 4 products live in production."
               )}
             </motion.p>
 

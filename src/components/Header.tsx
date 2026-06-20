@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Globe, Smartphone, LayoutDashboard, Layers, Grid2X2, Users, Mail } from "lucide-react";
+import { Menu, X, Globe, Smartphone, LayoutDashboard, Layers, Grid2X2, Users, Mail, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GlowMenu, GlowMenuItem } from "@/components/ui/glow-menu";
 import logoHero from "@/assets/logo-hero.png";
 import { CalendlyQuiz } from "@/components/CalendlyQuiz";
 import { useLang } from "@/contexts/LanguageContext";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const glowNavItems: GlowMenuItem[] = [
   {
@@ -62,17 +63,23 @@ const glowNavItems: GlowMenuItem[] = [
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [quizOpen, setQuizOpen] = useState(false);
   const location = useLocation();
   const { lang, setLang, t } = useLang();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 30);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 30);
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(docHeight > 0 ? (scrollY / docHeight) * 100 : 0);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Trouve le label de l'item actif depuis le pathname
   const activeLabel =
     glowNavItems.find((item) => item.href === location.pathname)?.label ?? "";
 
@@ -80,7 +87,7 @@ export function Header() {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "backdrop-blur-md border-b border-white/20"
+          ? "backdrop-blur-md border-b border-white/20 dark:border-white/10"
           : "border-b border-transparent"
       }`}
       initial={{ y: -80, opacity: 0 }}
@@ -99,7 +106,7 @@ export function Header() {
               style={{ filter: "saturate(1.4) brightness(1.05)" }}
             />
             <div className="flex flex-col leading-none gap-[3px]">
-              <span className="font-syne text-[16px] font-black tracking-[-0.03em] text-[#0E0B14]">
+              <span className="font-syne text-[16px] font-black tracking-[-0.03em] text-[#0E0B14] dark:text-white/90">
                 IMPARTIAL
               </span>
               <span className="text-[9px] font-semibold tracking-[0.22em] uppercase text-[#7C3AED]">
@@ -114,13 +121,23 @@ export function Header() {
           </div>
 
           {/* CTA droite */}
-          <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
+          <div className="hidden lg:flex items-center gap-2.5 flex-shrink-0">
+            {/* Langue */}
             <button
               onClick={() => setLang(lang === "fr" ? "en" : "fr")}
-              className="text-[12px] font-semibold text-[#6F6580] hover:text-[#0E0B14] border border-[#DDD9E8] px-3 py-1.5 rounded-full transition-colors"
+              className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#6F6580] dark:text-white/60 hover:text-[#0E0B14] dark:hover:text-white border border-[#DDD9E8] dark:border-white/20 px-4 py-2 rounded-full transition-colors"
               aria-label="Changer la langue"
             >
+              <Globe className="h-3.5 w-3.5" />
               {lang === "fr" ? "EN" : "FR"}
+            </button>
+            {/* Dark mode toggle */}
+            <button
+              onClick={toggleTheme}
+              className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-[#DDD9E8] dark:border-white/20 text-[#6F6580] dark:text-white/60 hover:text-[#0E0B14] dark:hover:text-white hover:border-[#0E0B14] dark:hover:border-white/40 transition-colors"
+              aria-label={theme === "light" ? "Activer le mode sombre" : "Activer le mode clair"}
+            >
+              {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
             </button>
             <button
               onClick={() => setQuizOpen(true)}
@@ -132,23 +149,34 @@ export function Header() {
 
           {/* Burger mobile */}
           <button
-            className="lg:hidden p-2 rounded-xl border border-[#EEEAF4] bg-[#FBFAF7]"
+            className="lg:hidden p-2 rounded-xl border border-[#EEEAF4] dark:border-white/10 bg-[#FBFAF7] dark:bg-white/5"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
           >
             <AnimatePresence mode="wait">
               {isMobileMenuOpen ? (
                 <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                  <X className="h-5 w-5 text-[#0E0B14]" />
+                  <X className="h-5 w-5 text-[#0E0B14] dark:text-white/80" />
                 </motion.div>
               ) : (
                 <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                  <Menu className="h-5 w-5 text-[#0E0B14]" />
+                  <Menu className="h-5 w-5 text-[#0E0B14] dark:text-white/80" />
                 </motion.div>
               )}
             </AnimatePresence>
           </button>
         </nav>
+
+        {/* Scroll progress bar */}
+        <div
+          aria-hidden
+          className="absolute bottom-0 left-0 h-[2px] transition-all duration-150 ease-out"
+          style={{
+            width: `${scrollProgress}%`,
+            background: "var(--prisme-gradient)",
+            opacity: scrollProgress > 0 ? 1 : 0,
+          }}
+        />
 
         {/* Menu mobile */}
         <AnimatePresence>
@@ -160,7 +188,7 @@ export function Header() {
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="bg-[#FBFAF7] rounded-2xl p-4 mt-2 border border-[#EEEAF4] shadow-[0_8px_32px_rgba(124,58,237,0.08)]">
+              <div className="bg-[#FBFAF7] dark:bg-[#120B24] rounded-2xl p-4 mt-2 border border-[#EEEAF4] dark:border-white/10 shadow-[0_8px_32px_rgba(124,58,237,0.08)]">
                 <div className="px-4 py-2 text-[#7C3AED] text-[10px] font-semibold uppercase tracking-[0.2em]">
                   Services
                 </div>
@@ -171,15 +199,15 @@ export function Header() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`flex items-center gap-3 px-4 py-3 rounded-xl text-[14px] transition-colors ${
                       location.pathname === item.href
-                        ? "bg-[#F3EEFB] text-[#7C3AED] font-medium"
-                        : "text-[#0E0B14] hover:bg-[#F3EEFB]"
+                        ? "bg-[#F3EEFB] dark:bg-white/10 text-[#7C3AED] font-medium"
+                        : "text-[#0E0B14] dark:text-white/80 hover:bg-[#F3EEFB] dark:hover:bg-white/5"
                     }`}
                   >
                     <item.icon className="h-4 w-4" />
                     {item.label}
                   </Link>
                 ))}
-                <div className="h-px my-3 bg-[#EEEAF4]" />
+                <div className="h-px my-3 bg-[#EEEAF4] dark:bg-white/10" />
                 {glowNavItems.slice(4).map((item) => (
                   <Link
                     key={item.href}
@@ -187,8 +215,8 @@ export function Header() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`flex items-center gap-3 px-4 py-3 rounded-xl text-[14px] transition-colors ${
                       location.pathname === item.href
-                        ? "bg-[#F3EEFB] text-[#7C3AED] font-medium"
-                        : "text-[#0E0B14] hover:bg-[#F3EEFB]"
+                        ? "bg-[#F3EEFB] dark:bg-white/10 text-[#7C3AED] font-medium"
+                        : "text-[#0E0B14] dark:text-white/80 hover:bg-[#F3EEFB] dark:hover:bg-white/5"
                     }`}
                   >
                     <item.icon className="h-4 w-4" />
@@ -202,12 +230,22 @@ export function Header() {
                   >
                     {t("Planifier un appel", "Book a call")}
                   </button>
-                  <button
-                    onClick={() => setLang(lang === "fr" ? "en" : "fr")}
-                    className="block w-full py-2.5 rounded-full border border-[#DDD9E8] text-[#6F6580] font-semibold text-[13px] text-center hover:text-[#0E0B14] transition-colors"
-                  >
-                    {lang === "fr" ? "Switch to English" : "Passer en français"}
-                  </button>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => setLang(lang === "fr" ? "en" : "fr")}
+                      className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 rounded-full border border-[#DDD9E8] dark:border-white/20 text-[#6F6580] dark:text-white/60 font-semibold text-[13px] hover:text-[#0E0B14] dark:hover:text-white transition-colors"
+                    >
+                      <Globe className="h-3.5 w-3.5" />
+                      {lang === "fr" ? "Switch to English" : "Passer en français"}
+                    </button>
+                    <button
+                      onClick={toggleTheme}
+                      className="inline-flex items-center justify-center h-[42px] w-[42px] rounded-full border border-[#DDD9E8] dark:border-white/20 text-[#6F6580] dark:text-white/60 hover:text-[#0E0B14] dark:hover:text-white transition-colors"
+                      aria-label={theme === "light" ? "Mode sombre" : "Mode clair"}
+                    >
+                      {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+                    </button>
+                  </div>
                 </div>
               </div>
             </motion.div>
