@@ -8,6 +8,8 @@ import propheciaImg from "@/assets/portfolio/prophecia-logo.jpeg";
 import elev8Img from "@/assets/portfolio/elev8.webp";
 import umelImg from "@/assets/portfolio/umel.webp";
 import fitbyvalImg from "@/assets/portfolio/fitbyval.webp";
+import valoraImg from "@/assets/portfolio/valora.webp";
+import mbaImg from "@/assets/portfolio/mba.webp";
 
 const projects = [
   {
@@ -69,6 +71,27 @@ const projects = [
     url: "/portfolio/elev8",
     externalUrl: "https://myelev8.app",
     tags: ["Application SaaS", "Coaching", "Mobile"],
+    badge: "Produit ImpartialGames",
+  },
+  {
+    title: "Valora",
+    objective: "Plateforme de valorisation et gestion d'actifs",
+    role: "Design & Développement",
+    result: "Interface claire et performante",
+    image: valoraImg,
+    url: "/portfolio/valora",
+    externalUrl: null,
+    tags: ["Design", "Développement", "Finance"],
+  },
+  {
+    title: "MBA",
+    objective: "Back-office SaaS pour TPE et PME",
+    role: "Design & Développement",
+    result: "Produit opéré par ImpartialGames — à partir de 150 € / 220 $CA par mois",
+    image: mbaImg,
+    url: "/portfolio/mba",
+    externalUrl: null,
+    tags: ["Back-office", "SaaS", "PME"],
     badge: "Produit ImpartialGames",
   },
 ];
