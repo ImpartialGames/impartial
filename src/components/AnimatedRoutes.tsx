@@ -22,6 +22,11 @@ import EclipsiaProject from "@/pages/portfolio/EclipsiaProject";
 import WeCloseProject from "@/pages/portfolio/WeCloseProject";
 import AltarysProject from "@/pages/portfolio/AltarysProject";
 import PropheciaProject from "@/pages/portfolio/PropheciaProject";
+import UmelProject from "@/pages/portfolio/UmelProject";
+import FitbyvalProject from "@/pages/portfolio/FitbyvalProject";
+import Elev8Project from "@/pages/portfolio/Elev8Project";
+import ValoraProject from "@/pages/portfolio/ValoraProject";
+import MBAProject from "@/pages/portfolio/MBAProject";
 
 // Admin pages
 import AdminLogin from "@/pages/admin/AdminLogin";
@@ -70,6 +75,11 @@ export function AnimatedRoutes() {
         <Route path="/portfolio/weclose" element={<PageTransition3D><WeCloseProject /></PageTransition3D>} />
         <Route path="/portfolio/altarys" element={<PageTransition3D><AltarysProject /></PageTransition3D>} />
         <Route path="/portfolio/prophecia" element={<PageTransition3D><PropheciaProject /></PageTransition3D>} />
+        <Route path="/portfolio/umel" element={<PageTransition3D><UmelProject /></PageTransition3D>} />
+        <Route path="/portfolio/fitbyval" element={<PageTransition3D><FitbyvalProject /></PageTransition3D>} />
+        <Route path="/portfolio/elev8" element={<PageTransition3D><Elev8Project /></PageTransition3D>} />
+        <Route path="/portfolio/valora" element={<PageTransition3D><ValoraProject /></PageTransition3D>} />
+        <Route path="/portfolio/mba" element={<PageTransition3D><MBAProject /></PageTransition3D>} />
         <Route path="/contact" element={<PageTransition3D><Contact /></PageTransition3D>} />
         <Route path="/services/web" element={<PageTransition3D><WebService /></PageTransition3D>} />
         <Route path="/services/mobile" element={<PageTransition3D><MobileService /></PageTransition3D>} />
