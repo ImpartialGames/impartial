@@ -86,10 +86,10 @@ export function OffresSection() {
                 staggerFrom="first"
                 transition={{ type: "spring", stiffness: 250, damping: 40, delay: 0.1 }}
               >
-                Des offres claires.
+                Des prix clairs.
               </VerticalCutReveal>
             </span>
-            <span className="block prisme-italic-grad">Un rendu premium.</span>
+            <span className="block prisme-italic-grad">Un résultat premium.</span>
           </h2>
           <p className="text-[#6F6580] dark:text-white/60 text-base md:text-lg leading-relaxed">
             Tu choisis le bon format. On livre un produit dont tu seras fier.

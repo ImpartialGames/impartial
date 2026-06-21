@@ -12,12 +12,10 @@ function Diamond() {
 }
 
 const rowOne = [
-  "12+ projets livrés",
-  "100% dans les délais",
-  "3 pays clients",
-  "5★ satisfaction client",
-  "Core Web Vitals A+",
-  "Zéro bug en production",
+  "+30 clients accompagnés",
+  "13 ans de savoir-faire",
+  "4 produits live",
+  "France & Montréal",
 ];
 
 const rowTwo = [

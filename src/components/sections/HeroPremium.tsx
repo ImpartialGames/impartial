@@ -152,8 +152,8 @@ export function HeroPremium() {
               className="mt-6 text-[16px] md:text-[18px] text-[#6F6580] leading-[1.6] max-w-2xl"
             >
               {t(
-                "Développement web, mobile et logiciel sur-mesure. 30+ clients. 4 produits en production.",
-                "Custom web, mobile & software. 30+ clients. 4 products live in production."
+                "Développement web, mobile et logiciel sur-mesure. Plus de 30 clients accompagnés. 4 produits opérés par nos soins.",
+                "Custom web, mobile & software. 30+ clients. 4 products we build and operate ourselves."
               )}
             </motion.p>
 
