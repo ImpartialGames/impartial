@@ -33,7 +33,7 @@ const rowTwo = [
 
 export function ProofStrip() {
   return (
-    <div className="relative bg-[#0E0B14] dark:bg-[#120B24] py-8 overflow-hidden">
+    <div className="relative bg-[#F5F3EE] dark:bg-[#0E0B14] py-8 overflow-hidden border-y border-[#E8E4F0] dark:border-y dark:border-white/10">
       {/* Lignes gradient top & bottom */}
       <div
         className="absolute top-0 left-0 right-0 h-px pointer-events-none"
@@ -62,7 +62,7 @@ export function ProofStrip() {
       <Marquee speed={38} pauseOnHover={false} className="mb-4">
         {rowOne.map((item, i) => (
           <div key={i} className="flex items-center gap-8 whitespace-nowrap">
-            <span className="font-syne font-semibold text-[15px] md:text-[17px] text-white/90 tracking-wide">
+            <span className="font-syne font-semibold text-[15px] md:text-[17px] text-[#0E0B14] dark:text-white/90 tracking-wide">
               {item}
             </span>
             <Diamond />
@@ -74,7 +74,7 @@ export function ProofStrip() {
       <Marquee speed={30} reverse pauseOnHover={false}>
         {rowTwo.map((item, i) => (
           <div key={i} className="flex items-center gap-8 whitespace-nowrap">
-            <span className="font-syne text-[11px] md:text-[12px] font-semibold uppercase tracking-[0.25em] text-[#6F6580]">
+            <span className="font-syne text-[11px] md:text-[12px] font-semibold uppercase tracking-[0.25em] text-[#6F6580] dark:text-[#9F8FB0]">
               {item}
             </span>
             <Diamond />

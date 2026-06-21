@@ -87,7 +87,7 @@ export function Header() {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "backdrop-blur-md border-b border-white/20 dark:border-white/10"
+          ? "bg-[#FBFAF7]/95 backdrop-blur-md border-b border-[#E8E4F0]"
           : "border-b border-transparent"
       }`}
       initial={{ y: -80, opacity: 0 }}
@@ -99,14 +99,17 @@ export function Header() {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 flex-shrink-0 group">
-            <img
-              src={logoHero}
-              alt="Impartial"
-              className="h-9 w-9 object-contain flex-shrink-0"
-              style={{ filter: "saturate(1.4) brightness(1.05)" }}
-            />
+            <div className="relative flex-shrink-0">
+              <div className="absolute inset-[-3px] bg-[#0E0B14] rounded-full" />
+              <img
+                src={logoHero}
+                alt="Impartial"
+                className="relative z-10 h-9 w-9 object-contain"
+                style={{ filter: "saturate(1.4) brightness(1.05)" }}
+              />
+            </div>
             <div className="flex flex-col leading-none gap-[3px]">
-              <span className="font-syne text-[16px] font-black tracking-[-0.03em] text-[#0E0B14] dark:text-white/90">
+              <span className="font-syne text-[16px] font-black tracking-[-0.03em] text-[#0E0B14]">
                 IMPARTIAL
               </span>
               <span className="text-[9px] font-semibold tracking-[0.22em] uppercase text-[#7C3AED]">
@@ -125,7 +128,7 @@ export function Header() {
             {/* Langue */}
             <button
               onClick={() => setLang(lang === "fr" ? "en" : "fr")}
-              className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#6F6580] dark:text-white/60 hover:text-[#0E0B14] dark:hover:text-white border border-[#DDD9E8] dark:border-white/20 px-4 py-2 rounded-full transition-colors"
+              className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#6F6580] hover:text-[#0E0B14] border border-[#DDD9E8] px-4 py-2 rounded-full transition-colors"
               aria-label="Changer la langue"
             >
               <Globe className="h-3.5 w-3.5" />
@@ -134,7 +137,7 @@ export function Header() {
             {/* Dark mode toggle */}
             <button
               onClick={toggleTheme}
-              className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-[#DDD9E8] dark:border-white/20 text-[#6F6580] dark:text-white/60 hover:text-[#0E0B14] dark:hover:text-white hover:border-[#0E0B14] dark:hover:border-white/40 transition-colors"
+              className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-[#DDD9E8] text-[#6F6580] hover:text-[#0E0B14] hover:border-[#0E0B14] transition-colors"
               aria-label={theme === "light" ? "Activer le mode sombre" : "Activer le mode clair"}
             >
               {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
@@ -149,18 +152,18 @@ export function Header() {
 
           {/* Burger mobile */}
           <button
-            className="lg:hidden p-2 rounded-xl border border-[#EEEAF4] dark:border-white/10 bg-[#FBFAF7] dark:bg-white/5"
+            className="lg:hidden p-2 rounded-xl border border-[#EEEAF4] bg-[#FBFAF7]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
           >
             <AnimatePresence mode="wait">
               {isMobileMenuOpen ? (
                 <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                  <X className="h-5 w-5 text-[#0E0B14] dark:text-white/80" />
+                  <X className="h-5 w-5 text-[#0E0B14]" />
                 </motion.div>
               ) : (
                 <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                  <Menu className="h-5 w-5 text-[#0E0B14] dark:text-white/80" />
+                  <Menu className="h-5 w-5 text-[#0E0B14]" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -188,7 +191,7 @@ export function Header() {
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="bg-[#FBFAF7] dark:bg-[#120B24] rounded-2xl p-4 mt-2 border border-[#EEEAF4] dark:border-white/10 shadow-[0_8px_32px_rgba(124,58,237,0.08)]">
+              <div className="bg-[#FBFAF7] rounded-2xl p-4 mt-2 border border-[#EEEAF4] shadow-[0_8px_32px_rgba(124,58,237,0.08)]">
                 <div className="px-4 py-2 text-[#7C3AED] text-[10px] font-semibold uppercase tracking-[0.2em]">
                   Services
                 </div>
@@ -199,15 +202,15 @@ export function Header() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`flex items-center gap-3 px-4 py-3 rounded-xl text-[14px] transition-colors ${
                       location.pathname === item.href
-                        ? "bg-[#F3EEFB] dark:bg-white/10 text-[#7C3AED] font-medium"
-                        : "text-[#0E0B14] dark:text-white/80 hover:bg-[#F3EEFB] dark:hover:bg-white/5"
+                        ? "bg-[#F3EEFB] text-[#7C3AED] font-medium"
+                        : "text-[#0E0B14] hover:bg-[#F3EEFB]"
                     }`}
                   >
                     <item.icon className="h-4 w-4" />
                     {item.label}
                   </Link>
                 ))}
-                <div className="h-px my-3 bg-[#EEEAF4] dark:bg-white/10" />
+                <div className="h-px my-3 bg-[#EEEAF4]" />
                 {glowNavItems.slice(4).map((item) => (
                   <Link
                     key={item.href}
@@ -215,8 +218,8 @@ export function Header() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`flex items-center gap-3 px-4 py-3 rounded-xl text-[14px] transition-colors ${
                       location.pathname === item.href
-                        ? "bg-[#F3EEFB] dark:bg-white/10 text-[#7C3AED] font-medium"
-                        : "text-[#0E0B14] dark:text-white/80 hover:bg-[#F3EEFB] dark:hover:bg-white/5"
+                        ? "bg-[#F3EEFB] text-[#7C3AED] font-medium"
+                        : "text-[#0E0B14] hover:bg-[#F3EEFB]"
                     }`}
                   >
                     <item.icon className="h-4 w-4" />
@@ -233,14 +236,14 @@ export function Header() {
                   <div className="flex gap-2">
                     <button
                       onClick={() => setLang(lang === "fr" ? "en" : "fr")}
-                      className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 rounded-full border border-[#DDD9E8] dark:border-white/20 text-[#6F6580] dark:text-white/60 font-semibold text-[13px] hover:text-[#0E0B14] dark:hover:text-white transition-colors"
+                      className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 rounded-full border border-[#DDD9E8] text-[#6F6580] font-semibold text-[13px] hover:text-[#0E0B14] transition-colors"
                     >
                       <Globe className="h-3.5 w-3.5" />
                       {lang === "fr" ? "Switch to English" : "Passer en français"}
                     </button>
                     <button
                       onClick={toggleTheme}
-                      className="inline-flex items-center justify-center h-[42px] w-[42px] rounded-full border border-[#DDD9E8] dark:border-white/20 text-[#6F6580] dark:text-white/60 hover:text-[#0E0B14] dark:hover:text-white transition-colors"
+                      className="inline-flex items-center justify-center h-[42px] w-[42px] rounded-full border border-[#DDD9E8] text-[#6F6580] hover:text-[#0E0B14] transition-colors"
                       aria-label={theme === "light" ? "Mode sombre" : "Mode clair"}
                     >
                       {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
