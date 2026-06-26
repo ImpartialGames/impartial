@@ -10,6 +10,7 @@ import { DemoAuthProvider } from "@/contexts/DemoAuthContext";
 import { DemoDataProvider } from "@/contexts/DemoDataContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import { CustomCursor } from "@/components/ui/CustomCursor";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => {
           <DemoDataProvider>
             <Toaster />
             <Sonner />
+            <CustomCursor />
             <BrowserRouter>
               <AnimatedRoutes />
               <CookieBanner />

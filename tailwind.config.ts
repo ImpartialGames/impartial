@@ -20,6 +20,7 @@ export default {
         montserrat: ['Montserrat', 'sans-serif'],
         serif: ['Syne', 'sans-serif'],
         display: ['Syne', 'sans-serif'],
+        'display-serif': ['"DM Serif Display"', '"Cormorant Garamond"', 'Georgia', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",

@@ -39,20 +39,70 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="relative py-24 md:py-32 bg-[#FBFAF7] dark:bg-[#120B24] overflow-hidden">
+    <section
+      id="services"
+      className="relative py-24 md:py-32 overflow-hidden"
+      style={{ backgroundColor: "#0E0B14" }}
+    >
+      {/* Dot grid background */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none select-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(124,58,237,0.055) 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+        }}
+      />
+
       {/* Halos */}
-      <span className="prisme-halo-rose" style={{ top: "5%", right: "-10%" }} />
-      <span className="prisme-halo-violet" style={{ bottom: "10%", left: "-12%" }} />
+      <span
+        aria-hidden
+        className="absolute pointer-events-none rounded-full"
+        style={{
+          width: 600,
+          height: 600,
+          top: "-10%",
+          right: "-15%",
+          background: "radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 65%)",
+          filter: "blur(60px)",
+        }}
+      />
+      <span
+        aria-hidden
+        className="absolute pointer-events-none rounded-full"
+        style={{
+          width: 500,
+          height: 500,
+          bottom: "-5%",
+          left: "-12%",
+          background: "radial-gradient(circle, rgba(167,139,250,0.14) 0%, transparent 65%)",
+          filter: "blur(55px)",
+        }}
+      />
+
+      {/* Déco { } brackets */}
+      <div
+        aria-hidden
+        className="absolute top-16 right-8 font-mono text-[140px] text-white/[0.025] select-none pointer-events-none leading-none hidden lg:block"
+      >
+        {"{"}
+      </div>
+      <div
+        aria-hidden
+        className="absolute bottom-14 left-6 font-mono text-[90px] text-white/[0.022] select-none pointer-events-none leading-none hidden lg:block"
+      >
+        {"}"}
+      </div>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-20 max-w-3xl mx-auto">
-          <div className="section-label justify-center mb-6">Services</div>
-          <h2 className="font-serif text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] dark:text-white/90 mb-6">
-            <span className="block">L'ensemble de la</span>
+          <div className="section-label-dark justify-center mb-6">Services</div>
+          <h2 className="text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-white mb-6">
+            <span className="block prisme-display">L'ensemble de la</span>
             <span className="block prisme-italic-grad">chaîne digitale.</span>
           </h2>
-          <p className="text-[#6F6580] dark:text-white/60 text-base md:text-lg leading-relaxed">
+          <p className="text-white/55 text-base md:text-lg leading-relaxed">
             Du concept à la production, chaque discipline maîtrisée, pour des livrables à la hauteur de votre ambition.
           </p>
         </div>
@@ -69,7 +119,7 @@ export function ServicesSection() {
             >
               <Link
                 to={s.href}
-                className="group relative flex flex-col h-full p-9 rounded-[28px] bg-white/85 dark:bg-white/5 border border-[#EEEAF4] dark:border-white/10 shadow-[0_12px_40px_-15px_rgba(124,58,237,0.10)] hover:shadow-[0_28px_60px_-20px_rgba(124,58,237,0.22)] hover:-translate-y-1 transition-all duration-500 overflow-hidden"
+                className="group relative flex flex-col h-full p-9 rounded-[28px] bg-white/[0.045] border border-white/[0.09] hover:border-[#7C3AED]/50 hover:bg-white/[0.07] hover:-translate-y-1 shadow-[0_12px_40px_-15px_rgba(0,0,0,0.3)] hover:shadow-[0_28px_60px_-20px_rgba(124,58,237,0.25)] transition-all duration-500 overflow-hidden"
               >
                 {/* Numéro en filigrane */}
                 <span
@@ -79,35 +129,38 @@ export function ServicesSection() {
                     WebkitBackgroundClip: "text",
                     backgroundClip: "text",
                     WebkitTextFillColor: "transparent",
-                    opacity: 0.12,
+                    opacity: 0.18,
                   }}
                 >
                   {s.number}
                 </span>
 
                 {/* Icône */}
-                <div className="w-12 h-12 rounded-2xl bg-[#F3EEFB] dark:bg-white/10 flex items-center justify-center mb-7 group-hover:scale-110 transition-transform duration-300">
-                  <s.icon className="h-5 w-5 text-[#7C3AED]" />
+                <div className="w-12 h-12 rounded-2xl bg-white/[0.08] flex items-center justify-center mb-7 group-hover:scale-110 group-hover:bg-[#7C3AED]/20 transition-all duration-300">
+                  <s.icon className="h-5 w-5 text-[#A78BFA]" />
                 </div>
 
-                <h3 className="font-serif text-[22px] md:text-[26px] text-[#0E0B14] dark:text-white/90 mb-3 leading-tight tracking-tight">
+                <h3 className="font-syne font-bold text-[22px] md:text-[26px] text-white mb-3 leading-tight tracking-tight">
                   {s.title}
                 </h3>
-                <p className="text-[15px] text-[#6F6580] dark:text-white/60 leading-relaxed flex-1 mb-6">
+                <p className="text-[15px] text-white/55 leading-relaxed flex-1 mb-6">
                   {s.description}
                 </p>
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-7">
                   {s.tags.map((t) => (
-                    <span key={t} className="prisme-pill px-3 py-1 rounded-full text-[11px] font-medium tracking-wide">
+                    <span
+                      key={t}
+                      className="px-3 py-1 rounded-full text-[11px] font-medium tracking-wide bg-white/[0.07] border border-white/[0.10] text-white/55"
+                    >
                       {t}
                     </span>
                   ))}
                 </div>
 
                 {/* Link */}
-                <div className="inline-flex items-center gap-2 text-[13px] font-medium text-[#7C3AED] dark:text-[#A78BFA] group-hover:gap-3 transition-all duration-300">
+                <div className="inline-flex items-center gap-2 text-[13px] font-medium text-[#A78BFA] group-hover:gap-3 transition-all duration-300">
                   <span>Découvrir</span>
                   <ArrowRight className="h-3.5 w-3.5" />
                 </div>

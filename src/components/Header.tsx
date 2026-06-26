@@ -83,13 +83,15 @@ export function Header() {
   const activeLabel =
     glowNavItems.find((item) => item.href === location.pathname)?.label ?? "";
 
+  const onDarkHero = !isScrolled && location.pathname === "/";
+
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? "bg-[#FBFAF7]/95 backdrop-blur-md border-b border-[#E8E4F0]"
           : "border-b border-transparent"
-      }`}
+      } ${onDarkHero ? "header-on-dark" : ""}`}
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -109,10 +111,10 @@ export function Header() {
               />
             </div>
             <div className="flex flex-col leading-none gap-[3px]">
-              <span className="font-syne text-[16px] font-black tracking-[-0.03em] text-[#0E0B14]">
+              <span className="header-logo-text font-syne text-[16px] font-black tracking-[-0.03em] text-[#0E0B14] transition-colors duration-500">
                 IMPARTIAL
               </span>
-              <span className="text-[9px] font-semibold tracking-[0.22em] uppercase text-[#7C3AED]">
+              <span className="header-logo-games text-[9px] font-semibold tracking-[0.22em] uppercase text-[#7C3AED] transition-colors duration-500">
                 Games
               </span>
             </div>
@@ -128,7 +130,7 @@ export function Header() {
             {/* Langue */}
             <button
               onClick={() => setLang(lang === "fr" ? "en" : "fr")}
-              className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#6F6580] hover:text-[#0E0B14] border border-[#DDD9E8] px-4 py-2 rounded-full transition-colors"
+              className="header-btn-outline inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#6F6580] hover:text-[#0E0B14] border border-[#DDD9E8] px-4 py-2 rounded-full transition-colors duration-300"
               aria-label="Changer la langue"
             >
               <Globe className="h-3.5 w-3.5" />
@@ -137,7 +139,7 @@ export function Header() {
             {/* Dark mode toggle */}
             <button
               onClick={toggleTheme}
-              className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-[#DDD9E8] text-[#6F6580] hover:text-[#0E0B14] hover:border-[#0E0B14] transition-colors"
+              className="header-btn-outline inline-flex items-center justify-center h-9 w-9 rounded-full border border-[#DDD9E8] text-[#6F6580] hover:text-[#0E0B14] hover:border-[#0E0B14] transition-colors duration-300"
               aria-label={theme === "light" ? "Activer le mode sombre" : "Activer le mode clair"}
             >
               {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
@@ -152,18 +154,18 @@ export function Header() {
 
           {/* Burger mobile */}
           <button
-            className="lg:hidden p-2 rounded-xl border border-[#EEEAF4] bg-[#FBFAF7]"
+            className="header-burger lg:hidden p-2 rounded-xl border border-[#EEEAF4] bg-[#FBFAF7] transition-colors duration-300"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
           >
             <AnimatePresence mode="wait">
               {isMobileMenuOpen ? (
                 <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                  <X className="h-5 w-5 text-[#0E0B14]" />
+                  <X className="header-icon h-5 w-5 text-[#0E0B14] transition-colors duration-300" />
                 </motion.div>
               ) : (
                 <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                  <Menu className="h-5 w-5 text-[#0E0B14]" />
+                  <Menu className="header-icon h-5 w-5 text-[#0E0B14] transition-colors duration-300" />
                 </motion.div>
               )}
             </AnimatePresence>
