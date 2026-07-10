@@ -140,7 +140,6 @@ export function RealisationsSection() {
                         height={450}
                         loading={i === 0 ? "eager" : "lazy"}
                         decoding="async"
-                        {...(i === 0 ? { fetchPriority: "high" } : {})}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
                       />
                     ) : (
