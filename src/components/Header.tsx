@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Globe, Smartphone, LayoutDashboard, Layers, Grid2X2, Users, Mail, Sun, Moon } from "lucide-react";
+import { Menu, X, Globe, Smartphone, LayoutDashboard, Layers, Grid2X2, Users, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GlowMenu, GlowMenuItem } from "@/components/ui/glow-menu";
 import logoHero from "@/assets/logo-hero.png";
 import { CalendlyQuiz } from "@/components/CalendlyQuiz";
 import { useLang } from "@/contexts/LanguageContext";
-import { useTheme } from "@/contexts/ThemeContext";
 
 const glowNavItems: GlowMenuItem[] = [
   {
@@ -67,7 +66,6 @@ export function Header() {
   const [quizOpen, setQuizOpen] = useState(false);
   const location = useLocation();
   const { lang, setLang, t } = useLang();
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -135,14 +133,6 @@ export function Header() {
             >
               <Globe className="h-3.5 w-3.5" />
               {lang === "fr" ? "EN" : "FR"}
-            </button>
-            {/* Dark mode toggle */}
-            <button
-              onClick={toggleTheme}
-              className="header-btn-outline inline-flex items-center justify-center h-9 w-9 rounded-full border border-[#DDD9E8] text-[#6F6580] hover:text-[#0E0B14] hover:border-[#0E0B14] transition-colors duration-300"
-              aria-label={theme === "light" ? "Activer le mode sombre" : "Activer le mode clair"}
-            >
-              {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
             </button>
             <button
               onClick={() => setQuizOpen(true)}
@@ -235,22 +225,13 @@ export function Header() {
                   >
                     {t("Planifier un appel", "Book a call")}
                   </button>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => setLang(lang === "fr" ? "en" : "fr")}
-                      className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 rounded-full border border-[#DDD9E8] text-[#6F6580] font-semibold text-[13px] hover:text-[#0E0B14] transition-colors"
-                    >
-                      <Globe className="h-3.5 w-3.5" />
-                      {lang === "fr" ? "Switch to English" : "Passer en français"}
-                    </button>
-                    <button
-                      onClick={toggleTheme}
-                      className="inline-flex items-center justify-center h-[42px] w-[42px] rounded-full border border-[#DDD9E8] text-[#6F6580] hover:text-[#0E0B14] transition-colors"
-                      aria-label={theme === "light" ? "Mode sombre" : "Mode clair"}
-                    >
-                      {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
-                    </button>
-                  </div>
+                  <button
+                    onClick={() => setLang(lang === "fr" ? "en" : "fr")}
+                    className="inline-flex items-center justify-center gap-2 py-2.5 rounded-full border border-[#DDD9E8] text-[#6F6580] font-semibold text-[13px] hover:text-[#0E0B14] transition-colors"
+                  >
+                    <Globe className="h-3.5 w-3.5" />
+                    {lang === "fr" ? "Switch to English" : "Passer en français"}
+                  </button>
                 </div>
               </div>
             </motion.div>
