@@ -6,6 +6,7 @@ import { ArrowRight, Eye } from "lucide-react";
 import { motion } from "framer-motion";
 import { ImageWithSkeleton } from "@/components/ImageWithSkeleton";
 import { MagneticButton, RevealText } from "@/components/wow";
+import { useLang } from "@/contexts/LanguageContext";
 
 import eclipsiaImg  from "@/assets/portfolio/eclipsia.webp";
 import altarysImg   from "@/assets/portfolio/altarys-logo.webp";
@@ -18,6 +19,7 @@ interface Project {
   title: string;
   category: "web" | "mobile" | "backoffice" | "360";
   description: string;
+  descriptionEn: string;
   image: string;
   tags: string[];
   year: string;
@@ -30,6 +32,7 @@ const projects: Project[] = [
     title: "Eclipsia",
     category: "web",
     description: "Site vitrine pour une agence de communication et marketing. Design percutant et image de marque forte.",
+    descriptionEn: "Showcase website for a communication and marketing agency. Striking design and a strong brand image.",
     image: eclipsiaImg,
     tags: ["HTML/CSS", "JavaScript", "Communication"],
     year: "2025",
@@ -40,6 +43,7 @@ const projects: Project[] = [
     title: "Altarys Group",
     category: "backoffice",
     description: "Plateforme DeFi et RWA avec dashboard administratif complet. Interface intuitive pour la gestion financière.",
+    descriptionEn: "DeFi and RWA platform with a complete admin dashboard. Intuitive interface for financial management.",
     image: altarysImg,
     tags: ["Dashboard", "DeFi", "Finance", "TypeScript"],
     year: "2025",
@@ -50,6 +54,7 @@ const projects: Project[] = [
     title: "Guardian Of Prophecia",
     category: "360",
     description: "Plateforme gaming complète avec système d'invitation, rewards et communauté. Expérience immersive Web3.",
+    descriptionEn: "Complete gaming platform with invitation system, rewards and community. Immersive Web3 experience.",
     image: propheciaImg,
     tags: ["Gaming", "Web3", "Community", "Full Stack"],
     year: "2024",
@@ -58,11 +63,11 @@ const projects: Project[] = [
 ];
 
 const categories = [
-  { id: "all",       name: "Tous" },
-  { id: "web",       name: "Web" },
-  { id: "mobile",    name: "Mobile" },
-  { id: "backoffice",name: "Backoffice" },
-  { id: "360",       name: "360°" },
+  { id: "all",       name: "Tous",       nameEn: "All" },
+  { id: "web",       name: "Web",        nameEn: "Web" },
+  { id: "mobile",    name: "Mobile",     nameEn: "Mobile" },
+  { id: "backoffice",name: "Backoffice", nameEn: "Backoffice" },
+  { id: "360",       name: "360°",       nameEn: "360°" },
 ];
 
 const categoryLabel = (cat: string) =>
@@ -71,6 +76,7 @@ const categoryLabel = (cat: string) =>
 /* ─── Page ──────────────────────────────────────────────────── */
 
 export default function Portfolio() {
+  const { t, lp } = useLang();
   const [activeCategory, setActiveCategory] = useState("all");
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
@@ -82,7 +88,9 @@ export default function Portfolio() {
     <Layout>
       <SEO
         title="Nos Réalisations"
+        titleEn="Our Work"
         description="Découvrez nos projets web, mobile et logiciel pour des marques ambitieuses. Design intentionnel, résultats mesurables."
+        descriptionEn="Explore our web, mobile and software projects for ambitious brands. Intentional design, measurable results."
         canonical="/portfolio"
       />
 
@@ -106,8 +114,8 @@ export default function Portfolio() {
             </motion.div>
 
             <h1 className="font-serif text-[32px] sm:text-[48px] lg:text-[66px] leading-[0.97] tracking-[-0.03em] text-[#0E0B14]">
-              <RevealText by="word" stagger={0.06}>Nos</RevealText>{" "}
-              <span className="prisme-italic-grad prisme-shimmer">réalisations.</span>
+              <RevealText by="word" stagger={0.06}>{t("Nos", "Our")}</RevealText>{" "}
+              <span className="prisme-italic-grad prisme-shimmer">{t("réalisations.", "work.")}</span>
             </h1>
 
             <motion.p
@@ -116,7 +124,10 @@ export default function Portfolio() {
               transition={{ duration: 0.6, delay: 0.45 }}
               className="mt-6 text-[17px] md:text-[19px] text-[#6F6580] leading-[1.65] max-w-xl mx-auto"
             >
-              Découvrez les projets que nous avons construits pour des marques ambitieuses, chaque réalisation une histoire de performance et de précision.
+              {t(
+                "Découvrez les projets que nous avons construits pour des marques ambitieuses, chaque réalisation une histoire de performance et de précision.",
+                "Explore the projects we've built for ambitious brands, each one a story of performance and precision.",
+              )}
             </motion.p>
           </div>
         </div>
@@ -149,7 +160,7 @@ export default function Portfolio() {
                     : "bg-white border border-[#EEEAF4] text-[#6F6580] hover:border-[rgba(124,58,237,0.35)] hover:text-[#7C3AED]"
                 }`}
               >
-                {cat.name}
+                {t(cat.name, cat.nameEn)}
               </button>
             ))}
           </motion.div>
@@ -178,7 +189,7 @@ export default function Portfolio() {
                 transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
               >
                 <Link
-                  to={project.url}
+                  to={lp(project.url)}
                   className="block group"
                   onMouseEnter={() => setHoveredProject(project.id)}
                   onMouseLeave={() => setHoveredProject(null)}
@@ -205,7 +216,7 @@ export default function Portfolio() {
                       >
                         <div className="flex items-center gap-2 text-[13px] font-medium text-white">
                           <Eye className="h-4 w-4" />
-                          Voir le projet
+                          {t("Voir le projet", "View project")}
                         </div>
                       </motion.div>
 
@@ -224,7 +235,7 @@ export default function Portfolio() {
                       </div>
 
                       <p className="text-[13px] text-[#6F6580] mb-4 line-clamp-2 leading-relaxed">
-                        {project.description}
+                        {t(project.description, project.descriptionEn)}
                       </p>
 
                       <div className="flex flex-wrap gap-1.5">
@@ -247,8 +258,8 @@ export default function Portfolio() {
               animate={{ opacity: 1 }}
               className="text-center py-24 text-[#9B8EC4]"
             >
-              <p className="font-serif text-[22px] mb-2">Aucun projet dans cette catégorie</p>
-              <p className="text-sm">Revenez bientôt, nous travaillons sur de nouvelles réalisations.</p>
+              <p className="font-serif text-[22px] mb-2">{t("Aucun projet dans cette catégorie", "No projects in this category")}</p>
+              <p className="text-sm">{t("Revenez bientôt, nous travaillons sur de nouvelles réalisations.", "Check back soon, we're working on new projects.")}</p>
             </motion.div>
           )}
         </div>
@@ -288,16 +299,19 @@ export default function Portfolio() {
               <div className="relative">
                 <div className="section-label justify-center mb-8"
                   style={{ color: "#A78BFA", borderColor: "rgba(124,58,237,0.25)", background: "rgba(124,58,237,0.12)" }}>
-                  Votre projet
+                  {t("Votre projet", "Your project")}
                 </div>
 
                 <h2 className="font-serif text-[28px] md:text-[46px] leading-[1.08] tracking-[-0.02em] text-white mb-5">
-                  Le prochain pourrait être{" "}
-                  <span className="prisme-italic-grad">le vôtre.</span>
+                  {t("Le prochain pourrait être", "The next one could be")}{" "}
+                  <span className="prisme-italic-grad">{t("le vôtre.", "yours.")}</span>
                 </h2>
 
                 <p className="text-[#B8A8D8] text-base md:text-lg leading-relaxed mb-10 max-w-lg mx-auto">
-                  Discutons de votre vision et transformons-la en réalité digitale mémorable.
+                  {t(
+                    "Discutons de votre vision et transformons-la en réalité digitale mémorable.",
+                    "Let's talk about your vision and turn it into a memorable digital reality.",
+                  )}
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -308,15 +322,15 @@ export default function Portfolio() {
                     rel="noopener noreferrer"
                     className="btn-prisme inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white font-medium text-[15px]"
                   >
-                    Planifier un appel
+                    {t("Planifier un appel", "Book a call")}
                     <ArrowRight className="h-4 w-4" />
                   </MagneticButton>
                   <MagneticButton
                     as={Link}
-                    to="/contact"
+                    to={lp("/contact")}
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white/80 font-medium text-[15px] hover:border-white/50 hover:text-white transition-colors duration-200"
                   >
-                    Démarrer un projet
+                    {t("Démarrer un projet", "Start a project")}
                     <ArrowRight className="h-4 w-4" />
                   </MagneticButton>
                 </div>

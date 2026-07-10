@@ -49,13 +49,13 @@ export function SocialProofBand() {
       key: "clients",
     },
     {
-      value: `${yearCount} ans`,
-      label: t("d'expérience", "years of experience"),
+      value: t(`${yearCount} ans`, `${yearCount} years`),
+      label: t("d'expérience", "of experience"),
       key: "years",
     },
     {
-      value: `${productCount} produits`,
-      label: t("opérés par nos soins", "products operated in-house"),
+      value: t(`${productCount} produits`, `${productCount} products`),
+      label: t("opérés par nos soins", "operated in-house"),
       key: "products",
     },
     {

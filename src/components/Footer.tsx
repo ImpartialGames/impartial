@@ -15,36 +15,40 @@ import { useLang } from "@/contexts/LanguageContext";
 const sections = [
   {
     label: "Expertises",
+    labelEn: "Expertise",
     links: [
-      { title: "Sites Web",        href: "/services/web",        internal: true },
-      { title: "Apps Mobiles",     href: "/services/mobile",     internal: true },
-      { title: "Backoffice",       href: "/services/backoffice", internal: true },
-      { title: "Écosystème 360°",  href: "/services/360",        internal: true },
+      { title: "Sites Web",        titleEn: "Websites",       href: "/services/web",        internal: true },
+      { title: "Apps Mobiles",     titleEn: "Mobile Apps",    href: "/services/mobile",     internal: true },
+      { title: "Backoffice",       titleEn: "Back Office",    href: "/services/backoffice", internal: true },
+      { title: "Écosystème 360°",  titleEn: "360° Ecosystem", href: "/services/360",        internal: true },
     ],
   },
   {
     label: "Studio",
+    labelEn: "Studio",
     links: [
-      { title: "Notre vision", href: "/studio",    internal: true },
-      { title: "Portfolio",    href: "/portfolio", internal: true },
-      { title: "Contact",      href: "/contact",   internal: true },
+      { title: "Notre vision", titleEn: "Our vision", href: "/studio",    internal: true },
+      { title: "Portfolio",    titleEn: "Portfolio",  href: "/portfolio", internal: true },
+      { title: "Contact",      titleEn: "Contact",    href: "/contact",   internal: true },
     ],
   },
   {
     label: "Légal",
+    labelEn: "Legal",
     links: [
-      { title: "Mentions légales", href: "/mentions-legales",           internal: true },
-      { title: "Confidentialité",  href: "/politique-confidentialite",  internal: true },
-      { title: "CGU",              href: "/cgu",                        internal: true },
-      { title: "CGV",              href: "/cgv",                        internal: true },
+      { title: "Mentions légales", titleEn: "Legal notice",   href: "/mentions-legales",           internal: true, frOnly: true },
+      { title: "Confidentialité",  titleEn: "Privacy policy", href: "/politique-confidentialite",  internal: true, frOnly: true },
+      { title: "CGU",              titleEn: "Terms of Use",   href: "/cgu",                        internal: true, frOnly: true },
+      { title: "CGV",              titleEn: "Terms of Sale",  href: "/cgv",                        internal: true, frOnly: true },
     ],
   },
   {
     label: "Réseaux",
+    labelEn: "Social",
     links: [
-      { title: "Instagram", href: "https://instagram.com/impartialgames", icon: Instagram, internal: false },
-      { title: "LinkedIn",  href: "https://linkedin.com/company/impartial-games", icon: Linkedin, internal: false },
-      { title: "Twitter",   href: "https://twitter.com/impartialgames", icon: Twitter, internal: false },
+      { title: "Instagram", titleEn: "Instagram", href: "https://instagram.com/impartialgames", icon: Instagram, internal: false },
+      { title: "LinkedIn",  titleEn: "LinkedIn",  href: "https://linkedin.com/company/impartial-games", icon: Linkedin, internal: false },
+      { title: "Twitter",   titleEn: "Twitter",   href: "https://twitter.com/impartialgames", icon: Twitter, internal: false },
     ],
   },
 ];
@@ -78,7 +82,7 @@ function AnimatedContainer({ className, delay = 0.1, children }: AnimatedContain
 /* ─── Footer ──────────────────────────────────────────────────── */
 
 export function Footer() {
-  const { t } = useLang();
+  const { t, lp } = useLang();
   const openCookieSettings = () => {
     localStorage.removeItem("cookie-consent");
     window.location.reload();
@@ -114,7 +118,7 @@ export function Footer() {
 
           {/* Colonne marque */}
           <AnimatedContainer className="space-y-5" delay={0.05}>
-            <Link to="/" className="inline-block">
+            <Link to={lp("/")} className="inline-block">
               <span className="font-syne font-bold text-xl text-white tracking-tight">
                 IMPARTIAL
               </span>
@@ -141,20 +145,20 @@ export function Footer() {
               <AnimatedContainer key={section.label} delay={0.1 + index * 0.08}>
                 <div>
                   <h4 className="text-[10px] font-semibold mb-5 text-[#A78BFA] uppercase tracking-[0.22em]">
-                    {section.label}
+                    {t(section.label, section.labelEn)}
                   </h4>
                   <ul className="space-y-3">
                     {section.links.map((link) => (
                       <li key={link.title}>
                         {"internal" in link && link.internal ? (
                           <Link
-                            to={link.href}
+                            to={"frOnly" in link && link.frOnly ? link.href : lp(link.href)}
                             className="inline-flex items-center gap-1.5 text-[13.5px] text-[#9B8EC4] hover:text-white transition-colors duration-200"
                           >
                             {"icon" in link && link.icon && (
                               <link.icon className="h-3.5 w-3.5 shrink-0" />
                             )}
-                            {link.title}
+                            {t(link.title, link.titleEn)}
                           </Link>
                         ) : (
                           <a
@@ -166,7 +170,7 @@ export function Footer() {
                             {"icon" in link && link.icon && (
                               <link.icon className="h-3.5 w-3.5 shrink-0" />
                             )}
-                            {link.title}
+                            {t(link.title, link.titleEn)}
                           </a>
                         )}
                       </li>

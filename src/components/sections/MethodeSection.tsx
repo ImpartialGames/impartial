@@ -1,38 +1,53 @@
 import { motion } from "framer-motion";
 import { MessageSquare, Palette, Code, Rocket } from "lucide-react";
+import { useLang } from "@/contexts/LanguageContext";
 
 const steps = [
   {
     icon: MessageSquare,
     number: "01",
     title: "Discovery",
+    titleEn: "Discovery",
     description: "Écoute active, analyse des besoins et définition de la stratégie.",
+    descriptionEn: "Active listening, needs analysis and strategy definition.",
     deliverable: "Cahier des charges",
+    deliverableEn: "Project brief",
   },
   {
     icon: Palette,
     number: "02",
     title: "Design",
+    titleEn: "Design",
     description: "Création des maquettes UI/UX et validation du design system.",
+    descriptionEn: "UI/UX mockups and design system validation.",
     deliverable: "Maquettes Figma",
+    deliverableEn: "Figma mockups",
   },
   {
     icon: Code,
     number: "03",
     title: "Développement",
+    titleEn: "Development",
     description: "Code propre, tests rigoureux et itérations continues.",
+    descriptionEn: "Clean code, rigorous testing and continuous iterations.",
     deliverable: "Version beta",
+    deliverableEn: "Beta release",
   },
   {
     icon: Rocket,
     number: "04",
     title: "Lancement",
+    titleEn: "Launch",
     description: "Déploiement, optimisation et suivi des performances.",
+    descriptionEn: "Deployment, optimization and performance monitoring.",
     deliverable: "Produit live",
+    deliverableEn: "Live product",
   },
 ];
 
 export function MethodeSection() {
+  const { t } = useLang();
+
   return (
     <section id="methode" className="relative py-24 md:py-32 bg-[#FBFAF7] dark:bg-[#0E0B14] overflow-hidden">
       {/* Halos */}
@@ -41,13 +56,16 @@ export function MethodeSection() {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20 max-w-3xl mx-auto">
-          <div className="section-label justify-center mb-6">Méthode</div>
+          <div className="section-label justify-center mb-6">{t("Méthode", "Method")}</div>
           <h2 className="font-serif text-[34px] md:text-[52px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] dark:text-white/90 mb-6">
-            <span className="block">Un processus</span>
-            <span className="block prisme-italic-grad">éprouvé.</span>
+            <span className="block">{t("Un processus", "A proven")}</span>
+            <span className="block prisme-italic-grad">{t("éprouvé.", "process.")}</span>
           </h2>
           <p className="text-[#6F6580] dark:text-white/60 text-base md:text-lg leading-relaxed">
-            Quatre étapes structurées, aucune improvisation, des études au lancement, tout est maîtrisé.
+            {t(
+              "Quatre étapes structurées, aucune improvisation, des études au lancement, tout est maîtrisé.",
+              "Four structured steps, zero improvisation — from scoping to launch, everything under control."
+            )}
           </p>
         </div>
 
@@ -83,14 +101,14 @@ export function MethodeSection() {
                   <step.icon className="h-5 w-5 text-[#7C3AED]" />
                 </div>
 
-                <h3 className="font-serif text-[20px] text-[#0E0B14] dark:text-white/90 mb-2.5 leading-tight">{step.title}</h3>
-                <p className="text-[14px] text-[#6F6580] dark:text-white/60 mb-6 leading-relaxed">{step.description}</p>
+                <h3 className="font-serif text-[20px] text-[#0E0B14] dark:text-white/90 mb-2.5 leading-tight">{t(step.title, step.titleEn)}</h3>
+                <p className="text-[14px] text-[#6F6580] dark:text-white/60 mb-6 leading-relaxed">{t(step.description, step.descriptionEn)}</p>
 
                 {/* Livrable */}
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3EEFB] dark:bg-white/10 border border-[rgba(124,58,237,0.18)] dark:border-white/10">
-                  <span className="text-[10px] font-medium text-[#6F6580] dark:text-white/50 tracking-wide">Livrable</span>
+                  <span className="text-[10px] font-medium text-[#6F6580] dark:text-white/50 tracking-wide">{t("Livrable", "Deliverable")}</span>
                   <span className="w-px h-3 bg-[#EEEAF4] dark:bg-white/20" />
-                  <span className="text-[11px] font-semibold text-[#7C3AED] dark:text-[#A78BFA]">{step.deliverable}</span>
+                  <span className="text-[11px] font-semibold text-[#7C3AED] dark:text-[#A78BFA]">{t(step.deliverable, step.deliverableEn)}</span>
                 </div>
               </div>
 

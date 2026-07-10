@@ -7,6 +7,7 @@ import { Mail, MapPin, Send, Loader2, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { motion, type Variants } from "framer-motion";
 import { MagneticButton, RevealText } from "@/components/wow";
+import { useLang } from "@/contexts/LanguageContext";
 
 /* ─── Variants ─────────────────────────────────────────────── */
 
@@ -28,6 +29,7 @@ const inputClass =
 const Contact = () => {
   const [searchParams] = useSearchParams();
   const { toast } = useToast();
+  const { t } = useLang();
   const [isLoading, setIsLoading] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -54,8 +56,11 @@ const Contact = () => {
     setIsLoading(true);
     await new Promise(resolve => setTimeout(resolve, 1500));
     toast({
-      title: "Message envoyé !",
-      description: "Nous vous recontacterons dans les plus brefs délais.",
+      title: t("Message envoyé !", "Message sent!"),
+      description: t(
+        "Nous vous recontacterons dans les plus brefs délais.",
+        "We'll get back to you as soon as possible.",
+      ),
     });
     setFormData({ name: "", email: "", company: "", subject: "", message: "" });
     setIsLoading(false);
@@ -65,7 +70,9 @@ const Contact = () => {
     <Layout>
       <SEO
         title="Contactez-nous"
+        titleEn="Contact Us"
         description="Parlons de votre projet. Réponse sous 24–48h avec une proposition claire et sans engagement."
+        descriptionEn="Let's talk about your project. We reply within 24–48h with a clear, no-commitment proposal."
         canonical="/contact"
       />
 
@@ -89,9 +96,9 @@ const Contact = () => {
             </motion.div>
 
             <h1 className="font-serif text-[32px] sm:text-[48px] lg:text-[66px] leading-[0.97] tracking-[-0.03em] text-[#0E0B14]">
-              <RevealText by="word" stagger={0.06}>Parlons de votre</RevealText>
+              <RevealText by="word" stagger={0.06}>{t("Parlons de votre", "Let's talk about your")}</RevealText>
               <span className="block">
-                <span className="prisme-italic-grad prisme-shimmer">projet.</span>
+                <span className="prisme-italic-grad prisme-shimmer">{t("projet.", "project.")}</span>
               </span>
             </h1>
 
@@ -101,7 +108,10 @@ const Contact = () => {
               transition={{ duration: 0.6, delay: 0.45 }}
               className="mt-6 text-[17px] md:text-[19px] text-[#6F6580] leading-[1.65] max-w-xl mx-auto"
             >
-              Une idée ? Un besoin ? Contactez-nous et donnons vie ensemble à votre vision digitale.
+              {t(
+                "Une idée ? Un besoin ? Contactez-nous et donnons vie ensemble à votre vision digitale.",
+                "An idea? A need? Get in touch and let's bring your digital vision to life together.",
+              )}
             </motion.p>
           </div>
         </div>
@@ -131,7 +141,7 @@ const Contact = () => {
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#A78BFA] mb-6"
               >
-                Informations
+                {t("Informations", "Information")}
               </motion.p>
 
               {[
@@ -148,17 +158,17 @@ const Contact = () => {
                 },
                 {
                   icon: MapPin,
-                  label: "Localisation",
-                  content: <p className="text-[14px] text-[#0E0B14]">Delaware, États-Unis</p>,
+                  label: t("Localisation", "Location"),
+                  content: <p className="text-[14px] text-[#0E0B14]">{t("Delaware, États-Unis", "Delaware, United States")}</p>,
                   delay: 0.2,
                 },
                 {
                   icon: Clock,
-                  label: "Horaires",
+                  label: t("Horaires", "Hours"),
                   content: (
                     <div className="space-y-1">
-                      <p className="text-[14px] text-[#0E0B14]">Lun – Ven : 9h00 – 18h00</p>
-                      <p className="text-[13px] text-[#6F6580]">Weekend : Sur rendez-vous</p>
+                      <p className="text-[14px] text-[#0E0B14]">{t("Lun – Ven : 9h00 – 18h00", "Mon – Fri: 9am – 6pm")}</p>
+                      <p className="text-[13px] text-[#6F6580]">{t("Weekend : Sur rendez-vous", "Weekends: by appointment")}</p>
                     </div>
                   ),
                   delay: 0.3,
@@ -200,13 +210,13 @@ const Contact = () => {
               >
                 <form onSubmit={handleSubmit} className="p-8 md:p-10 rounded-[28px] bg-white border border-[#EEEAF4]">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#A78BFA] mb-8">
-                    Envoyez-nous un message
+                    {t("Envoyez-nous un message", "Send us a message")}
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                     <div>
                       <label htmlFor="name" className="block text-[13px] font-medium text-[#6F6580] mb-2">
-                        Nom complet *
+                        {t("Nom complet *", "Full name *")}
                       </label>
                       <input
                         type="text"
@@ -239,7 +249,7 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                     <div>
                       <label htmlFor="company" className="block text-[13px] font-medium text-[#6F6580] mb-2">
-                        Entreprise
+                        {t("Entreprise", "Company")}
                       </label>
                       <input
                         type="text"
@@ -248,12 +258,12 @@ const Contact = () => {
                         value={formData.company}
                         onChange={handleChange}
                         className={inputClass}
-                        placeholder="Votre entreprise"
+                        placeholder={t("Votre entreprise", "Your company")}
                       />
                     </div>
                     <div>
                       <label htmlFor="subject" className="block text-[13px] font-medium text-[#6F6580] mb-2">
-                        Sujet *
+                        {t("Sujet *", "Subject *")}
                       </label>
                       <input
                         type="text"
@@ -263,7 +273,7 @@ const Contact = () => {
                         value={formData.subject}
                         onChange={handleChange}
                         className={inputClass}
-                        placeholder="Votre projet"
+                        placeholder={t("Votre projet", "Your project")}
                       />
                     </div>
                   </div>
@@ -280,7 +290,10 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleChange}
                       className={inputClass + " resize-none"}
-                      placeholder="Décrivez votre projet, vos besoins, vos délais..."
+                      placeholder={t(
+                        "Décrivez votre projet, vos besoins, vos délais...",
+                        "Tell us about your project, your needs, your timeline...",
+                      )}
                     />
                   </div>
 
@@ -290,7 +303,7 @@ const Contact = () => {
                     disabled={isLoading}
                     className="btn-prisme inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white font-medium text-[15px] disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {isLoading ? "Envoi en cours..." : "Envoyer le message"}
+                    {isLoading ? t("Envoi en cours...", "Sending...") : t("Envoyer le message", "Send message")}
                     {isLoading
                       ? <Loader2 className="h-4 w-4 animate-spin" />
                       : <Send className="h-4 w-4" />
@@ -318,10 +331,10 @@ const Contact = () => {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="text-center mb-12"
             >
-              <div className="section-label justify-center mb-6">Rendez-vous</div>
+              <div className="section-label justify-center mb-6">{t("Rendez-vous", "Book a call")}</div>
               <h2 className="font-serif text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14]">
-                Choisissez un créneau pour{" "}
-                <span className="prisme-italic-grad">discuter.</span>
+                {t("Choisissez un créneau pour", "Pick a time slot to")}{" "}
+                <span className="prisme-italic-grad">{t("discuter.", "talk.")}</span>
               </h2>
             </motion.div>
 

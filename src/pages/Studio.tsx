@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Zap, Target, Users, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import { MagneticButton, RevealText } from "@/components/wow";
+import { useLang } from "@/contexts/LanguageContext";
 
 /* ─── Données ─────────────────────────────────────────────── */
 
@@ -11,22 +12,30 @@ const values = [
   {
     icon: Zap,
     title: "Innovation",
+    titleEn: "Innovation",
     description: "Nous repoussons constamment les limites du possible pour offrir des expériences inédites.",
+    descriptionEn: "We constantly push the limits of what's possible to deliver one-of-a-kind experiences.",
   },
   {
     icon: Target,
     title: "Précision",
+    titleEn: "Precision",
     description: "Chaque pixel, chaque ligne de code est pensée pour la perfection et l'impact.",
+    descriptionEn: "Every pixel, every line of code is crafted for perfection and impact.",
   },
   {
     icon: Users,
     title: "Partenariat",
+    titleEn: "Partnership",
     description: "Votre partenaire de croissance digital, pas un simple prestataire.",
+    descriptionEn: "Your digital growth partner, not just another vendor.",
   },
   {
     icon: Award,
     title: "Excellence",
+    titleEn: "Excellence",
     description: "Notre standard est l'excellence, notre objectif dépasser vos attentes.",
+    descriptionEn: "Our standard is excellence, our goal to exceed your expectations.",
   },
 ];
 
@@ -34,28 +43,38 @@ const timeline = [
   {
     year: "2024",
     title: "Naissance d'IMPARTIAL",
+    titleEn: "The birth of IMPARTIAL",
     description: "Création du studio avec une vision claire : révolutionner le digital pour les marques ambitieuses.",
+    descriptionEn: "The studio is founded with a clear vision: revolutionize digital for ambitious brands.",
   },
   {
     year: "2025",
     title: "Innovation 360°",
+    titleEn: "360° innovation",
     description: "Lancement de notre offre écosystème complet pour les startups et entreprises en croissance.",
+    descriptionEn: "Launch of our full-ecosystem offer for startups and growing companies.",
   },
   {
     year: "2026",
     title: "Expansion",
+    titleEn: "Expansion",
     description: "Ouverture vers de nouveaux marchés à l'échelle mondiale avec une équipe dédiée.",
+    descriptionEn: "Opening up to new markets worldwide with a dedicated team.",
   },
 ];
 
 /* ─── Page ──────────────────────────────────────────────────── */
 
 const Studio = () => {
+  const { t, lp } = useLang();
+
   return (
     <Layout>
       <SEO
         title="Le Studio"
+        titleEn="The Studio"
         description="IMPARTIAL est un studio digital créatif basé aux États-Unis. Design raffiné, code solide et livraisons dans les délais."
+        descriptionEn="IMPARTIAL is a creative digital studio based in the United States. Refined design, solid code and on-time delivery."
         canonical="/studio"
         schemaJson={{
           "@context": "https://schema.org",
@@ -86,7 +105,7 @@ const Studio = () => {
               transition={{ duration: 0.5 }}
               className="section-label justify-center mb-6"
             >
-              Le Studio
+              {t("Le Studio", "The Studio")}
             </motion.div>
 
             <h1 className="font-serif text-[34px] sm:text-[50px] md:text-[62px] lg:text-[80px] xl:text-[96px] leading-[0.95] tracking-[-0.03em] text-[#0E0B14]">
@@ -102,7 +121,10 @@ const Studio = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="mt-8 text-[17px] md:text-[20px] text-[#6F6580] leading-[1.7] max-w-2xl mx-auto"
             >
-              Un collectif de créatifs et de technologues passionnés, unis par une vision : transformer vos idées en expériences digitales extraordinaires.
+              {t(
+                "Un collectif de créatifs et de technologues passionnés, unis par une vision : transformer vos idées en expériences digitales extraordinaires.",
+                "A collective of passionate creatives and technologists, united by one vision: turning your ideas into extraordinary digital experiences.",
+              )}
             </motion.p>
           </div>
         </div>
@@ -132,7 +154,7 @@ const Studio = () => {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="section-label mb-6"
               >
-                Notre vision
+                {t("Notre vision", "Our vision")}
               </motion.div>
 
               <motion.h2
@@ -142,8 +164,8 @@ const Studio = () => {
                 transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="font-serif text-[36px] md:text-[52px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-8"
               >
-                Créer l&apos;{" "}
-                <span className="prisme-italic-grad">extraordinaire.</span>
+                {t("Créer l'", "Create the")}{" "}
+                <span className="prisme-italic-grad">{t("extraordinaire.", "extraordinary.")}</span>
               </motion.h2>
 
               <motion.p
@@ -153,7 +175,10 @@ const Studio = () => {
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
                 className="text-[#6F6580] text-lg mb-6 leading-relaxed"
               >
-                Chez IMPARTIAL, nous croyons que le digital ne doit pas être un compromis. Nous fusionnons l&apos;esthétique premium avec une approche technique irréprochable pour créer des expériences qui marquent les esprits.
+                {t(
+                  "Chez IMPARTIAL, nous croyons que le digital ne doit pas être un compromis. Nous fusionnons l'esthétique premium avec une approche technique irréprochable pour créer des expériences qui marquent les esprits.",
+                  "At IMPARTIAL, we believe digital should never be a compromise. We fuse premium aesthetics with flawless engineering to create experiences that leave a lasting mark.",
+                )}
               </motion.p>
 
               <motion.p
@@ -163,7 +188,10 @@ const Studio = () => {
                 transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 className="text-[#6F6580] text-lg leading-relaxed"
               >
-                Notre nom ? <span className="text-[#0E0B14] font-semibold">IMPARTIAL</span>. Parce que nous abordons chaque projet sans préjugé, avec un regard neuf et une objectivité totale pour trouver LA meilleure solution pour vous.
+                {t("Notre nom ? ", "Our name? ")}<span className="text-[#0E0B14] font-semibold">IMPARTIAL</span>{t(
+                  ". Parce que nous abordons chaque projet sans préjugé, avec un regard neuf et une objectivité totale pour trouver LA meilleure solution pour vous.",
+                  ". Because we approach every project without bias, with fresh eyes and total objectivity to find THE best solution for you.",
+                )}
               </motion.p>
             </div>
 
@@ -182,7 +210,7 @@ const Studio = () => {
                   <div className="font-serif text-[80px] md:text-[96px] leading-none tracking-[-0.04em] prisme-italic-grad mb-4">
                     100%
                   </div>
-                  <p className="text-[16px] text-[#6F6580] font-medium">Engagement client</p>
+                  <p className="text-[16px] text-[#6F6580] font-medium">{t("Engagement client", "Client commitment")}</p>
                 </div>
               </div>
             </motion.div>
@@ -205,10 +233,10 @@ const Studio = () => {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="text-center mb-16"
             >
-              <div className="section-label justify-center mb-6">Notre parcours</div>
+              <div className="section-label justify-center mb-6">{t("Notre parcours", "Our journey")}</div>
               <h2 className="font-serif text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14]">
-                Les étapes{" "}
-                <span className="prisme-italic-grad">clés.</span>
+                {t("Les étapes", "The key")}{" "}
+                <span className="prisme-italic-grad">{t("clés.", "milestones.")}</span>
               </h2>
             </motion.div>
 
@@ -226,8 +254,8 @@ const Studio = () => {
                       {item.year}
                     </div>
                     <div className="pt-1">
-                      <h3 className="font-serif text-[20px] text-[#0E0B14] mb-2 leading-snug">{item.title}</h3>
-                      <p className="text-[14px] text-[#6F6580] leading-relaxed">{item.description}</p>
+                      <h3 className="font-serif text-[20px] text-[#0E0B14] mb-2 leading-snug">{t(item.title, item.titleEn)}</h3>
+                      <p className="text-[14px] text-[#6F6580] leading-relaxed">{t(item.description, item.descriptionEn)}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -252,10 +280,10 @@ const Studio = () => {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="text-center mb-16"
           >
-            <div className="section-label justify-center mb-6">Nos valeurs</div>
+            <div className="section-label justify-center mb-6">{t("Nos valeurs", "Our values")}</div>
             <h2 className="font-serif text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14]">
-              Ce qui nous{" "}
-              <span className="prisme-italic-grad">guide.</span>
+              {t("Ce qui nous", "What")}{" "}
+              <span className="prisme-italic-grad">{t("guide.", "guides us.")}</span>
             </h2>
           </motion.div>
 
@@ -274,8 +302,8 @@ const Studio = () => {
                     <div className="w-12 h-12 rounded-2xl bg-[#F3EEFB] border border-[#EEEAF4] flex items-center justify-center mb-6 mx-auto group-hover:bg-[rgba(124,58,237,0.10)] transition-colors duration-300">
                       <Icon className="h-5 w-5 text-[#7C3AED]" strokeWidth={1.5} />
                     </div>
-                    <h3 className="font-serif text-[18px] text-[#0E0B14] mb-3 leading-snug">{value.title}</h3>
-                    <p className="text-[13px] text-[#6F6580] leading-relaxed">{value.description}</p>
+                    <h3 className="font-serif text-[18px] text-[#0E0B14] mb-3 leading-snug">{t(value.title, value.titleEn)}</h3>
+                    <p className="text-[13px] text-[#6F6580] leading-relaxed">{t(value.description, value.descriptionEn)}</p>
                   </div>
                 </motion.div>
               );
@@ -318,16 +346,19 @@ const Studio = () => {
               <div className="relative">
                 <div className="section-label justify-center mb-8"
                   style={{ color: "#A78BFA", borderColor: "rgba(124,58,237,0.25)", background: "rgba(124,58,237,0.12)" }}>
-                  Rejoignez l&apos;aventure
+                  {t("Rejoignez l'aventure", "Join the adventure")}
                 </div>
 
                 <h2 className="font-serif text-[28px] md:text-[46px] leading-[1.08] tracking-[-0.02em] text-white mb-5">
-                  Prêt à créer quelque chose{" "}
-                  <span className="prisme-italic-grad">d&apos;exceptionnel ?</span>
+                  {t("Prêt à créer quelque chose", "Ready to create something")}{" "}
+                  <span className="prisme-italic-grad">{t("d'exceptionnel ?", "exceptional?")}</span>
                 </h2>
 
                 <p className="text-[#B8A8D8] text-base md:text-lg leading-relaxed mb-10 max-w-lg mx-auto">
-                  Discutons de votre projet et voyons ensemble comment le rendre inoubliable.
+                  {t(
+                    "Discutons de votre projet et voyons ensemble comment le rendre inoubliable.",
+                    "Let's talk about your project and see together how to make it unforgettable.",
+                  )}
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -338,15 +369,15 @@ const Studio = () => {
                     rel="noopener noreferrer"
                     className="btn-prisme inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white font-medium text-[15px]"
                   >
-                    Planifier un appel
+                    {t("Planifier un appel", "Book a call")}
                     <ArrowRight className="h-4 w-4" />
                   </MagneticButton>
                   <MagneticButton
                     as={Link}
-                    to="/contact"
+                    to={lp("/contact")}
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white/80 font-medium text-[15px] hover:border-white/50 hover:text-white transition-colors duration-200"
                   >
-                    Nous contacter
+                    {t("Nous contacter", "Contact us")}
                     <ArrowRight className="h-4 w-4" />
                   </MagneticButton>
                 </div>

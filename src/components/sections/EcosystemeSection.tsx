@@ -1,38 +1,53 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import { useLang } from "@/contexts/LanguageContext";
 
 const produits = [
   {
     name: "ELEV8",
     description: "SaaS coaching sportif",
+    descriptionEn: "Fitness coaching SaaS",
     price: "À partir de 59 € / 87 $CA / mois",
+    priceEn: "From 59 € / 87 $CA per month",
     url: "https://myelev8.app",
     tag: "Live",
+    tagEn: "Live",
   },
   {
     name: "Prospectoss",
     description: "Lead Intel B2B",
+    descriptionEn: "B2B lead intelligence",
     price: "À partir de 200 € / 293 $CA · Livraison 48h",
+    priceEn: "From 200 € / 293 $CA · 48h delivery",
     url: "#",
     tag: "Live",
+    tagEn: "Live",
   },
   {
     name: "MBA",
     description: "Back-office TPE/PME",
+    descriptionEn: "Back office for SMBs",
     price: "À partir de 150 € / 220 $CA / mois · 20+ secteurs",
+    priceEn: "From 150 € / 220 $CA per month · 20+ industries",
     url: "#",
     tag: "Live",
+    tagEn: "Live",
   },
   {
     name: "Guardian of Prophecia",
     description: "Jeu de stratégie Free-to-Play",
+    descriptionEn: "Free-to-play strategy game",
     price: "Bêta en cours",
+    priceEn: "Now in beta",
     url: "https://goprophecia.gg",
     tag: "Bêta",
+    tagEn: "Beta",
   },
 ];
 
 export function EcosystemeSection() {
+  const { t } = useLang();
+
   return (
     <section
       className="relative py-24 md:py-32 overflow-hidden"
@@ -120,15 +135,16 @@ export function EcosystemeSection() {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20 max-w-3xl mx-auto">
-          <div className="section-label-dark justify-center mb-6">Nos produits</div>
+          <div className="section-label-dark justify-center mb-6">{t("Nos produits", "Our products")}</div>
           <h2 className="text-[38px] md:text-[58px] leading-[1.05] tracking-[-0.02em] text-white mb-6">
-            <span className="block prisme-display">On ne fait pas que builder.</span>
-            <span className="block prisme-italic-grad">On opère.</span>
+            <span className="block prisme-display">{t("On ne fait pas que builder.", "We don't just build.")}</span>
+            <span className="block prisme-italic-grad">{t("On opère.", "We operate.")}</span>
           </h2>
           <p className="text-white/55 text-base md:text-lg leading-relaxed">
-            ELEV8, Prospectoss, MBA, Guardian of Prophecia. Quatre produits live, des milliers
-            d&apos;utilisateurs. Ce qu&apos;on te construit, on sait exactement ce que ça coûte de
-            le rater.
+            {t(
+              "ELEV8, Prospectoss, MBA, Guardian of Prophecia. Quatre produits live, des milliers d'utilisateurs. Ce qu'on te construit, on sait exactement ce que ça coûte de le rater.",
+              "ELEV8, Prospectoss, MBA, Guardian of Prophecia. Four live products, thousands of users. Whatever we build for you, we know exactly what it costs to get it wrong."
+            )}
           </p>
         </div>
 
@@ -154,14 +170,14 @@ export function EcosystemeSection() {
                   {p.name}
                 </span>
                 <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#7C3AED]/15 text-[#A78BFA] border border-[#7C3AED]/25">
-                  {p.tag}
+                  {t(p.tag, p.tagEn)}
                 </span>
               </div>
-              <p className="text-[13px] text-white/60 font-medium">{p.description}</p>
-              <p className="text-[12px] text-white/40 leading-snug">{p.price}</p>
+              <p className="text-[13px] text-white/60 font-medium">{t(p.description, p.descriptionEn)}</p>
+              <p className="text-[12px] text-white/40 leading-snug">{t(p.price, p.priceEn)}</p>
               {p.url !== "#" && (
                 <div className="flex items-center gap-1 text-[11px] text-[#A78BFA] font-semibold mt-auto group-hover:gap-2 transition-all">
-                  Voir le produit <ExternalLink className="h-3 w-3" />
+                  {t("Voir le produit", "View product")} <ExternalLink className="h-3 w-3" />
                 </div>
               )}
             </motion.a>

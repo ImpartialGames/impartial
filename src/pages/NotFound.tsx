@@ -7,7 +7,7 @@ import { useLang } from "@/contexts/LanguageContext";
 
 const NotFound = () => {
   const location = useLocation();
-  const { t } = useLang();
+  const { t, lp } = useLang();
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
@@ -28,7 +28,7 @@ const NotFound = () => {
         transition={{ duration: 0.5 }}
         className="absolute top-8 left-8"
       >
-        <Link to="/" className="flex items-center gap-2.5 group">
+        <Link to={lp("/")} className="flex items-center gap-2.5 group">
           <img
             src={logoHero}
             alt="Impartial"
@@ -94,14 +94,14 @@ const NotFound = () => {
           className="flex flex-col sm:flex-row gap-3 justify-center items-center"
         >
           <Link
-            to="/"
+            to={lp("/")}
             className="btn-prisme inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-medium text-[15px]"
           >
             {t("Retour à l'accueil", "Back to home")}
             <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
-            to="/contact"
+            to={lp("/contact")}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-[#0E0B14] dark:border-white/20 text-[#0E0B14] dark:text-white/80 font-medium text-[15px] hover:bg-[#0E0B14] dark:hover:bg-white/10 hover:text-white transition-colors"
           >
             {t("Lancer un projet", "Start a project")}

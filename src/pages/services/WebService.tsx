@@ -7,53 +7,72 @@ import {
 import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
 import { MagneticButton, RevealText } from "@/components/wow";
+import { useLang } from "@/contexts/LanguageContext";
 
 /* ─── Données ─────────────────────────────────────────────── */
 
 const stats = [
-  { value: "12+", label: "Projets livrés" },
-  { value: "100%", label: "Dans les délais" },
-  { value: "A+", label: "Performance" },
-  { value: "5★", label: "Satisfaction client" },
+  { value: "12+", label: "Projets livrés", labelEn: "Projects delivered" },
+  { value: "100%", label: "Dans les délais", labelEn: "On time" },
+  { value: "A+", label: "Performance", labelEn: "Performance" },
+  { value: "5★", label: "Satisfaction client", labelEn: "Client satisfaction" },
 ];
 
 const features = [
   {
     icon: Layers,
     title: "Design éditorial UI/UX",
+    titleEn: "Editorial UI/UX design",
     description: "Chaque interface est pensée pour convertir et marquer les esprits. Typographie soignée, hiérarchie visuelle rigoureuse, micro-interactions intentionnelles.",
+    descriptionEn: "Every interface is designed to convert and leave a lasting impression. Refined typography, rigorous visual hierarchy, intentional micro-interactions.",
     large: true,
     tags: ["Figma", "Design System", "Motion"],
+    tagsEn: ["Figma", "Design System", "Motion"],
   },
   {
     icon: Gauge,
     title: "Performance & Vitesse",
+    titleEn: "Performance & Speed",
     description: "Votre site charge vite et reste fluide sur tous les écrans.",
+    descriptionEn: "Your site loads fast and stays smooth on every screen.",
     tags: ["Vite", "Next.js", "Optimisation"],
+    tagsEn: ["Vite", "Next.js", "Optimization"],
   },
   {
     icon: Search,
     title: "Référencement naturel",
+    titleEn: "Search engine optimization",
     description: "Structuré pour être trouvé sur Google. Contenu bien organisé et pages correctement indexées.",
+    descriptionEn: "Structured to be found on Google. Well-organized content and properly indexed pages.",
     tags: ["Schema.org", "OpenGraph", "sitemap"],
+    tagsEn: ["Schema.org", "OpenGraph", "sitemap"],
   },
   {
     icon: ShoppingCart,
     title: "E-commerce & Paiements",
+    titleEn: "E-commerce & Payments",
     description: "Boutiques performantes avec tunnels de vente optimisés et intégrations Stripe, PayPal ou sur-mesure.",
+    descriptionEn: "High-performing stores with optimized sales funnels and Stripe, PayPal or custom integrations.",
     tags: ["Stripe", "Tunnel de vente"],
+    tagsEn: ["Stripe", "Sales funnel"],
   },
   {
     icon: MousePointer2,
     title: "Animations & Motion",
+    titleEn: "Animations & Motion",
     description: "Animations fluides qui valorisent votre marque sans ralentir votre site.",
+    descriptionEn: "Smooth animations that elevate your brand without slowing your site down.",
     tags: ["Framer Motion", "GSAP"],
+    tagsEn: ["Framer Motion", "GSAP"],
   },
   {
     icon: Code2,
     title: "Stack moderne & maintenable",
+    titleEn: "Modern, maintainable stack",
     description: "React, Next.js, TypeScript, Tailwind. Un code propre, documenté, que vous pouvez reprendre et faire évoluer.",
+    descriptionEn: "React, Next.js, TypeScript, Tailwind. Clean, documented code you can take over and build on.",
     tags: ["React", "TypeScript", "Tailwind"],
+    tagsEn: ["React", "TypeScript", "Tailwind"],
   },
 ];
 
@@ -62,12 +81,20 @@ const stack = [
   "Vite", "Vercel", "Supabase", "Stripe", "Figma", "SEO technique", "shadcn/ui",
 ];
 
+const stackEn = [
+  "React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion",
+  "Vite", "Vercel", "Supabase", "Stripe", "Figma", "Technical SEO", "shadcn/ui",
+];
+
 const offers = [
   {
     tier: "LAUNCH",
     title: "Site Présence",
+    titleEn: "Presence Site",
     tagline: "Être visible, simplement.",
+    taglineEn: "Be visible, simply.",
     price: "Sur demande",
+    priceEn: "On request",
     features: [
       "Site vitrine 1 à 5 pages",
       "Design professionnel Prisme DA",
@@ -75,15 +102,27 @@ const offers = [
       "Référencement de base",
       "Formulaire de contact",
     ],
+    featuresEn: [
+      "Showcase site, 1 to 5 pages",
+      "Professional design, Prisme art direction",
+      "Mobile-first responsive",
+      "Basic SEO",
+      "Contact form",
+    ],
     upsell: "Hébergement & maintenance 59€/mois",
+    upsellEn: "Hosting & maintenance €59/month",
     subject: "Site Web - Offre LAUNCH (Site Présence)",
+    subjectEn: "Website - LAUNCH Plan (Presence Site)",
     recommended: false,
   },
   {
     tier: "PRO",
     title: "Site Business",
+    titleEn: "Business Site",
     tagline: "Générer des leads et des ventes.",
+    taglineEn: "Generate leads and sales.",
     price: "Sur demande",
+    priceEn: "On request",
     features: [
       "Site complet ou boutique en ligne",
       "Système de paiement intégré",
@@ -92,15 +131,28 @@ const offers = [
       "Référencement approfondi",
       "Formation utilisateur",
     ],
+    featuresEn: [
+      "Full website or online store",
+      "Integrated payment system",
+      "Optimized sales funnel",
+      "Advanced analytics",
+      "In-depth SEO",
+      "User training",
+    ],
     upsell: "Hébergement avancé + support 99€/mois",
+    upsellEn: "Advanced hosting + support €99/month",
     subject: "Site Web - Offre PRO (Site Business)",
+    subjectEn: "Website - PRO Plan (Business Site)",
     recommended: true,
   },
   {
     tier: "PREMIUM",
     title: "Site Sur-Mesure",
+    titleEn: "Custom Site",
     tagline: "Pour les marques qui veulent tout.",
+    taglineEn: "For brands that want it all.",
     price: "Sur devis",
+    priceEn: "Custom quote",
     features: [
       "Design exclusif sur-mesure",
       "Fonctionnalités avancées",
@@ -109,8 +161,18 @@ const offers = [
       "Accompagnement stratégique",
       "Support prioritaire",
     ],
+    featuresEn: [
+      "Exclusive custom design",
+      "Advanced features",
+      "Custom integrations",
+      "Guaranteed A+ performance",
+      "Strategic guidance",
+      "Priority support",
+    ],
     upsell: "Maintenance sur mesure dès 149€/mois",
+    upsellEn: "Custom maintenance from €149/month",
     subject: "Site Web - Offre PREMIUM (Sur-Mesure)",
+    subjectEn: "Website - PREMIUM Plan (Custom Site)",
     recommended: false,
   },
 ];
@@ -128,11 +190,14 @@ const fadeUp = {
 /* ─── Page ──────────────────────────────────────────────────── */
 
 const WebService = () => {
+  const { t, lp } = useLang();
   return (
     <Layout>
       <SEO
         title="Création de Sites Web Premium"
         description="Design éditorial, performance A+ et animations maîtrisées. Vitrine, e-commerce ou sur-mesure. Réponse sous 48h."
+        titleEn="Premium Website Design & Development"
+        descriptionEn="Editorial design, A+ performance and refined motion. Showcase sites, e-commerce or fully custom builds. Reply within 48h."
         canonical="/services/web"
         schemaJson={{
           "@context": "https://schema.org",
@@ -162,16 +227,16 @@ const WebService = () => {
               transition={{ duration: 0.5 }}
               className="section-label justify-center mb-6"
             >
-              Sites Web & Vitrines
+              {t("Sites Web & Vitrines", "Websites & Showcase Sites")}
             </motion.div>
 
             <h1 className="font-serif text-[32px] sm:text-[48px] lg:text-[66px] xl:text-[80px] leading-[0.97] tracking-[-0.03em] text-[#0E0B14]">
-              <RevealText by="word" stagger={0.06}>Architectures</RevealText>
+              <RevealText by="word" stagger={0.06}>{t("Architectures", "Web")}</RevealText>
               <span className="block">
-                <RevealText by="word" stagger={0.06} delay={0.12}>web qui</RevealText>
+                <RevealText by="word" stagger={0.06} delay={0.12}>{t("web qui", "architectures that")}</RevealText>
               </span>
               <span className="block">
-                <span className="prisme-italic-grad prisme-shimmer">convertissent.</span>
+                <span className="prisme-italic-grad prisme-shimmer">{t("convertissent.", "convert.")}</span>
               </span>
             </h1>
 
@@ -181,7 +246,10 @@ const WebService = () => {
               transition={{ duration: 0.6, delay: 0.55 }}
               className="mt-6 text-[17px] md:text-[19px] text-[#6F6580] leading-[1.65] max-w-xl mx-auto"
             >
-              De la vitrine épurée au e-commerce complet, design éditorial, performance A+ et motion intentionnel pour des sites qui marquent et qui vendent.
+              {t(
+                "De la vitrine épurée au e-commerce complet, design éditorial, performance A+ et motion intentionnel pour des sites qui marquent et qui vendent.",
+                "From a refined showcase site to full e-commerce: editorial design, A+ performance and intentional motion for websites that leave a mark and sell."
+              )}
             </motion.p>
 
             <motion.div
@@ -197,7 +265,7 @@ const WebService = () => {
                 rel="noopener noreferrer"
                 className="btn-prisme group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white font-medium text-[15px]"
               >
-                Démarrer un projet
+                {t("Démarrer un projet", "Start a project")}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </MagneticButton>
               <MagneticButton
@@ -205,7 +273,7 @@ const WebService = () => {
                 onClick={() => document.getElementById("offres-web")?.scrollIntoView({ behavior: "smooth" })}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-[#0E0B14] text-[#0E0B14] font-medium text-[15px] hover:bg-[#0E0B14] hover:text-[#FBFAF7] transition-colors"
               >
-                Voir les offres
+                {t("Voir les offres", "View our plans")}
               </MagneticButton>
             </motion.div>
 
@@ -215,7 +283,7 @@ const WebService = () => {
               transition={{ delay: 1 }}
               className="mt-7 flex flex-wrap gap-2 justify-center"
             >
-              {["Design UI/UX", "Next.js & React", "Référencement optimisé", "E-commerce"].map((tag, i) => (
+              {[t("Design UI/UX", "UI/UX Design"), "Next.js & React", t("Référencement optimisé", "Optimized SEO"), "E-commerce"].map((tag, i) => (
                 <motion.span
                   key={tag}
                   initial={{ opacity: 0, y: 8 }}
@@ -259,7 +327,7 @@ const WebService = () => {
                 <div className="font-serif text-[36px] md:text-[44px] leading-none tracking-[-0.03em] prisme-italic-grad mb-1">
                   {s.value}
                 </div>
-                <div className="text-[13px] text-[#6F6580] font-medium">{s.label}</div>
+                <div className="text-[13px] text-[#6F6580] font-medium">{t(s.label, s.labelEn)}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -275,13 +343,16 @@ const WebService = () => {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16 max-w-2xl mx-auto">
-            <div className="section-label justify-center mb-6">Expertises</div>
+            <div className="section-label justify-center mb-6">{t("Expertises", "Expertise")}</div>
             <h2 className="font-serif text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-5">
-              Ce qu&apos;on{" "}
-              <span className="prisme-italic-grad">maîtrise.</span>
+              {t("Ce qu'on", "What we")}{" "}
+              <span className="prisme-italic-grad">{t("maîtrise.", "master.")}</span>
             </h2>
             <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
-              Six piliers qui font la différence entre un site qui existe et un site qui performe.
+              {t(
+                "Six piliers qui font la différence entre un site qui existe et un site qui performe.",
+                "Six pillars that make the difference between a site that exists and a site that performs."
+              )}
             </p>
           </div>
 
@@ -304,17 +375,17 @@ const WebService = () => {
                       <Icon className="h-5 w-5 text-[#7C3AED]" strokeWidth={1.5} />
                     </div>
 
-                    <h3 className="font-serif text-[20px] text-[#0E0B14] mb-3 leading-snug">{f.title}</h3>
-                    <p className="text-[14px] text-[#6F6580] leading-relaxed mb-5">{f.description}</p>
+                    <h3 className="font-serif text-[20px] text-[#0E0B14] mb-3 leading-snug">{t(f.title, f.titleEn)}</h3>
+                    <p className="text-[14px] text-[#6F6580] leading-relaxed mb-5">{t(f.description, f.descriptionEn)}</p>
 
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2">
-                      {f.tags.map((tag) => (
+                      {f.tags.map((tag, ti) => (
                         <span
                           key={tag}
                           className="px-3 py-1 rounded-full text-[11px] font-medium tracking-wide bg-[#F3EEFB] text-[#7C3AED] border border-[rgba(124,58,237,0.15)]"
                         >
-                          {tag}
+                          {t(tag, f.tagsEn[ti])}
                         </span>
                       ))}
                     </div>
@@ -338,8 +409,8 @@ const WebService = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-10"
           >
-            <div className="section-label justify-center mb-4">Stack technique</div>
-            <p className="text-[#6F6580] text-sm">Les outils qu&apos;on maîtrise de l&apos;architecture au déploiement.</p>
+            <div className="section-label justify-center mb-4">{t("Stack technique", "Tech stack")}</div>
+            <p className="text-[#6F6580] text-sm">{t("Les outils qu'on maîtrise de l'architecture au déploiement.", "The tools we master, from architecture to deployment.")}</p>
           </motion.div>
 
           <motion.div
@@ -358,7 +429,7 @@ const WebService = () => {
                 transition={{ delay: 0.05 + i * 0.04, ease: [0.22, 1, 0.36, 1] }}
                 className="px-4 py-2 rounded-full text-[13px] font-medium bg-white border border-[#EEEAF4] text-[#0E0B14] hover:border-[rgba(124,58,237,0.35)] hover:text-[#7C3AED] transition-colors duration-200"
               >
-                {tech}
+                {t(tech, stackEn[i])}
               </motion.span>
             ))}
           </motion.div>
@@ -374,13 +445,13 @@ const WebService = () => {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16 max-w-2xl mx-auto">
-            <div className="section-label justify-center mb-6">Nos offres</div>
+            <div className="section-label justify-center mb-6">{t("Nos offres", "Our plans")}</div>
             <h2 className="font-serif text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-5">
-              Choisissez votre{" "}
-              <span className="prisme-italic-grad">formule web.</span>
+              {t("Choisissez votre", "Choose your")}{" "}
+              <span className="prisme-italic-grad">{t("formule web.", "web plan.")}</span>
             </h2>
             <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
-              Trois niveaux d&apos;engagement, un seul niveau d&apos;exigence.
+              {t("Trois niveaux d'engagement, un seul niveau d'exigence.", "Three levels of commitment, one standard of excellence.")}
             </p>
           </div>
 
@@ -398,7 +469,7 @@ const WebService = () => {
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
                     <span className="px-4 py-1.5 rounded-full text-[11px] font-semibold tracking-wider text-white uppercase"
                       style={{ background: "var(--prisme-gradient)" }}>
-                      Recommandé
+                      {t("Recommandé", "Recommended")}
                     </span>
                   </div>
                 )}
@@ -440,19 +511,19 @@ const WebService = () => {
                     </div>
 
                     <h3 className={`font-serif text-[22px] mb-1 leading-snug ${offer.recommended ? "text-white" : "text-[#0E0B14]"}`}>
-                      {offer.title}
+                      {t(offer.title, offer.titleEn)}
                     </h3>
                     <p className={`text-[14px] mb-6 ${offer.recommended ? "text-[#B8A8D8]" : "text-[#6F6580]"}`}>
-                      {offer.tagline}
+                      {t(offer.tagline, offer.taglineEn)}
                     </p>
 
                     <div className={`font-serif text-[32px] tracking-[-0.02em] mb-8 ${offer.recommended ? "text-white" : "prisme-italic-grad"}`}>
-                      {offer.price}
+                      {t(offer.price, offer.priceEn)}
                     </div>
 
                     {/* Features */}
                     <ul className="space-y-3 mb-8 flex-1">
-                      {offer.features.map((feat) => (
+                      {offer.features.map((feat, fi) => (
                         <li key={feat} className="flex items-start gap-3">
                           <div className={`mt-0.5 w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${
                             offer.recommended ? "bg-white/10" : "bg-[#F3EEFB]"
@@ -460,7 +531,7 @@ const WebService = () => {
                             <Check className={`h-3 w-3 ${offer.recommended ? "text-[#A78BFA]" : "text-[#7C3AED]"}`} strokeWidth={2.5} />
                           </div>
                           <span className={`text-[14px] leading-relaxed ${offer.recommended ? "text-[#D4C8F0]" : "text-[#6F6580]"}`}>
-                            {feat}
+                            {t(feat, offer.featuresEn[fi])}
                           </span>
                         </li>
                       ))}
@@ -472,12 +543,12 @@ const WebService = () => {
                         ? "bg-white/8 text-[#B8A8D8] border border-white/10"
                         : "bg-[#F3EEFB] text-[#6F6580] border border-[rgba(124,58,237,0.12)]"
                     }`}>
-                      <span className={`font-semibold ${offer.recommended ? "text-[#A78BFA]" : "text-[#7C3AED]"}`}>+ Option : </span>
-                      {offer.upsell}
+                      <span className={`font-semibold ${offer.recommended ? "text-[#A78BFA]" : "text-[#7C3AED]"}`}>{t("+ Option : ", "+ Add-on: ")}</span>
+                      {t(offer.upsell, offer.upsellEn)}
                     </div>
 
                     {/* CTA */}
-                    <Link to={`/contact?subject=${encodeURIComponent(offer.subject)}`}>
+                    <Link to={lp(`/contact?subject=${encodeURIComponent(t(offer.subject, offer.subjectEn))}`)}>
                       <button
                         className={`w-full py-4 rounded-full font-medium text-[15px] inline-flex items-center justify-center gap-2 transition-all duration-300 ${
                           offer.recommended
@@ -485,7 +556,7 @@ const WebService = () => {
                             : "border border-[#0E0B14] text-[#0E0B14] hover:bg-[#0E0B14] hover:text-white"
                         }`}
                       >
-                        Configurer ce pack
+                        {t("Configurer ce pack", "Configure this plan")}
                         <ArrowRight className="h-4 w-4" />
                       </button>
                     </Link>
@@ -533,16 +604,19 @@ const WebService = () => {
               <div className="relative">
                 <div className="section-label justify-center mb-8"
                   style={{ color: "#A78BFA", borderColor: "rgba(124,58,237,0.25)", background: "rgba(124,58,237,0.12)" }}>
-                  Lançons votre projet
+                  {t("Lançons votre projet", "Let's launch your project")}
                 </div>
 
                 <h2 className="font-serif text-[28px] md:text-[46px] leading-[1.08] tracking-[-0.02em] text-white mb-5">
-                  Un site qui vous ressemble{" "}
-                  <span className="prisme-italic-grad">et qui performe.</span>
+                  {t("Un site qui vous ressemble", "A website that feels like you")}{" "}
+                  <span className="prisme-italic-grad">{t("et qui performe.", "and performs.")}</span>
                 </h2>
 
                 <p className="text-[#B8A8D8] text-base md:text-lg leading-relaxed mb-10 max-w-lg mx-auto">
-                  Réponse sous 24–48h avec une proposition claire, un délai et un tarif, sans engagement.
+                  {t(
+                    "Réponse sous 24–48h avec une proposition claire, un délai et un tarif, sans engagement.",
+                    "A reply within 24–48h with a clear proposal, timeline and price. No commitment."
+                  )}
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -553,16 +627,16 @@ const WebService = () => {
                     rel="noopener noreferrer"
                     className="btn-prisme inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white font-medium text-[15px]"
                   >
-                    Planifier un appel
+                    {t("Planifier un appel", "Book a call")}
                     <ArrowRight className="h-4 w-4" />
                   </MagneticButton>
                   <MagneticButton
                     as={Link}
-                    to="/contact"
+                    to={lp("/contact")}
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white/80 font-medium text-[15px] hover:border-white/50 hover:text-white transition-colors duration-200"
                   >
                     <Globe className="h-4 w-4" />
-                    Écrire un message
+                    {t("Écrire un message", "Send a message")}
                   </MagneticButton>
                 </div>
               </div>

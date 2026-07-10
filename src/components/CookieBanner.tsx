@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Cookie, X, Settings, Check } from "lucide-react";
+import { useLang } from "@/contexts/LanguageContext";
 
 interface CookiePreferences {
   essential: boolean;
@@ -10,6 +11,7 @@ interface CookiePreferences {
 }
 
 export function CookieBanner() {
+  const { t } = useLang();
   const [isVisible, setIsVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
@@ -73,7 +75,7 @@ export function CookieBanner() {
           <button
             onClick={rejectAll}
             className="absolute top-4 right-4 p-2 rounded-lg hover:bg-white/10 transition-colors"
-            aria-label="Fermer"
+            aria-label={t("Fermer", "Close")}
           >
             <X className="h-4 w-4 text-muted-foreground" />
           </button>
@@ -85,11 +87,14 @@ export function CookieBanner() {
                   <Cookie className="h-6 w-6 text-neon-violet" />
                 </div>
                 <div className="flex-1 pr-8">
-                  <h3 className="text-lg font-semibold mb-2">Nous utilisons des cookies 🍪</h3>
+                  <h3 className="text-lg font-semibold mb-2">{t("Nous utilisons des cookies 🍪", "We use cookies 🍪")}</h3>
                   <p className="text-sm text-muted-foreground">
-                    Ce site utilise des cookies pour améliorer votre expérience de navigation, analyser le trafic et personnaliser le contenu. 
+                    {t(
+                      "Ce site utilise des cookies pour améliorer votre expérience de navigation, analyser le trafic et personnaliser le contenu.",
+                      "This site uses cookies to improve your browsing experience, analyze traffic and personalize content."
+                    )}
                     <Link to="/cookies" className="text-neon-violet hover:underline ml-1">
-                      En savoir plus
+                      {t("En savoir plus", "Learn more")}
                     </Link>
                   </p>
                 </div>
@@ -101,33 +106,33 @@ export function CookieBanner() {
                   className="btn-gradient px-6 py-2.5 text-white font-medium rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] flex items-center gap-2"
                 >
                   <Check className="h-4 w-4" />
-                  Tout accepter
+                  {t("Tout accepter", "Accept all")}
                 </button>
                 <button
                   onClick={rejectAll}
                   className="px-6 py-2.5 bg-white/5 border border-white/10 text-foreground font-medium rounded-xl hover:bg-white/10 transition-all"
                 >
-                  Tout refuser
+                  {t("Tout refuser", "Reject all")}
                 </button>
                 <button
                   onClick={() => setShowSettings(true)}
                   className="px-6 py-2.5 text-muted-foreground font-medium rounded-xl hover:text-foreground transition-colors flex items-center gap-2"
                 >
                   <Settings className="h-4 w-4" />
-                  Personnaliser
+                  {t("Personnaliser", "Customize")}
                 </button>
               </div>
             </>
           ) : (
             <>
-              <h3 className="text-lg font-semibold mb-6">Préférences des cookies</h3>
-              
+              <h3 className="text-lg font-semibold mb-6">{t("Préférences des cookies", "Cookie preferences")}</h3>
+
               <div className="space-y-4 mb-6">
                 {[
-                  { key: "essential", label: "Cookies essentiels", desc: "Nécessaires au fonctionnement du site", disabled: true },
-                  { key: "analytics", label: "Cookies analytiques", desc: "Mesure d'audience et statistiques", disabled: false },
-                  { key: "functional", label: "Cookies fonctionnels", desc: "Mémorisation de vos préférences", disabled: false },
-                  { key: "marketing", label: "Cookies marketing", desc: "Publicités personnalisées", disabled: false },
+                  { key: "essential", label: t("Cookies essentiels", "Essential cookies"), desc: t("Nécessaires au fonctionnement du site", "Required for the site to work"), disabled: true },
+                  { key: "analytics", label: t("Cookies analytiques", "Analytics cookies"), desc: t("Mesure d'audience et statistiques", "Audience measurement and statistics"), disabled: false },
+                  { key: "functional", label: t("Cookies fonctionnels", "Functional cookies"), desc: t("Mémorisation de vos préférences", "Remembering your preferences"), disabled: false },
+                  { key: "marketing", label: t("Cookies marketing", "Marketing cookies"), desc: t("Publicités personnalisées", "Personalized advertising"), disabled: false },
                 ].map((cookie) => (
                   <div key={cookie.key} className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10">
                     <div>
@@ -155,13 +160,13 @@ export function CookieBanner() {
                   onClick={() => savePreferences(false)}
                   className="btn-gradient px-6 py-2.5 text-white font-medium rounded-xl transition-all duration-300 hover:scale-105"
                 >
-                  Enregistrer mes choix
+                  {t("Enregistrer mes choix", "Save my choices")}
                 </button>
                 <button
                   onClick={() => setShowSettings(false)}
                   className="px-6 py-2.5 text-muted-foreground font-medium rounded-xl hover:text-foreground transition-colors"
                 >
-                  Retour
+                  {t("Retour", "Back")}
                 </button>
               </div>
             </>

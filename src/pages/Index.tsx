@@ -20,6 +20,8 @@ const Index = () => {
       <SEO
         title="Studio Digital Montréal et Paris | Sites Web, Apps, SaaS"
         description="Studio digital premium à Montréal et Paris. Sites web, apps mobiles et SaaS sur-mesure. Design premium, code solide. Plus de 30 clients accompagnés."
+        titleEn="Digital Studio Montreal & Paris | Websites, Apps, SaaS"
+        descriptionEn="Premium digital studio in Montreal and Paris. Custom websites, mobile apps and SaaS. Sharp design, solid code. 30+ clients served."
         canonical="/"
         schemaJson={{
           "@context": "https://schema.org",

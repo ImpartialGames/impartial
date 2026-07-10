@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { TiltCard, MagneticButton } from "@/components/wow";
+import { useLang } from "@/contexts/LanguageContext";
 import eclipsiaImg from "@/assets/portfolio/eclipsia.webp";
 import altarysImg from "@/assets/portfolio/altarys-logo.webp";
 import propheciaImg from "@/assets/portfolio/prophecia-logo.webp";
@@ -15,88 +16,122 @@ const projects = [
   {
     title: "Eclipsia",
     objective: "Site vitrine pour une agence de communication et marketing",
+    objectiveEn: "Showcase website for a communication and marketing agency",
     role: "Design & Développement",
+    roleEn: "Design & Development",
     result: "Image de marque forte et engageante",
+    resultEn: "A strong, engaging brand image",
     image: eclipsiaImg,
     url: "/portfolio/eclipsia",
     externalUrl: "https://eclipsiagence.fr",
     tags: ["Design", "Développement", "Communication"],
+    tagsEn: ["Design", "Development", "Communication"],
   },
   {
     title: "Altarys Group",
     objective: "Plateforme DeFi avec dashboard admin",
+    objectiveEn: "DeFi platform with admin dashboard",
     role: "UI/UX & Développement",
+    roleEn: "UI/UX & Development",
     result: "Interface intuitive et scalable",
+    resultEn: "An intuitive, scalable interface",
     image: altarysImg,
     url: "/portfolio/altarys",
     externalUrl: "https://altarys-group.fr/",
     tags: ["UI/UX", "Développement", "DeFi"],
+    tagsEn: ["UI/UX", "Development", "DeFi"],
   },
   {
     title: "Guardian Of Prophecia",
     objective: "Plateforme gaming avec rewards",
+    objectiveEn: "Gaming platform with rewards",
     role: "Design & Développement",
+    roleEn: "Design & Development",
     result: "Communauté engagée",
+    resultEn: "An engaged community",
     image: propheciaImg,
     url: "/portfolio/prophecia",
     externalUrl: "https://goprophecia.gg?inviteCode=YANNI-DZ94",
     tags: ["Design", "Développement", "Gaming"],
+    tagsEn: ["Design", "Development", "Gaming"],
   },
   {
     title: "Umel Couture",
     objective: "Landing page premium pour une maison de couture sur-mesure",
+    objectiveEn: "Premium landing page for a bespoke couture house",
     role: "Direction artistique & Développement",
+    roleEn: "Art direction & Development",
     result: "Identité visuelle forte, avis Google intégrés",
+    resultEn: "Strong visual identity, integrated Google reviews",
     image: umelImg,
     url: "/portfolio/umel",
     externalUrl: null,
     tags: ["Design éditorial", "Landing page", "Mode"],
+    tagsEn: ["Editorial design", "Landing page", "Fashion"],
   },
   {
     title: "Fitbyval",
     objective: "Plateforme fitness & coaching",
+    objectiveEn: "Fitness & coaching platform",
     role: "Design & Développement",
+    roleEn: "Design & Development",
     result: "Parcours utilisateur mobile-first fluide",
+    resultEn: "A smooth, mobile-first user journey",
     image: fitbyvalImg,
     url: "/portfolio/fitbyval",
     externalUrl: null,
     tags: ["App mobile", "Coaching", "SaaS"],
+    tagsEn: ["Mobile app", "Coaching", "SaaS"],
   },
   {
     title: "ELEV8",
     objective: "Application complète de coaching sportif",
+    objectiveEn: "Full-featured fitness coaching app",
     role: "Design & Développement",
+    roleEn: "Design & Development",
     result: "Produit opéré par ImpartialGames — à partir de 59 € / 87 $CA / mois",
+    resultEn: "Product operated by ImpartialGames — from 59 € / 87 $CA per month",
     image: elev8Img,
     url: "/portfolio/elev8",
     externalUrl: "https://myelev8.app",
     tags: ["Application SaaS", "Coaching", "Mobile"],
+    tagsEn: ["SaaS application", "Coaching", "Mobile"],
     badge: "Produit ImpartialGames",
   },
   {
     title: "Valora",
     objective: "Plateforme de valorisation et gestion d'actifs",
+    objectiveEn: "Asset valuation and management platform",
     role: "Design & Développement",
+    roleEn: "Design & Development",
     result: "Interface claire et performante",
+    resultEn: "A clear, high-performing interface",
     image: valoraImg,
     url: "/portfolio/valora",
     externalUrl: null,
     tags: ["Design", "Développement", "Finance"],
+    tagsEn: ["Design", "Development", "Finance"],
   },
   {
     title: "MBA",
     objective: "Back-office SaaS pour TPE et PME",
+    objectiveEn: "SaaS back office for small and medium businesses",
     role: "Design & Développement",
+    roleEn: "Design & Development",
     result: "Produit opéré par ImpartialGames — à partir de 150 € / 220 $CA par mois",
+    resultEn: "Product operated by ImpartialGames — from 150 € / 220 $CA per month",
     image: mbaImg,
     url: "/portfolio/mba",
     externalUrl: null,
     tags: ["Back-office", "SaaS", "PME"],
+    tagsEn: ["Back office", "SaaS", "SMB"],
     badge: "Produit ImpartialGames",
   },
 ];
 
 export function RealisationsSection() {
+  const { t, lp } = useLang();
+
   return (
     <section id="realisations" className="relative py-24 md:py-32 bg-[#F3EEFB]/30 dark:bg-[#0E0B14] overflow-hidden">
       {/* Halos */}
@@ -107,13 +142,16 @@ export function RealisationsSection() {
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-20 max-w-3xl mx-auto">
-          <div className="section-label justify-center mb-6">Réalisations</div>
+          <div className="section-label justify-center mb-6">{t("Réalisations", "Our work")}</div>
           <h2 className="font-serif text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] dark:text-white/90 mb-6">
-            <span className="block">Ils nous ont</span>
-            <span className="block prisme-italic-grad">fait confiance.</span>
+            <span className="block">{t("Ils nous ont", "The ones who")}</span>
+            <span className="block prisme-italic-grad">{t("fait confiance.", "trusted us.")}</span>
           </h2>
           <p className="text-[#6F6580] dark:text-white/60 text-base md:text-lg leading-relaxed">
-            De la landing page à l&apos;application complexe, chaque projet est traité avec la même exigence.
+            {t(
+              "De la landing page à l'application complexe, chaque projet est traité avec la même exigence.",
+              "From landing pages to complex applications, every project gets the same level of care."
+            )}
           </p>
         </div>
 
@@ -161,12 +199,12 @@ export function RealisationsSection() {
 
                     {/* Tags flottants sur l'image au hover */}
                     <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">
-                      {p.tags.map((t) => (
+                      {p.tags.map((tag, idx) => (
                         <span
-                          key={t}
+                          key={tag}
                           className="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/20 backdrop-blur-sm text-white border border-white/30 tracking-wide"
                         >
-                          {t}
+                          {t(tag, p.tagsEn[idx])}
                         </span>
                       ))}
                     </div>
@@ -174,7 +212,7 @@ export function RealisationsSection() {
                     {/* Bouton "Voir" centré bas */}
                     <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
                       <span className="inline-flex items-center gap-1 text-white text-[12px] font-semibold">
-                        Voir <ArrowRight className="h-3 w-3" />
+                        {t("Voir", "View")} <ArrowRight className="h-3 w-3" />
                       </span>
                     </div>
                   </div>
@@ -183,9 +221,9 @@ export function RealisationsSection() {
                   <div className="p-7">
                     {/* Tags statiques */}
                     <div className="flex flex-wrap gap-1.5 mb-5">
-                      {p.tags.map((t) => (
-                        <span key={t} className="prisme-pill px-3 py-1 rounded-full text-[10px] font-medium tracking-wide">
-                          {t}
+                      {p.tags.map((tag, idx) => (
+                        <span key={tag} className="prisme-pill px-3 py-1 rounded-full text-[10px] font-medium tracking-wide">
+                          {t(tag, p.tagsEn[idx])}
                         </span>
                       ))}
                     </div>
@@ -194,25 +232,25 @@ export function RealisationsSection() {
 
                     <dl className="space-y-2.5 mb-6">
                       <div className="text-[13.5px]">
-                        <dt className="text-[#6F6580] dark:text-white/50 inline">Objectif : </dt>
-                        <dd className="text-[#0E0B14] dark:text-white/80 inline">{p.objective}</dd>
+                        <dt className="text-[#6F6580] dark:text-white/50 inline">{t("Objectif : ", "Goal: ")}</dt>
+                        <dd className="text-[#0E0B14] dark:text-white/80 inline">{t(p.objective, p.objectiveEn)}</dd>
                       </div>
                       <div className="text-[13.5px]">
-                        <dt className="text-[#6F6580] dark:text-white/50 inline">Rôle : </dt>
-                        <dd className="text-[#0E0B14] dark:text-white/80 inline">{p.role}</dd>
+                        <dt className="text-[#6F6580] dark:text-white/50 inline">{t("Rôle : ", "Role: ")}</dt>
+                        <dd className="text-[#0E0B14] dark:text-white/80 inline">{t(p.role, p.roleEn)}</dd>
                       </div>
                       <div className="text-[13.5px]">
-                        <dt className="text-[#6F6580] dark:text-white/50 inline">Résultat : </dt>
-                        <dd className="text-[#7C3AED] dark:text-[#A78BFA] font-medium inline">{p.result}</dd>
+                        <dt className="text-[#6F6580] dark:text-white/50 inline">{t("Résultat : ", "Result: ")}</dt>
+                        <dd className="text-[#7C3AED] dark:text-[#A78BFA] font-medium inline">{t(p.result, p.resultEn)}</dd>
                       </div>
                     </dl>
 
                     <div className="flex items-center gap-4 pt-5 border-t border-[#EEEAF4] dark:border-white/10">
                       <Link
-                        to={p.url}
+                        to={lp(p.url)}
                         className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[#7C3AED] dark:text-[#A78BFA] hover:gap-2.5 transition-all duration-200"
                       >
-                        Voir le projet
+                        {t("Voir le projet", "View project")}
                         <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                       {p.externalUrl && (
@@ -221,7 +259,7 @@ export function RealisationsSection() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="ml-auto text-[#6F6580] dark:text-white/40 hover:text-[#7C3AED] dark:hover:text-[#A78BFA] transition-colors"
-                          aria-label={`Visiter ${p.title}`}
+                          aria-label={t(`Visiter ${p.title}`, `Visit ${p.title}`)}
                         >
                           <ExternalLink className="h-4 w-4" />
                         </a>
@@ -238,10 +276,10 @@ export function RealisationsSection() {
         <div className="text-center mt-14">
           <MagneticButton
             as={Link}
-            to="/portfolio"
+            to={lp("/portfolio")}
             className="btn-prisme inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-medium text-[15px]"
           >
-            Voir toutes nos réalisations
+            {t("Voir toutes nos réalisations", "See all our work")}
             <ArrowRight className="h-4 w-4" />
           </MagneticButton>
         </div>

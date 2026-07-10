@@ -4,28 +4,46 @@ import { SEO } from "@/components/SEO";
 import { ArrowLeft, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import valoraImg from "@/assets/portfolio/valora.webp";
+import { useLang } from "@/contexts/LanguageContext";
 
 const projectDetails = {
   title: "Valora",
   subtitle: "Plateforme de valorisation et gestion d'actifs",
+  subtitleEn: "Asset valuation and management platform",
   category: "Application web",
+  categoryEn: "Web application",
   client: "Valora",
   year: "2025",
   duration: "6 semaines",
   description: `Valora est une plateforme web destinée aux professionnels de la finance et de l'investissement pour visualiser, analyser et gérer leurs actifs en temps réel. Le défi principal : rendre des données complexes lisibles et actionnables dans une interface sobre et professionnelle.
 
 Nous avons conçu un dashboard orienté performance, avec des visualisations graphiques claires et une architecture solide capable de gérer de grandes volumétries de données sans compromettre la fluidité de l'expérience.`,
+  descriptionEn: `Valora is a web platform built for finance and investment professionals to visualize, analyze and manage their assets in real time. The core challenge: making complex data readable and actionable within a sober, professional interface.
+
+We designed a performance-driven dashboard with clear data visualizations and a solid architecture able to handle large volumes of data without compromising the fluidity of the experience.`,
   challenges: [
     "Rendre des données financières complexes immédiatement lisibles",
     "Créer une interface sobre, rassurante et professionnelle",
     "Garantir la performance sur de grandes volumétries de données",
     "Respecter les standards de sécurité du secteur financier",
   ],
+  challengesEn: [
+    "Make complex financial data instantly readable",
+    "Create a sober, reassuring, professional interface",
+    "Guarantee performance on large data volumes",
+    "Meet the security standards of the financial sector",
+  ],
   solutions: [
     "Dashboard analytique avec visualisations graphiques épurées et intuitives",
     "Palette sobre et typographie professionnelle inspirée du secteur finance",
     "Optimisation des requêtes et pagination intelligente côté Supabase",
     "Authentification sécurisée, gestion des rôles et audit trail",
+  ],
+  solutionsEn: [
+    "Analytics dashboard with clean, intuitive data visualizations",
+    "Sober palette and professional typography inspired by the finance sector",
+    "Query optimization and smart pagination on the Supabase side",
+    "Secure authentication, role management and audit trail",
   ],
   technologies: ["React", "TypeScript", "Tailwind CSS", "Supabase", "Chart.js", "Vercel"],
   features: [
@@ -36,20 +54,31 @@ Nous avons conçu un dashboard orienté performance, avec des visualisations gra
     "Système de rôles et permissions",
     "Interface responsive desktop & tablet",
   ],
+  featuresEn: [
+    "Real-time valuation dashboard",
+    "Advanced data visualizations",
+    "Multi-asset management",
+    "Report exports",
+    "Roles and permissions system",
+    "Responsive desktop & tablet interface",
+  ],
   results: [
-    { metric: "100%", label: "Interface claire et performante" },
-    { metric: "<1s", label: "Temps de réponse" },
-    { metric: "Sécurisé", label: "Auth & permissions" },
-    { metric: "Scalable", label: "Architecture cloud" },
+    { metric: "100%", metricEn: "100%", label: "Interface claire et performante", labelEn: "Clear, high-performing interface" },
+    { metric: "<1s", metricEn: "<1s", label: "Temps de réponse", labelEn: "Response time" },
+    { metric: "Sécurisé", metricEn: "Secure", label: "Auth & permissions", labelEn: "Auth & permissions" },
+    { metric: "Scalable", metricEn: "Scalable", label: "Architecture cloud", labelEn: "Cloud architecture" },
   ],
 };
 
 export default function ValoraProject() {
+  const { t, lp } = useLang();
   return (
     <Layout>
       <SEO
         title="Valora — Plateforme de gestion d'actifs"
+        titleEn="Valora — Asset Management Platform"
         description="Plateforme web de valorisation et gestion d'actifs pour Valora. Dashboard analytique, visualisations financières et sécurité renforcée."
+        descriptionEn="Web platform for asset valuation and management for Valora. Analytics dashboard, financial data visualizations and enhanced security."
         canonical="/portfolio/valora"
       />
       {/* Hero */}
@@ -61,11 +90,11 @@ export default function ValoraProject() {
             transition={{ duration: 0.6 }}
           >
             <Link
-              to="/portfolio"
+              to={lp("/portfolio")}
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8 sm:mb-12 text-sm"
             >
               <ArrowLeft className="h-4 w-4" />
-              Retour au portfolio
+              {t("Retour au portfolio", "Back to portfolio")}
             </Link>
           </motion.div>
 
@@ -76,7 +105,7 @@ export default function ValoraProject() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
-              {projectDetails.category} · {projectDetails.year}
+              {t(projectDetails.category, projectDetails.categoryEn)} · {projectDetails.year}
             </motion.p>
 
             <motion.h1
@@ -94,7 +123,7 @@ export default function ValoraProject() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              {projectDetails.subtitle}
+              {t(projectDetails.subtitle, projectDetails.subtitleEn)}
             </motion.p>
 
             <motion.div
@@ -103,13 +132,13 @@ export default function ValoraProject() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <Link
-                to="/contact"
+                to={lp("/contact")}
                 className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-medium tracking-wide uppercase overflow-hidden"
               >
                 <span className="absolute inset-0 bg-white rounded-full" />
                 <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span className="relative text-background group-hover:text-white transition-colors duration-500">
-                  Démarrer un projet similaire
+                  {t("Démarrer un projet similaire", "Start a similar project")}
                 </span>
               </Link>
             </motion.div>
@@ -143,7 +172,7 @@ export default function ValoraProject() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              À propos du <span className="font-medium text-gradient-neon">projet</span>
+              {t("À propos du", "About the")} <span className="font-medium text-gradient-neon">{t("projet", "project")}</span>
             </motion.h2>
             <motion.p
               className="text-sm sm:text-base text-muted-foreground leading-relaxed whitespace-pre-line"
@@ -152,7 +181,7 @@ export default function ValoraProject() {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              {projectDetails.description}
+              {t(projectDetails.description, projectDetails.descriptionEn)}
             </motion.p>
           </div>
         </div>
@@ -168,7 +197,7 @@ export default function ValoraProject() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Résultats <span className="font-medium text-gradient-neon">obtenus</span>
+            {t("Résultats", "Key")} <span className="font-medium text-gradient-neon">{t("obtenus", "results")}</span>
           </motion.h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 max-w-4xl mx-auto">
             {projectDetails.results.map((result, index) => (
@@ -180,8 +209,8 @@ export default function ValoraProject() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="text-2xl sm:text-3xl md:text-4xl font-light text-gradient-neon mb-1 sm:mb-2">{result.metric}</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">{result.label}</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-light text-gradient-neon mb-1 sm:mb-2">{t(result.metric, result.metricEn)}</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">{t(result.label, result.labelEn)}</div>
               </motion.div>
             ))}
           </div>
@@ -198,12 +227,12 @@ export default function ValoraProject() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-lg sm:text-xl font-light mb-4 sm:mb-6">Défis</h3>
+              <h3 className="text-lg sm:text-xl font-light mb-4 sm:mb-6">{t("Défis", "Challenges")}</h3>
               <ul className="space-y-3 sm:space-y-4">
                 {projectDetails.challenges.map((challenge, index) => (
                   <li key={index} className="flex items-start gap-3 text-sm sm:text-base text-muted-foreground">
                     <span className="text-xs font-medium text-foreground mt-0.5 sm:mt-1">{String(index + 1).padStart(2, "0")}</span>
-                    <span>{challenge}</span>
+                    <span>{t(challenge, projectDetails.challengesEn[index])}</span>
                   </li>
                 ))}
               </ul>
@@ -219,7 +248,7 @@ export default function ValoraProject() {
                 {projectDetails.solutions.map((solution, index) => (
                   <li key={index} className="flex items-start gap-3 text-sm sm:text-base text-muted-foreground">
                     <Check className="h-4 w-4 text-neon-violet mt-0.5 sm:mt-1 flex-shrink-0" />
-                    <span>{solution}</span>
+                    <span>{t(solution, projectDetails.solutionsEn[index])}</span>
                   </li>
                 ))}
               </ul>
@@ -238,7 +267,7 @@ export default function ValoraProject() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Technologies <span className="font-medium text-gradient-neon">utilisées</span>
+            Technologies <span className="font-medium text-gradient-neon">{t("utilisées", "used")}</span>
           </motion.h2>
           <motion.div
             className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-3xl mx-auto"
@@ -266,7 +295,7 @@ export default function ValoraProject() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Fonctionnalités <span className="font-medium text-gradient-neon">clés</span>
+            {t("Fonctionnalités", "Key")} <span className="font-medium text-gradient-neon">{t("clés", "features")}</span>
           </motion.h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-4xl mx-auto">
             {projectDetails.features.map((feature, index) => (
@@ -279,7 +308,7 @@ export default function ValoraProject() {
                 viewport={{ once: true }}
               >
                 <Check className="h-4 w-4 text-neon-violet flex-shrink-0" />
-                <span className="text-xs sm:text-sm">{feature}</span>
+                <span className="text-xs sm:text-sm">{t(feature, projectDetails.featuresEn[index])}</span>
               </motion.div>
             ))}
           </div>
@@ -296,22 +325,25 @@ export default function ValoraProject() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 sm:mb-6">Votre projet</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 sm:mb-6">{t("Votre projet", "Your project")}</p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-4 sm:mb-6">
-              Un projet similaire en <span className="font-medium text-gradient-neon">tête ?</span>
+              {t("Un projet similaire en", "A similar project in")} <span className="font-medium text-gradient-neon">{t("tête ?", "mind?")}</span>
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground mb-8 sm:mb-10 px-2">
-              Discutons ensemble de votre vision et construisons votre produit sur mesure.
+              {t(
+                "Discutons ensemble de votre vision et construisons votre produit sur mesure.",
+                "Let's talk about your vision and build your custom product.",
+              )}
             </p>
             <motion.a
-              href="/contact"
+              href={lp("/contact")}
               className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-medium tracking-wide uppercase overflow-hidden"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               <span className="absolute inset-0 bg-white rounded-full" />
               <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <span className="relative text-background group-hover:text-white transition-colors duration-500">Démarrer un projet</span>
+              <span className="relative text-background group-hover:text-white transition-colors duration-500">{t("Démarrer un projet", "Start a project")}</span>
             </motion.a>
           </motion.div>
         </div>

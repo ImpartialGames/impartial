@@ -88,7 +88,7 @@ function TerminalLine() {
 export function HeroPremium() {
   const [quizOpen, setQuizOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const { t } = useLang();
+  const { t, lp } = useLang();
 
   useEffect(() => {
     const onScroll = () => setScrollY(window.scrollY);
@@ -279,7 +279,7 @@ export function HeroPremium() {
               </MagneticButton>
               <MagneticButton
                 as={Link}
-                to="/#offres"
+                to={lp("/#offres")}
                 onClick={(e: React.MouseEvent) => {
                   const el = document.getElementById("offres");
                   if (el) {

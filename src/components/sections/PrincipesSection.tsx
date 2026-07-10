@@ -1,14 +1,17 @@
 import { motion } from "framer-motion";
+import { useLang } from "@/contexts/LanguageContext";
 
 const principes = [
-  { number: "01", title: "Lisibilité",    description: "Clarté absolue. Chaque élément a sa raison d'être." },
-  { number: "02", title: "Finition",      description: "Le diable est dans les détails. Nous les soignons." },
-  { number: "03", title: "Performance",   description: "Sites rapides à charger, fluides à naviguer." },
-  { number: "04", title: "Motion",        description: "Animations premium et haut de gamme." },
-  { number: "05", title: "Accessibilité", description: "Utilisable par tous, sur tous les appareils." },
+  { number: "01", title: "Lisibilité",    titleEn: "Clarity",       description: "Clarté absolue. Chaque élément a sa raison d'être.",  descriptionEn: "Absolute clarity. Every element earns its place." },
+  { number: "02", title: "Finition",      titleEn: "Polish",        description: "Le diable est dans les détails. Nous les soignons.", descriptionEn: "The devil is in the details. We sweat them." },
+  { number: "03", title: "Performance",   titleEn: "Performance",   description: "Sites rapides à charger, fluides à naviguer.",       descriptionEn: "Fast to load, smooth to navigate." },
+  { number: "04", title: "Motion",        titleEn: "Motion",        description: "Animations premium et haut de gamme.",               descriptionEn: "Premium, high-end animations." },
+  { number: "05", title: "Accessibilité", titleEn: "Accessibility", description: "Utilisable par tous, sur tous les appareils.",       descriptionEn: "Usable by everyone, on every device." },
 ];
 
 export function PrincipesSection() {
+  const { t } = useLang();
+
   return (
     <section className="relative py-24 md:py-32 bg-[#FBFAF7] dark:bg-[#120B24] overflow-hidden">
       {/* Halos prisme */}
@@ -19,11 +22,14 @@ export function PrincipesSection() {
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <div className="section-label justify-center mb-6">Standards</div>
           <h2 className="font-serif text-[34px] md:text-[52px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] dark:text-white/90 mb-6">
-            <span className="block">Ce qui fait</span>
-            <span className="block prisme-italic-grad">la différence.</span>
+            <span className="block">{t("Ce qui fait", "What makes")}</span>
+            <span className="block prisme-italic-grad">{t("la différence.", "the difference.")}</span>
           </h2>
           <p className="text-[#6F6580] dark:text-white/60 text-base md:text-lg leading-relaxed">
-            Des principes non-négociables qui guident chacune de nos réalisations.
+            {t(
+              "Des principes non-négociables qui guident chacune de nos réalisations.",
+              "Non-negotiable principles that guide everything we ship."
+            )}
           </p>
         </div>
 
@@ -54,8 +60,8 @@ export function PrincipesSection() {
                   {p.number}
                 </span>
 
-                <h3 className="font-serif text-[18px] text-[#0E0B14] dark:text-white/90 mb-2.5 leading-tight">{p.title}</h3>
-                <p className="text-[13px] text-[#6F6580] dark:text-white/60 leading-relaxed">{p.description}</p>
+                <h3 className="font-serif text-[18px] text-[#0E0B14] dark:text-white/90 mb-2.5 leading-tight">{t(p.title, p.titleEn)}</h3>
+                <p className="text-[13px] text-[#6F6580] dark:text-white/60 leading-relaxed">{t(p.description, p.descriptionEn)}</p>
               </div>
             </motion.div>
           ))}

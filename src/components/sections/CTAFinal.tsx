@@ -8,7 +8,7 @@ import { useLang } from "@/contexts/LanguageContext";
 
 export function CTAFinal() {
   const [quizOpen, setQuizOpen] = useState(false);
-  const { t } = useLang();
+  const { t, lp } = useLang();
 
   return (
     <section id="contact" className="relative py-20 md:py-28 bg-[#FBFAF7] dark:bg-[#0E0B14] overflow-hidden">
@@ -92,7 +92,7 @@ export function CTAFinal() {
 
                 <MagneticButton
                   as={Link}
-                  to="/contact"
+                  to={lp("/contact")}
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white/80 font-medium text-[15px] hover:border-white/50 hover:text-white transition-colors duration-200"
                 >
                   <Mail className="h-4 w-4" />

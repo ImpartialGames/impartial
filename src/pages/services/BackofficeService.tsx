@@ -7,53 +7,72 @@ import {
 import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
 import { MagneticButton, RevealText } from "@/components/wow";
+import { useLang } from "@/contexts/LanguageContext";
 
 /* ─── Données ─────────────────────────────────────────────── */
 
 const stats = [
-  { value: "12+", label: "Logiciels livrés" },
-  { value: "RGPD", label: "Compliant" },
-  { value: "99.9%", label: "Uptime" },
-  { value: "5★", label: "Satisfaction" },
+  { value: "12+", valueEn: "12+", label: "Logiciels livrés", labelEn: "Tools delivered" },
+  { value: "RGPD", valueEn: "GDPR", label: "Compliant", labelEn: "Compliant" },
+  { value: "99.9%", valueEn: "99.9%", label: "Uptime", labelEn: "Uptime" },
+  { value: "5★", valueEn: "5★", label: "Satisfaction", labelEn: "Satisfaction" },
 ];
 
 const features = [
   {
     icon: LayoutDashboard,
     title: "Dashboards sur-mesure & data viz",
+    titleEn: "Custom dashboards & data viz",
     description: "Des interfaces d'administration conçues pour la clarté et l'efficacité. Tableaux de bord temps réel, KPIs visuels, navigation intuitive pour vos opérateurs.",
+    descriptionEn: "Admin interfaces designed for clarity and efficiency. Real-time dashboards, visual KPIs, intuitive navigation for your operators.",
     large: true,
     tags: ["Recharts", "shadcn/ui", "Tailwind"],
+    tagsEn: ["Recharts", "shadcn/ui", "Tailwind"],
   },
   {
     icon: GitBranch,
     title: "Automatisation des tâches",
+    titleEn: "Task automation",
     description: "Rationalisez vos processus métier avec des automatisations intelligentes. Réduisez les tâches manuelles, gagnez en rapidité et en fiabilité.",
+    descriptionEn: "Streamline your business processes with smart automations. Cut manual work, gain speed and reliability.",
     tags: ["Webhooks", "Cron jobs", "Events"],
+    tagsEn: ["Webhooks", "Cron jobs", "Events"],
   },
   {
     icon: Users,
     title: "Gestion des accès",
+    titleEn: "Access management",
     description: "Gestion granulaire des permissions. Chaque membre de votre équipe accède exactement à ce dont il a besoin, rien de plus.",
+    descriptionEn: "Granular permission management. Every team member gets access to exactly what they need, nothing more.",
     tags: ["RBAC", "SSO", "Audit logs"],
+    tagsEn: ["RBAC", "SSO", "Audit logs"],
   },
   {
     icon: BarChart2,
     title: "Reporting & exports avancés",
+    titleEn: "Advanced reporting & exports",
     description: "Générez des rapports personnalisés, exportez en PDF/CSV/Excel et partagez les insights avec vos parties prenantes en un clic.",
+    descriptionEn: "Generate custom reports, export to PDF/CSV/Excel and share insights with your stakeholders in one click.",
     tags: ["PDF", "CSV", "Excel"],
+    tagsEn: ["PDF", "CSV", "Excel"],
   },
   {
     icon: Lock,
     title: "Sécurité & conformité RGPD",
+    titleEn: "Security & GDPR compliance",
     description: "Chiffrement des données, authentification à deux facteurs, journaux d'audit complets. Votre back-office répond aux exigences légales les plus strictes.",
+    descriptionEn: "Data encryption, two-factor authentication, complete audit logs. Your back office meets the strictest legal requirements.",
     tags: ["2FA", "Chiffrement", "RGPD"],
+    tagsEn: ["2FA", "Encryption", "GDPR"],
   },
   {
     icon: Cpu,
     title: "Technologie évolutive",
+    titleEn: "Technology that scales",
     description: "Conçue pour grandir avec vous. Votre outil s'adapte à votre croissance sans refonte coûteuse.",
+    descriptionEn: "Built to grow with you. Your tool adapts to your growth without a costly rebuild.",
     tags: ["Microservices", "PostgreSQL", "AI"],
+    tagsEn: ["Microservices", "PostgreSQL", "AI"],
   },
 ];
 
@@ -63,12 +82,21 @@ const stack = [
   "shadcn/ui", "Tailwind CSS",
 ];
 
+const stackEn = [
+  "Next.js", "Node.js", "PostgreSQL", "Prisma", "Redis",
+  "Supabase", "TypeScript", "Docker", "Vercel", "GDPR",
+  "shadcn/ui", "Tailwind CSS",
+];
+
 const offers = [
   {
     tier: "LAUNCH",
     title: "Admin Pilot",
+    titleEn: "Admin Pilot",
     tagline: "Gestion simple et rapide.",
+    taglineEn: "Simple, fast management.",
     price: "Sur demande",
+    priceEn: "On request",
     features: [
       "Dashboard simple et intuitif",
       "Gestion utilisateurs",
@@ -76,15 +104,27 @@ const offers = [
       "Export de données",
       "Interface responsive",
     ],
+    featuresEn: [
+      "Simple, intuitive dashboard",
+      "User management",
+      "Core CRUD",
+      "Data export",
+      "Responsive interface",
+    ],
     upsell: "Hébergement & support 79€/mois",
+    upsellEn: "Hosting & support €79/month",
     subject: "Backoffice - Offre LAUNCH (Admin Pilot)",
+    subjectEn: "Back Office - LAUNCH Plan (Admin Pilot)",
     recommended: false,
   },
   {
     tier: "PRO",
     title: "Business Operator",
+    titleEn: "Business Operator",
     tagline: "Automatisation & croissance.",
+    taglineEn: "Automation & growth.",
     price: "Sur demande",
+    priceEn: "On request",
     features: [
       "Intégrations API multiples",
       "Reporting avancé",
@@ -93,15 +133,28 @@ const offers = [
       "Multi-utilisateurs & rôles",
       "Notifications temps réel",
     ],
+    featuresEn: [
+      "Multiple API integrations",
+      "Advanced reporting",
+      "Workflow automations",
+      "GDPR compliance",
+      "Multi-user & roles",
+      "Real-time notifications",
+    ],
     upsell: "Support prioritaire 129€/mois",
+    upsellEn: "Priority support €129/month",
     subject: "Backoffice - Offre PRO (SaaS Operator)",
+    subjectEn: "Back Office - PRO Plan (SaaS Operator)",
     recommended: true,
   },
   {
     tier: "PREMIUM",
     title: "Enterprise Core",
+    titleEn: "Enterprise Core",
     tagline: "Pour les PME/ETI ambitieuses.",
+    taglineEn: "For ambitious SMEs and mid-caps.",
     price: "Sur devis",
+    priceEn: "Custom quote",
     features: [
       "Architecture microservices",
       "IA & Machine Learning",
@@ -110,8 +163,18 @@ const offers = [
       "Scalabilité infinie",
       "SLA garanti",
     ],
+    featuresEn: [
+      "Microservices architecture",
+      "AI & machine learning",
+      "Complex business logic",
+      "Enterprise security",
+      "Unlimited scalability",
+      "Guaranteed SLA",
+    ],
     upsell: "TMA complète sur devis",
+    upsellEn: "Full application maintenance, custom quote",
     subject: "Backoffice - Offre PREMIUM (Enterprise Core)",
+    subjectEn: "Back Office - PREMIUM Plan (Enterprise Core)",
     recommended: false,
   },
 ];
@@ -129,11 +192,14 @@ const fadeUp: Variants = {
 /* ─── Page ──────────────────────────────────────────────────── */
 
 const BackofficeService = () => {
+  const { t, lp } = useLang();
   return (
     <Layout>
       <SEO
         title="Backoffice & Logiciel Métier"
         description="Création d'outils internes, dashboards et logiciels sur-mesure. Automatisation, gestion des accès et technologie évolutive."
+        titleEn="Back Office & Business Software"
+        descriptionEn="Custom internal tools, dashboards and business software. Automation, access management and technology that scales with you."
         canonical="/services/backoffice"
         schemaJson={{
           "@context": "https://schema.org",
@@ -162,16 +228,16 @@ const BackofficeService = () => {
               transition={{ duration: 0.5 }}
               className="section-label justify-center mb-6"
             >
-              Backoffice & Logiciel
+              {t("Backoffice & Logiciel", "Back Office & Software")}
             </motion.div>
 
             <h1 className="font-serif text-[32px] sm:text-[48px] lg:text-[66px] xl:text-[80px] leading-[0.97] tracking-[-0.03em] text-[#0E0B14]">
-              <RevealText by="word" stagger={0.06}>Le cerveau de</RevealText>
+              <RevealText by="word" stagger={0.06}>{t("Le cerveau de", "The brain of")}</RevealText>
               <span className="block">
-                <RevealText by="word" stagger={0.06} delay={0.12}>votre</RevealText>
+                <RevealText by="word" stagger={0.06} delay={0.12}>{t("votre", "your")}</RevealText>
               </span>
               <span className="block">
-                <span className="prisme-italic-grad prisme-shimmer">opération.</span>
+                <span className="prisme-italic-grad prisme-shimmer">{t("opération.", "operation.")}</span>
               </span>
             </h1>
 
@@ -181,7 +247,10 @@ const BackofficeService = () => {
               transition={{ duration: 0.6, delay: 0.55 }}
               className="mt-6 text-[17px] md:text-[19px] text-[#6F6580] leading-[1.65] max-w-xl mx-auto"
             >
-              Dashboards puissants, automatisations intelligentes et outils sur-mesure pour piloter votre activité avec une précision chirurgicale.
+              {t(
+                "Dashboards puissants, automatisations intelligentes et outils sur-mesure pour piloter votre activité avec une précision chirurgicale.",
+                "Powerful dashboards, smart automations and custom tools to run your business with surgical precision."
+              )}
             </motion.p>
 
             <motion.div
@@ -197,7 +266,7 @@ const BackofficeService = () => {
                 rel="noopener noreferrer"
                 className="btn-prisme group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white font-medium text-[15px]"
               >
-                Démarrer un projet
+                {t("Démarrer un projet", "Start a project")}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </MagneticButton>
               <MagneticButton
@@ -205,7 +274,7 @@ const BackofficeService = () => {
                 onClick={() => document.getElementById("offres-backoffice")?.scrollIntoView({ behavior: "smooth" })}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-[#0E0B14] text-[#0E0B14] font-medium text-[15px] hover:bg-[#0E0B14] hover:text-[#FBFAF7] transition-colors"
               >
-                Voir les offres
+                {t("Voir les offres", "View our plans")}
               </MagneticButton>
             </motion.div>
 
@@ -215,7 +284,7 @@ const BackofficeService = () => {
               transition={{ delay: 1 }}
               className="mt-7 flex flex-wrap gap-2 justify-center"
             >
-              {["Dashboards", "Automatisation", "RGPD Compliant", "Multi-rôles"].map((tag, i) => (
+              {["Dashboards", t("Automatisation", "Automation"), t("RGPD Compliant", "GDPR Compliant"), t("Multi-rôles", "Multi-role")].map((tag, i) => (
                 <motion.span
                   key={tag}
                   initial={{ opacity: 0, y: 8 }}
@@ -256,9 +325,9 @@ const BackofficeService = () => {
                 className="text-center p-6 rounded-[20px] bg-white border border-[#EEEAF4]"
               >
                 <div className="font-serif text-[28px] md:text-[38px] leading-none tracking-[-0.03em] prisme-italic-grad mb-1">
-                  {s.value}
+                  {t(s.value, s.valueEn)}
                 </div>
-                <div className="text-[13px] text-[#6F6580] font-medium">{s.label}</div>
+                <div className="text-[13px] text-[#6F6580] font-medium">{t(s.label, s.labelEn)}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -274,13 +343,16 @@ const BackofficeService = () => {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16 max-w-2xl mx-auto">
-            <div className="section-label justify-center mb-6">Expertises</div>
+            <div className="section-label justify-center mb-6">{t("Expertises", "Expertise")}</div>
             <h2 className="font-serif text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-5">
-              Ce qu&apos;on{" "}
-              <span className="prisme-italic-grad">maîtrise.</span>
+              {t("Ce qu'on", "What we")}{" "}
+              <span className="prisme-italic-grad">{t("maîtrise.", "master.")}</span>
             </h2>
             <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
-              Six piliers pour des outils internes qui optimisent vos opérations et boostent votre productivité.
+              {t(
+                "Six piliers pour des outils internes qui optimisent vos opérations et boostent votre productivité.",
+                "Six pillars for internal tools that streamline your operations and boost your productivity."
+              )}
             </p>
           </div>
 
@@ -300,12 +372,12 @@ const BackofficeService = () => {
                     <div className="w-11 h-11 rounded-2xl bg-[#F3EEFB] border border-[#EEEAF4] flex items-center justify-center mb-6 group-hover:bg-[rgba(124,58,237,0.10)] transition-colors duration-300">
                       <Icon className="h-5 w-5 text-[#7C3AED]" strokeWidth={1.5} />
                     </div>
-                    <h3 className="font-serif text-[20px] text-[#0E0B14] mb-3 leading-snug">{f.title}</h3>
-                    <p className="text-[14px] text-[#6F6580] leading-relaxed mb-5">{f.description}</p>
+                    <h3 className="font-serif text-[20px] text-[#0E0B14] mb-3 leading-snug">{t(f.title, f.titleEn)}</h3>
+                    <p className="text-[14px] text-[#6F6580] leading-relaxed mb-5">{t(f.description, f.descriptionEn)}</p>
                     <div className="flex flex-wrap gap-2">
-                      {f.tags.map((tag) => (
+                      {f.tags.map((tag, ti) => (
                         <span key={tag} className="px-3 py-1 rounded-full text-[11px] font-medium tracking-wide bg-[#F3EEFB] text-[#7C3AED] border border-[rgba(124,58,237,0.15)]">
-                          {tag}
+                          {t(tag, f.tagsEn[ti])}
                         </span>
                       ))}
                     </div>
@@ -329,8 +401,8 @@ const BackofficeService = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-10"
           >
-            <div className="section-label justify-center mb-4">Stack technique</div>
-            <p className="text-[#6F6580] text-sm">Technologies éprouvées pour des outils robustes, sécurisés et évolutifs.</p>
+            <div className="section-label justify-center mb-4">{t("Stack technique", "Tech stack")}</div>
+            <p className="text-[#6F6580] text-sm">{t("Technologies éprouvées pour des outils robustes, sécurisés et évolutifs.", "Proven technologies for robust, secure and scalable tools.")}</p>
           </motion.div>
 
           <motion.div
@@ -349,7 +421,7 @@ const BackofficeService = () => {
                 transition={{ delay: 0.05 + i * 0.04, ease: [0.22, 1, 0.36, 1] }}
                 className="px-4 py-2 rounded-full text-[13px] font-medium bg-white border border-[#EEEAF4] text-[#0E0B14] hover:border-[rgba(124,58,237,0.35)] hover:text-[#7C3AED] transition-colors duration-200"
               >
-                {tech}
+                {t(tech, stackEn[i])}
               </motion.span>
             ))}
           </motion.div>
@@ -365,13 +437,13 @@ const BackofficeService = () => {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16 max-w-2xl mx-auto">
-            <div className="section-label justify-center mb-6">Nos offres</div>
+            <div className="section-label justify-center mb-6">{t("Nos offres", "Our plans")}</div>
             <h2 className="font-serif text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-5">
-              Choisissez votre{" "}
-              <span className="prisme-italic-grad">formule backoffice.</span>
+              {t("Choisissez votre", "Choose your")}{" "}
+              <span className="prisme-italic-grad">{t("formule backoffice.", "back-office plan.")}</span>
             </h2>
             <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
-              Trois niveaux d&apos;engagement, un seul niveau d&apos;exigence.
+              {t("Trois niveaux d'engagement, un seul niveau d'exigence.", "Three levels of commitment, one standard of excellence.")}
             </p>
           </div>
 
@@ -389,7 +461,7 @@ const BackofficeService = () => {
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
                     <span className="px-4 py-1.5 rounded-full text-[11px] font-semibold tracking-wider text-white uppercase"
                       style={{ background: "var(--prisme-gradient)" }}>
-                      Recommandé
+                      {t("Recommandé", "Recommended")}
                     </span>
                   </div>
                 )}
@@ -422,18 +494,18 @@ const BackofficeService = () => {
                     </div>
 
                     <h3 className={`font-serif text-[22px] mb-1 leading-snug ${offer.recommended ? "text-white" : "text-[#0E0B14]"}`}>
-                      {offer.title}
+                      {t(offer.title, offer.titleEn)}
                     </h3>
                     <p className={`text-[14px] mb-6 ${offer.recommended ? "text-[#B8A8D8]" : "text-[#6F6580]"}`}>
-                      {offer.tagline}
+                      {t(offer.tagline, offer.taglineEn)}
                     </p>
 
                     <div className={`font-serif text-[32px] tracking-[-0.02em] mb-8 ${offer.recommended ? "text-white" : "prisme-italic-grad"}`}>
-                      {offer.price}
+                      {t(offer.price, offer.priceEn)}
                     </div>
 
                     <ul className="space-y-3 mb-8 flex-1">
-                      {offer.features.map((feat) => (
+                      {offer.features.map((feat, fi) => (
                         <li key={feat} className="flex items-start gap-3">
                           <div className={`mt-0.5 w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${
                             offer.recommended ? "bg-white/10" : "bg-[#F3EEFB]"
@@ -441,7 +513,7 @@ const BackofficeService = () => {
                             <Check className={`h-3 w-3 ${offer.recommended ? "text-[#A78BFA]" : "text-[#7C3AED]"}`} strokeWidth={2.5} />
                           </div>
                           <span className={`text-[14px] leading-relaxed ${offer.recommended ? "text-[#D4C8F0]" : "text-[#6F6580]"}`}>
-                            {feat}
+                            {t(feat, offer.featuresEn[fi])}
                           </span>
                         </li>
                       ))}
@@ -452,17 +524,17 @@ const BackofficeService = () => {
                         ? "bg-white/8 text-[#B8A8D8] border border-white/10"
                         : "bg-[#F3EEFB] text-[#6F6580] border border-[rgba(124,58,237,0.12)]"
                     }`}>
-                      <span className={`font-semibold ${offer.recommended ? "text-[#A78BFA]" : "text-[#7C3AED]"}`}>+ Option : </span>
-                      {offer.upsell}
+                      <span className={`font-semibold ${offer.recommended ? "text-[#A78BFA]" : "text-[#7C3AED]"}`}>{t("+ Option : ", "+ Add-on: ")}</span>
+                      {t(offer.upsell, offer.upsellEn)}
                     </div>
 
-                    <Link to={`/contact?subject=${encodeURIComponent(offer.subject)}`}>
+                    <Link to={lp(`/contact?subject=${encodeURIComponent(t(offer.subject, offer.subjectEn))}`)}>
                       <button className={`w-full py-4 rounded-full font-medium text-[15px] inline-flex items-center justify-center gap-2 transition-all duration-300 ${
                         offer.recommended
                           ? "btn-prisme text-white"
                           : "border border-[#0E0B14] text-[#0E0B14] hover:bg-[#0E0B14] hover:text-white"
                       }`}>
-                        Configurer ce pack
+                        {t("Configurer ce pack", "Configure this plan")}
                         <ArrowRight className="h-4 w-4" />
                       </button>
                     </Link>
@@ -508,16 +580,19 @@ const BackofficeService = () => {
               <div className="relative">
                 <div className="section-label justify-center mb-8"
                   style={{ color: "#A78BFA", borderColor: "rgba(124,58,237,0.25)", background: "rgba(124,58,237,0.12)" }}>
-                  Optimisez vos opérations
+                  {t("Optimisez vos opérations", "Optimize your operations")}
                 </div>
 
                 <h2 className="font-serif text-[28px] md:text-[46px] leading-[1.08] tracking-[-0.02em] text-white mb-5">
-                  Un outil qui pilote{" "}
-                  <span className="prisme-italic-grad">et qui scale.</span>
+                  {t("Un outil qui pilote", "A tool that drives")}{" "}
+                  <span className="prisme-italic-grad">{t("et qui scale.", "and scales.")}</span>
                 </h2>
 
                 <p className="text-[#B8A8D8] text-base md:text-lg leading-relaxed mb-10 max-w-lg mx-auto">
-                  Réponse sous 24–48h avec une proposition claire, un délai et un tarif, sans engagement.
+                  {t(
+                    "Réponse sous 24–48h avec une proposition claire, un délai et un tarif, sans engagement.",
+                    "A reply within 24–48h with a clear proposal, timeline and price. No commitment."
+                  )}
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -528,16 +603,16 @@ const BackofficeService = () => {
                     rel="noopener noreferrer"
                     className="btn-prisme inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white font-medium text-[15px]"
                   >
-                    Planifier un appel
+                    {t("Planifier un appel", "Book a call")}
                     <ArrowRight className="h-4 w-4" />
                   </MagneticButton>
                   <MagneticButton
                     as={Link}
-                    to="/contact"
+                    to={lp("/contact")}
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white/80 font-medium text-[15px] hover:border-white/50 hover:text-white transition-colors duration-200"
                   >
                     <Mail className="h-4 w-4" />
-                    Écrire un message
+                    {t("Écrire un message", "Send a message")}
                   </MagneticButton>
                 </div>
               </div>

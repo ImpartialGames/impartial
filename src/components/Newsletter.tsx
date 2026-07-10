@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Mail, Loader2, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useLang } from "@/contexts/LanguageContext";
 
 interface NewsletterProps {
   variant?: "inline" | "card";
 }
 
 export function Newsletter({ variant = "card" }: NewsletterProps) {
+  const { t } = useLang();
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -14,25 +16,25 @@ export function Newsletter({ variant = "card" }: NewsletterProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       toast({
-        title: "Email invalide",
-        description: "Veuillez entrer une adresse email valide.",
+        title: t("Email invalide", "Invalid email"),
+        description: t("Veuillez entrer une adresse email valide.", "Please enter a valid email address."),
         variant: "destructive",
       });
       return;
     }
 
     setIsLoading(true);
-    
+
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
-    
+
     setIsSubscribed(true);
     toast({
-      title: "Inscription réussie !",
-      description: "Vous recevrez bientôt nos dernières actualités.",
+      title: t("Inscription réussie !", "You're subscribed!"),
+      description: t("Vous recevrez bientôt nos dernières actualités.", "You'll receive our latest news soon."),
     });
     setEmail("");
     setIsLoading(false);
@@ -46,12 +48,12 @@ export function Newsletter({ variant = "card" }: NewsletterProps) {
           Newsletter
         </h4>
         <p className="text-sm text-muted-foreground">
-          Recevez nos dernières actualités et conseils.
+          {t("Recevez nos dernières actualités et conseils.", "Get our latest news and tips.")}
         </p>
         {isSubscribed ? (
           <div className="flex items-center gap-2 text-emerald-400 text-sm">
             <CheckCircle className="h-4 w-4" />
-            Merci pour votre inscription !
+            {t("Merci pour votre inscription !", "Thanks for subscribing!")}
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex gap-2">
@@ -59,7 +61,7 @@ export function Newsletter({ variant = "card" }: NewsletterProps) {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="votre@email.com"
+              placeholder={t("votre@email.com", "your@email.com")}
               className="flex-1 px-4 py-2 text-sm rounded-xl bg-background/50 border border-white/10 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition-all"
               disabled={isLoading}
             />
@@ -86,19 +88,22 @@ export function Newsletter({ variant = "card" }: NewsletterProps) {
             <Mail className="h-6 w-6 text-cyan-400" />
           </div>
           <div>
-            <h3 className="text-xl font-light">Restez informé</h3>
-            <p className="text-sm text-muted-foreground font-light">Inscrivez-vous à notre newsletter</p>
+            <h3 className="text-xl font-light">{t("Restez informé", "Stay in the loop")}</h3>
+            <p className="text-sm text-muted-foreground font-light">{t("Inscrivez-vous à notre newsletter", "Subscribe to our newsletter")}</p>
           </div>
         </div>
 
         <p className="text-muted-foreground font-light mb-6">
-          Recevez nos dernières actualités, conseils et tendances du digital directement dans votre boîte mail.
+          {t(
+            "Recevez nos dernières actualités, conseils et tendances du digital directement dans votre boîte mail.",
+            "Get our latest news, tips and digital trends delivered straight to your inbox."
+          )}
         </p>
 
         {isSubscribed ? (
           <div className="flex items-center gap-3 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
             <CheckCircle className="h-5 w-5" />
-            <span>Merci ! Vous êtes maintenant inscrit à notre newsletter.</span>
+            <span>{t("Merci ! Vous êtes maintenant inscrit à notre newsletter.", "Thank you! You're now subscribed to our newsletter.")}</span>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
@@ -108,7 +113,7 @@ export function Newsletter({ variant = "card" }: NewsletterProps) {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="votre@email.com"
+                placeholder={t("votre@email.com", "your@email.com")}
                 className="w-full pl-12 pr-4 py-3 rounded-xl bg-background/50 border border-white/10 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 focus:shadow-[0_0_20px_rgba(34,211,238,0.2)] transition-all"
                 disabled={isLoading}
               />
@@ -121,11 +126,11 @@ export function Newsletter({ variant = "card" }: NewsletterProps) {
               {isLoading ? (
                 <>
                   <Loader2 className="h-5 w-5 animate-spin" />
-                  Inscription...
+                  {t("Inscription...", "Subscribing...")}
                 </>
               ) : (
                 <>
-                  S'inscrire
+                  {t("S'inscrire", "Subscribe")}
                   <Mail className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </>
               )}
@@ -134,7 +139,10 @@ export function Newsletter({ variant = "card" }: NewsletterProps) {
         )}
 
         <p className="text-xs text-muted-foreground mt-4">
-          En vous inscrivant, vous acceptez notre politique de confidentialité. Désabonnement possible à tout moment.
+          {t(
+            "En vous inscrivant, vous acceptez notre politique de confidentialité. Désabonnement possible à tout moment.",
+            "By subscribing, you agree to our privacy policy. You can unsubscribe at any time."
+          )}
         </p>
       </div>
     </div>
