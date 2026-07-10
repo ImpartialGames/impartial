@@ -3,8 +3,9 @@ import { supabase } from "@/integrations/supabase/client";
 import { useIsDemo } from "./useIsDemo";
 import { useDemoData } from "@/contexts/DemoDataContext";
 import type { CahierDesCharges, CdcHistoriqueEntry, CdcPieceJointe } from "@/contexts/DemoDataContext";
+import type { Tables, TablesInsert } from "@/integrations/supabase/types";
 
-function mapRow(row: any, historique: CdcHistoriqueEntry[] = []): CahierDesCharges {
+function mapRow(row: Tables<"cahiers_des_charges">, historique: CdcHistoriqueEntry[] = []): CahierDesCharges {
   return {
     id: row.id,
     demandeId: row.demande_id,
@@ -26,11 +27,11 @@ function mapRow(row: any, historique: CdcHistoriqueEntry[] = []): CahierDesCharg
   };
 }
 
-function mapHistoriqueRow(row: any): CdcHistoriqueEntry {
+function mapHistoriqueRow(row: Tables<"cdc_historique">): CdcHistoriqueEntry {
   return {
     id: row.id,
-    action: row.action,
-    auteur: row.auteur,
+    action: row.action as CdcHistoriqueEntry["action"],
+    auteur: row.auteur as CdcHistoriqueEntry["auteur"],
     description: row.description,
     date: row.date,
   };
@@ -47,7 +48,7 @@ export function useCahiers() {
       const { data: cahiers, error } = await supabase.from("cahiers_des_charges").select("*");
       if (error) throw error;
       const ids = (cahiers ?? []).map((c) => c.id);
-      let historiques: any[] = [];
+      let historiques: Tables<"cdc_historique">[] = [];
       if (ids.length > 0) {
         const { data: hist } = await supabase.from("cdc_historique").select("*").in("cahier_id", ids).order("date", { ascending: true });
         historiques = hist ?? [];
@@ -68,7 +69,7 @@ export function useCahiers() {
   const saveCahier = useMutation({
     mutationFn: async (cahier: CahierDesCharges) => {
       if (isDemo) { demoData.saveCahierDesCharges(cahier); return; }
-      const dbData = {
+      const dbData: TablesInsert<"cahiers_des_charges"> = {
         demande_id: cahier.demandeId, contexte: cahier.contexte, public_cible: cahier.publicCible,
         fonctionnalites: cahier.fonctionnalites, design_notes: cahier.designNotes,
         contraintes_techniques: cahier.contraintesTechniques, planning_souhaite: cahier.planningSouhaite,
@@ -79,10 +80,10 @@ export function useCahiers() {
       };
       const existing = data.find((c) => c.demandeId === cahier.demandeId);
       if (existing) {
-        const { error } = await supabase.from("cahiers_des_charges").update(dbData as any).eq("id", existing.id);
+        const { error } = await supabase.from("cahiers_des_charges").update(dbData).eq("id", existing.id);
         if (error) throw error;
       } else {
-        const { error } = await supabase.from("cahiers_des_charges").insert({ id: cahier.id, ...dbData } as any);
+        const { error } = await supabase.from("cahiers_des_charges").insert({ id: cahier.id, ...dbData });
         if (error) throw error;
       }
     },

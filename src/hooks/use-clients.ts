@@ -3,8 +3,9 @@ import { supabase } from "@/integrations/supabase/client";
 import { useIsDemo } from "./useIsDemo";
 import { useDemoData } from "@/contexts/DemoDataContext";
 import type { Client } from "@/data/mockData";
+import type { Tables, TablesUpdate } from "@/integrations/supabase/types";
 
-function mapRowToClient(row: any): Client {
+function mapRowToClient(row: Tables<"clients">): Client {
   return {
     id: row.id,
     nom: row.nom,
@@ -50,7 +51,7 @@ export function useClients() {
         demoData.updateClient(id, updates);
         return;
       }
-      const dbUpdates: Record<string, any> = {};
+      const dbUpdates: TablesUpdate<"clients"> = {};
       if (updates.nom !== undefined) dbUpdates.nom = updates.nom;
       if (updates.prenom !== undefined) dbUpdates.prenom = updates.prenom;
       if (updates.email !== undefined) dbUpdates.email = updates.email;

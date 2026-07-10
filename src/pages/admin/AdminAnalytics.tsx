@@ -35,12 +35,15 @@ import {
   Cell,
 } from "recharts";
 
-const CustomTooltip = ({ active, payload, label }: any) => {
+type ChartTooltipEntry = { name: string; value: number | string; color?: string };
+type ChartTooltipProps = { active?: boolean; payload?: ChartTooltipEntry[]; label?: string };
+
+const CustomTooltip = ({ active, payload, label }: ChartTooltipProps) => {
   if (!active || !payload?.length) return null;
   return (
     <div className="glass-card p-3 text-xs space-y-1 border border-border/50">
       <p className="font-semibold text-foreground">{label}</p>
-      {payload.map((entry: any, i: number) => (
+      {payload.map((entry, i) => (
         <div key={i} className="flex items-center gap-2">
           <div className="h-2 w-2 rounded-full" style={{ backgroundColor: entry.color }} />
           <span className="text-muted-foreground">{entry.name}:</span>
@@ -234,6 +237,7 @@ export default function AdminAnalytics() {
       const { default: autoTable } = await import("jspdf-autotable");
 
       const doc = new jsPDF();
+      const docWithTable = doc as typeof doc & { lastAutoTable?: { finalY: number } };
       const now = new Date().toLocaleDateString("fr-FR");
 
       doc.setFontSize(20);
@@ -258,7 +262,7 @@ export default function AdminAnalytics() {
         headStyles: { fillColor: [100, 60, 180] },
       });
 
-      const afterKpi = (doc as any).lastAutoTable?.finalY || 60;
+      const afterKpi = docWithTable.lastAutoTable?.finalY || 60;
       doc.setFontSize(14);
       doc.text("Tendances mensuelles", 14, afterKpi + 10);
       autoTable(doc, {
@@ -277,7 +281,7 @@ export default function AdminAnalytics() {
         styles: { fontSize: 8 },
       });
 
-      const afterMonthly = (doc as any).lastAutoTable?.finalY || 120;
+      const afterMonthly = docWithTable.lastAutoTable?.finalY || 120;
       doc.setFontSize(14);
       doc.text("Ventes par type de projet", 14, afterMonthly + 10);
       autoTable(doc, {
@@ -325,7 +329,7 @@ export default function AdminAnalytics() {
         });
       }
 
-      const afterSupport = (doc as any).lastAutoTable?.finalY || 80;
+      const afterSupport = docWithTable.lastAutoTable?.finalY || 80;
       if (tickets.length > 0) {
         autoTable(doc, {
           startY: afterSupport + 6,

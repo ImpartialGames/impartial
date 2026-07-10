@@ -59,7 +59,7 @@ export default function AdminReminders() {
             },
           });
           if (error) throw error;
-        } catch (e: any) {
+        } catch (e) {
           console.error("Erreur envoi relance:", e);
           toast.error("Erreur lors de l'envoi de l'email de relance");
           return;

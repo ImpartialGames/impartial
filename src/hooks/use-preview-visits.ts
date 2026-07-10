@@ -3,8 +3,9 @@ import { supabase } from "@/integrations/supabase/client";
 import { useIsDemo } from "./useIsDemo";
 import { useDemoData } from "@/contexts/DemoDataContext";
 import type { PreviewVisit } from "@/contexts/DemoDataContext";
+import type { Tables } from "@/integrations/supabase/types";
 
-function mapRow(row: any): PreviewVisit {
+function mapRow(row: Tables<"preview_visits">): PreviewVisit {
   return {
     id: row.id,
     dossierId: row.dossier_id,

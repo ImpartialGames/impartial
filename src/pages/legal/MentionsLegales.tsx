@@ -87,9 +87,9 @@ const MentionsLegales = () => {
                 <h2 className="text-2xl font-bold">Hébergement</h2>
               </div>
               <div className="space-y-4 text-muted-foreground">
-                <p><span className="font-semibold text-foreground">Hébergeur :</span>Hébergeur : ​IONOS SARL</p>
-                <p><span className="font-semibold text-foreground">Adresse :</span> ​7, place de la Gare, BP 70109, 57200 Sarreguemines Cedex, France</p>
-                <p><span className="font-semibold text-foreground">Site web :</span> ​ionos.fr</p>
+                <p><span className="font-semibold text-foreground">Hébergeur :</span>Hébergeur : {" "}IONOS SARL</p>
+                <p><span className="font-semibold text-foreground">Adresse :</span> {" "}7, place de la Gare, BP 70109, 57200 Sarreguemines Cedex, France</p>
+                <p><span className="font-semibold text-foreground">Site web :</span> {" "}ionos.fr</p>
               </div>
             </div>
 

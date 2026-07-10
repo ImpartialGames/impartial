@@ -104,8 +104,15 @@ serve(async (req) => {
     const eventsData = await eventsRes.json();
 
     // Step 4: For each event, fetch invitees to get client names
+    type CalendlyEvent = {
+      uri: string;
+      start_time: string;
+      status: string;
+      name?: string;
+      location?: { join_url?: string };
+    };
     const allEvents = await Promise.all(
-      eventsData.collection.map(async (event: any) => {
+      eventsData.collection.map(async (event: CalendlyEvent) => {
         let inviteeName = "Inconnu";
         let inviteeEmail = "";
         try {
@@ -150,7 +157,7 @@ serve(async (req) => {
     // Step 5: Filter for clients - they only see their own appointments
     const events = isAdmin
       ? allEvents
-      : allEvents.filter((e: any) => e.clientEmail.toLowerCase() === clientEmail.toLowerCase());
+      : allEvents.filter((e) => e.clientEmail.toLowerCase() === clientEmail.toLowerCase());
 
     return new Response(JSON.stringify({ events }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },

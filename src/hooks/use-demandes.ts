@@ -3,15 +3,16 @@ import { supabase } from "@/integrations/supabase/client";
 import { useIsDemo } from "./useIsDemo";
 import { useDemoData } from "@/contexts/DemoDataContext";
 import type { Demande, DemandeStatus } from "@/contexts/DemoDataContext";
+import type { Tables } from "@/integrations/supabase/types";
 
-function mapRow(row: any): Demande {
+function mapRow(row: Tables<"demandes">): Demande {
   return {
     id: row.id,
     reference: row.reference,
     clientId: row.client_id,
     clientNom: row.client_nom,
     titre: row.titre,
-    typePrestation: row.type_prestation,
+    typePrestation: row.type_prestation as Demande["typePrestation"],
     description: row.description,
     budget: row.budget ?? undefined,
     statut: row.statut as DemandeStatus,

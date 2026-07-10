@@ -140,7 +140,7 @@ function buildFactureDoc(facture: Facture, client?: Client): jsPDF {
     styles: { cellPadding: 6 },
   });
 
-  const finalY = (doc as any).lastAutoTable?.finalY || 130;
+  const finalY = (doc as jsPDF & { lastAutoTable?: { finalY: number } }).lastAutoTable?.finalY || 130;
   doc.setFontSize(8);
   doc.setTextColor(100, 100, 120);
   doc.text("Conditions de paiement : 30 jours net.", 20, finalY + 12);
@@ -194,7 +194,7 @@ function buildDevisDoc(devisItem: Devis, client?: Client): jsPDF {
     styles: { cellPadding: 6 },
   });
 
-  const finalY = (doc as any).lastAutoTable?.finalY || 130;
+  const finalY = (doc as jsPDF & { lastAutoTable?: { finalY: number } }).lastAutoTable?.finalY || 130;
 
   if (devisItem.statut === "accepte" && devisItem.signatureDataUrl) {
     doc.setFontSize(11);

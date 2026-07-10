@@ -88,12 +88,12 @@ export interface CdcHistoriqueEntry {
   date: string;
 }
 
-export interface CdcPieceJointe {
+export type CdcPieceJointe = {
   name: string;
   url: string;
   type: string;
   size: number;
-}
+};
 
 export interface CahierDesCharges {
   id: string;

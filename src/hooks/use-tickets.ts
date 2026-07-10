@@ -3,8 +3,9 @@ import { useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useIsDemo } from "./useIsDemo";
 import { tickets as mockTickets, getTicketsByClient as mockGetByClient, type Ticket, type TicketMessage } from "@/data/mockData";
+import type { Tables } from "@/integrations/supabase/types";
 
-function mapMessage(row: any): TicketMessage {
+function mapMessage(row: Tables<"ticket_messages">): TicketMessage {
   return {
     id: row.id,
     contenu: row.contenu,
@@ -13,7 +14,7 @@ function mapMessage(row: any): TicketMessage {
   };
 }
 
-function mapRow(row: any, messages: TicketMessage[]): Ticket {
+function mapRow(row: Tables<"tickets">, messages: TicketMessage[]): Ticket {
   return {
     id: row.id,
     reference: row.reference,
@@ -39,7 +40,7 @@ export function useTickets() {
       const { data: tix, error } = await supabase.from("tickets").select("*").order("date_creation", { ascending: false });
       if (error) throw error;
       const ids = (tix ?? []).map((t) => t.id);
-      let msgs: any[] = [];
+      let msgs: Tables<"ticket_messages">[] = [];
       if (ids.length > 0) {
         const { data } = await supabase.from("ticket_messages").select("*").in("ticket_id", ids).order("date", { ascending: true });
         msgs = data ?? [];

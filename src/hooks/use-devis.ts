@@ -3,8 +3,9 @@ import { supabase } from "@/integrations/supabase/client";
 import { useIsDemo } from "./useIsDemo";
 import { useDemoData } from "@/contexts/DemoDataContext";
 import type { Devis, DevisStatus } from "@/data/mockData";
+import type { Tables } from "@/integrations/supabase/types";
 
-function mapRow(row: any): Devis {
+function mapRow(row: Tables<"devis">): Devis {
   return {
     id: row.id,
     reference: row.reference,
