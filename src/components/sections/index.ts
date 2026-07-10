@@ -1,5 +1,4 @@
 export { HeroPremium } from "./HeroPremium";
-export { ProofStrip } from "./ProofStrip";
 export { OffresSection } from "./OffresSection";
 export { ServicesSection } from "./ServicesSection";
 export { RealisationsSection } from "./RealisationsSection";

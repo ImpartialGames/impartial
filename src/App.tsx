@@ -11,6 +11,7 @@ import { DemoDataProvider } from "@/contexts/DemoDataContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { CustomCursor } from "@/components/ui/CustomCursor";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => {
           <DemoDataProvider>
             <Toaster />
             <Sonner />
+            <SpeedInsights />
             <CustomCursor />
             <BrowserRouter>
               <AnimatedRoutes />

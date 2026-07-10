@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, type Transition, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { LucideIcon } from "lucide-react";
 
@@ -12,22 +12,26 @@ export interface GlowMenuItem {
   iconColor: string;
 }
 
-interface GlowMenuProps extends React.HTMLAttributes<HTMLDivElement> {
+interface GlowMenuProps
+  extends Omit<
+    React.HTMLAttributes<HTMLDivElement>,
+    "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart"
+  > {
   items: GlowMenuItem[];
   activeItem?: string;
 }
 
-const itemVariants = {
+const itemVariants: Variants = {
   initial: { rotateX: 0, opacity: 1 },
   hover: { rotateX: -90, opacity: 0 },
 };
 
-const backVariants = {
+const backVariants: Variants = {
   initial: { rotateX: 90, opacity: 0 },
   hover: { rotateX: 0, opacity: 1 },
 };
 
-const glowVariants = {
+const glowVariants: Variants = {
   initial: { opacity: 0, scale: 0.8 },
   hover: {
     opacity: 1,
@@ -39,7 +43,7 @@ const glowVariants = {
   },
 };
 
-const navGlowVariants = {
+const navGlowVariants: Variants = {
   initial: { opacity: 0 },
   hover: {
     opacity: 1,
@@ -47,7 +51,7 @@ const navGlowVariants = {
   },
 };
 
-const sharedTransition = {
+const sharedTransition: Transition = {
   type: "spring",
   stiffness: 100,
   damping: 20,

@@ -5,12 +5,12 @@ import { SEO } from "@/components/SEO";
 import { Newsletter } from "@/components/Newsletter";
 import { Mail, MapPin, Send, Loader2, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { MagneticButton, RevealText } from "@/components/wow";
 
 /* ─── Variants ─────────────────────────────────────────────── */
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: (i = 0) => ({
     opacity: 1, y: 0,

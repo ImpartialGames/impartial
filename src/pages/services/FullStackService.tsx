@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import {
   ArrowRight, Check, Mail,
   Globe, Smartphone, LayoutDashboard, RefreshCw, BarChart2, GraduationCap,
@@ -118,7 +118,7 @@ const offers = [
 
 /* ─── Variants ─────────────────────────────────────────────── */
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
   visible: (i = 0) => ({
     opacity: 1, y: 0,
