@@ -3,7 +3,7 @@ import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
 import { ArrowLeft, ExternalLink, Check, Database, LineChart, Shield } from "lucide-react";
 import { motion } from "framer-motion";
-import altarysImg from "@/assets/portfolio/altarys-logo.png";
+import altarysImg from "@/assets/portfolio/altarys-logo.webp";
 const projectDetails = {
   title: "Altarys Group",
   subtitle: "Plateforme DeFi et RWA avec dashboard administratif complet",

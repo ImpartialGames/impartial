@@ -4,7 +4,7 @@ import { SEO } from "@/components/SEO";
 import { ArrowLeft, ExternalLink, Check, Trophy, Gift, Users2 } from "lucide-react";
 import { motion } from "framer-motion";
 
-import propheciaLogo from "@/assets/portfolio/prophecia-logo.jpeg";
+import propheciaLogo from "@/assets/portfolio/prophecia-logo.webp";
 
 const projectDetails = {
   title: "Guardian Of Prophecia",

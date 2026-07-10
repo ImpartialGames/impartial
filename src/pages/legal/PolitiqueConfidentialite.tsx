@@ -1,7 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { Shield, Database, Eye, Lock, Users, Globe, Mail } from "lucide-react";
-import logoHero from "@/assets/logo-hero.png";
+import logoHero from "@/assets/logo-hero.webp";
 const PolitiqueConfidentialite = () => {
   return <Layout>
       <FloatingParticles />

@@ -1,7 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { Building2, Mail, Phone, Globe, Server, Shield } from "lucide-react";
-import logoHero from "@/assets/logo-hero.png";
+import logoHero from "@/assets/logo-hero.webp";
 const MentionsLegales = () => {
   return <Layout>
       <FloatingParticles />

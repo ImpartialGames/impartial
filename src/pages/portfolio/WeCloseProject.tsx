@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { ArrowLeft, ExternalLink, Check } from "lucide-react";
 import { motion } from "framer-motion";
-import wecloseImg from "@/assets/portfolio/weclose-logo.jpeg";
+import wecloseImg from "@/assets/portfolio/weclose-logo.webp";
 const projectDetails = {
   title: "We Close Agency",
   subtitle: "Site vitrine premium pour une agence de closers et setters",

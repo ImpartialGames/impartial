@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Globe, Smartphone, LayoutDashboard, Layers, Grid2X2, Users, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GlowMenu, GlowMenuItem } from "@/components/ui/glow-menu";
-import logoHero from "@/assets/logo-hero.png";
+import logoHero from "@/assets/logo-hero.webp";
 import { CalendlyQuiz } from "@/components/CalendlyQuiz";
 import { useLang } from "@/contexts/LanguageContext";
 

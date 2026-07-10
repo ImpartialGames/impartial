@@ -3,7 +3,7 @@ import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
 import { ArrowLeft, ExternalLink, Check } from "lucide-react";
 import { motion } from "framer-motion";
-import eclipsiaImg from "@/assets/portfolio/eclipsia.png";
+import eclipsiaImg from "@/assets/portfolio/eclipsia.webp";
 
 const projectDetails = {
   title: "Eclipsia",

@@ -7,9 +7,9 @@ import { motion } from "framer-motion";
 import { ImageWithSkeleton } from "@/components/ImageWithSkeleton";
 import { MagneticButton, RevealText } from "@/components/wow";
 
-import eclipsiaImg  from "@/assets/portfolio/eclipsia.png";
-import altarysImg   from "@/assets/portfolio/altarys-logo.png";
-import propheciaImg from "@/assets/portfolio/prophecia-logo.jpeg";
+import eclipsiaImg  from "@/assets/portfolio/eclipsia.webp";
+import altarysImg   from "@/assets/portfolio/altarys-logo.webp";
+import propheciaImg from "@/assets/portfolio/prophecia-logo.webp";
 
 /* ─── Données ─────────────────────────────────────────────── */
 
