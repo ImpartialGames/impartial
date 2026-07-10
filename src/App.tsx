@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { CookieBanner } from "@/components/CookieBanner";
 import { AnimatedRoutes } from "@/components/AnimatedRoutes";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { ClientOnly } from "@/components/ClientOnly";
 import { DemoAuthProvider } from "@/contexts/DemoAuthContext";
 import { DemoDataProvider } from "@/contexts/DemoDataContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
@@ -14,28 +15,38 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const queryClient = new QueryClient();
 
-const App = () => {
+/**
+ * Arbre applicatif complet, sans le Router : partagé entre le client
+ * (BrowserRouter, cf. App) et le prérendu serveur (StaticRouter, cf. entry-server).
+ */
+export function AppInner() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <LanguageProvider>
-        <DemoAuthProvider>
-          <DemoDataProvider>
-            <Toaster />
-            <Sonner />
-            <SpeedInsights />
-            <CustomCursor />
-            <BrowserRouter>
+          <DemoAuthProvider>
+            <DemoDataProvider>
               <AnimatedRoutes />
-              <CookieBanner />
-              <ScrollToTop />
-            </BrowserRouter>
-          </DemoDataProvider>
-        </DemoAuthProvider>
+              <ClientOnly>
+                <Toaster />
+                <Sonner />
+                <SpeedInsights />
+                <CustomCursor />
+                <CookieBanner />
+                <ScrollToTop />
+              </ClientOnly>
+            </DemoDataProvider>
+          </DemoAuthProvider>
         </LanguageProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
-};
+}
+
+const App = () => (
+  <BrowserRouter>
+    <AppInner />
+  </BrowserRouter>
+);
 
 export default App;

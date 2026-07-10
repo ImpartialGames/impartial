@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Globe, Smartphone, LayoutDashboard, Layers, Grid2X2, Users, Mail } from "lucide-react";
+import { Menu, X, Globe, Smartphone, LayoutDashboard, Layers, Grid2X2, Users, Mail, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GlowMenu, GlowMenuItem } from "@/components/ui/glow-menu";
 import logoHero from "@/assets/logo-hero.webp";
@@ -51,6 +51,13 @@ const glowNavItems: GlowMenuItem[] = [
     iconColor: "text-[#A78BFA]",
   },
   {
+    icon: BookOpen,
+    label: "Ressources",
+    href: "/ressources",
+    gradient: "radial-gradient(circle, rgba(255,185,150,0.22) 0%, rgba(255,185,150,0.07) 50%, transparent 100%)",
+    iconColor: "text-[#D97B4F]",
+  },
+  {
     icon: Mail,
     label: "Contact",
     href: "/contact",
@@ -65,7 +72,14 @@ export function Header() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [quizOpen, setQuizOpen] = useState(false);
   const location = useLocation();
-  const { lang, setLang, t } = useLang();
+  const { lang, setLang, t, lp } = useLang();
+
+  // Liens de navigation localisés ("/studio" → "/en/studio" côté anglais).
+  const navItems = glowNavItems.map((item) => ({
+    ...item,
+    label: item.label === "Ressources" ? t("Ressources", "Resources") : item.label,
+    href: lp(item.href),
+  }));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,7 +93,7 @@ export function Header() {
   }, []);
 
   const activeLabel =
-    glowNavItems.find((item) => item.href === location.pathname)?.label ?? "";
+    navItems.find((item) => item.href === location.pathname)?.label ?? "";
 
   const onDarkHero = !isScrolled && location.pathname === "/";
 
@@ -98,7 +112,7 @@ export function Header() {
         <nav className="flex items-center justify-between h-[72px] max-w-[1600px] mx-auto">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 flex-shrink-0 group">
+          <Link to={lp("/")} className="flex items-center gap-2.5 flex-shrink-0 group">
             <div className="relative flex-shrink-0">
               <div className="absolute inset-[-3px] bg-[#0E0B14] rounded-full" />
               <img
@@ -120,7 +134,7 @@ export function Header() {
 
           {/* GlowMenu — nav centre */}
           <div className="hidden lg:block absolute left-1/2 -translate-x-1/2">
-            <GlowMenu items={glowNavItems} activeItem={activeLabel} />
+            <GlowMenu items={navItems} activeItem={activeLabel} />
           </div>
 
           {/* CTA droite */}
@@ -187,7 +201,7 @@ export function Header() {
                 <div className="px-4 py-2 text-[#7C3AED] text-[10px] font-semibold uppercase tracking-[0.2em]">
                   Services
                 </div>
-                {glowNavItems.slice(0, 4).map((item) => (
+                {navItems.slice(0, 4).map((item) => (
                   <Link
                     key={item.href}
                     to={item.href}
@@ -203,7 +217,7 @@ export function Header() {
                   </Link>
                 ))}
                 <div className="h-px my-3 bg-[#EEEAF4]" />
-                {glowNavItems.slice(4).map((item) => (
+                {navItems.slice(4).map((item) => (
                   <Link
                     key={item.href}
                     to={item.href}

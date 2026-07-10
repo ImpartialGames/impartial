@@ -1,5 +1,5 @@
-import { lazy, Suspense } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { lazy, Suspense, type ReactNode } from "react";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { PageTransition3D } from "./PageTransition3D";
 import { useScrollToTop } from "@/hooks/use-scroll-to-top";
@@ -13,6 +13,8 @@ const WebService = lazy(() => import("@/pages/services/WebService"));
 const MobileService = lazy(() => import("@/pages/services/MobileService"));
 const BackofficeService = lazy(() => import("@/pages/services/BackofficeService"));
 const FullStackService = lazy(() => import("@/pages/services/FullStackService"));
+const Ressources = lazy(() => import("@/pages/ressources/Ressources"));
+const RessourceArticle = lazy(() => import("@/pages/ressources/RessourceArticle"));
 const CGU = lazy(() => import("@/pages/legal/CGU"));
 const CGV = lazy(() => import("@/pages/legal/CGV"));
 const Cookies = lazy(() => import("@/pages/legal/Cookies"));
@@ -66,6 +68,36 @@ const ClientPaiement = lazy(() => import("@/pages/client/ClientPaiement"));
 const ClientSettings = lazy(() => import("@/pages/client/ClientSettings"));
 const ClientRendezVous = lazy(() => import("@/pages/client/ClientRendezVous"));
 
+const wrap = (page: ReactNode) => <PageTransition3D>{page}</PageTransition3D>;
+
+/**
+ * Routes publiques, montées à l'identique sous "/" (FR) et "/en" (EN).
+ * La langue est déduite de l'URL par LanguageProvider.
+ */
+const publicChildren = (
+  <>
+    <Route index element={wrap(<Index />)} />
+    <Route path="studio" element={wrap(<Studio />)} />
+    <Route path="portfolio" element={wrap(<Portfolio />)} />
+    <Route path="portfolio/eclipsia" element={wrap(<EclipsiaProject />)} />
+    <Route path="portfolio/weclose" element={wrap(<WeCloseProject />)} />
+    <Route path="portfolio/altarys" element={wrap(<AltarysProject />)} />
+    <Route path="portfolio/prophecia" element={wrap(<PropheciaProject />)} />
+    <Route path="portfolio/umel" element={wrap(<UmelProject />)} />
+    <Route path="portfolio/fitbyval" element={wrap(<FitbyvalProject />)} />
+    <Route path="portfolio/elev8" element={wrap(<Elev8Project />)} />
+    <Route path="portfolio/valora" element={wrap(<ValoraProject />)} />
+    <Route path="portfolio/mba" element={wrap(<MBAProject />)} />
+    <Route path="contact" element={wrap(<Contact />)} />
+    <Route path="services/web" element={wrap(<WebService />)} />
+    <Route path="services/mobile" element={wrap(<MobileService />)} />
+    <Route path="services/backoffice" element={wrap(<BackofficeService />)} />
+    <Route path="services/360" element={wrap(<FullStackService />)} />
+    <Route path="ressources" element={wrap(<Ressources />)} />
+    <Route path="ressources/:slug" element={wrap(<RessourceArticle />)} />
+  </>
+);
+
 export function AnimatedRoutes() {
   const location = useLocation();
   useScrollToTop();
@@ -74,28 +106,25 @@ export function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <Suspense fallback={<div className="min-h-screen bg-[#0E0B14]" aria-hidden />}>
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<PageTransition3D><Index /></PageTransition3D>} />
-          <Route path="/studio" element={<PageTransition3D><Studio /></PageTransition3D>} />
-          <Route path="/portfolio" element={<PageTransition3D><Portfolio /></PageTransition3D>} />
-          <Route path="/portfolio/eclipsia" element={<PageTransition3D><EclipsiaProject /></PageTransition3D>} />
-          <Route path="/portfolio/weclose" element={<PageTransition3D><WeCloseProject /></PageTransition3D>} />
-          <Route path="/portfolio/altarys" element={<PageTransition3D><AltarysProject /></PageTransition3D>} />
-          <Route path="/portfolio/prophecia" element={<PageTransition3D><PropheciaProject /></PageTransition3D>} />
-          <Route path="/portfolio/umel" element={<PageTransition3D><UmelProject /></PageTransition3D>} />
-          <Route path="/portfolio/fitbyval" element={<PageTransition3D><FitbyvalProject /></PageTransition3D>} />
-          <Route path="/portfolio/elev8" element={<PageTransition3D><Elev8Project /></PageTransition3D>} />
-          <Route path="/portfolio/valora" element={<PageTransition3D><ValoraProject /></PageTransition3D>} />
-          <Route path="/portfolio/mba" element={<PageTransition3D><MBAProject /></PageTransition3D>} />
-          <Route path="/contact" element={<PageTransition3D><Contact /></PageTransition3D>} />
-          <Route path="/services/web" element={<PageTransition3D><WebService /></PageTransition3D>} />
-          <Route path="/services/mobile" element={<PageTransition3D><MobileService /></PageTransition3D>} />
-          <Route path="/services/backoffice" element={<PageTransition3D><BackofficeService /></PageTransition3D>} />
-          <Route path="/services/360" element={<PageTransition3D><FullStackService /></PageTransition3D>} />
-          <Route path="/cgu" element={<PageTransition3D><CGU /></PageTransition3D>} />
-          <Route path="/cgv" element={<PageTransition3D><CGV /></PageTransition3D>} />
-          <Route path="/cookies" element={<PageTransition3D><Cookies /></PageTransition3D>} />
-          <Route path="/mentions-legales" element={<PageTransition3D><MentionsLegales /></PageTransition3D>} />
-          <Route path="/politique-confidentialite" element={<PageTransition3D><PolitiqueConfidentialite /></PageTransition3D>} />
+          <Route path="/">
+            {publicChildren}
+            {/* Pages légales : FR uniquement */}
+            <Route path="cgu" element={wrap(<CGU />)} />
+            <Route path="cgv" element={wrap(<CGV />)} />
+            <Route path="cookies" element={wrap(<Cookies />)} />
+            <Route path="mentions-legales" element={wrap(<MentionsLegales />)} />
+            <Route path="politique-confidentialite" element={wrap(<PolitiqueConfidentialite />)} />
+          </Route>
+
+          <Route path="/en">
+            {publicChildren}
+            {/* Le légal n'existe qu'en français */}
+            <Route path="cgu" element={<Navigate to="/cgu" replace />} />
+            <Route path="cgv" element={<Navigate to="/cgv" replace />} />
+            <Route path="cookies" element={<Navigate to="/cookies" replace />} />
+            <Route path="mentions-legales" element={<Navigate to="/mentions-legales" replace />} />
+            <Route path="politique-confidentialite" element={<Navigate to="/politique-confidentialite" replace />} />
+          </Route>
 
           {/* Auth */}
           <Route path="/client/login" element={<AdminLogin />} />
@@ -132,7 +161,7 @@ export function AnimatedRoutes() {
           <Route path="/client/profil" element={<ClientProfile />} />
           <Route path="/client/parametres" element={<ClientSettings />} />
 
-          <Route path="*" element={<PageTransition3D><NotFound /></PageTransition3D>} />
+          <Route path="*" element={wrap(<NotFound />)} />
         </Routes>
       </Suspense>
     </AnimatePresence>

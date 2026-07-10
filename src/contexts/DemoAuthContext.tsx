@@ -31,6 +31,7 @@ const DemoAuthContext = createContext<DemoAuthContextType | null>(null);
 
 export function DemoAuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<DemoUser | null>(() => {
+    if (typeof window === "undefined") return null;
     const stored = sessionStorage.getItem("demo_user");
     return stored ? JSON.parse(stored) : null;
   });
