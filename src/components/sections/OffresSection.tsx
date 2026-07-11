@@ -13,7 +13,6 @@ interface Pack {
   descriptionEn: string;
   price: string;
   priceEn: string;
-  priceCAD?: string;
   delay?: string;
   delayEn?: string;
   features: string[];
@@ -28,9 +27,8 @@ const packs: Pack[] = [
     taglineEn: "Premium landing / one-pager",
     description: "Lancer vite, marquer fort.",
     descriptionEn: "Launch fast, make it count.",
-    price: "À partir de 1 500 €",
-    priceEn: "From 1 500 €",
-    priceCAD: "2 500 $CA",
+    price: "1 500 €",
+    priceEn: "1 500 €",
     delay: "2-3 semaines",
     delayEn: "2-3 weeks",
     features: [
@@ -54,9 +52,8 @@ const packs: Pack[] = [
     taglineEn: "Signature multi-page website",
     description: "Une présence digitale complète et élégante.",
     descriptionEn: "A complete, elegant digital presence.",
-    price: "À partir de 3 000 €",
-    priceEn: "From 3 000 €",
-    priceCAD: "5 000 $CA",
+    price: "3 000 €",
+    priceEn: "3 000 €",
     delay: "4-6 semaines",
     delayEn: "4-6 weeks",
     features: [
@@ -81,9 +78,8 @@ const packs: Pack[] = [
     taglineEn: "App / Back office / Software",
     description: "Un produit robuste, scalable, premium.",
     descriptionEn: "A robust, scalable, premium product.",
-    price: "À partir de 8 000 €",
-    priceEn: "From 8 000 €",
-    priceCAD: "12 000 $CA",
+    price: "8 000 €",
+    priceEn: "8 000 €",
     delay: "8-12 semaines",
     delayEn: "8-12 weeks",
     features: [
@@ -311,9 +307,16 @@ function CardContent({
           pack.recommended ? "border-white/15" : "border-white/10"
         }`}
       >
-        <div className="inline-flex items-baseline gap-1 flex-wrap justify-center">
+        <p
+          className={`mb-1.5 text-[13px] font-medium ${
+            pack.recommended ? "text-[#B8A8D8]" : "text-white/60"
+          }`}
+        >
+          {t("À partir de", "From")}
+        </p>
+        <div className="inline-flex items-baseline gap-1 justify-center">
           <span
-            className={`font-syne font-black text-[32px] sm:text-[38px] leading-none ${
+            className={`font-display font-bold text-[34px] sm:text-[40px] leading-none whitespace-nowrap ${
               pack.recommended ? "text-[#C4B5FD]" : "text-[#A78BFA]"
             }`}
           >
@@ -327,15 +330,6 @@ function CardContent({
             *
           </span>
         </div>
-        {pack.priceCAD && (
-          <p
-            className={`mt-1 text-[12px] font-medium ${
-              pack.recommended ? "text-[#B8A8D8]" : "text-white/60"
-            }`}
-          >
-            {t("ou", "or")} {pack.priceCAD}
-          </p>
-        )}
         {pack.delay && (
           <p
             className={`mt-2 text-sm flex items-center justify-center gap-1.5 ${

@@ -1532,14 +1532,14 @@ html.dark .theme-solaire .prisme-halo-rose {
    PREMIUM IMMERSIVE — Display serif · Cursor · Animations
    ============================================================ */
 
-/* Display Serif — DM Serif Display pour les grands titres de section */
+/* Display — Space Grotesk pour les grands titres de section (épuré, 2026-07-11) */
 .prisme-display,
 .theme-solaire .prisme-display,
 html.dark .theme-solaire .prisme-display {
-  font-family: 'DM Serif Display', 'Cormorant Garamond', Georgia, serif !important;
-  font-weight: 400 !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 700 !important;
   font-style: normal;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
 }
 
 /* Animated border — conic gradient rotatif pour la card recommandée */
