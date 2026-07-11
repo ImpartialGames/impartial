@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router-dom";
+import { MotionConfig } from "framer-motion";
 import { CookieBanner } from "@/components/CookieBanner";
 import { AnimatedRoutes } from "@/components/AnimatedRoutes";
 import { ScrollToTop } from "@/components/ScrollToTop";
@@ -22,6 +23,7 @@ const queryClient = new QueryClient();
 export function AppInner() {
   return (
     <QueryClientProvider client={queryClient}>
+      <MotionConfig reducedMotion="user">
       <TooltipProvider>
         <LanguageProvider>
           <DemoAuthProvider>
@@ -39,6 +41,7 @@ export function AppInner() {
           </DemoAuthProvider>
         </LanguageProvider>
       </TooltipProvider>
+      </MotionConfig>
     </QueryClientProvider>
   );
 }

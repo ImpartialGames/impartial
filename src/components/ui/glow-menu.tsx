@@ -64,7 +64,7 @@ export const GlowMenu = React.forwardRef<HTMLDivElement, GlowMenuProps>(
       <motion.nav
         ref={ref}
         className={cn(
-          "p-1.5 rounded-2xl bg-[#FBFAF7]/80 backdrop-blur-lg border border-[#EEEAF4] shadow-[0_4px_24px_rgba(124,58,237,0.07)] relative overflow-hidden",
+          "p-1.5 rounded-2xl bg-white/[0.06] backdrop-blur-2xl backdrop-saturate-150 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.35)] relative overflow-hidden",
           className,
         )}
         initial="initial"
@@ -112,8 +112,8 @@ export const GlowMenu = React.forwardRef<HTMLDivElement, GlowMenuProps>(
                       className={cn(
                         "flex items-center gap-2 px-3.5 py-2 relative z-10 bg-transparent rounded-xl transition-colors",
                         isActive
-                          ? "text-[#0E0B14]"
-                          : "text-[#6F6580] group-hover:text-[#0E0B14]",
+                          ? "text-white"
+                          : "text-white/60 group-hover:text-white",
                       )}
                       variants={itemVariants}
                       transition={sharedTransition}
@@ -122,7 +122,7 @@ export const GlowMenu = React.forwardRef<HTMLDivElement, GlowMenuProps>(
                         transformOrigin: "center bottom",
                       }}
                     >
-                      <span className={cn("transition-colors duration-300", isActive ? item.iconColor : "text-[#9B8EC4] group-hover:text-[#7C3AED]")}>
+                      <span className={cn("transition-colors duration-300", isActive ? item.iconColor : "text-[#A78BFA]/60 group-hover:text-[#A78BFA]")}>
                         <Icon className="h-[15px] w-[15px]" />
                       </span>
                       <span className="text-[13px] font-medium">{item.label}</span>
@@ -133,8 +133,8 @@ export const GlowMenu = React.forwardRef<HTMLDivElement, GlowMenuProps>(
                       className={cn(
                         "flex items-center gap-2 px-3.5 py-2 absolute inset-0 z-10 bg-transparent rounded-xl transition-colors",
                         isActive
-                          ? "text-[#0E0B14]"
-                          : "text-[#6F6580] group-hover:text-[#0E0B14]",
+                          ? "text-white"
+                          : "text-white/60 group-hover:text-white",
                       )}
                       variants={backVariants}
                       transition={sharedTransition}
@@ -144,7 +144,7 @@ export const GlowMenu = React.forwardRef<HTMLDivElement, GlowMenuProps>(
                         rotateX: 90,
                       }}
                     >
-                      <span className={cn("transition-colors duration-300", isActive ? item.iconColor : "text-[#9B8EC4] group-hover:text-[#7C3AED]")}>
+                      <span className={cn("transition-colors duration-300", isActive ? item.iconColor : "text-[#A78BFA]/60 group-hover:text-[#A78BFA]")}>
                         <Icon className="h-[15px] w-[15px]" />
                       </span>
                       <span className="text-[13px] font-medium">{item.label}</span>
