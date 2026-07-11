@@ -3,8 +3,9 @@ import { useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useIsDemo } from "./useIsDemo";
 import { conversations as mockConversations, getConversationsByClient as mockGetByClient, type Conversation, type Message } from "@/data/mockData";
+import type { Tables } from "@/integrations/supabase/types";
 
-function mapRow(row: any, messages: Message[]): Conversation {
+function mapRow(row: Tables<"conversations">, messages: Message[]): Conversation {
   return {
     id: row.id,
     clientId: row.client_id,
@@ -16,7 +17,7 @@ function mapRow(row: any, messages: Message[]): Conversation {
   };
 }
 
-function mapMessage(row: any): Message {
+function mapMessage(row: Tables<"messages">): Message {
   return {
     id: row.id,
     contenu: row.contenu,
@@ -35,7 +36,7 @@ export function useConversations() {
       const { data: convs, error } = await supabase.from("conversations").select("*").order("dernier_message", { ascending: false });
       if (error) throw error;
       const ids = (convs ?? []).map((c) => c.id);
-      let msgs: any[] = [];
+      let msgs: Tables<"messages">[] = [];
       if (ids.length > 0) {
         const { data } = await supabase.from("messages").select("*").in("conversation_id", ids).order("date", { ascending: true });
         msgs = data ?? [];

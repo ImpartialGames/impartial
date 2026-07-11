@@ -1,3 +1,4 @@
+import tailwindcssAnimate from "tailwindcss-animate";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,9 +19,8 @@ export default {
         syne: ['Syne', 'Inter', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],
-        serif: ['Syne', 'sans-serif'],
-        display: ['Syne', 'sans-serif'],
-        'display-serif': ['"DM Serif Display"', '"Cormorant Garamond"', 'Georgia', 'serif'],
+        serif: ['"Space Grotesk"', 'sans-serif'],
+        display: ['"Space Grotesk"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -168,5 +168,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;

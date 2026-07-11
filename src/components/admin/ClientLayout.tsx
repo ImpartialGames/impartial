@@ -4,6 +4,7 @@ import { useDemoAuth } from "@/contexts/DemoAuthContext";
 import { useNotificationsData } from "@/hooks/use-notifications-data";
 import { useClientId } from "@/hooks/use-client-id";
 import { supabase } from "@/integrations/supabase/client";
+import type { User } from "@supabase/supabase-js";
 import { ClientSidebar } from "./ClientSidebar";
 import { NotificationPanel } from "./NotificationPanel";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
@@ -16,7 +17,7 @@ export function ClientLayout({ children }: ClientLayoutProps) {
   const { isAuthenticated: isDemoAuth, user: demoUser } = useDemoAuth();
   const { clientId, isDemo } = useClientId();
   const { getNotificationsByClient, markNotificationRead, markAllNotificationsRead } = useNotificationsData();
-  const [supabaseUser, setSupabaseUser] = useState<any>(null);
+  const [supabaseUser, setSupabaseUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

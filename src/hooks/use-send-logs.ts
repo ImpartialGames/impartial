@@ -3,8 +3,9 @@ import { supabase } from "@/integrations/supabase/client";
 import { useIsDemo } from "./useIsDemo";
 import { useDemoData } from "@/contexts/DemoDataContext";
 import type { SendLog, SendLogDocType } from "@/contexts/DemoDataContext";
+import type { Tables } from "@/integrations/supabase/types";
 
-function mapRow(row: any): SendLog {
+function mapRow(row: Tables<"send_logs">): SendLog {
   return {
     id: row.id,
     docType: row.doc_type as SendLogDocType,

@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Eye, EyeOff, Lock, CheckCircle } from "lucide-react";
-import logoHero from "@/assets/logo-hero.png";
+import logoHero from "@/assets/logo-hero.webp";
 
 export default function ResetPassword() {
   const [password, setPassword] = useState("");

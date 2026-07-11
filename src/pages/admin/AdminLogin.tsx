@@ -6,7 +6,7 @@ import { lovable } from "@/integrations/lovable/index";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { LogIn, Eye, EyeOff, Home, CheckCircle } from "lucide-react";
-import logoHero from "@/assets/logo-hero.png";
+import logoHero from "@/assets/logo-hero.webp";
 import { CompleteProfileDialog } from "@/components/CompleteProfileDialog";
 
 export default function AdminLogin() {

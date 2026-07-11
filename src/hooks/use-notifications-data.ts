@@ -3,17 +3,18 @@ import { supabase } from "@/integrations/supabase/client";
 import { useIsDemo } from "./useIsDemo";
 import { useDemoData } from "@/contexts/DemoDataContext";
 import type { Notification } from "@/data/mockData";
+import type { Tables } from "@/integrations/supabase/types";
 
-function mapRow(row: any): Notification {
+function mapRow(row: Tables<"notifications">): Notification {
   return {
     id: row.id,
-    type: row.type,
+    type: row.type as Notification["type"],
     titre: row.titre,
     description: row.description,
     date: row.date,
     lu: row.lu,
     lien: row.lien,
-    destinataire: row.destinataire,
+    destinataire: row.destinataire as Notification["destinataire"],
     clientId: row.client_id ?? undefined,
   };
 }

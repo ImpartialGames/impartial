@@ -3,8 +3,9 @@ import { supabase } from "@/integrations/supabase/client";
 import { useIsDemo } from "./useIsDemo";
 import { useDemoData } from "@/contexts/DemoDataContext";
 import type { EmailLog, EmailLogType } from "@/contexts/DemoDataContext";
+import type { Tables } from "@/integrations/supabase/types";
 
-function mapRow(row: any): EmailLog {
+function mapRow(row: Tables<"email_logs">): EmailLog {
   return {
     id: row.id,
     type: row.type as EmailLogType,

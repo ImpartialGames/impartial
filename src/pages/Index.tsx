@@ -11,7 +11,7 @@ import {
   PrincipesSection,
   CTAFinal,
 } from "@/components/sections";
-import { SocialProofBand } from "@/components/sections/SocialProofBand";
+import { CroissanceSection } from "@/components/sections/CroissanceSection";
 import { EcosystemeSection } from "@/components/sections/EcosystemeSection";
 
 const Index = () => {
@@ -20,6 +20,8 @@ const Index = () => {
       <SEO
         title="Studio Digital Montréal et Paris | Sites Web, Apps, SaaS"
         description="Studio digital premium à Montréal et Paris. Sites web, apps mobiles et SaaS sur-mesure. Design premium, code solide. Plus de 30 clients accompagnés."
+        titleEn="Digital Studio Montreal & Paris | Websites, Apps, SaaS"
+        descriptionEn="Premium digital studio in Montreal and Paris. Custom websites, mobile apps and SaaS. Sharp design, solid code. 30+ clients served."
         canonical="/"
         schemaJson={{
           "@context": "https://schema.org",
@@ -36,18 +38,18 @@ const Index = () => {
         }}
       />
       <HeroPremium />
-      <SocialProofBand />
+      <CroissanceSection />
       <OffresSection />
       <ServicesSection />
       <EcosystemeSection />
       <RealisationsSection />
 
       {/* Velocity divider */}
-      <section aria-hidden className="bg-[#FAFAF7] dark:bg-[#0E0B14] py-10 md:py-14 overflow-hidden">
+      <section aria-hidden className="bg-[#0E0B14] py-10 md:py-14 overflow-hidden">
         <ScrollVelocityText
           text="Design · Code · Impact · Studio · "
           baseVelocity={-2}
-          className="text-[#1C1917]/10 dark:text-white/10"
+          className="text-white/10"
         />
       </section>
 

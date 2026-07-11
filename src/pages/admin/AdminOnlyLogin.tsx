@@ -5,7 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { LogIn, Eye, EyeOff, Home, Shield } from "lucide-react";
-import logoHero from "@/assets/logo-hero.png";
+import logoHero from "@/assets/logo-hero.webp";
 
 const ADMIN_EMAIL = "studio@impartialgames.com";
 

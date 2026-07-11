@@ -2,8 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useIsDemo } from "./useIsDemo";
 import { relances as mockRelances, type Relance } from "@/data/mockData";
+import type { Tables } from "@/integrations/supabase/types";
 
-function mapRow(row: any): Relance {
+function mapRow(row: Tables<"relances">): Relance {
   return {
     id: row.id,
     factureId: row.facture_id,

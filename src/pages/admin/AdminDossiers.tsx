@@ -10,6 +10,7 @@ import { useDossiers } from "@/hooks/use-dossiers";
 import { useDemandes } from "@/hooks/use-demandes";
 import { useCahiers } from "@/hooks/use-cahiers";
 import type { DossierStatus } from "@/data/mockData";
+import type { DemandeStatus } from "@/contexts/DemoDataContext";
 import { Search, FolderOpen, Eye, FileText } from "lucide-react";
 import { AdminEmptyState } from "@/components/admin/AdminEmptyState";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -188,7 +189,7 @@ export default function AdminDossiers() {
                       <div className="flex gap-2">
                         {dem.statut !== "validee" && dem.statut !== "refusee" && (
                           <>
-                            <Select onValueChange={(val) => { updateDemandeStatut({ id: dem.id, statut: val as any }); toast.success("Statut mis à jour"); }}>
+                            <Select onValueChange={(val) => { updateDemandeStatut({ id: dem.id, statut: val as DemandeStatus }); toast.success("Statut mis à jour"); }}>
                               <SelectTrigger className="w-32 h-8 text-xs"><SelectValue placeholder="Changer statut" /></SelectTrigger>
                               <SelectContent>
                                 <SelectItem value="en_revue">En revue</SelectItem>

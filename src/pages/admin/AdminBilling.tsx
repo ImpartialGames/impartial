@@ -128,7 +128,7 @@ export default function AdminBilling() {
             dateValidite: validite,
           },
         });
-      } catch (e: any) {
+      } catch (e) {
         console.error("Erreur envoi email devis:", e);
       }
     }

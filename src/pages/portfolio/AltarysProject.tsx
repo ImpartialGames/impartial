@@ -3,11 +3,14 @@ import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
 import { ArrowLeft, ExternalLink, Check, Database, LineChart, Shield } from "lucide-react";
 import { motion } from "framer-motion";
-import altarysImg from "@/assets/portfolio/altarys-logo.png";
+import altarysImg from "@/assets/portfolio/altarys-logo.webp";
+import { useLang } from "@/contexts/LanguageContext";
 const projectDetails = {
   title: "Altarys Group",
   subtitle: "Plateforme DeFi et RWA avec dashboard administratif complet",
+  subtitleEn: "DeFi and RWA platform with a complete admin dashboard",
   category: "Backoffice",
+  categoryEn: "Back office",
   client: "Altarys Group",
   year: "2025",
   duration: "8 semaines",
@@ -15,42 +18,61 @@ const projectDetails = {
   description: `Altarys Group accompagne les professionnels de la finance dans leur transition vers l'écosystème DeFi et les actifs tokenisés (RWA). Le projet nécessitait une plateforme complète combinant un site vitrine informatif et un dashboard de gestion avancé.
 
 L'interface a été conçue pour simplifier des concepts financiers complexes tout en maintenant un niveau de professionnalisme adapté au secteur. Le dashboard offre une vue claire des opérations et permet une gestion fluide des différents services proposés.`,
+  descriptionEn: `Altarys Group supports finance professionals in their transition to the DeFi ecosystem and tokenized real-world assets (RWA). The project required a complete platform combining an informative showcase website with an advanced management dashboard.
+
+The interface was designed to simplify complex financial concepts while maintaining the level of professionalism the industry demands. The dashboard provides a clear view of operations and enables smooth management of the various services offered.`,
   challenges: ["Vulgariser des concepts DeFi complexes pour un public traditionnel", "Créer un dashboard intuitif pour la gestion multi-services", "Assurer la sécurité des données financières sensibles", "Intégrer des visualisations de données en temps réel"],
+  challengesEn: ["Make complex DeFi concepts accessible to a traditional audience", "Create an intuitive dashboard for multi-service management", "Ensure the security of sensitive financial data", "Integrate real-time data visualizations"],
   solutions: ["Design épuré avec hiérarchie visuelle claire", "Architecture modulaire avec composants réutilisables", "Authentification sécurisée et gestion des rôles", "Graphiques interactifs avec mises à jour live"],
+  solutionsEn: ["Clean design with a clear visual hierarchy", "Modular architecture with reusable components", "Secure authentication and role management", "Interactive charts with live updates"],
   technologies: ["React", "TypeScript", "Tailwind CSS", "Supabase", "Chart.js", "Framer Motion"],
   features: ["Dashboard administratif complet", "Gestion multi-utilisateurs", "Visualisation de données avancée", "Système de notifications", "Rapports automatisés", "Interface responsive"],
+  featuresEn: ["Complete admin dashboard", "Multi-user management", "Advanced data visualization", "Notification system", "Automated reports", "Responsive interface"],
   results: [{
     metric: "+85%",
-    label: "Efficacité opérationnelle"
+    label: "Efficacité opérationnelle",
+    labelEn: "Operational efficiency"
   }, {
     metric: "50%",
-    label: "Réduction temps admin"
+    label: "Réduction temps admin",
+    labelEn: "Less admin time"
   }, {
     metric: "99.9%",
-    label: "Uptime garanti"
+    label: "Uptime garanti",
+    labelEn: "Guaranteed uptime"
   }, {
     metric: "A+",
-    label: "Score sécurité"
+    label: "Score sécurité",
+    labelEn: "Security score"
   }],
   dashboardFeatures: [{
     icon: Database,
     title: "Base de données",
-    description: "Gestion centralisée des données clients et transactions"
+    titleEn: "Database",
+    description: "Gestion centralisée des données clients et transactions",
+    descriptionEn: "Centralized management of client data and transactions"
   }, {
     icon: LineChart,
     title: "Analytics",
-    description: "Tableaux de bord avec métriques en temps réel"
+    titleEn: "Analytics",
+    description: "Tableaux de bord avec métriques en temps réel",
+    descriptionEn: "Dashboards with real-time metrics"
   }, {
     icon: Shield,
     title: "Sécurité",
-    description: "Authentification 2FA et chiffrement bout-en-bout"
+    titleEn: "Security",
+    description: "Authentification 2FA et chiffrement bout-en-bout",
+    descriptionEn: "2FA authentication and end-to-end encryption"
   }]
 };
 export default function AltarysProject() {
+  const { t, lp } = useLang();
   return <Layout>
       <SEO
         title="Altarys Group — Plateforme DeFi"
+        titleEn="Altarys Group — DeFi Platform"
         description="Dashboard et plateforme DeFi pour Altarys Group. Interface intuitive, scalable et sécurisée."
+        descriptionEn="DeFi platform and dashboard for Altarys Group. An intuitive, scalable and secure interface."
         canonical="/portfolio/altarys"
       />
       {/* Hero Section - Refined */}
@@ -66,9 +88,9 @@ export default function AltarysProject() {
         }} transition={{
           duration: 0.6
         }}>
-            <Link to="/portfolio" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8 sm:mb-12 text-sm">
+            <Link to={lp("/portfolio")} className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8 sm:mb-12 text-sm">
               <ArrowLeft className="h-4 w-4" />
-              Retour au portfolio
+              {t("Retour au portfolio", "Back to portfolio")}
             </Link>
           </motion.div>
 
@@ -83,7 +105,7 @@ export default function AltarysProject() {
             duration: 0.8,
             delay: 0.1
           }}>
-              {projectDetails.category} · {projectDetails.year}
+              {t(projectDetails.category, projectDetails.categoryEn)} · {projectDetails.year}
             </motion.p>
 
             <motion.h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-4 sm:mb-6 tracking-tight" initial={{
@@ -109,7 +131,7 @@ export default function AltarysProject() {
             duration: 0.8,
             delay: 0.3
           }}>
-              {projectDetails.subtitle}
+              {t(projectDetails.subtitle, projectDetails.subtitleEn)}
             </motion.p>
 
             <motion.a href={projectDetails.url} target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-medium tracking-wide uppercase overflow-hidden" initial={{
@@ -129,7 +151,7 @@ export default function AltarysProject() {
               <span className="absolute inset-0 bg-white rounded-full" />
               <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative text-background group-hover:text-white transition-colors duration-500">
-                Visiter le site
+                {t("Visiter le site", "Visit the website")}
               </span>
               <ExternalLink className="relative h-3.5 w-3.5 sm:h-4 sm:w-4 text-background group-hover:text-white transition-colors duration-500" />
             </motion.a>
@@ -155,7 +177,7 @@ export default function AltarysProject() {
           }} viewport={{
             once: true
           }}>
-              À propos du <span className="font-medium text-gradient-neon">projet</span>
+              {t("À propos du", "About the")} <span className="font-medium text-gradient-neon">{t("projet", "project")}</span>
             </motion.h2>
             <motion.p className="text-sm sm:text-base text-muted-foreground leading-relaxed whitespace-pre-line" initial={{
             opacity: 0,
@@ -169,7 +191,7 @@ export default function AltarysProject() {
           }} viewport={{
             once: true
           }}>
-              {projectDetails.description}
+              {t(projectDetails.description, projectDetails.descriptionEn)}
             </motion.p>
           </div>
         </div>
@@ -189,7 +211,7 @@ export default function AltarysProject() {
         }} viewport={{
           once: true
         }}>
-            Fonctionnalités <span className="font-medium text-gradient-neon">Backoffice</span>
+            {t("Fonctionnalités", "Back-office")} <span className="font-medium text-gradient-neon">{t("Backoffice", "features")}</span>
           </motion.h2>
 
           <div className="grid sm:grid-cols-3 gap-4 sm:gap-8 max-w-4xl mx-auto">
@@ -208,8 +230,8 @@ export default function AltarysProject() {
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-white/5 flex items-center justify-center mx-auto mb-4 sm:mb-6">
                   <feature.icon className="h-5 w-5 sm:h-6 sm:w-6 text-neon-violet" />
                 </div>
-                <h3 className="text-base sm:text-lg font-medium mb-2 sm:mb-3">{feature.title}</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">{feature.description}</p>
+                <h3 className="text-base sm:text-lg font-medium mb-2 sm:mb-3">{t(feature.title, feature.titleEn)}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">{t(feature.description, feature.descriptionEn)}</p>
               </motion.div>)}
           </div>
         </div>
@@ -229,7 +251,7 @@ export default function AltarysProject() {
         }} viewport={{
           once: true
         }}>
-            Résultats <span className="font-medium text-gradient-neon">obtenus</span>
+            {t("Résultats", "Key")} <span className="font-medium text-gradient-neon">{t("obtenus", "results")}</span>
           </motion.h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 max-w-4xl mx-auto">
@@ -249,7 +271,7 @@ export default function AltarysProject() {
                   {result.metric}
                 </div>
                 <div className="text-xs sm:text-sm text-muted-foreground">
-                  {result.label}
+                  {t(result.label, result.labelEn)}
                 </div>
               </motion.div>)}
           </div>
@@ -272,11 +294,11 @@ export default function AltarysProject() {
           }} viewport={{
             once: true
           }}>
-              <h3 className="text-lg sm:text-xl font-light mb-4 sm:mb-6">Défis</h3>
+              <h3 className="text-lg sm:text-xl font-light mb-4 sm:mb-6">{t("Défis", "Challenges")}</h3>
               <ul className="space-y-3 sm:space-y-4">
                 {projectDetails.challenges.map((challenge, index) => <li key={index} className="flex items-start gap-3 text-sm sm:text-base text-muted-foreground">
                     <span className="text-xs font-medium text-foreground mt-0.5 sm:mt-1">{String(index + 1).padStart(2, '0')}</span>
-                    <span>{challenge}</span>
+                    <span>{t(challenge, projectDetails.challengesEn[index])}</span>
                   </li>)}
               </ul>
             </motion.div>
@@ -297,7 +319,7 @@ export default function AltarysProject() {
               <ul className="space-y-3 sm:space-y-4">
                 {projectDetails.solutions.map((solution, index) => <li key={index} className="flex items-start gap-3 text-sm sm:text-base text-muted-foreground">
                     <Check className="h-4 w-4 text-neon-violet mt-0.5 sm:mt-1 flex-shrink-0" />
-                    <span>{solution}</span>
+                    <span>{t(solution, projectDetails.solutionsEn[index])}</span>
                   </li>)}
               </ul>
             </motion.div>
@@ -319,7 +341,7 @@ export default function AltarysProject() {
         }} viewport={{
           once: true
         }}>
-            Technologies <span className="font-medium text-gradient-neon">utilisées</span>
+            Technologies <span className="font-medium text-gradient-neon">{t("utilisées", "used")}</span>
           </motion.h2>
 
           <motion.div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-3xl mx-auto" initial={{
@@ -355,7 +377,7 @@ export default function AltarysProject() {
         }} viewport={{
           once: true
         }}>
-            Fonctionnalités <span className="font-medium text-gradient-neon">clés</span>
+            {t("Fonctionnalités", "Key")} <span className="font-medium text-gradient-neon">{t("clés", "features")}</span>
           </motion.h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-4xl mx-auto">
@@ -372,7 +394,7 @@ export default function AltarysProject() {
             once: true
           }}>
                 <Check className="h-4 w-4 text-neon-violet flex-shrink-0" />
-                <span className="text-xs sm:text-sm">{feature}</span>
+                <span className="text-xs sm:text-sm">{t(feature, projectDetails.featuresEn[index])}</span>
               </motion.div>)}
           </div>
         </div>
@@ -392,17 +414,20 @@ export default function AltarysProject() {
         }} viewport={{
           once: true
         }}>
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 sm:mb-6">Votre projet</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 sm:mb-6">{t("Votre projet", "Your project")}</p>
             
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-4 sm:mb-6">
-              Besoin d'un <span className="font-medium text-gradient-neon">backoffice</span> sur mesure ?
+              {t("Besoin d'un", "Need a")} <span className="font-medium text-gradient-neon">{t("backoffice", "tailor-made")}</span> {t("sur mesure ?", "back office?")}
             </h2>
 
             <p className="text-sm sm:text-base text-muted-foreground mb-8 sm:mb-10 px-2">
-              Créons ensemble le dashboard parfait pour gérer votre activité.
+              {t(
+                "Créons ensemble le dashboard parfait pour gérer votre activité.",
+                "Let's build the perfect dashboard to manage your business.",
+              )}
             </p>
 
-            <motion.a href="/contact" className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-medium tracking-wide uppercase overflow-hidden" whileHover={{
+            <motion.a href={lp("/contact")} className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-medium tracking-wide uppercase overflow-hidden" whileHover={{
             scale: 1.02
           }} whileTap={{
             scale: 0.98
@@ -410,7 +435,7 @@ export default function AltarysProject() {
               <span className="absolute inset-0 bg-white rounded-full" />
               <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative text-background group-hover:text-white transition-colors duration-500">
-                Démarrer un projet
+                {t("Démarrer un projet", "Start a project")}
               </span>
             </motion.a>
           </motion.div>

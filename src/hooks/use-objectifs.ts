@@ -20,7 +20,7 @@ export function useObjectifs() {
 
       if (!error && data && data.length > 0) {
         const merged = { ...defaultObjectifs };
-        data.forEach((row: any) => {
+        data.forEach((row) => {
           merged[row.mois] = Number(row.objectif);
         });
         setObjectifs(merged);

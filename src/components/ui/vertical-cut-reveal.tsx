@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, type Transition } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -8,14 +8,7 @@ interface VerticalCutRevealProps {
   staggerDuration?: number;
   staggerFrom?: "first" | "last" | "center";
   reverse?: boolean;
-  transition?: {
-    type?: string;
-    stiffness?: number;
-    damping?: number;
-    duration?: number;
-    delay?: number;
-    ease?: string | number[];
-  };
+  transition?: Transition;
   className?: string;
   containerClassName?: string;
 }

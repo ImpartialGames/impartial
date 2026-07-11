@@ -53,23 +53,23 @@ export function CalendlyQuiz({ onClose }: Props) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         transition={{ duration: 0.25 }}
-        className="relative bg-[#FBFAF7] rounded-3xl shadow-2xl p-8 max-w-md w-full"
+        className="relative bg-[#14101D]/90 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_16px_48px_rgba(0,0,0,0.5)] p-8 max-w-md w-full"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-[#EEE9F4] transition-colors"
+          className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-white/[0.06] transition-colors"
           aria-label={t("Fermer", "Close")}
         >
-          <X className="h-4 w-4 text-[#6F6580]" />
+          <X className="h-4 w-4 text-white/60" />
         </button>
 
         {step === 1 && (
           <div>
-            <h3 className="font-syne font-black text-[22px] text-[#0E0B14] mb-2">
+            <h3 className="font-syne font-black text-[22px] text-white mb-2">
               {t("Quel type de projet ?", "What type of project?")}
             </h3>
-            <p className="text-[13px] text-[#6F6580] mb-6">
+            <p className="text-[13px] text-white/60 mb-6">
               {t("2 autres questions après celle-ci.", "2 more questions after this.")}
             </p>
             <div className="flex flex-col gap-2.5">
@@ -77,7 +77,7 @@ export function CalendlyQuiz({ onClose }: Props) {
                 <button
                   key={pt}
                   onClick={() => setStep(2)}
-                  className="text-left px-5 py-3.5 rounded-xl border border-[#DDD9E8] hover:border-[#7C3AED] hover:bg-[#7C3AED]/5 transition-all text-[14px] font-medium text-[#0E0B14]"
+                  className="text-left px-5 py-3.5 rounded-xl border border-white/10 hover:border-[#A78BFA] hover:bg-[#7C3AED]/10 transition-all text-[14px] font-medium text-white"
                 >
                   {pt}
                 </button>
@@ -88,10 +88,10 @@ export function CalendlyQuiz({ onClose }: Props) {
 
         {step === 2 && (
           <div>
-            <h3 className="font-syne font-black text-[22px] text-[#0E0B14] mb-2">
+            <h3 className="font-syne font-black text-[22px] text-white mb-2">
               {t("Quel est ton budget ?", "What's your budget?")}
             </h3>
-            <p className="text-[13px] text-[#6F6580] mb-6">
+            <p className="text-[13px] text-white/60 mb-6">
               {t("Nos packs partent à partir de 1 500 €.", "Our packages start at 1,500 €.")}
             </p>
             <div className="flex flex-col gap-2.5">
@@ -99,7 +99,7 @@ export function CalendlyQuiz({ onClose }: Props) {
                 <button
                   key={b.label}
                   onClick={() => handleBudget(b)}
-                  className="text-left px-5 py-3.5 rounded-xl border border-[#DDD9E8] hover:border-[#7C3AED] hover:bg-[#7C3AED]/5 transition-all text-[14px] font-medium text-[#0E0B14]"
+                  className="text-left px-5 py-3.5 rounded-xl border border-white/10 hover:border-[#A78BFA] hover:bg-[#7C3AED]/10 transition-all text-[14px] font-medium text-white"
                 >
                   {b.label}
                 </button>
@@ -110,10 +110,10 @@ export function CalendlyQuiz({ onClose }: Props) {
 
         {step === 3 && (
           <div>
-            <h3 className="font-syne font-black text-[22px] text-[#0E0B14] mb-2">
+            <h3 className="font-syne font-black text-[22px] text-white mb-2">
               {t("Ton délai souhaité ?", "Your timeline?")}
             </h3>
-            <p className="text-[13px] text-[#6F6580] mb-6">
+            <p className="text-[13px] text-white/60 mb-6">
               {t(
                 "Pour qu'on puisse mieux préparer l'appel.",
                 "So we can better prepare for the call."
@@ -124,7 +124,7 @@ export function CalendlyQuiz({ onClose }: Props) {
                 <button
                   key={d}
                   onClick={() => setStep("done")}
-                  className="text-left px-5 py-3.5 rounded-xl border border-[#DDD9E8] hover:border-[#7C3AED] hover:bg-[#7C3AED]/5 transition-all text-[14px] font-medium text-[#0E0B14]"
+                  className="text-left px-5 py-3.5 rounded-xl border border-white/10 hover:border-[#A78BFA] hover:bg-[#7C3AED]/10 transition-all text-[14px] font-medium text-white"
                 >
                   {d}
                 </button>
@@ -135,13 +135,13 @@ export function CalendlyQuiz({ onClose }: Props) {
 
         {step === "disqualified" && (
           <div className="text-center">
-            <div className="w-12 h-12 rounded-full bg-[#EEE9F4] flex items-center justify-center mx-auto mb-4">
+            <div className="w-12 h-12 rounded-full bg-white/[0.06] flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">💬</span>
             </div>
-            <h3 className="font-syne font-black text-[20px] text-[#0E0B14] mb-3">
+            <h3 className="font-syne font-black text-[20px] text-white mb-3">
               {t("On peut quand même trouver une solution", "We can still find a solution")}
             </h3>
-            <p className="text-[14px] text-[#6F6580] leading-relaxed mb-6">
+            <p className="text-[14px] text-white/60 leading-relaxed mb-6">
               {t(
                 "Notre pack d'entrée est à 1 500 € / 2 200 $CA. Écris-nous, on trouvera une solution adaptée.",
                 "Our entry pack starts at 1,500 € / $2,200 CA. Write to us, we'll find something that works."
@@ -160,10 +160,10 @@ export function CalendlyQuiz({ onClose }: Props) {
         {step === "done" && (
           <div className="text-center">
             <CheckCircle className="h-10 w-10 text-[#7C3AED] mx-auto mb-4" />
-            <h3 className="font-syne font-black text-[20px] text-[#0E0B14] mb-3">
+            <h3 className="font-syne font-black text-[20px] text-white mb-3">
               {t("Parfait, tu es qualifié !", "Great, you qualify!")}
             </h3>
-            <p className="text-[14px] text-[#6F6580] leading-relaxed mb-6">
+            <p className="text-[14px] text-white/60 leading-relaxed mb-6">
               {t(
                 "Choisis un créneau directement dans notre calendrier. On te répond sous 24-48h.",
                 "Pick a slot directly in our calendar. We reply within 24–48h."

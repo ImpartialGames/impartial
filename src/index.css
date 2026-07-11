@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -1096,7 +1096,7 @@
   --prisme-green: #5EE7B1;
   --prisme-blue: #5E7AFF;
 
-  --prisme-gradient: linear-gradient(110deg, #7C3AED 0%, #A78BFA 30%, #F0AFC8 65%, #FFB996 100%);
+  --prisme-gradient: linear-gradient(110deg, #7C3AED 0%, #A78BFA 100%);
   --prisme-gradient-soft: linear-gradient(110deg, rgba(124,58,237,0.16) 0%, rgba(240,175,200,0.18) 55%, rgba(255,185,150,0.16) 100%);
   --prisme-gradient-rgb: linear-gradient(110deg, #FF5E78 0%, #5EE7B1 50%, #5E7AFF 100%);
 
@@ -1113,13 +1113,13 @@ body:has(.theme-solaire) {
   color: #0E0B14;
 }
 
-/* Typographie Prisme — Syne bold pour tous les titres */
+/* Typographie Prisme — Space Grotesk pour tous les titres (épuré, pro) */
 .theme-solaire h1,
 .theme-solaire h2,
 .theme-solaire h3,
 .theme-solaire .font-serif,
 .theme-solaire .prisme-serif {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
@@ -1157,9 +1157,9 @@ body:has(.theme-solaire) {
 
 /* Mots accentués gradient — Syne bold, sans italique */
 .theme-solaire .prisme-italic-grad {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-style: normal;
-  font-weight: 800;
+  font-weight: 700;
   background: var(--prisme-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1404,8 +1404,7 @@ body:has(.theme-solaire) #root::before {
   100% { background-position: 0% 50%; }
 }
 .theme-solaire .prisme-shimmer {
-  background-size: 200% 200%;
-  animation: prisme-shimmer 8s ease-in-out infinite;
+  /* shimmer retiré — direction épurée validée 2026-07-11 */
 }
 
 /* ============ WOW LAYER ============ */
@@ -1533,14 +1532,14 @@ html.dark .theme-solaire .prisme-halo-rose {
    PREMIUM IMMERSIVE — Display serif · Cursor · Animations
    ============================================================ */
 
-/* Display Serif — DM Serif Display pour les grands titres de section */
+/* Display — Space Grotesk pour les grands titres de section (épuré, 2026-07-11) */
 .prisme-display,
 .theme-solaire .prisme-display,
 html.dark .theme-solaire .prisme-display {
-  font-family: 'DM Serif Display', 'Cormorant Garamond', Georgia, serif !important;
-  font-weight: 400 !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 700 !important;
   font-style: normal;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
 }
 
 /* Animated border — conic gradient rotatif pour la card recommandée */
@@ -1569,63 +1568,11 @@ html.dark .theme-solaire .prisme-display {
   animation: terminal-blink 1.1s ease-in-out infinite;
 }
 
-/* Custom cursor — dot + ring */
-.custom-cursor-dot {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 8px;
-  height: 8px;
-  background: #7C3AED;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  will-change: transform;
-  transform: translate(-100px, -100px);
-}
-.custom-cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 24px;
-  height: 24px;
-  border: 1.5px solid rgba(124, 58, 237, 0.45);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99998;
-  will-change: transform;
-  transform: translate(-100px, -100px);
-  transition: width 0.25s ease, height 0.25s ease, border-color 0.2s ease;
-}
-.custom-cursor-ring.hovering {
-  width: 38px;
-  height: 38px;
-  border-color: rgba(124, 58, 237, 0.65);
-}
-@media (hover: none), (pointer: coarse) {
-  .custom-cursor-dot,
-  .custom-cursor-ring { display: none !important; }
-}
-@media (pointer: fine) {
-  body.has-custom-cursor,
-  body.has-custom-cursor * { cursor: none !important; }
-}
-
 /* Dark hero — header transparent sur fond sombre : texte blanc */
-.header-on-dark .header-logo-text  { color: #ffffff; }
-.header-on-dark .header-logo-games { color: rgba(167,139,250,0.9); }
-.header-on-dark .header-btn-outline {
-  color: rgba(255,255,255,0.7);
-  border-color: rgba(255,255,255,0.2);
-}
-.header-on-dark .header-btn-outline:hover {
-  color: #ffffff;
-  border-color: rgba(255,255,255,0.4);
-  background: rgba(255,255,255,0.06);
-}
-.header-on-dark .header-burger {
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.15);
-}
-.header-on-dark .header-icon { color: rgba(255,255,255,0.75); }
 
+
+/* ── Accessibilité : focus clavier visible sur fond sombre ───────────── */
+:focus-visible {
+  outline: 2px solid hsl(265 85% 68% / 0.95);
+  outline-offset: 2px;
+}

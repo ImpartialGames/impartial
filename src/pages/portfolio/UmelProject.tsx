@@ -4,28 +4,46 @@ import { SEO } from "@/components/SEO";
 import { ArrowLeft, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import umelImg from "@/assets/portfolio/umel.webp";
+import { useLang } from "@/contexts/LanguageContext";
 
 const projectDetails = {
   title: "Umel Couture",
   subtitle: "Landing page premium pour une maison de couture sur-mesure",
+  subtitleEn: "Premium landing page for a bespoke couture house",
   category: "Landing page",
+  categoryEn: "Landing page",
   client: "Umel Couture",
   year: "2025",
   duration: "3 semaines",
   description: `Umel Couture est une maison de couture sur-mesure dont le savoir-faire artisanal méritait une présence digitale à la hauteur. La mission : concevoir une landing page qui reflète l'élégance de la marque, intègre les avis clients et convertit les visiteurs en prises de rendez-vous.
 
 Nous avons développé une direction artistique couture — typographie serif raffinée, couleurs sobres et galerie immersive — pour que chaque visiteur ressente l'exigence du travail artisanal dès les premières secondes.`,
+  descriptionEn: `Umel Couture is a bespoke couture house whose artisanal craftsmanship deserved a digital presence to match. The mission: design a landing page that reflects the brand's elegance, integrates client reviews and converts visitors into booked appointments.
+
+We developed a couture-inspired art direction — refined serif typography, understated colors and an immersive gallery — so every visitor feels the rigor of the craftsmanship within the first few seconds.`,
   challenges: [
     "Traduire l'artisanat et l'élégance couture en expérience digitale",
     "Mettre en valeur des créations uniques avec un rendu visuel haut de gamme",
     "Intégrer les avis Google de façon naturelle et convaincante",
     "Générer des prises de rendez-vous depuis la page",
   ],
+  challengesEn: [
+    "Translate couture craftsmanship and elegance into a digital experience",
+    "Showcase one-of-a-kind creations with a high-end visual finish",
+    "Integrate Google reviews in a natural, convincing way",
+    "Generate appointment bookings straight from the page",
+  ],
   solutions: [
     "Direction artistique couture avec typographie serif et palette raffinée",
     "Galerie plein écran avec transitions fluides au scroll",
     "Bloc d'avis Google animé et intégré nativement dans la mise en page",
     "CTA personnalisé orienté prise de RDV, avec formulaire court",
+  ],
+  solutionsEn: [
+    "Couture art direction with serif typography and a refined palette",
+    "Full-screen gallery with smooth scroll transitions",
+    "Animated Google reviews block natively embedded in the layout",
+    "Custom appointment-focused CTA with a short form",
   ],
   technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
   features: [
@@ -36,20 +54,31 @@ Nous avons développé une direction artistique couture — typographie serif ra
     "Formulaire de prise de rendez-vous",
     "Design entièrement responsive",
   ],
+  featuresEn: [
+    "Immersive, memorable landing page",
+    "Premium couture art direction",
+    "Full-screen gallery of creations",
+    "Embedded Google client reviews",
+    "Appointment booking form",
+    "Fully responsive design",
+  ],
   results: [
-    { metric: "100%", label: "Identité visuelle forte" },
-    { metric: "3s", label: "Temps de chargement" },
-    { metric: "5★", label: "Avis Google affichés" },
-    { metric: "Mobile", label: "Experience optimisée" },
+    { metric: "100%", label: "Identité visuelle forte", labelEn: "Strong visual identity" },
+    { metric: "3s", label: "Temps de chargement", labelEn: "Load time" },
+    { metric: "5★", label: "Avis Google affichés", labelEn: "Google reviews displayed" },
+    { metric: "Mobile", label: "Experience optimisée", labelEn: "Optimized experience" },
   ],
 };
 
 export default function UmelProject() {
+  const { t, lp } = useLang();
   return (
     <Layout>
       <SEO
         title="Umel Couture — Landing page premium"
+        titleEn="Umel Couture — Premium Landing Page"
         description="Landing page premium pour Umel Couture, maison de couture sur-mesure. Direction artistique, galerie et prise de rendez-vous."
+        descriptionEn="Premium landing page for Umel Couture, a bespoke couture house. Art direction, gallery and appointment booking."
         canonical="/portfolio/umel"
       />
       {/* Hero */}
@@ -61,11 +90,11 @@ export default function UmelProject() {
             transition={{ duration: 0.6 }}
           >
             <Link
-              to="/portfolio"
+              to={lp("/portfolio")}
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8 sm:mb-12 text-sm"
             >
               <ArrowLeft className="h-4 w-4" />
-              Retour au portfolio
+              {t("Retour au portfolio", "Back to portfolio")}
             </Link>
           </motion.div>
 
@@ -76,7 +105,7 @@ export default function UmelProject() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
-              {projectDetails.category} · {projectDetails.year}
+              {t(projectDetails.category, projectDetails.categoryEn)} · {projectDetails.year}
             </motion.p>
 
             <motion.h1
@@ -94,7 +123,7 @@ export default function UmelProject() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              {projectDetails.subtitle}
+              {t(projectDetails.subtitle, projectDetails.subtitleEn)}
             </motion.p>
 
             <motion.div
@@ -103,13 +132,13 @@ export default function UmelProject() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <Link
-                to="/contact"
+                to={lp("/contact")}
                 className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-medium tracking-wide uppercase overflow-hidden"
               >
                 <span className="absolute inset-0 bg-white rounded-full" />
                 <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span className="relative text-background group-hover:text-white transition-colors duration-500">
-                  Démarrer un projet similaire
+                  {t("Démarrer un projet similaire", "Start a similar project")}
                 </span>
               </Link>
             </motion.div>
@@ -143,7 +172,7 @@ export default function UmelProject() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              À propos du <span className="font-medium text-gradient-neon">projet</span>
+              {t("À propos du", "About the")} <span className="font-medium text-gradient-neon">{t("projet", "project")}</span>
             </motion.h2>
             <motion.p
               className="text-sm sm:text-base text-muted-foreground leading-relaxed whitespace-pre-line"
@@ -152,7 +181,7 @@ export default function UmelProject() {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              {projectDetails.description}
+              {t(projectDetails.description, projectDetails.descriptionEn)}
             </motion.p>
           </div>
         </div>
@@ -168,7 +197,7 @@ export default function UmelProject() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Résultats <span className="font-medium text-gradient-neon">obtenus</span>
+            {t("Résultats", "Key")} <span className="font-medium text-gradient-neon">{t("obtenus", "results")}</span>
           </motion.h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 max-w-4xl mx-auto">
             {projectDetails.results.map((result, index) => (
@@ -181,7 +210,7 @@ export default function UmelProject() {
                 viewport={{ once: true }}
               >
                 <div className="text-2xl sm:text-3xl md:text-4xl font-light text-gradient-neon mb-1 sm:mb-2">{result.metric}</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">{result.label}</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">{t(result.label, result.labelEn)}</div>
               </motion.div>
             ))}
           </div>
@@ -198,12 +227,12 @@ export default function UmelProject() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-lg sm:text-xl font-light mb-4 sm:mb-6">Défis</h3>
+              <h3 className="text-lg sm:text-xl font-light mb-4 sm:mb-6">{t("Défis", "Challenges")}</h3>
               <ul className="space-y-3 sm:space-y-4">
                 {projectDetails.challenges.map((challenge, index) => (
                   <li key={index} className="flex items-start gap-3 text-sm sm:text-base text-muted-foreground">
                     <span className="text-xs font-medium text-foreground mt-0.5 sm:mt-1">{String(index + 1).padStart(2, "0")}</span>
-                    <span>{challenge}</span>
+                    <span>{t(challenge, projectDetails.challengesEn[index])}</span>
                   </li>
                 ))}
               </ul>
@@ -219,7 +248,7 @@ export default function UmelProject() {
                 {projectDetails.solutions.map((solution, index) => (
                   <li key={index} className="flex items-start gap-3 text-sm sm:text-base text-muted-foreground">
                     <Check className="h-4 w-4 text-neon-violet mt-0.5 sm:mt-1 flex-shrink-0" />
-                    <span>{solution}</span>
+                    <span>{t(solution, projectDetails.solutionsEn[index])}</span>
                   </li>
                 ))}
               </ul>
@@ -238,7 +267,7 @@ export default function UmelProject() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Technologies <span className="font-medium text-gradient-neon">utilisées</span>
+            Technologies <span className="font-medium text-gradient-neon">{t("utilisées", "used")}</span>
           </motion.h2>
           <motion.div
             className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-3xl mx-auto"
@@ -266,7 +295,7 @@ export default function UmelProject() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Fonctionnalités <span className="font-medium text-gradient-neon">clés</span>
+            {t("Fonctionnalités", "Key")} <span className="font-medium text-gradient-neon">{t("clés", "features")}</span>
           </motion.h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-4xl mx-auto">
             {projectDetails.features.map((feature, index) => (
@@ -279,7 +308,7 @@ export default function UmelProject() {
                 viewport={{ once: true }}
               >
                 <Check className="h-4 w-4 text-neon-violet flex-shrink-0" />
-                <span className="text-xs sm:text-sm">{feature}</span>
+                <span className="text-xs sm:text-sm">{t(feature, projectDetails.featuresEn[index])}</span>
               </motion.div>
             ))}
           </div>
@@ -296,22 +325,25 @@ export default function UmelProject() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 sm:mb-6">Votre projet</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 sm:mb-6">{t("Votre projet", "Your project")}</p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-4 sm:mb-6">
-              Un projet similaire en <span className="font-medium text-gradient-neon">tête ?</span>
+              {t("Un projet similaire en", "A similar project in")} <span className="font-medium text-gradient-neon">{t("tête ?", "mind?")}</span>
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground mb-8 sm:mb-10 px-2">
-              Discutons ensemble de votre vision et donnons vie à votre image de marque.
+              {t(
+                "Discutons ensemble de votre vision et donnons vie à votre image de marque.",
+                "Let's talk about your vision and bring your brand image to life.",
+              )}
             </p>
             <motion.a
-              href="/contact"
+              href={lp("/contact")}
               className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-medium tracking-wide uppercase overflow-hidden"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               <span className="absolute inset-0 bg-white rounded-full" />
               <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <span className="relative text-background group-hover:text-white transition-colors duration-500">Démarrer un projet</span>
+              <span className="relative text-background group-hover:text-white transition-colors duration-500">{t("Démarrer un projet", "Start a project")}</span>
             </motion.a>
           </motion.div>
         </div>
