@@ -140,7 +140,7 @@ export function CroissanceSection() {
               <div className="text-[13px] font-medium text-white/60">
                 {t(m.label, m.labelEn)}
               </div>
-              <div className="mt-3 font-syne font-black text-[38px] md:text-[44px] leading-none tracking-[-0.02em] text-white tabular-nums">
+              <div className="mt-3 font-display font-bold text-[38px] md:text-[44px] leading-none tracking-[-0.02em] text-white tabular-nums">
                 <CountUp to={m.to} format={lang === "en" && m.formatEn ? m.formatEn : m.format} />
               </div>
               <div className="mt-2.5 flex items-start gap-1.5 text-[12.5px] text-white/50 leading-snug">
