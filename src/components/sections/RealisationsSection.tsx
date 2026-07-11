@@ -160,6 +160,7 @@ export function RealisationsSection() {
           {projects.map((p, i) => (
             <motion.div
               key={p.title}
+              className={i % 3 === 1 ? "md:mt-10" : undefined}
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}

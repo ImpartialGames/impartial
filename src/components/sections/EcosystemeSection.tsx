@@ -159,7 +159,7 @@ export function EcosystemeSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className={`group p-6 rounded-2xl flex flex-col gap-3 bg-white/[0.05] border border-white/[0.09] transition-all duration-400 ${
+              className={`group p-6 rounded-2xl flex flex-col gap-3 bg-white/[0.05] border border-white/[0.09] transition-all duration-400 ${i % 2 === 1 ? "lg:mt-10 " : ""}${
                 p.url !== "#"
                   ? "hover:border-[#7C3AED]/40 hover:bg-white/[0.08] hover:-translate-y-1 hover:shadow-[0_16px_48px_-16px_rgba(124,58,237,0.28)] cursor-pointer"
                   : "cursor-default"
