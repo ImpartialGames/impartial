@@ -49,7 +49,7 @@ export function MethodeSection() {
   const { t } = useLang();
 
   return (
-    <section id="methode" className="relative py-24 md:py-32 bg-[#FBFAF7] dark:bg-[#0E0B14] overflow-hidden">
+    <section id="methode" className="relative py-24 md:py-32 bg-[#0E0B14] overflow-hidden">
       {/* Halos */}
       <span className="prisme-halo-peach" style={{ top: "0%", right: "-10%" }} />
       <span className="prisme-halo-violet" style={{ bottom: "0%", left: "-10%" }} />
@@ -57,11 +57,11 @@ export function MethodeSection() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <div className="section-label justify-center mb-6">{t("Méthode", "Method")}</div>
-          <h2 className="font-serif text-[34px] md:text-[52px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] dark:text-white/90 mb-6">
+          <h2 className="font-serif text-[34px] md:text-[52px] leading-[1.05] tracking-[-0.02em] text-white/90 mb-6">
             <span className="block">{t("Un processus", "A proven")}</span>
             <span className="block prisme-italic-grad">{t("éprouvé.", "process.")}</span>
           </h2>
-          <p className="text-[#6F6580] dark:text-white/60 text-base md:text-lg leading-relaxed">
+          <p className="text-white/60 text-base md:text-lg leading-relaxed">
             {t(
               "Quatre étapes structurées, aucune improvisation, des études au lancement, tout est maîtrisé.",
               "Four structured steps, zero improvisation — from scoping to launch, everything under control."
@@ -79,7 +79,7 @@ export function MethodeSection() {
               transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
               className="relative"
             >
-              <div className="relative h-full p-8 rounded-[28px] bg-white/85 dark:bg-white/5 border border-[#EEEAF4] dark:border-white/10 shadow-[0_12px_40px_-15px_rgba(124,58,237,0.10)] hover:shadow-[0_24px_56px_-20px_rgba(124,58,237,0.22)] hover:-translate-y-1 transition-all duration-500">
+              <div className="relative h-full p-8 rounded-[28px] bg-white/5 border border-white/10 shadow-[0_12px_40px_-15px_rgba(124,58,237,0.10)] hover:shadow-[0_24px_56px_-20px_rgba(124,58,237,0.22)] hover:-translate-y-1 transition-all duration-500">
 
                 {/* Numéro filigrane gradient */}
                 <span
@@ -97,18 +97,18 @@ export function MethodeSection() {
                 </span>
 
                 {/* Icône */}
-                <div className="relative w-12 h-12 rounded-2xl bg-[#F3EEFB] dark:bg-white/10 border border-[#EEEAF4] dark:border-white/10 flex items-center justify-center mb-6 shadow-[0_0_0_4px_rgba(124,58,237,0.06)]">
+                <div className="relative w-12 h-12 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-6 shadow-[0_0_0_4px_rgba(124,58,237,0.06)]">
                   <step.icon className="h-5 w-5 text-[#7C3AED]" />
                 </div>
 
-                <h3 className="font-serif text-[20px] text-[#0E0B14] dark:text-white/90 mb-2.5 leading-tight">{t(step.title, step.titleEn)}</h3>
-                <p className="text-[14px] text-[#6F6580] dark:text-white/60 mb-6 leading-relaxed">{t(step.description, step.descriptionEn)}</p>
+                <h3 className="font-serif text-[20px] text-white/90 mb-2.5 leading-tight">{t(step.title, step.titleEn)}</h3>
+                <p className="text-[14px] text-white/60 mb-6 leading-relaxed">{t(step.description, step.descriptionEn)}</p>
 
                 {/* Livrable */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3EEFB] dark:bg-white/10 border border-[rgba(124,58,237,0.18)] dark:border-white/10">
-                  <span className="text-[10px] font-medium text-[#6F6580] dark:text-white/50 tracking-wide">{t("Livrable", "Deliverable")}</span>
-                  <span className="w-px h-3 bg-[#EEEAF4] dark:bg-white/20" />
-                  <span className="text-[11px] font-semibold text-[#7C3AED] dark:text-[#A78BFA]">{t(step.deliverable, step.deliverableEn)}</span>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/10">
+                  <span className="text-[10px] font-medium text-white/50 tracking-wide">{t("Livrable", "Deliverable")}</span>
+                  <span className="w-px h-3 bg-white/20" />
+                  <span className="text-[11px] font-semibold text-[#A78BFA]">{t(step.deliverable, step.deliverableEn)}</span>
                 </div>
               </div>
 

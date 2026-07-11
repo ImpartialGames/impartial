@@ -133,7 +133,7 @@ export function RealisationsSection() {
   const { t, lp } = useLang();
 
   return (
-    <section id="realisations" className="relative py-24 md:py-32 bg-[#F3EEFB]/30 dark:bg-[#0E0B14] overflow-hidden">
+    <section id="realisations" className="relative py-24 md:py-32 bg-[#0E0B14] overflow-hidden">
       {/* Halos */}
       <span className="prisme-halo-peach" style={{ top: "0%", right: "-8%" }} />
       <span className="prisme-halo-violet" style={{ bottom: "5%", left: "-10%" }} />
@@ -143,11 +143,11 @@ export function RealisationsSection() {
         {/* Header */}
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <div className="section-label justify-center mb-6">{t("Réalisations", "Our work")}</div>
-          <h2 className="font-serif text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] dark:text-white/90 mb-6">
+          <h2 className="font-serif text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-white/90 mb-6">
             <span className="block">{t("Ils nous ont", "The ones who")}</span>
             <span className="block prisme-italic-grad">{t("fait confiance.", "trusted us.")}</span>
           </h2>
-          <p className="text-[#6F6580] dark:text-white/60 text-base md:text-lg leading-relaxed">
+          <p className="text-white/60 text-base md:text-lg leading-relaxed">
             {t(
               "De la landing page à l'application complexe, chaque projet est traité avec la même exigence.",
               "From landing pages to complex applications, every project gets the same level of care."
@@ -166,10 +166,10 @@ export function RealisationsSection() {
               transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
             >
               <TiltCard max={6} className="h-full rounded-[28px]">
-                <div className="group h-full bg-white/85 dark:bg-white/5 rounded-[28px] border border-[#EEEAF4] dark:border-white/10 overflow-hidden shadow-[0_12px_40px_-15px_rgba(124,58,237,0.10)] hover:shadow-[0_28px_60px_-20px_rgba(124,58,237,0.24)] hover:-translate-y-1 transition-all duration-500">
+                <div className="group h-full bg-white/5 rounded-[28px] border border-white/10 overflow-hidden shadow-[0_12px_40px_-15px_rgba(124,58,237,0.10)] hover:shadow-[0_28px_60px_-20px_rgba(124,58,237,0.24)] hover:-translate-y-1 transition-all duration-500">
 
                   {/* Image */}
-                  <div className="relative h-36 sm:h-44 md:h-48 overflow-hidden bg-[#F3EEFB] dark:bg-[#1C1028]">
+                  <div className="relative h-36 sm:h-44 md:h-48 overflow-hidden bg-[#1C1028]">
                     {p.image ? (
                       <img
                         src={p.image}
@@ -228,27 +228,27 @@ export function RealisationsSection() {
                       ))}
                     </div>
 
-                    <h3 className="font-serif text-[22px] text-[#0E0B14] dark:text-white/90 mb-5 leading-tight">{p.title}</h3>
+                    <h3 className="font-serif text-[22px] text-white/90 mb-5 leading-tight">{p.title}</h3>
 
                     <dl className="space-y-2.5 mb-6">
                       <div className="text-[13.5px]">
-                        <dt className="text-[#6F6580] dark:text-white/50 inline">{t("Objectif : ", "Goal: ")}</dt>
-                        <dd className="text-[#0E0B14] dark:text-white/80 inline">{t(p.objective, p.objectiveEn)}</dd>
+                        <dt className="text-white/50 inline">{t("Objectif : ", "Goal: ")}</dt>
+                        <dd className="text-white/80 inline">{t(p.objective, p.objectiveEn)}</dd>
                       </div>
                       <div className="text-[13.5px]">
-                        <dt className="text-[#6F6580] dark:text-white/50 inline">{t("Rôle : ", "Role: ")}</dt>
-                        <dd className="text-[#0E0B14] dark:text-white/80 inline">{t(p.role, p.roleEn)}</dd>
+                        <dt className="text-white/50 inline">{t("Rôle : ", "Role: ")}</dt>
+                        <dd className="text-white/80 inline">{t(p.role, p.roleEn)}</dd>
                       </div>
                       <div className="text-[13.5px]">
-                        <dt className="text-[#6F6580] dark:text-white/50 inline">{t("Résultat : ", "Result: ")}</dt>
-                        <dd className="text-[#7C3AED] dark:text-[#A78BFA] font-medium inline">{t(p.result, p.resultEn)}</dd>
+                        <dt className="text-white/50 inline">{t("Résultat : ", "Result: ")}</dt>
+                        <dd className="text-[#A78BFA] font-medium inline">{t(p.result, p.resultEn)}</dd>
                       </div>
                     </dl>
 
-                    <div className="flex items-center gap-4 pt-5 border-t border-[#EEEAF4] dark:border-white/10">
+                    <div className="flex items-center gap-4 pt-5 border-t border-white/10">
                       <Link
                         to={lp(p.url)}
-                        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[#7C3AED] dark:text-[#A78BFA] hover:gap-2.5 transition-all duration-200"
+                        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[#A78BFA] hover:gap-2.5 transition-all duration-200"
                       >
                         {t("Voir le projet", "View project")}
                         <ArrowRight className="h-3.5 w-3.5" />
@@ -258,7 +258,7 @@ export function RealisationsSection() {
                           href={p.externalUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="ml-auto text-[#6F6580] dark:text-white/40 hover:text-[#7C3AED] dark:hover:text-[#A78BFA] transition-colors"
+                          className="ml-auto text-white/40 hover:text-[#A78BFA] transition-colors"
                           aria-label={t(`Visiter ${p.title}`, `Visit ${p.title}`)}
                         >
                           <ExternalLink className="h-4 w-4" />

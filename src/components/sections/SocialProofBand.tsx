@@ -107,12 +107,12 @@ export function SocialProofBand() {
         }}
       />
 
-      {/* Dégradé bas vers OffresSection clair */}
+      {/* Dégradé bas vers OffresSection */}
       <div
         aria-hidden
         className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
         style={{
-          background: "linear-gradient(to bottom, transparent 0%, #FBFAF7 100%)",
+          background: "linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 100%)",
         }}
       />
 

@@ -208,7 +208,7 @@ const FullStackService = () => {
       {/* ══════════════════════════════════════════
           1. HERO
       ══════════════════════════════════════════ */}
-      <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-12 bg-[#FBFAF7]">
+      <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-12">
         <span className="prisme-halo-peach"  style={{ top: "-10%", left: "-6%" }} />
         <span className="prisme-halo-violet" style={{ bottom: "-8%", right: "10%" }} />
         <span className="prisme-halo-rose"   style={{ top: "30%", left: "32%" }} />
@@ -225,7 +225,7 @@ const FullStackService = () => {
               {t("Écosystème 360°", "360° Ecosystem")}
             </motion.div>
 
-            <h1 className="font-serif text-[32px] sm:text-[48px] lg:text-[66px] xl:text-[80px] leading-[0.97] tracking-[-0.03em] text-[#0E0B14]">
+            <h1 className="font-serif text-[32px] sm:text-[48px] lg:text-[66px] xl:text-[80px] leading-[0.97] tracking-[-0.03em] text-white">
               <RevealText by="word" stagger={0.06}>{t("Domination", "Total")}</RevealText>
               <span className="block">
                 <RevealText by="word" stagger={0.06} delay={0.12}>{t("digitale", "digital")}</RevealText>
@@ -239,7 +239,7 @@ const FullStackService = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.55 }}
-              className="mt-6 text-[17px] md:text-[19px] text-[#6F6580] leading-[1.65] max-w-xl mx-auto"
+              className="mt-6 text-[17px] md:text-[19px] text-white/60 leading-[1.65] max-w-xl mx-auto"
             >
               {t(
                 "L'alliance parfaite : Site + App + Backoffice. L'écosystème digital complet pour les startups et entreprises qui veulent dominer leur marché.",
@@ -266,7 +266,7 @@ const FullStackService = () => {
               <MagneticButton
                 as="button"
                 onClick={() => document.getElementById("offres-360")?.scrollIntoView({ behavior: "smooth" })}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-[#0E0B14] text-[#0E0B14] font-medium text-[15px] hover:bg-[#0E0B14] hover:text-[#FBFAF7] transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white/80 font-medium text-[15px] hover:border-white/50 hover:bg-white/[0.06] hover:text-white transition-colors"
               >
                 {t("Voir les offres", "View our plans")}
               </MagneticButton>
@@ -296,14 +296,14 @@ const FullStackService = () => {
         <div
           aria-hidden
           className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-[5]"
-          style={{ background: "linear-gradient(to bottom, transparent, #FBFAF7)" }}
+          style={{ background: "linear-gradient(to bottom, transparent, hsl(var(--background)))" }}
         />
       </section>
 
       {/* ══════════════════════════════════════════
           2. STATS
       ══════════════════════════════════════════ */}
-      <section className="bg-[#FBFAF7] py-12">
+      <section className="py-12">
         <div className="container mx-auto px-6">
           <motion.div
             initial="hidden"
@@ -316,12 +316,12 @@ const FullStackService = () => {
                 key={s.label}
                 custom={i}
                 variants={fadeUp}
-                className="text-center p-6 rounded-[20px] bg-white border border-[#EEEAF4]"
+                className="text-center p-6 rounded-[20px] bg-white/[0.05] backdrop-blur-xl border border-white/10"
               >
                 <div className="font-serif text-[28px] md:text-[38px] leading-none tracking-[-0.03em] prisme-italic-grad mb-1">
                   {t(s.value, s.valueEn)}
                 </div>
-                <div className="text-[13px] text-[#6F6580] font-medium">{t(s.label, s.labelEn)}</div>
+                <div className="text-[13px] text-white/60 font-medium">{t(s.label, s.labelEn)}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -331,18 +331,18 @@ const FullStackService = () => {
       {/* ══════════════════════════════════════════
           3. FEATURES
       ══════════════════════════════════════════ */}
-      <section className="relative py-24 md:py-32 bg-[#FBFAF7] overflow-hidden">
+      <section className="relative py-24 md:py-32 overflow-hidden">
         <span className="prisme-halo-peach"  style={{ top: "0%", left: "-8%" }} />
         <span className="prisme-halo-violet" style={{ bottom: "0%", right: "-8%" }} />
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16 max-w-2xl mx-auto">
             <div className="section-label justify-center mb-6">{t("Expertises", "Expertise")}</div>
-            <h2 className="font-serif text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-5">
+            <h2 className="font-serif text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.02em] text-white mb-5">
               {t("Ce qu'on", "What we")}{" "}
               <span className="prisme-italic-grad">{t("maîtrise.", "master.")}</span>
             </h2>
-            <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
+            <p className="text-white/60 text-base md:text-lg leading-relaxed">
               {t(
                 "Six composantes d'un écosystème digital complet, pensées pour fonctionner ensemble avec fluidité.",
                 "Six components of a complete digital ecosystem, designed to work together seamlessly."
@@ -362,15 +362,15 @@ const FullStackService = () => {
                   transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
                   className={f.large ? "lg:col-span-2" : ""}
                 >
-                  <div className="group h-full p-8 rounded-[28px] bg-white border border-[#EEEAF4] hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_12px_48px_rgba(124,58,237,0.10)] hover:-translate-y-1 transition-all duration-500">
-                    <div className="w-11 h-11 rounded-2xl bg-[#F3EEFB] border border-[#EEEAF4] flex items-center justify-center mb-6 group-hover:bg-[rgba(124,58,237,0.10)] transition-colors duration-300">
-                      <Icon className="h-5 w-5 text-[#7C3AED]" strokeWidth={1.5} />
+                  <div className="group h-full p-8 rounded-[28px] bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_24px_60px_-20px_rgba(124,58,237,0.35)] hover:-translate-y-1 transition-all duration-500">
+                    <div className="w-11 h-11 rounded-2xl bg-[#7C3AED]/12 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-[rgba(124,58,237,0.10)] transition-colors duration-300">
+                      <Icon className="h-5 w-5 text-[#A78BFA]" strokeWidth={1.5} />
                     </div>
-                    <h3 className="font-serif text-[20px] text-[#0E0B14] mb-3 leading-snug">{t(f.title, f.titleEn)}</h3>
-                    <p className="text-[14px] text-[#6F6580] leading-relaxed mb-5">{t(f.description, f.descriptionEn)}</p>
+                    <h3 className="font-serif text-[20px] text-white mb-3 leading-snug">{t(f.title, f.titleEn)}</h3>
+                    <p className="text-[14px] text-white/60 leading-relaxed mb-5">{t(f.description, f.descriptionEn)}</p>
                     <div className="flex flex-wrap gap-2">
                       {f.tags.map((tag, ti) => (
-                        <span key={tag} className="px-3 py-1 rounded-full text-[11px] font-medium tracking-wide bg-[#F3EEFB] text-[#7C3AED] border border-[rgba(124,58,237,0.15)]">
+                        <span key={tag} className="px-3 py-1 rounded-full text-[11px] font-medium tracking-wide bg-[#7C3AED]/12 text-[#A78BFA] border border-[rgba(124,58,237,0.15)]">
                           {t(tag, f.tagsEn[ti])}
                         </span>
                       ))}
@@ -386,7 +386,7 @@ const FullStackService = () => {
       {/* ══════════════════════════════════════════
           4. STACK TECHNIQUE
       ══════════════════════════════════════════ */}
-      <section className="py-16 bg-[#FBFAF7] border-y border-[#EEEAF4]">
+      <section className="py-16 border-y border-white/10">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -396,7 +396,7 @@ const FullStackService = () => {
             className="text-center mb-10"
           >
             <div className="section-label justify-center mb-4">{t("Stack technique", "Tech stack")}</div>
-            <p className="text-[#6F6580] text-sm">{t("Un écosystème technologique complet, maîtrisé de bout en bout.", "A complete technology ecosystem, mastered end to end.")}</p>
+            <p className="text-white/60 text-sm">{t("Un écosystème technologique complet, maîtrisé de bout en bout.", "A complete technology ecosystem, mastered end to end.")}</p>
           </motion.div>
 
           <motion.div
@@ -413,7 +413,7 @@ const FullStackService = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.05 + i * 0.04, ease: [0.22, 1, 0.36, 1] }}
-                className="px-4 py-2 rounded-full text-[13px] font-medium bg-white border border-[#EEEAF4] text-[#0E0B14] hover:border-[rgba(124,58,237,0.35)] hover:text-[#7C3AED] transition-colors duration-200"
+                className="px-4 py-2 rounded-full text-[13px] font-medium bg-white/[0.05] backdrop-blur-xl border border-white/10 text-white hover:border-[rgba(124,58,237,0.35)] hover:text-[#A78BFA] transition-colors duration-200"
               >
                 {tech}
               </motion.span>
@@ -425,18 +425,18 @@ const FullStackService = () => {
       {/* ══════════════════════════════════════════
           5. PRICING
       ══════════════════════════════════════════ */}
-      <section id="offres-360" className="relative py-24 md:py-32 bg-[#FBFAF7] overflow-hidden">
+      <section id="offres-360" className="relative py-24 md:py-32 overflow-hidden">
         <span className="prisme-halo-violet" style={{ top: "-5%", left: "-8%" }} />
         <span className="prisme-halo-rose"   style={{ bottom: "-5%", right: "-8%" }} />
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16 max-w-2xl mx-auto">
             <div className="section-label justify-center mb-6">{t("Nos offres", "Our plans")}</div>
-            <h2 className="font-serif text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-5">
+            <h2 className="font-serif text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.02em] text-white mb-5">
               {t("Choisissez votre", "Choose your")}{" "}
               <span className="prisme-italic-grad">{t("formule 360°.", "360° plan.")}</span>
             </h2>
-            <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
+            <p className="text-white/60 text-base md:text-lg leading-relaxed">
               {t("Trois niveaux d'engagement, un seul niveau d'exigence.", "Three levels of commitment, one standard of excellence.")}
             </p>
           </div>
@@ -463,7 +463,7 @@ const FullStackService = () => {
                 <div className={`relative h-full flex flex-col p-8 rounded-[28px] transition-all duration-500 ${
                   offer.recommended
                     ? "bg-[#1C0E42] text-white shadow-[0_24px_64px_rgba(124,58,237,0.30)]"
-                    : "bg-white border border-[#EEEAF4] hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_12px_48px_rgba(124,58,237,0.10)]"
+                    : "bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_24px_60px_-20px_rgba(124,58,237,0.35)] hover:-translate-y-1"
                 }`}>
                   {offer.recommended && (
                     <div className="absolute inset-0 rounded-[28px] pointer-events-none"
@@ -481,16 +481,16 @@ const FullStackService = () => {
                   <div className="relative">
                     <div className="mb-6">
                       <span className={`px-3 py-1 rounded-full text-[10px] font-semibold tracking-[0.18em] uppercase ${
-                        offer.recommended ? "bg-white/10 text-[#A78BFA]" : "bg-[#F3EEFB] text-[#7C3AED]"
+                        offer.recommended ? "bg-white/10 text-[#A78BFA]" : "bg-[#7C3AED]/12 text-[#A78BFA]"
                       }`}>
                         {offer.tier}
                       </span>
                     </div>
 
-                    <h3 className={`font-serif text-[22px] mb-1 leading-snug ${offer.recommended ? "text-white" : "text-[#0E0B14]"}`}>
+                    <h3 className={`font-serif text-[22px] mb-1 leading-snug ${offer.recommended ? "text-white" : "text-white"}`}>
                       {t(offer.title, offer.titleEn)}
                     </h3>
-                    <p className={`text-[14px] mb-6 ${offer.recommended ? "text-[#B8A8D8]" : "text-[#6F6580]"}`}>
+                    <p className={`text-[14px] mb-6 ${offer.recommended ? "text-[#B8A8D8]" : "text-white/60"}`}>
                       {t(offer.tagline, offer.taglineEn)}
                     </p>
 
@@ -502,11 +502,11 @@ const FullStackService = () => {
                       {offer.features.map((feat, fi) => (
                         <li key={feat} className="flex items-start gap-3">
                           <div className={`mt-0.5 w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${
-                            offer.recommended ? "bg-white/10" : "bg-[#F3EEFB]"
+                            offer.recommended ? "bg-white/10" : "bg-[#7C3AED]/12"
                           }`}>
-                            <Check className={`h-3 w-3 ${offer.recommended ? "text-[#A78BFA]" : "text-[#7C3AED]"}`} strokeWidth={2.5} />
+                            <Check className={`h-3 w-3 ${offer.recommended ? "text-[#A78BFA]" : "text-[#A78BFA]"}`} strokeWidth={2.5} />
                           </div>
-                          <span className={`text-[14px] leading-relaxed ${offer.recommended ? "text-[#D4C8F0]" : "text-[#6F6580]"}`}>
+                          <span className={`text-[14px] leading-relaxed ${offer.recommended ? "text-[#D4C8F0]" : "text-white/60"}`}>
                             {t(feat, offer.featuresEn[fi])}
                           </span>
                         </li>
@@ -516,9 +516,9 @@ const FullStackService = () => {
                     <div className={`mb-6 px-4 py-3 rounded-2xl text-[13px] ${
                       offer.recommended
                         ? "bg-white/8 text-[#B8A8D8] border border-white/10"
-                        : "bg-[#F3EEFB] text-[#6F6580] border border-[rgba(124,58,237,0.12)]"
+                        : "bg-[#7C3AED]/12 text-white/60 border border-[rgba(124,58,237,0.12)]"
                     }`}>
-                      <span className={`font-semibold ${offer.recommended ? "text-[#A78BFA]" : "text-[#7C3AED]"}`}>{t("+ Option : ", "+ Add-on: ")}</span>
+                      <span className={`font-semibold ${offer.recommended ? "text-[#A78BFA]" : "text-[#A78BFA]"}`}>{t("+ Option : ", "+ Add-on: ")}</span>
                       {t(offer.upsell, offer.upsellEn)}
                     </div>
 
@@ -526,7 +526,7 @@ const FullStackService = () => {
                       <button className={`w-full py-4 rounded-full font-medium text-[15px] inline-flex items-center justify-center gap-2 transition-all duration-300 ${
                         offer.recommended
                           ? "btn-prisme text-white"
-                          : "border border-[#0E0B14] text-[#0E0B14] hover:bg-[#0E0B14] hover:text-white"
+                          : "border border-white/20 text-white hover:border-white/50 hover:bg-white/[0.06]"
                       }`}>
                         {t("Configurer ce pack", "Configure this plan")}
                         <ArrowRight className="h-4 w-4" />
@@ -543,7 +543,7 @@ const FullStackService = () => {
       {/* ══════════════════════════════════════════
           6. CTA INLINE
       ══════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28 bg-[#FBFAF7] overflow-hidden">
+      <section className="relative py-20 md:py-28 overflow-hidden">
         <span className="prisme-halo-violet" style={{ bottom: "-10%", left: "-8%" }} />
         <span className="prisme-halo-peach"  style={{ top: "-10%", right: "-8%" }} />
 

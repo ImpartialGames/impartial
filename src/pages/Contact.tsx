@@ -22,7 +22,7 @@ const fadeUp: Variants = {
 /* ─── Input styles ──────────────────────────────────────────── */
 
 const inputClass =
-  "w-full px-4 py-3.5 rounded-[14px] bg-white border border-[#EEEAF4] text-[#0E0B14] text-[14px] placeholder:text-[#B8A8D8] focus:border-[#7C3AED] focus:outline-none focus:ring-2 focus:ring-[rgba(124,58,237,0.12)] transition-all duration-200";
+  "w-full px-4 py-3.5 rounded-[14px] bg-white/[0.05] border border-white/10 text-white text-[14px] placeholder:text-white/35 focus:border-[#A78BFA] focus:outline-none focus:ring-2 focus:ring-[rgba(124,58,237,0.12)] transition-all duration-200";
 
 /* ─── Page ──────────────────────────────────────────────────── */
 
@@ -79,7 +79,7 @@ const Contact = () => {
       {/* ══════════════════════════════════════════
           1. HERO
       ══════════════════════════════════════════ */}
-      <section className="relative min-h-[70svh] flex items-center overflow-hidden pt-24 pb-12 bg-[#FBFAF7]">
+      <section className="relative min-h-[70svh] flex items-center overflow-hidden pt-24 pb-12">
         <span className="prisme-halo-violet" style={{ top: "-10%", right: "-6%" }} />
         <span className="prisme-halo-rose"   style={{ bottom: "-8%", left: "8%" }} />
 
@@ -95,7 +95,7 @@ const Contact = () => {
               Contact
             </motion.div>
 
-            <h1 className="font-serif text-[32px] sm:text-[48px] lg:text-[66px] leading-[0.97] tracking-[-0.03em] text-[#0E0B14]">
+            <h1 className="font-serif text-[32px] sm:text-[48px] lg:text-[66px] leading-[0.97] tracking-[-0.03em] text-white">
               <RevealText by="word" stagger={0.06}>{t("Parlons de votre", "Let's talk about your")}</RevealText>
               <span className="block">
                 <span className="prisme-italic-grad prisme-shimmer">{t("projet.", "project.")}</span>
@@ -106,7 +106,7 @@ const Contact = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.45 }}
-              className="mt-6 text-[17px] md:text-[19px] text-[#6F6580] leading-[1.65] max-w-xl mx-auto"
+              className="mt-6 text-[17px] md:text-[19px] text-white/60 leading-[1.65] max-w-xl mx-auto"
             >
               {t(
                 "Une idée ? Un besoin ? Contactez-nous et donnons vie ensemble à votre vision digitale.",
@@ -119,14 +119,14 @@ const Contact = () => {
         <div
           aria-hidden
           className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-[5]"
-          style={{ background: "linear-gradient(to bottom, transparent, #FBFAF7)" }}
+          style={{ background: "linear-gradient(to bottom, transparent, #0E0B14)" }}
         />
       </section>
 
       {/* ══════════════════════════════════════════
           2. FORMULAIRE + INFOS
       ══════════════════════════════════════════ */}
-      <section className="relative py-16 md:py-24 bg-[#FBFAF7] overflow-hidden">
+      <section className="relative py-16 md:py-24 overflow-hidden">
         <span className="prisme-halo-peach" style={{ top: "0%", right: "-8%" }} />
 
         <div className="container mx-auto px-6 relative z-10">
@@ -150,7 +150,7 @@ const Contact = () => {
                   label: "Email",
                   content: (
                     <a href="mailto:studio@impartialgames.com"
-                      className="text-[14px] text-[#0E0B14] hover:text-[#7C3AED] transition-colors duration-200">
+                      className="text-[14px] text-white hover:text-[#A78BFA] transition-colors duration-200">
                       studio@impartialgames.com
                     </a>
                   ),
@@ -159,7 +159,7 @@ const Contact = () => {
                 {
                   icon: MapPin,
                   label: t("Localisation", "Location"),
-                  content: <p className="text-[14px] text-[#0E0B14]">{t("Delaware, États-Unis", "Delaware, United States")}</p>,
+                  content: <p className="text-[14px] text-white">{t("Delaware, États-Unis", "Delaware, United States")}</p>,
                   delay: 0.2,
                 },
                 {
@@ -167,8 +167,8 @@ const Contact = () => {
                   label: t("Horaires", "Hours"),
                   content: (
                     <div className="space-y-1">
-                      <p className="text-[14px] text-[#0E0B14]">{t("Lun – Ven : 9h00 – 18h00", "Mon – Fri: 9am – 6pm")}</p>
-                      <p className="text-[13px] text-[#6F6580]">{t("Weekend : Sur rendez-vous", "Weekends: by appointment")}</p>
+                      <p className="text-[14px] text-white">{t("Lun – Ven : 9h00 – 18h00", "Mon – Fri: 9am – 6pm")}</p>
+                      <p className="text-[13px] text-white/60">{t("Weekend : Sur rendez-vous", "Weekends: by appointment")}</p>
                     </div>
                   ),
                   delay: 0.3,
@@ -184,9 +184,9 @@ const Contact = () => {
                     custom={item.delay * 10}
                     variants={fadeUp}
                   >
-                    <div className="group p-6 rounded-[20px] bg-white border border-[#EEEAF4] hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_8px_24px_rgba(124,58,237,0.08)] transition-all duration-500">
+                    <div className="group p-6 rounded-[20px] bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_8px_24px_-8px_rgba(124,58,237,0.35)] hover:-translate-y-1 transition-all duration-500">
                       <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-[#F3EEFB] border border-[#EEEAF4] flex items-center justify-center shrink-0 group-hover:bg-[rgba(124,58,237,0.10)] transition-colors duration-300">
+                        <div className="w-10 h-10 rounded-xl bg-[#7C3AED]/12 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-[rgba(124,58,237,0.22)] transition-colors duration-300">
                           <Icon className="h-4 w-4 text-[#7C3AED]" strokeWidth={1.5} />
                         </div>
                         <div>
@@ -208,14 +208,14 @@ const Contact = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               >
-                <form onSubmit={handleSubmit} className="p-8 md:p-10 rounded-[28px] bg-white border border-[#EEEAF4]">
+                <form onSubmit={handleSubmit} className="p-8 md:p-10 rounded-[28px] bg-white/[0.05] backdrop-blur-xl border border-white/10">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#A78BFA] mb-8">
                     {t("Envoyez-nous un message", "Send us a message")}
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                     <div>
-                      <label htmlFor="name" className="block text-[13px] font-medium text-[#6F6580] mb-2">
+                      <label htmlFor="name" className="block text-[13px] font-medium text-white/60 mb-2">
                         {t("Nom complet *", "Full name *")}
                       </label>
                       <input
@@ -230,7 +230,7 @@ const Contact = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-[13px] font-medium text-[#6F6580] mb-2">
+                      <label htmlFor="email" className="block text-[13px] font-medium text-white/60 mb-2">
                         Email *
                       </label>
                       <input
@@ -248,7 +248,7 @@ const Contact = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                     <div>
-                      <label htmlFor="company" className="block text-[13px] font-medium text-[#6F6580] mb-2">
+                      <label htmlFor="company" className="block text-[13px] font-medium text-white/60 mb-2">
                         {t("Entreprise", "Company")}
                       </label>
                       <input
@@ -262,7 +262,7 @@ const Contact = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="subject" className="block text-[13px] font-medium text-[#6F6580] mb-2">
+                      <label htmlFor="subject" className="block text-[13px] font-medium text-white/60 mb-2">
                         {t("Sujet *", "Subject *")}
                       </label>
                       <input
@@ -279,7 +279,7 @@ const Contact = () => {
                   </div>
 
                   <div className="mb-8">
-                    <label htmlFor="message" className="block text-[13px] font-medium text-[#6F6580] mb-2">
+                    <label htmlFor="message" className="block text-[13px] font-medium text-white/60 mb-2">
                       Message *
                     </label>
                     <textarea
@@ -319,7 +319,7 @@ const Contact = () => {
       {/* ══════════════════════════════════════════
           3. CALENDLY
       ══════════════════════════════════════════ */}
-      <section className="relative py-16 md:py-24 bg-[#FBFAF7] overflow-hidden">
+      <section className="relative py-16 md:py-24 overflow-hidden">
         <span className="prisme-halo-violet" style={{ bottom: "0%", left: "-8%" }} />
 
         <div className="container mx-auto px-6 relative z-10">
@@ -332,7 +332,7 @@ const Contact = () => {
               className="text-center mb-12"
             >
               <div className="section-label justify-center mb-6">{t("Rendez-vous", "Book a call")}</div>
-              <h2 className="font-serif text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14]">
+              <h2 className="font-serif text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em] text-white">
                 {t("Choisissez un créneau pour", "Pick a time slot to")}{" "}
                 <span className="prisme-italic-grad">{t("discuter.", "talk.")}</span>
               </h2>
@@ -344,7 +344,7 @@ const Contact = () => {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="rounded-[28px] overflow-hidden border border-[#EEEAF4] bg-white">
+              <div className="rounded-[28px] overflow-hidden border border-white/10 bg-white/[0.05] backdrop-blur-xl">
                 <iframe
                   src="https://calendly.com/yannis-bezriche/impartial-games"
                   width="100%"
@@ -362,7 +362,7 @@ const Contact = () => {
       {/* ══════════════════════════════════════════
           4. NEWSLETTER
       ══════════════════════════════════════════ */}
-      <section className="relative py-16 md:py-20 bg-[#FBFAF7] overflow-hidden">
+      <section className="relative py-16 md:py-20 overflow-hidden">
         <span className="prisme-halo-peach" style={{ top: "-5%", right: "-8%" }} />
 
         <div className="container mx-auto px-6 relative z-10">

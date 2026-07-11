@@ -11,7 +11,7 @@ export function CTAFinal() {
   const { t, lp } = useLang();
 
   return (
-    <section id="contact" className="relative py-20 md:py-28 bg-[#FBFAF7] dark:bg-[#0E0B14] overflow-hidden">
+    <section id="contact" className="relative py-20 md:py-28 bg-[#0E0B14] overflow-hidden">
 
       {/* Halos extérieurs */}
       <span className="prisme-halo-violet" style={{ bottom: "-10%", left: "-8%" }} />

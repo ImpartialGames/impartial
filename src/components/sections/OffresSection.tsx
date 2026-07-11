@@ -109,7 +109,7 @@ export function OffresSection() {
   return (
     <section
       id="offres"
-      className="relative py-24 md:py-32 bg-[#FBFAF7] overflow-hidden"
+      className="relative py-24 md:py-32 overflow-hidden"
     >
       {/* Circuit board SVG pattern */}
       <svg
@@ -147,7 +147,7 @@ export function OffresSection() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <div className="section-label justify-center mb-6">{t("Nos offres", "Our packages")}</div>
-          <h2 className="text-[44px] md:text-[68px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-6">
+          <h2 className="text-[44px] md:text-[68px] leading-[1.05] tracking-[-0.02em] text-white mb-6">
             <span className="block prisme-display">
               <VerticalCutReveal
                 splitBy="words"
@@ -160,7 +160,7 @@ export function OffresSection() {
             </span>
             <span className="block font-serif prisme-italic-grad">{t("Un résultat premium.", "A premium result.")}</span>
           </h2>
-          <p className="text-[#6F6580] text-base md:text-lg leading-relaxed">
+          <p className="text-white/60 text-base md:text-lg leading-relaxed">
             {t(
               "Tu choisis le bon format. On livre un produit dont tu seras fier.",
               "You pick the right format. We deliver a product you'll be proud of."
@@ -221,7 +221,7 @@ export function OffresSection() {
                   </div>
                 </div>
               ) : (
-                <div className="relative h-full flex flex-col p-9 md:p-10 rounded-[28px] bg-white/85 backdrop-blur-md border border-[#EEEAF4] shadow-[0_12px_40px_-15px_rgba(124,58,237,0.12)] hover:shadow-[0_24px_60px_-20px_rgba(124,58,237,0.25)] hover:-translate-y-1 transition-all duration-500">
+                <div className="relative h-full flex flex-col p-9 md:p-10 rounded-[28px] bg-white/[0.05] backdrop-blur-xl border border-white/10 shadow-[0_12px_40px_-15px_rgba(0,0,0,0.4)] hover:shadow-[0_24px_60px_-20px_rgba(124,58,237,0.35)] hover:-translate-y-1 transition-all duration-500">
                   <CardContent pack={pack} t={t} lp={lp} />
                 </div>
               )}
@@ -229,7 +229,7 @@ export function OffresSection() {
           ))}
         </div>
 
-        <p className="text-center text-[12px] text-[#9F8FB0] mt-8">
+        <p className="text-center text-[12px] text-white/50 mt-8">
           {t("* Les prix sont variables selon le projet", "* Pricing varies by project")}
         </p>
       </div>
@@ -252,11 +252,7 @@ function CardContent({
         <span className="prisme-pill inline-block px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.15em] uppercase mb-5">
           {pack.name}
         </span>
-        <h3
-          className={`font-inter font-semibold text-[22px] md:text-[24px] mb-3 leading-tight tracking-tight ${
-            pack.recommended ? "text-white" : "text-[#0E0B14]"
-          }`}
-        >
+        <h3 className="font-inter font-semibold text-[22px] md:text-[24px] mb-3 leading-tight tracking-tight text-white">
           <VerticalCutReveal
             splitBy="words"
             staggerDuration={0.1}
@@ -268,7 +264,7 @@ function CardContent({
         </h3>
         <p
           className={`text-[15px] leading-relaxed ${
-            pack.recommended ? "text-[#B8A8D8]" : "text-[#6F6580]"
+            pack.recommended ? "text-[#B8A8D8]" : "text-white/60"
           }`}
         >
           {t(pack.description, pack.descriptionEn)}
@@ -277,14 +273,10 @@ function CardContent({
 
       <div
         className={`mb-8 flex-1 pt-6 border-t ${
-          pack.recommended ? "border-white/15" : "border-[#EEEAF4]"
+          pack.recommended ? "border-white/15" : "border-white/10"
         }`}
       >
-        <p
-          className={`text-[11px] font-semibold uppercase tracking-[0.18em] mb-5 ${
-            pack.recommended ? "text-[#A78BFA]" : "text-[#7C3AED]"
-          }`}
-        >
+        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] mb-5 text-[#A78BFA]">
           {t("Inclus", "What's included")}
         </p>
         <ul className="space-y-3.5">
@@ -300,14 +292,12 @@ function CardContent({
               >
                 <Check
                   className="h-3 w-3"
-                  style={{ color: pack.recommended ? "#FFFFFF" : "#7C3AED" }}
+                  style={{ color: pack.recommended ? "#FFFFFF" : "#A78BFA" }}
                   strokeWidth={3}
                 />
               </span>
               <span
-                className={`text-[14.5px] leading-relaxed ${
-                  pack.recommended ? "text-white" : "text-[#0E0B14]"
-                }`}
+                className="text-[14.5px] leading-relaxed text-white"
               >
                 {t(f, pack.featuresEn[idx])}
               </span>
@@ -318,20 +308,20 @@ function CardContent({
 
       <div
         className={`mb-6 pt-6 text-center border-t ${
-          pack.recommended ? "border-white/15" : "border-[#EEEAF4]"
+          pack.recommended ? "border-white/15" : "border-white/10"
         }`}
       >
         <div className="inline-flex items-baseline gap-1 flex-wrap justify-center">
           <span
             className={`font-syne font-black text-[32px] sm:text-[38px] leading-none ${
-              pack.recommended ? "text-[#C4B5FD]" : "text-[#7C3AED]"
+              pack.recommended ? "text-[#C4B5FD]" : "text-[#A78BFA]"
             }`}
           >
             {t(pack.price, pack.priceEn)}
           </span>
           <span
             className={`text-[18px] font-semibold leading-none mb-auto ${
-              pack.recommended ? "text-[#C4B5FD]" : "text-[#7C3AED]"
+              pack.recommended ? "text-[#C4B5FD]" : "text-[#A78BFA]"
             }`}
           >
             *
@@ -340,7 +330,7 @@ function CardContent({
         {pack.priceCAD && (
           <p
             className={`mt-1 text-[12px] font-medium ${
-              pack.recommended ? "text-[#B8A8D8]" : "text-[#6F6580]"
+              pack.recommended ? "text-[#B8A8D8]" : "text-white/60"
             }`}
           >
             {t("ou", "or")} {pack.priceCAD}
@@ -349,7 +339,7 @@ function CardContent({
         {pack.delay && (
           <p
             className={`mt-2 text-sm flex items-center justify-center gap-1.5 ${
-              pack.recommended ? "text-[#B8A8D8]" : "text-[#6F6580]"
+              pack.recommended ? "text-[#B8A8D8]" : "text-white/60"
             }`}
           >
             <Clock className="h-3.5 w-3.5" />
@@ -364,7 +354,7 @@ function CardContent({
         className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold text-sm transition-all ${
           pack.recommended
             ? "btn-prisme text-white"
-            : "bg-white border border-[#0E0B14] text-[#0E0B14] hover:bg-[#0E0B14] hover:text-[#FBFAF7]"
+            : "bg-white/[0.05] backdrop-blur-xl border border-white/20 text-white hover:bg-white/[0.06] hover:border-white/50"
         }`}
       >
         {t("Planifier un appel", "Book a call")}

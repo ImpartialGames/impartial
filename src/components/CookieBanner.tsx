@@ -71,7 +71,7 @@ export function CookieBanner() {
         }`}
       >
         <div className="max-w-4xl mx-auto">
-          <div className="relative p-6 rounded-2xl bg-background border border-white/20 shadow-[0_0_60px_rgba(139,92,246,0.2)]">
+          <div className="relative p-6 rounded-2xl bg-[#14101D]/90 backdrop-blur-2xl border border-white/10 shadow-[0_16px_48px_rgba(0,0,0,0.5)]">
           <button
             onClick={rejectAll}
             className="absolute top-4 right-4 p-2 rounded-lg hover:bg-white/10 transition-colors"
@@ -148,7 +148,7 @@ export function CookieBanner() {
                         className="sr-only peer"
                       />
                       <div className={`w-11 h-6 rounded-full peer peer-checked:bg-neon-violet transition-colors ${cookie.disabled ? 'bg-neon-violet/50 cursor-not-allowed' : 'bg-white/20'}`}>
-                        <div className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white transition-transform ${preferences[cookie.key as keyof CookiePreferences] ? 'translate-x-5' : ''}`} />
+                        <div className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-[#F5F3FF] transition-transform ${preferences[cookie.key as keyof CookiePreferences] ? 'translate-x-5' : ''}`} />
                       </div>
                     </label>
                   </div>

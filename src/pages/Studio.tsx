@@ -91,7 +91,7 @@ const Studio = () => {
       {/* ══════════════════════════════════════════
           1. HERO
       ══════════════════════════════════════════ */}
-      <section className="relative min-h-[80svh] flex items-center overflow-hidden pt-24 pb-12 bg-[#FBFAF7]">
+      <section className="relative min-h-[80svh] flex items-center overflow-hidden pt-24 pb-12">
         <span className="prisme-halo-violet" style={{ top: "-10%", right: "-6%" }} />
         <span className="prisme-halo-rose"   style={{ bottom: "-8%", left: "8%" }} />
         <span className="prisme-halo-peach"  style={{ top: "40%", left: "50%" }} />
@@ -108,7 +108,7 @@ const Studio = () => {
               {t("Le Studio", "The Studio")}
             </motion.div>
 
-            <h1 className="font-serif text-[34px] sm:text-[50px] md:text-[62px] lg:text-[80px] xl:text-[96px] leading-[0.95] tracking-[-0.03em] text-[#0E0B14]">
+            <h1 className="font-serif text-[34px] sm:text-[50px] md:text-[62px] lg:text-[80px] xl:text-[96px] leading-[0.95] tracking-[-0.03em] text-white">
               <RevealText by="word" stagger={0.06}>Studio</RevealText>
               <span className="block">
                 <span className="prisme-italic-grad prisme-shimmer">IMPARTIAL.</span>
@@ -119,7 +119,7 @@ const Studio = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-8 text-[17px] md:text-[20px] text-[#6F6580] leading-[1.7] max-w-2xl mx-auto"
+              className="mt-8 text-[17px] md:text-[20px] text-white/60 leading-[1.7] max-w-2xl mx-auto"
             >
               {t(
                 "Un collectif de créatifs et de technologues passionnés, unis par une vision : transformer vos idées en expériences digitales extraordinaires.",
@@ -132,14 +132,14 @@ const Studio = () => {
         <div
           aria-hidden
           className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-[5]"
-          style={{ background: "linear-gradient(to bottom, transparent, #FBFAF7)" }}
+          style={{ background: "linear-gradient(to bottom, transparent, #0E0B14)" }}
         />
       </section>
 
       {/* ══════════════════════════════════════════
           2. VISION
       ══════════════════════════════════════════ */}
-      <section className="relative py-24 md:py-32 bg-[#FBFAF7] overflow-hidden">
+      <section className="relative py-24 md:py-32 overflow-hidden">
         <span className="prisme-halo-peach"  style={{ top: "0%", right: "-8%" }} />
 
         <div className="container mx-auto px-6 relative z-10">
@@ -162,7 +162,7 @@ const Studio = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="font-serif text-[36px] md:text-[52px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] mb-8"
+                className="font-serif text-[36px] md:text-[52px] leading-[1.05] tracking-[-0.02em] text-white mb-8"
               >
                 {t("Créer l'", "Create the")}{" "}
                 <span className="prisme-italic-grad">{t("extraordinaire.", "extraordinary.")}</span>
@@ -173,7 +173,7 @@ const Studio = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className="text-[#6F6580] text-lg mb-6 leading-relaxed"
+                className="text-white/60 text-lg mb-6 leading-relaxed"
               >
                 {t(
                   "Chez IMPARTIAL, nous croyons que le digital ne doit pas être un compromis. Nous fusionnons l'esthétique premium avec une approche technique irréprochable pour créer des expériences qui marquent les esprits.",
@@ -186,9 +186,9 @@ const Studio = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="text-[#6F6580] text-lg leading-relaxed"
+                className="text-white/60 text-lg leading-relaxed"
               >
-                {t("Notre nom ? ", "Our name? ")}<span className="text-[#0E0B14] font-semibold">IMPARTIAL</span>{t(
+                {t("Notre nom ? ", "Our name? ")}<span className="text-white font-semibold">IMPARTIAL</span>{t(
                   ". Parce que nous abordons chaque projet sans préjugé, avec un regard neuf et une objectivité totale pour trouver LA meilleure solution pour vous.",
                   ". Because we approach every project without bias, with fresh eyes and total objectivity to find THE best solution for you.",
                 )}
@@ -202,7 +202,7 @@ const Studio = () => {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="relative aspect-square rounded-[32px] bg-white border border-[#EEEAF4] overflow-hidden flex items-center justify-center">
+              <div className="relative aspect-square rounded-[32px] bg-white/[0.05] backdrop-blur-xl border border-white/10 overflow-hidden flex items-center justify-center">
                 {/* Halo intérieur */}
                 <div className="absolute inset-0 pointer-events-none"
                   style={{ background: "radial-gradient(ellipse 70% 70% at 50% 40%, rgba(124,58,237,0.08) 0%, transparent 70%)" }} />
@@ -210,7 +210,7 @@ const Studio = () => {
                   <div className="font-serif text-[80px] md:text-[96px] leading-none tracking-[-0.04em] prisme-italic-grad mb-4">
                     100%
                   </div>
-                  <p className="text-[16px] text-[#6F6580] font-medium">{t("Engagement client", "Client commitment")}</p>
+                  <p className="text-[16px] text-white/60 font-medium">{t("Engagement client", "Client commitment")}</p>
                 </div>
               </div>
             </motion.div>
@@ -221,7 +221,7 @@ const Studio = () => {
       {/* ══════════════════════════════════════════
           3. TIMELINE
       ══════════════════════════════════════════ */}
-      <section className="relative py-24 md:py-32 bg-[#FBFAF7] overflow-hidden">
+      <section className="relative py-24 md:py-32 overflow-hidden">
         <span className="prisme-halo-violet" style={{ bottom: "0%", left: "-8%" }} />
 
         <div className="container mx-auto px-6 relative z-10">
@@ -234,7 +234,7 @@ const Studio = () => {
               className="text-center mb-16"
             >
               <div className="section-label justify-center mb-6">{t("Notre parcours", "Our journey")}</div>
-              <h2 className="font-serif text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14]">
+              <h2 className="font-serif text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.02em] text-white">
                 {t("Les étapes", "The key")}{" "}
                 <span className="prisme-italic-grad">{t("clés.", "milestones.")}</span>
               </h2>
@@ -249,13 +249,13 @@ const Studio = () => {
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <div className="flex gap-4 md:gap-8 items-start p-5 md:p-8 rounded-[24px] bg-white border border-[#EEEAF4] hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_8px_32px_rgba(124,58,237,0.08)] hover:-translate-y-0.5 transition-all duration-500">
+                  <div className="flex gap-4 md:gap-8 items-start p-5 md:p-8 rounded-[24px] bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_8px_32px_-10px_rgba(124,58,237,0.35)] hover:-translate-y-0.5 transition-all duration-500">
                     <div className="font-serif text-[36px] md:text-[44px] leading-none tracking-[-0.03em] prisme-italic-grad shrink-0">
                       {item.year}
                     </div>
                     <div className="pt-1">
-                      <h3 className="font-serif text-[20px] text-[#0E0B14] mb-2 leading-snug">{t(item.title, item.titleEn)}</h3>
-                      <p className="text-[14px] text-[#6F6580] leading-relaxed">{t(item.description, item.descriptionEn)}</p>
+                      <h3 className="font-serif text-[20px] text-white mb-2 leading-snug">{t(item.title, item.titleEn)}</h3>
+                      <p className="text-[14px] text-white/60 leading-relaxed">{t(item.description, item.descriptionEn)}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -268,7 +268,7 @@ const Studio = () => {
       {/* ══════════════════════════════════════════
           4. VALEURS
       ══════════════════════════════════════════ */}
-      <section className="relative py-24 md:py-32 bg-[#FBFAF7] overflow-hidden">
+      <section className="relative py-24 md:py-32 overflow-hidden">
         <span className="prisme-halo-peach"  style={{ top: "0%", right: "-8%" }} />
         <span className="prisme-halo-violet" style={{ bottom: "0%", left: "-8%" }} />
 
@@ -281,7 +281,7 @@ const Studio = () => {
             className="text-center mb-16"
           >
             <div className="section-label justify-center mb-6">{t("Nos valeurs", "Our values")}</div>
-            <h2 className="font-serif text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14]">
+            <h2 className="font-serif text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.02em] text-white">
               {t("Ce qui nous", "What")}{" "}
               <span className="prisme-italic-grad">{t("guide.", "guides us.")}</span>
             </h2>
@@ -298,12 +298,12 @@ const Studio = () => {
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <div className="group h-full p-8 rounded-[24px] bg-white border border-[#EEEAF4] hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_8px_32px_rgba(124,58,237,0.08)] hover:-translate-y-1 transition-all duration-500 text-center">
-                    <div className="w-12 h-12 rounded-2xl bg-[#F3EEFB] border border-[#EEEAF4] flex items-center justify-center mb-6 mx-auto group-hover:bg-[rgba(124,58,237,0.10)] transition-colors duration-300">
+                  <div className="group h-full p-8 rounded-[24px] bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_8px_32px_-10px_rgba(124,58,237,0.35)] hover:-translate-y-1 transition-all duration-500 text-center">
+                    <div className="w-12 h-12 rounded-2xl bg-[#7C3AED]/12 border border-white/10 flex items-center justify-center mb-6 mx-auto group-hover:bg-[rgba(124,58,237,0.22)] transition-colors duration-300">
                       <Icon className="h-5 w-5 text-[#7C3AED]" strokeWidth={1.5} />
                     </div>
-                    <h3 className="font-serif text-[18px] text-[#0E0B14] mb-3 leading-snug">{t(value.title, value.titleEn)}</h3>
-                    <p className="text-[13px] text-[#6F6580] leading-relaxed">{t(value.description, value.descriptionEn)}</p>
+                    <h3 className="font-serif text-[18px] text-white mb-3 leading-snug">{t(value.title, value.titleEn)}</h3>
+                    <p className="text-[13px] text-white/60 leading-relaxed">{t(value.description, value.descriptionEn)}</p>
                   </div>
                 </motion.div>
               );
@@ -315,7 +315,7 @@ const Studio = () => {
       {/* ══════════════════════════════════════════
           5. CTA
       ══════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28 bg-[#FBFAF7] overflow-hidden">
+      <section className="relative py-20 md:py-28 overflow-hidden">
         <span className="prisme-halo-violet" style={{ bottom: "-10%", left: "-8%" }} />
         <span className="prisme-halo-peach"  style={{ top: "-10%", right: "-8%" }} />
 

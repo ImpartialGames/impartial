@@ -14,7 +14,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="theme-solaire min-h-screen bg-[#FBFAF7] dark:bg-[#0E0B14] relative flex flex-col items-center justify-center overflow-hidden">
+    <div className="theme-solaire min-h-screen bg-[#0E0B14] relative flex flex-col items-center justify-center overflow-hidden">
 
       {/* Halos */}
       <span className="prisme-halo-violet" style={{ top: "-10%", right: "-10%" }} />
@@ -36,7 +36,7 @@ const NotFound = () => {
             style={{ filter: "saturate(1.4) brightness(1.05)" }}
           />
           <div className="flex flex-col leading-none gap-[3px]">
-            <span className="font-syne text-[15px] font-black tracking-[-0.03em] text-[#0E0B14] dark:text-white/90">
+            <span className="font-syne text-[15px] font-black tracking-[-0.03em] text-white/90">
               IMPARTIAL
             </span>
             <span className="text-[8px] font-semibold tracking-[0.22em] uppercase text-[#7C3AED]">
@@ -68,7 +68,7 @@ const NotFound = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="font-serif text-[28px] md:text-[40px] leading-tight tracking-[-0.02em] text-[#0E0B14] dark:text-white/90 mt-2 mb-4"
+          className="font-serif text-[28px] md:text-[40px] leading-tight tracking-[-0.02em] text-white/90 mt-2 mb-4"
         >
           {t("Cette page n'existe pas.", "This page doesn't exist.")}
         </motion.h1>
@@ -78,7 +78,7 @@ const NotFound = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="text-[#6F6580] dark:text-white/60 text-[16px] md:text-[18px] leading-relaxed mb-10"
+          className="text-white/60 text-[16px] md:text-[18px] leading-relaxed mb-10"
         >
           {t(
             "Mais ton projet, lui, peut exister.",
@@ -102,7 +102,7 @@ const NotFound = () => {
           </Link>
           <Link
             to={lp("/contact")}
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-[#0E0B14] dark:border-white/20 text-[#0E0B14] dark:text-white/80 font-medium text-[15px] hover:bg-[#0E0B14] dark:hover:bg-white/10 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white/80 font-medium text-[15px] hover:bg-white/10 hover:text-white transition-colors"
           >
             {t("Lancer un projet", "Start a project")}
           </Link>

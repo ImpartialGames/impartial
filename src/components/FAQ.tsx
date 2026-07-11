@@ -64,7 +64,7 @@ export function FAQ() {
   const { t, lp } = useLang();
 
   return (
-    <section className="relative py-24 md:py-32 bg-[#FBFAF7] dark:bg-[#0E0B14] overflow-hidden">
+    <section className="relative py-24 md:py-32 bg-[#0E0B14] overflow-hidden">
       {/* Halos */}
       <span className="prisme-halo-violet" style={{ top: "10%", right: "-8%" }} />
       <span className="prisme-halo-rose" style={{ bottom: "5%", left: "-10%" }} />
@@ -72,11 +72,11 @@ export function FAQ() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <div className="section-label justify-center mb-6">FAQ</div>
-          <h2 className="font-serif text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-[#0E0B14] dark:text-white/90 mb-6">
+          <h2 className="font-serif text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-white/90 mb-6">
             <span className="block">{t("Vos questions,", "Your questions,")}</span>
             <span className="block prisme-italic-grad">{t("nos réponses.", "our answers.")}</span>
           </h2>
-          <p className="text-[#6F6580] dark:text-white/60 text-base md:text-lg leading-relaxed">
+          <p className="text-white/60 text-base md:text-lg leading-relaxed">
             {t(
               "Retrouvez les réponses aux questions les plus courantes sur nos services et notre façon de travailler.",
               "Find answers to the most common questions about our services and the way we work."
@@ -96,12 +96,12 @@ export function FAQ() {
               >
                 <AccordionItem
                   value={`item-${i}`}
-                  className="bg-white/85 dark:bg-white/5 rounded-[20px] border border-[#EEEAF4] dark:border-white/10 px-6 data-[state=open]:border-[rgba(124,58,237,0.3)] dark:data-[state=open]:border-[rgba(167,139,250,0.35)] data-[state=open]:shadow-[0_12px_40px_-15px_rgba(124,58,237,0.18)] transition-all duration-300"
+                  className="bg-white/[0.05] backdrop-blur-xl rounded-[20px] border border-white/10 px-6 data-[state=open]:border-[rgba(167,139,250,0.35)] data-[state=open]:shadow-[0_12px_40px_-15px_rgba(124,58,237,0.35)] transition-all duration-300"
                 >
-                  <AccordionTrigger className="text-left text-base md:text-lg font-serif text-[#0E0B14] dark:text-white/90 py-5 hover:no-underline [&[data-state=open]>svg]:text-[#7C3AED] dark:[&[data-state=open]>svg]:text-[#A78BFA]">
+                  <AccordionTrigger className="text-left text-base md:text-lg font-serif text-white/90 py-5 hover:no-underline [&[data-state=open]>svg]:text-[#A78BFA]">
                     {t(faq.question, faq.questionEn)}
                   </AccordionTrigger>
-                  <AccordionContent className="text-[#6F6580] dark:text-white/60 pb-5 leading-[1.75] text-[15px]">
+                  <AccordionContent className="text-white/60 pb-5 leading-[1.75] text-[15px]">
                     {t(faq.answer, faq.answerEn)}
                   </AccordionContent>
                 </AccordionItem>
@@ -111,10 +111,10 @@ export function FAQ() {
         </div>
 
         <div className="text-center mt-14">
-          <p className="text-sm text-[#6F6580] dark:text-white/50 mb-3">{t("Vous avez une autre question ?", "Got another question?")}</p>
+          <p className="text-sm text-white/50 mb-3">{t("Vous avez une autre question ?", "Got another question?")}</p>
           <Link
             to={lp("/contact")}
-            className="inline-flex items-center gap-2 text-[#7C3AED] dark:text-[#A78BFA] hover:gap-3 font-medium transition-all duration-200 text-[15px]"
+            className="inline-flex items-center gap-2 text-[#A78BFA] hover:gap-3 font-medium transition-all duration-200 text-[15px]"
           >
             {t("Contactez-nous directement", "Contact us directly")}
             <ArrowRight className="h-4 w-4" />

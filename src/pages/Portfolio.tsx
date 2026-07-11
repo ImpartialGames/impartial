@@ -97,7 +97,7 @@ export default function Portfolio() {
       {/* ══════════════════════════════════════════
           1. HERO
       ══════════════════════════════════════════ */}
-      <section className="relative min-h-[70svh] flex items-center overflow-hidden pt-24 pb-12 bg-[#FBFAF7]">
+      <section className="relative min-h-[70svh] flex items-center overflow-hidden pt-24 pb-12">
         <span className="prisme-halo-violet" style={{ top: "-10%", right: "-6%" }} />
         <span className="prisme-halo-rose"   style={{ bottom: "-8%", left: "10%" }} />
 
@@ -113,7 +113,7 @@ export default function Portfolio() {
               Portfolio
             </motion.div>
 
-            <h1 className="font-serif text-[32px] sm:text-[48px] lg:text-[66px] leading-[0.97] tracking-[-0.03em] text-[#0E0B14]">
+            <h1 className="font-serif text-[32px] sm:text-[48px] lg:text-[66px] leading-[0.97] tracking-[-0.03em] text-white">
               <RevealText by="word" stagger={0.06}>{t("Nos", "Our")}</RevealText>{" "}
               <span className="prisme-italic-grad prisme-shimmer">{t("réalisations.", "work.")}</span>
             </h1>
@@ -122,7 +122,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.45 }}
-              className="mt-6 text-[17px] md:text-[19px] text-[#6F6580] leading-[1.65] max-w-xl mx-auto"
+              className="mt-6 text-[17px] md:text-[19px] text-white/60 leading-[1.65] max-w-xl mx-auto"
             >
               {t(
                 "Découvrez les projets que nous avons construits pour des marques ambitieuses, chaque réalisation une histoire de performance et de précision.",
@@ -135,14 +135,14 @@ export default function Portfolio() {
         <div
           aria-hidden
           className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-[5]"
-          style={{ background: "linear-gradient(to bottom, transparent, #FBFAF7)" }}
+          style={{ background: "linear-gradient(to bottom, transparent, #0E0B14)" }}
         />
       </section>
 
       {/* ══════════════════════════════════════════
           2. FILTRES
       ══════════════════════════════════════════ */}
-      <section className="bg-[#FBFAF7] py-8">
+      <section className="py-8">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -157,7 +157,7 @@ export default function Portfolio() {
                 className={`px-5 py-2 rounded-full text-[13px] font-medium transition-all duration-300 ${
                   activeCategory === cat.id
                     ? "bg-[#1C0E42] text-white shadow-[0_4px_16px_rgba(124,58,237,0.25)]"
-                    : "bg-white border border-[#EEEAF4] text-[#6F6580] hover:border-[rgba(124,58,237,0.35)] hover:text-[#7C3AED]"
+                    : "bg-white/[0.05] backdrop-blur-xl border border-white/10 text-white/60 hover:border-[rgba(124,58,237,0.35)] hover:text-[#A78BFA]"
                 }`}
               >
                 {t(cat.name, cat.nameEn)}
@@ -170,7 +170,7 @@ export default function Portfolio() {
       {/* ══════════════════════════════════════════
           3. GRILLE PROJETS
       ══════════════════════════════════════════ */}
-      <section className="relative py-10 md:py-16 bg-[#FBFAF7] overflow-hidden">
+      <section className="relative py-10 md:py-16 overflow-hidden">
         <span className="prisme-halo-peach"  style={{ top: "0%", right: "-8%" }} />
         <span className="prisme-halo-violet" style={{ bottom: "0%", left: "-8%" }} />
 
@@ -194,10 +194,10 @@ export default function Portfolio() {
                   onMouseEnter={() => setHoveredProject(project.id)}
                   onMouseLeave={() => setHoveredProject(null)}
                 >
-                  <div className="rounded-[24px] overflow-hidden bg-white border border-[#EEEAF4] hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_12px_48px_rgba(124,58,237,0.10)] hover:-translate-y-1 transition-all duration-500">
+                  <div className="rounded-[24px] overflow-hidden bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_12px_48px_-12px_rgba(124,58,237,0.35)] hover:-translate-y-1 transition-all duration-500">
 
                     {/* Image */}
-                    <div className="relative aspect-[4/3] overflow-hidden bg-[#F3EEFB]">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-[#7C3AED]/12">
                       <ImageWithSkeleton
                         src={project.image}
                         alt={project.title}
@@ -230,17 +230,17 @@ export default function Portfolio() {
                     {/* Contenu */}
                     <div className="p-6">
                       <div className="flex items-center justify-between mb-2">
-                        <h3 className="font-serif text-[18px] text-[#0E0B14] leading-snug">{project.title}</h3>
+                        <h3 className="font-serif text-[18px] text-white leading-snug">{project.title}</h3>
                         <span className="text-[12px] text-[#9B8EC4] font-medium">{project.year}</span>
                       </div>
 
-                      <p className="text-[13px] text-[#6F6580] mb-4 line-clamp-2 leading-relaxed">
+                      <p className="text-[13px] text-white/60 mb-4 line-clamp-2 leading-relaxed">
                         {t(project.description, project.descriptionEn)}
                       </p>
 
                       <div className="flex flex-wrap gap-1.5">
                         {project.tags.slice(0, 3).map(tag => (
-                          <span key={tag} className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#F3EEFB] text-[#7C3AED] border border-[rgba(124,58,237,0.12)]">
+                          <span key={tag} className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#7C3AED]/12 text-[#A78BFA] border border-[rgba(124,58,237,0.12)]">
                             {tag}
                           </span>
                         ))}
@@ -268,7 +268,7 @@ export default function Portfolio() {
       {/* ══════════════════════════════════════════
           4. CTA
       ══════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28 bg-[#FBFAF7] overflow-hidden">
+      <section className="relative py-20 md:py-28 overflow-hidden">
         <span className="prisme-halo-violet" style={{ bottom: "-10%", left: "-8%" }} />
         <span className="prisme-halo-peach"  style={{ top: "-10%", right: "-8%" }} />
 
