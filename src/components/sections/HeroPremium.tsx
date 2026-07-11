@@ -25,66 +25,6 @@ const codeFragments: CodeFragment[] = [
   { code: "type Product = {\n  id: string\n  live: boolean\n  mrr: number\n}", top: "83%", left: "5%", delay: 1.8, dur: 35 },
 ];
 
-function TerminalLine() {
-  const [text, setText] = useState("");
-  const [phase, setPhase] = useState(0);
-
-  useEffect(() => {
-    const lines = [
-      "> impartial init --premium --clients=30",
-      "> launching products that last... ✓",
-    ];
-    let timeout: ReturnType<typeof setTimeout>;
-
-    if (phase === 0) {
-      const cmd = lines[0];
-      let i = 0;
-      const type = () => {
-        if (i <= cmd.length) {
-          setText(cmd.slice(0, i));
-          i++;
-          timeout = setTimeout(type, 42);
-        } else {
-          timeout = setTimeout(() => setPhase(1), 700);
-        }
-      };
-      timeout = setTimeout(type, 1800);
-    } else if (phase === 1) {
-      const base = lines[0] + "\n";
-      const cmd = lines[1];
-      let i = 0;
-      setText(base);
-      const type = () => {
-        if (i <= cmd.length) {
-          setText(base + cmd.slice(0, i));
-          i++;
-          timeout = setTimeout(type, 38);
-        } else {
-          setPhase(2);
-        }
-      };
-      timeout = setTimeout(type, 400);
-    }
-
-    return () => clearTimeout(timeout);
-  }, [phase]);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1.4, duration: 0.6 }}
-      className="absolute bottom-9 left-6 lg:left-12 xl:left-16 z-10 hidden md:block"
-      aria-hidden
-    >
-      <pre className="font-mono text-[12px] text-white/28 tracking-wide whitespace-pre leading-relaxed">
-        {text}
-        {phase < 2 && <span className="terminal-cursor" />}
-      </pre>
-    </motion.div>
-  );
-}
-
 export function HeroPremium() {
   const [quizOpen, setQuizOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
@@ -237,16 +177,11 @@ export function HeroPremium() {
           <div>
             <h1 className="font-serif text-[34px] sm:text-[48px] lg:text-[72px] xl:text-[88px] 2xl:text-[100px] leading-[0.98] tracking-[-0.03em] text-white">
               <RevealText by="word" stagger={0.06}>
-                {t("On ne livre pas", "We don't just ship")}
+                {t("Des produits.", "Products.")}
               </RevealText>
               <span className="block">
-                <RevealText by="word" stagger={0.06} delay={0.15}>
-                  {t("du code.", "code.")}
-                </RevealText>
-              </span>
-              <span className="block">
                 <span className="prisme-italic-grad prisme-shimmer">
-                  {t("On lance des produits.", "We launch products.")}
+                  {t("Pas des promesses.", "Not promises.")}
                 </span>
               </span>
             </h1>
@@ -319,7 +254,6 @@ export function HeroPremium() {
       </div>
 
       {/* ─── Terminal typewriter ─── */}
-      <TerminalLine />
 
       {/* ─── Dégradé bas vers SocialProofBand (dark) ─── */}
       <div

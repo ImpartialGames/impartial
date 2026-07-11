@@ -11,7 +11,7 @@ import {
   PrincipesSection,
   CTAFinal,
 } from "@/components/sections";
-import { SocialProofBand } from "@/components/sections/SocialProofBand";
+import { CroissanceSection } from "@/components/sections/CroissanceSection";
 import { EcosystemeSection } from "@/components/sections/EcosystemeSection";
 
 const Index = () => {
@@ -38,7 +38,7 @@ const Index = () => {
         }}
       />
       <HeroPremium />
-      <SocialProofBand />
+      <CroissanceSection />
       <OffresSection />
       <ServicesSection />
       <EcosystemeSection />
