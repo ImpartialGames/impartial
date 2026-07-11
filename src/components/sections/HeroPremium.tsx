@@ -1,40 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { MagneticButton, RevealText } from "@/components/wow";
 import { CalendlyQuiz } from "@/components/CalendlyQuiz";
+import { HeroWavesBackground } from "@/components/sections/HeroWavesBackground";
 import { useLang } from "@/contexts/LanguageContext";
-
-interface CodeFragment {
-  code: string;
-  top?: string;
-  right?: string;
-  left?: string;
-  bottom?: string;
-  delay: number;
-  dur: number;
-}
-
-const codeFragments: CodeFragment[] = [
-  { code: "const [data, setData]\n  = useState<Product[]>([])", top: "18%", right: "8%", delay: 0, dur: 28 },
-  { code: "export async function\ngetServerSideProps(ctx) {\n  const res = await fetch(api)\n  return { props: res }\n}", top: "52%", right: "5%", delay: 2.5, dur: 32 },
-  { code: "npm run build\n✓ Compiled in 2.1s\n✓ 0 errors, 0 warnings", top: "72%", right: "13%", delay: 1.2, dur: 24 },
-  { code: "<Layout>\n  <Hero />\n  <Proof />\n  <Pricing />\n</Layout>", top: "28%", left: "2%", delay: 3, dur: 30 },
-  { code: "git commit -m 'feat: launch'\ngit push origin main", top: "62%", left: "2%", delay: 0.8, dur: 26 },
-  { code: "type Product = {\n  id: string\n  live: boolean\n  mrr: number\n}", top: "83%", left: "5%", delay: 1.8, dur: 35 },
-];
 
 export function HeroPremium() {
   const [quizOpen, setQuizOpen] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
   const { t, lp } = useLang();
-
-  useEffect(() => {
-    const onScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const heroBadges = [
     t("Design premium", "Premium design"),
@@ -48,127 +23,7 @@ export function HeroPremium() {
       className="relative h-[100svh] flex items-center justify-center overflow-hidden pt-20 pb-8 md:pt-20 md:pb-8"
       style={{ backgroundColor: "#080410" }}
     >
-      {/* ─── Dot grid — parallax léger ─── */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none select-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, rgba(124,58,237,0.07) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-          transform: `translateY(${scrollY * 0.12}px)`,
-          willChange: "transform",
-        }}
-      />
-
-      {/* ─── Orbe violet principal ─── */}
-      <motion.div
-        aria-hidden
-        className="absolute pointer-events-none"
-        style={{
-          width: 900,
-          height: 900,
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(124,58,237,0.52) 0%, rgba(124,58,237,0.14) 50%, transparent 70%)",
-          filter: "blur(80px)",
-          top: "-25%",
-          right: "-15%",
-          willChange: "transform",
-        }}
-        animate={{
-          x: [0, -80, 50, -30, 20, 0],
-          y: [0, 60, -40, 80, -20, 0],
-          scale: [1, 1.08, 0.95, 1.05, 1],
-        }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      {/* ─── Orbe lavande bas-gauche ─── */}
-      <motion.div
-        aria-hidden
-        className="absolute pointer-events-none"
-        style={{
-          width: 720,
-          height: 720,
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(167,139,250,0.35) 0%, rgba(167,139,250,0.08) 50%, transparent 70%)",
-          filter: "blur(70px)",
-          bottom: "-18%",
-          left: "5%",
-          willChange: "transform",
-        }}
-        animate={{
-          x: [0, 70, -50, 30, -40, 0],
-          y: [0, -70, 40, -30, 20, 0],
-          scale: [1, 0.94, 1.06, 0.98, 1],
-        }}
-        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
-      />
-
-      {/* ─── Orbe rose pulsant ─── */}
-      <motion.div
-        aria-hidden
-        className="absolute pointer-events-none"
-        style={{
-          width: 500,
-          height: 500,
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(240,175,200,0.28) 0%, rgba(255,185,150,0.08) 55%, transparent 70%)",
-          filter: "blur(60px)",
-          top: "25%",
-          right: "22%",
-          willChange: "transform, opacity",
-        }}
-        animate={{
-          x: [0, 45, -30, 55, -20, 0],
-          y: [0, -55, 35, -40, 15, 0],
-          opacity: [0.4, 0.9, 0.6, 0.9, 0.4],
-        }}
-        transition={{ duration: 13, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-      />
-
-      {/* ─── Fragments de code flottants (desktop) ─── */}
-      {codeFragments.map((f, i) => (
-        <motion.pre
-          key={i}
-          aria-hidden
-          className="absolute font-mono text-[10px] leading-relaxed pointer-events-none select-none hidden md:block"
-          style={{
-            top: f.top,
-            right: f.right,
-            left: f.left,
-            bottom: f.bottom,
-            color: "rgba(167,139,250,0.08)",
-            willChange: "transform",
-          }}
-          animate={{ y: [0, -16, 0] }}
-          transition={{
-            duration: f.dur,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: f.delay,
-          }}
-        >
-          {f.code}
-        </motion.pre>
-      ))}
-
-      {/* ─── Accolades déco ─── */}
-      <div
-        aria-hidden
-        className="absolute bottom-24 right-6 font-mono text-[110px] text-white/[0.028] select-none pointer-events-none leading-none hidden lg:block"
-      >
-        {"{"}
-      </div>
-      <div
-        aria-hidden
-        className="absolute top-28 left-5 font-mono text-[72px] text-white/[0.025] select-none pointer-events-none leading-none hidden lg:block"
-      >
-        {"</>"}
-      </div>
+      <HeroWavesBackground />
 
       {/* ─── Contenu principal ─── */}
       <div className="w-full px-6 lg:px-12 xl:px-16 relative z-10">

@@ -11,7 +11,6 @@ import { ClientOnly } from "@/components/ClientOnly";
 import { DemoAuthProvider } from "@/contexts/DemoAuthContext";
 import { DemoDataProvider } from "@/contexts/DemoDataContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import { CustomCursor } from "@/components/ui/CustomCursor";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const queryClient = new QueryClient();
@@ -33,7 +32,6 @@ export function AppInner() {
                 <Toaster />
                 <Sonner />
                 <SpeedInsights />
-                <CustomCursor />
                 <CookieBanner />
                 <ScrollToTop />
               </ClientOnly>
