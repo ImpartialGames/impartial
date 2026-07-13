@@ -11,6 +11,11 @@ import { useLang } from "@/contexts/LanguageContext";
 import eclipsiaImg  from "@/assets/portfolio/eclipsia.webp";
 import altarysImg   from "@/assets/portfolio/altarys-logo.webp";
 import propheciaImg from "@/assets/portfolio/prophecia-logo.webp";
+import elev8Img     from "@/assets/portfolio/elev8.webp";
+import mbaImg       from "@/assets/portfolio/mba.webp";
+import fitbyvalImg  from "@/assets/portfolio/fitbyval.webp";
+import umelImg      from "@/assets/portfolio/umel.webp";
+import valoraImg    from "@/assets/portfolio/valora.webp";
 
 /* ─── Données ─────────────────────────────────────────────── */
 
@@ -59,6 +64,61 @@ const projects: Project[] = [
     tags: ["Gaming", "Web3", "Community", "Full Stack"],
     year: "2024",
     url: "/portfolio/prophecia",
+  },
+  {
+    id: 4,
+    title: "ELEV8",
+    category: "mobile",
+    description: "Application de coaching sportif opérée par le studio. Programmes, suivi des athlètes et abonnements, sur iOS et Android.",
+    descriptionEn: "Sports coaching app operated by the studio. Programs, athlete tracking and subscriptions, on iOS and Android.",
+    image: elev8Img,
+    tags: ["SaaS", "iOS & Android", "Coaching"],
+    year: "2024",
+    url: "/portfolio/elev8",
+  },
+  {
+    id: 5,
+    title: "MBA",
+    category: "backoffice",
+    description: "Back-office tout-en-un pour TPE/PME. Facturation, gestion clients et pilotage d'activité pour plus de 20 secteurs.",
+    descriptionEn: "All-in-one back office for small businesses. Invoicing, client management and business tracking across 20+ industries.",
+    image: mbaImg,
+    tags: ["Dashboard", "SaaS", "PME"],
+    year: "2024",
+    url: "/portfolio/mba",
+  },
+  {
+    id: 6,
+    title: "Fitbyval",
+    category: "web",
+    description: "Page de vente pour une coach sportive. Parcours de conversion optimisé : +60 % de réservations.",
+    descriptionEn: "Sales page for a fitness coach. Optimized conversion funnel: +60% bookings.",
+    image: fitbyvalImg,
+    tags: ["Landing", "Conversion", "Sport"],
+    year: "2025",
+    url: "/portfolio/fitbyval",
+  },
+  {
+    id: 7,
+    title: "Umel Couture",
+    category: "web",
+    description: "Landing page éditoriale pour une maison de couture. Identité visuelle forte et avis Google intégrés.",
+    descriptionEn: "Editorial landing page for a couture house. Strong visual identity with integrated Google reviews.",
+    image: umelImg,
+    tags: ["Landing", "Mode", "Éditorial"],
+    year: "2025",
+    url: "/portfolio/umel",
+  },
+  {
+    id: 8,
+    title: "Valora",
+    category: "web",
+    description: "Cercle privé en ligne, sur invitation uniquement. Application web sur-mesure, sécurisée et performante.",
+    descriptionEn: "Invitation-only private members club. Custom web application, secure and high-performing.",
+    image: valoraImg,
+    tags: ["Cercle privé", "Web app", "Sécurité"],
+    year: "2025",
+    url: "/portfolio/valora",
   },
 ];
 
