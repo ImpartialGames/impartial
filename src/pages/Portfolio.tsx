@@ -40,7 +40,7 @@ const projects: Project[] = [
     descriptionEn: "Showcase website for a communication and marketing agency. Striking design and a strong brand image.",
     image: eclipsiaImg,
     tags: ["HTML/CSS", "JavaScript", "Communication"],
-    year: "2025",
+    year: "2026",
     url: "/portfolio/eclipsia",
   },
   {
@@ -73,7 +73,7 @@ const projects: Project[] = [
     descriptionEn: "Sports coaching app operated by the studio. Programs, athlete tracking and subscriptions, on iOS and Android.",
     image: elev8Img,
     tags: ["SaaS", "iOS & Android", "Coaching"],
-    year: "2024",
+    year: "2026",
     url: "/portfolio/elev8",
   },
   {
@@ -84,7 +84,7 @@ const projects: Project[] = [
     descriptionEn: "All-in-one back office for small businesses. Invoicing, client management and business tracking across 20+ industries.",
     image: mbaImg,
     tags: ["Dashboard", "SaaS", "PME"],
-    year: "2024",
+    year: "2026",
     url: "/portfolio/mba",
   },
   {
@@ -95,7 +95,7 @@ const projects: Project[] = [
     descriptionEn: "Sales page for a fitness coach. Optimized conversion funnel: +60% bookings.",
     image: fitbyvalImg,
     tags: ["Landing", "Conversion", "Sport"],
-    year: "2025",
+    year: "2026",
     url: "/portfolio/fitbyval",
   },
   {
@@ -106,7 +106,7 @@ const projects: Project[] = [
     descriptionEn: "Editorial landing page for a couture house. Strong visual identity with integrated Google reviews.",
     image: umelImg,
     tags: ["Landing", "Mode", "Éditorial"],
-    year: "2025",
+    year: "2026",
     url: "/portfolio/umel",
   },
   {
@@ -117,7 +117,7 @@ const projects: Project[] = [
     descriptionEn: "Invitation-only private members club. Custom web application, secure and high-performing.",
     image: valoraImg,
     tags: ["Cercle privé", "Web app", "Sécurité"],
-    year: "2025",
+    year: "2026",
     url: "/portfolio/valora",
   },
 ];

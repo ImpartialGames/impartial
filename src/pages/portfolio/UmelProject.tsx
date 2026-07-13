@@ -13,7 +13,7 @@ const projectDetails = {
   category: "Landing page",
   categoryEn: "Landing page",
   client: "Umel Couture",
-  year: "2025",
+  year: "2026",
   duration: "3 semaines",
   description: `Umel Couture est une maison de couture sur-mesure dont le savoir-faire artisanal méritait une présence digitale à la hauteur. La mission : concevoir une landing page qui reflète l'élégance de la marque, intègre les avis clients et convertit les visiteurs en prises de rendez-vous.
 

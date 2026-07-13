@@ -13,7 +13,7 @@ const projectDetails = {
   category: "Back-office SaaS",
   categoryEn: "Back-office SaaS",
   client: "ImpartialGames",
-  year: "2024",
+  year: "2026",
   duration: "5 mois",
   description: `MBA est un produit SaaS conçu, développé et opéré par ImpartialGames pour aider les TPE et PME à centraliser leur gestion opérationnelle : clients, facturation, planning et reporting — dans une seule interface pensée pour aller à l'essentiel.
 
@@ -63,7 +63,7 @@ Now available across 20+ industries, MBA replaces dozens of scattered tools (Exc
     "Automated Stripe billing",
   ],
   results: [
-    { metric: "Live", label: "En production depuis 2024", labelEn: "In production since 2024" },
+    { metric: "Live", label: "En production depuis 2026", labelEn: "In production since 2026" },
     { metric: "150€", label: "À partir de / mois", labelEn: "Starting from / month" },
     { metric: "20+", label: "Secteurs couverts", labelEn: "Industries covered" },
     { metric: "SaaS", label: "Produit ImpartialGames", labelEn: "ImpartialGames product" },

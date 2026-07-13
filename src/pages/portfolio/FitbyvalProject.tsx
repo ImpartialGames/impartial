@@ -13,7 +13,7 @@ const projectDetails = {
   category: "Application mobile",
   categoryEn: "Mobile app",
   client: "Fitbyval",
-  year: "2025",
+  year: "2026",
   duration: "6 semaines",
   description: `Fitbyval est une plateforme digitale pensée pour une coach sportive souhaitant centraliser son activité en ligne : réservations, programmes d'entraînement, suivi client et communication.
 

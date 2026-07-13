@@ -46,7 +46,7 @@ const projects: Project[] = [
     href: "/portfolio/elev8",
     accent: "emerald",
     metrics: [
-      { value: "Live", valueEn: "Live", label: "en production depuis 2024", labelEn: "in production since 2024" },
+      { value: "Live", valueEn: "Live", label: "en production depuis 2026", labelEn: "in production since 2026" },
       { value: "59 €", valueEn: "€59", label: "par mois — produit opéré", labelEn: "per month — our own product" },
     ],
   },

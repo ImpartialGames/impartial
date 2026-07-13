@@ -13,7 +13,7 @@ const projectDetails = {
   category: "Site Web",
   categoryEn: "Website",
   client: "Eclipsia",
-  year: "2025",
+  year: "2026",
   duration: "5 semaines",
   url: "https://eclipsiagence.fr",
   description: `Eclipsia est une agence de communication et marketing qui accompagne ses clients dans la construction de leur image de marque et leur présence digitale. Le site devait incarner l'identité créative de l'agence tout en mettant en valeur ses expertises et réalisations.

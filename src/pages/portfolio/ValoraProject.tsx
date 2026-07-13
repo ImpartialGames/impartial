@@ -13,7 +13,7 @@ const projectDetails = {
   category: "Application web",
   categoryEn: "Web application",
   client: "Valora",
-  year: "2025",
+  year: "2026",
   duration: "6 semaines",
   description: `Valora est une plateforme web destinée aux professionnels de la finance et de l'investissement pour visualiser, analyser et gérer leurs actifs en temps réel. Le défi principal : rendre des données complexes lisibles et actionnables dans une interface sobre et professionnelle.
 
