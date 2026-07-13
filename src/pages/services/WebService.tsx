@@ -369,10 +369,10 @@ const WebService = () => {
                   transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
                   className={f.large ? "lg:col-span-2" : ""}
                 >
-                  <div className="group h-full p-8 rounded-[28px] bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_24px_60px_-20px_rgba(124,58,237,0.35)] hover:-translate-y-1 transition-all duration-500">
+                  <div className="group h-full p-8 rounded-[28px] bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-[rgba(99,102,241,0.28)] hover:shadow-[0_24px_60px_-20px_rgba(99,102,241,0.35)] hover:-translate-y-1 transition-all duration-500">
                     {/* Icône */}
-                    <div className="w-11 h-11 rounded-2xl bg-[#7C3AED]/12 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-[rgba(124,58,237,0.10)] transition-colors duration-300">
-                      <Icon className="h-5 w-5 text-[#A78BFA]" strokeWidth={1.5} />
+                    <div className="w-11 h-11 rounded-2xl bg-[#6366F1]/12 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-[rgba(99,102,241,0.10)] transition-colors duration-300">
+                      <Icon className="h-5 w-5 text-[#818CF8]" strokeWidth={1.5} />
                     </div>
 
                     <h3 className="font-serif text-[20px] text-white mb-3 leading-snug">{t(f.title, f.titleEn)}</h3>
@@ -383,7 +383,7 @@ const WebService = () => {
                       {f.tags.map((tag, ti) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 rounded-full text-[11px] font-medium tracking-wide bg-[#7C3AED]/12 text-[#A78BFA] border border-[rgba(124,58,237,0.15)]"
+                          className="px-3 py-1 rounded-full text-[11px] font-medium tracking-wide bg-[#6366F1]/12 text-[#818CF8] border border-[rgba(99,102,241,0.15)]"
                         >
                           {t(tag, f.tagsEn[ti])}
                         </span>
@@ -427,7 +427,7 @@ const WebService = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.05 + i * 0.04, ease: [0.22, 1, 0.36, 1] }}
-                className="px-4 py-2 rounded-full text-[13px] font-medium bg-white/[0.05] backdrop-blur-xl border border-white/10 text-white hover:border-[rgba(124,58,237,0.35)] hover:text-[#A78BFA] transition-colors duration-200"
+                className="px-4 py-2 rounded-full text-[13px] font-medium bg-white/[0.05] backdrop-blur-xl border border-white/10 text-white hover:border-[rgba(99,102,241,0.35)] hover:text-[#818CF8] transition-colors duration-200"
               >
                 {t(tech, stackEn[i])}
               </motion.span>
@@ -477,8 +477,8 @@ const WebService = () => {
                 <div
                   className={`relative h-full flex flex-col p-8 rounded-[28px] transition-all duration-500 ${
                     offer.recommended
-                      ? "bg-[#1C0E42] text-white shadow-[0_24px_64px_rgba(124,58,237,0.30)]"
-                      : "bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_24px_60px_-20px_rgba(124,58,237,0.35)] hover:-translate-y-1"
+                      ? "bg-[#101433] text-white shadow-[0_24px_64px_rgba(99,102,241,0.30)]"
+                      : "bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-[rgba(99,102,241,0.28)] hover:shadow-[0_24px_60px_-20px_rgba(99,102,241,0.35)] hover:-translate-y-1"
                   }`}
                 >
                   {/* Gradient border sur la carte recommandée */}
@@ -502,8 +502,8 @@ const WebService = () => {
                       <span
                         className={`px-3 py-1 rounded-full text-[10px] font-semibold tracking-[0.18em] uppercase ${
                           offer.recommended
-                            ? "bg-white/10 text-[#A78BFA]"
-                            : "bg-[#7C3AED]/12 text-[#A78BFA]"
+                            ? "bg-white/10 text-[#818CF8]"
+                            : "bg-[#6366F1]/12 text-[#818CF8]"
                         }`}
                       >
                         {offer.tier}
@@ -513,7 +513,7 @@ const WebService = () => {
                     <h3 className={`font-serif text-[22px] mb-1 leading-snug ${offer.recommended ? "text-white" : "text-white"}`}>
                       {t(offer.title, offer.titleEn)}
                     </h3>
-                    <p className={`text-[14px] mb-6 ${offer.recommended ? "text-[#B8A8D8]" : "text-white/60"}`}>
+                    <p className={`text-[14px] mb-6 ${offer.recommended ? "text-[#B4BCF5]" : "text-white/60"}`}>
                       {t(offer.tagline, offer.taglineEn)}
                     </p>
 
@@ -526,11 +526,11 @@ const WebService = () => {
                       {offer.features.map((feat, fi) => (
                         <li key={feat} className="flex items-start gap-3">
                           <div className={`mt-0.5 w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${
-                            offer.recommended ? "bg-white/10" : "bg-[#7C3AED]/12"
+                            offer.recommended ? "bg-white/10" : "bg-[#6366F1]/12"
                           }`}>
-                            <Check className={`h-3 w-3 ${offer.recommended ? "text-[#A78BFA]" : "text-[#A78BFA]"}`} strokeWidth={2.5} />
+                            <Check className={`h-3 w-3 ${offer.recommended ? "text-[#818CF8]" : "text-[#818CF8]"}`} strokeWidth={2.5} />
                           </div>
-                          <span className={`text-[14px] leading-relaxed ${offer.recommended ? "text-[#D4C8F0]" : "text-white/60"}`}>
+                          <span className={`text-[14px] leading-relaxed ${offer.recommended ? "text-[#D6DDFA]" : "text-white/60"}`}>
                             {t(feat, offer.featuresEn[fi])}
                           </span>
                         </li>
@@ -540,10 +540,10 @@ const WebService = () => {
                     {/* Upsell */}
                     <div className={`mb-6 px-4 py-3 rounded-2xl text-[13px] ${
                       offer.recommended
-                        ? "bg-white/8 text-[#B8A8D8] border border-white/10"
-                        : "bg-[#7C3AED]/12 text-white/60 border border-[rgba(124,58,237,0.12)]"
+                        ? "bg-white/8 text-[#B4BCF5] border border-white/10"
+                        : "bg-[#6366F1]/12 text-white/60 border border-[rgba(99,102,241,0.12)]"
                     }`}>
-                      <span className={`font-semibold ${offer.recommended ? "text-[#A78BFA]" : "text-[#A78BFA]"}`}>{t("+ Option : ", "+ Add-on: ")}</span>
+                      <span className={`font-semibold ${offer.recommended ? "text-[#818CF8]" : "text-[#818CF8]"}`}>{t("+ Option : ", "+ Add-on: ")}</span>
                       {t(offer.upsell, offer.upsellEn)}
                     </div>
 
@@ -583,10 +583,10 @@ const WebService = () => {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="relative max-w-3xl mx-auto"
           >
-            <div className="relative bg-[#1C0E42] rounded-[28px] sm:rounded-[36px] p-6 sm:p-9 md:p-14 lg:p-20 text-center overflow-hidden">
+            <div className="relative bg-[#101433] rounded-[28px] sm:rounded-[36px] p-6 sm:p-9 md:p-14 lg:p-20 text-center overflow-hidden">
               {/* Gradients intérieurs */}
               <div className="absolute inset-0 pointer-events-none"
-                style={{ background: "radial-gradient(ellipse 70% 50% at 20% 0%, rgba(124,58,237,0.30) 0%, transparent 70%)" }} />
+                style={{ background: "radial-gradient(ellipse 70% 50% at 20% 0%, rgba(99,102,241,0.30) 0%, transparent 70%)" }} />
               <div className="absolute inset-0 pointer-events-none"
                 style={{ background: "radial-gradient(ellipse 60% 40% at 85% 110%, rgba(240,175,200,0.18) 0%, transparent 70%)" }} />
               {/* Bordure gradient */}
@@ -603,7 +603,7 @@ const WebService = () => {
 
               <div className="relative">
                 <div className="section-label justify-center mb-8"
-                  style={{ color: "#A78BFA", borderColor: "rgba(124,58,237,0.25)", background: "rgba(124,58,237,0.12)" }}>
+                  style={{ color: "#818CF8", borderColor: "rgba(99,102,241,0.25)", background: "rgba(99,102,241,0.12)" }}>
                   {t("Lançons votre projet", "Let's launch your project")}
                 </div>
 
@@ -612,7 +612,7 @@ const WebService = () => {
                   <span className="prisme-italic-grad">{t("et qui performe.", "and performs.")}</span>
                 </h2>
 
-                <p className="text-[#B8A8D8] text-base md:text-lg leading-relaxed mb-10 max-w-lg mx-auto">
+                <p className="text-[#B4BCF5] text-base md:text-lg leading-relaxed mb-10 max-w-lg mx-auto">
                   {t(
                     "Réponse sous 24–48h avec une proposition claire, un délai et un tarif, sans engagement.",
                     "A reply within 24–48h with a clear proposal, timeline and price. No commitment."

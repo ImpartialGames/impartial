@@ -40,7 +40,7 @@ export function FloatingParticles() {
     if (!ctx) return;
 
     const colors = [
-      "rgba(138, 43, 226, 0.6)",  // violet
+      "rgba(99,102,241, 0.6)",  // violet
       "rgba(0, 170, 255, 0.5)",    // blue
       "rgba(0, 255, 136, 0.4)",    // green
       "rgba(255, 51, 102, 0.4)",   // red
@@ -109,7 +109,7 @@ export function FloatingParticles() {
 
           if (distance < 120) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(138, 43, 226, ${0.08 * (1 - distance / 120)})`;
+            ctx.strokeStyle = `rgba(99,102,241, ${0.08 * (1 - distance / 120)})`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);

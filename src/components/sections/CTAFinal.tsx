@@ -11,7 +11,7 @@ export function CTAFinal() {
   const { t, lp } = useLang();
 
   return (
-    <section id="contact" className="relative py-20 md:py-28 bg-[#0E0B14] overflow-hidden">
+    <section id="contact" className="relative py-20 md:py-28 bg-[#0A0E1A] overflow-hidden">
 
       {/* Halos extérieurs */}
       <span className="prisme-halo-violet" style={{ bottom: "-10%", left: "-8%" }} />
@@ -26,10 +26,10 @@ export function CTAFinal() {
           className="relative max-w-3xl mx-auto"
         >
           {/* Carte principale */}
-          <div className="relative bg-[#1C0E42] rounded-[28px] sm:rounded-[36px] p-6 sm:p-9 md:p-14 lg:p-20 text-center overflow-hidden">
+          <div className="relative bg-[#101433] rounded-[28px] sm:rounded-[36px] p-6 sm:p-9 md:p-14 lg:p-20 text-center overflow-hidden">
 
             {/* Sparkles avec couleurs prisme */}
-            <Sparkles count={22} color="#A78BFA" />
+            <Sparkles count={22} color="#818CF8" />
             <Sparkles count={10} color="#F0AFC8" />
 
             {/* Gradient top-left violet */}
@@ -37,7 +37,7 @@ export function CTAFinal() {
               className="absolute inset-0 pointer-events-none"
               style={{
                 background:
-                  "radial-gradient(ellipse 70% 50% at 20% 0%, rgba(124,58,237,0.30) 0%, transparent 70%)",
+                  "radial-gradient(ellipse 70% 50% at 20% 0%, rgba(99,102,241,0.30) 0%, transparent 70%)",
               }}
             />
             {/* Gradient bottom-right rose */}
@@ -64,7 +64,7 @@ export function CTAFinal() {
 
             {/* Contenu */}
             <div className="relative">
-              <div className="section-label justify-center mb-8" style={{ color: "#A78BFA", borderColor: "rgba(124,58,237,0.25)", background: "rgba(124,58,237,0.12)" }}>
+              <div className="section-label justify-center mb-8" style={{ color: "#818CF8", borderColor: "rgba(99,102,241,0.25)", background: "rgba(99,102,241,0.12)" }}>
                 {t("Travaillons ensemble", "Let's work together")}
               </div>
 
@@ -73,7 +73,7 @@ export function CTAFinal() {
                 <span className="block prisme-italic-grad">{t("ton projet ?", "your project?")}</span>
               </h2>
 
-              <p className="text-[#B8A8D8] text-base md:text-lg leading-relaxed mb-12 max-w-xl mx-auto">
+              <p className="text-[#B4BCF5] text-base md:text-lg leading-relaxed mb-12 max-w-xl mx-auto">
                 {t(
                   "On te répond sous 24–48h avec une proposition claire et sans engagement.",
                   "We get back to you within 24–48h with a clear, no-commitment proposal."
@@ -106,7 +106,7 @@ export function CTAFinal() {
               >
                 <a
                   href="mailto:studio@impartialgames.com"
-                  className="text-[13px] text-[#7B6AAD] hover:text-[#A78BFA] transition-colors duration-200"
+                  className="text-[13px] text-[#6B76A8] hover:text-[#818CF8] transition-colors duration-200"
                 >
                   studio@impartialgames.com
                 </a>

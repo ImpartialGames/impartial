@@ -53,7 +53,7 @@ export function CalendlyQuiz({ onClose }: Props) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         transition={{ duration: 0.25 }}
-        className="relative bg-[#14101D]/90 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_16px_48px_rgba(0,0,0,0.5)] p-8 max-w-md w-full"
+        className="relative bg-[#0D1120]/90 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_16px_48px_rgba(0,0,0,0.5)] p-8 max-w-md w-full"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -77,7 +77,7 @@ export function CalendlyQuiz({ onClose }: Props) {
                 <button
                   key={pt}
                   onClick={() => setStep(2)}
-                  className="text-left px-5 py-3.5 rounded-xl border border-white/10 hover:border-[#A78BFA] hover:bg-[#7C3AED]/10 transition-all text-[14px] font-medium text-white"
+                  className="text-left px-5 py-3.5 rounded-xl border border-white/10 hover:border-[#818CF8] hover:bg-[#6366F1]/10 transition-all text-[14px] font-medium text-white"
                 >
                   {pt}
                 </button>
@@ -99,7 +99,7 @@ export function CalendlyQuiz({ onClose }: Props) {
                 <button
                   key={b.label}
                   onClick={() => handleBudget(b)}
-                  className="text-left px-5 py-3.5 rounded-xl border border-white/10 hover:border-[#A78BFA] hover:bg-[#7C3AED]/10 transition-all text-[14px] font-medium text-white"
+                  className="text-left px-5 py-3.5 rounded-xl border border-white/10 hover:border-[#818CF8] hover:bg-[#6366F1]/10 transition-all text-[14px] font-medium text-white"
                 >
                   {b.label}
                 </button>
@@ -124,7 +124,7 @@ export function CalendlyQuiz({ onClose }: Props) {
                 <button
                   key={d}
                   onClick={() => setStep("done")}
-                  className="text-left px-5 py-3.5 rounded-xl border border-white/10 hover:border-[#A78BFA] hover:bg-[#7C3AED]/10 transition-all text-[14px] font-medium text-white"
+                  className="text-left px-5 py-3.5 rounded-xl border border-white/10 hover:border-[#818CF8] hover:bg-[#6366F1]/10 transition-all text-[14px] font-medium text-white"
                 >
                   {d}
                 </button>
@@ -159,7 +159,7 @@ export function CalendlyQuiz({ onClose }: Props) {
 
         {step === "done" && (
           <div className="text-center">
-            <CheckCircle className="h-10 w-10 text-[#7C3AED] mx-auto mb-4" />
+            <CheckCircle className="h-10 w-10 text-[#6366F1] mx-auto mb-4" />
             <h3 className="font-syne font-black text-[20px] text-white mb-3">
               {t("Parfait, tu es qualifié !", "Great, you qualify!")}
             </h3>

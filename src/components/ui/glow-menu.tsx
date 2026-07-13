@@ -76,7 +76,7 @@ export const GlowMenu = React.forwardRef<HTMLDivElement, GlowMenuProps>(
           className="absolute -inset-2 rounded-3xl z-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse at 50% 50%, rgba(124,58,237,0.10) 0%, rgba(167,139,250,0.06) 40%, rgba(240,175,200,0.04) 70%, transparent 100%)",
+              "radial-gradient(ellipse at 50% 50%, rgba(99,102,241,0.10) 0%, rgba(129,140,248,0.06) 40%, rgba(240,175,200,0.04) 70%, transparent 100%)",
           }}
           variants={navGlowVariants}
         />
@@ -122,7 +122,7 @@ export const GlowMenu = React.forwardRef<HTMLDivElement, GlowMenuProps>(
                         transformOrigin: "center bottom",
                       }}
                     >
-                      <span className={cn("transition-colors duration-300", isActive ? item.iconColor : "text-[#A78BFA]/60 group-hover:text-[#A78BFA]")}>
+                      <span className={cn("transition-colors duration-300", isActive ? item.iconColor : "text-[#818CF8]/60 group-hover:text-[#818CF8]")}>
                         <Icon className="h-[15px] w-[15px]" />
                       </span>
                       <span className="text-[13px] font-medium">{item.label}</span>
@@ -144,7 +144,7 @@ export const GlowMenu = React.forwardRef<HTMLDivElement, GlowMenuProps>(
                         rotateX: 90,
                       }}
                     >
-                      <span className={cn("transition-colors duration-300", isActive ? item.iconColor : "text-[#A78BFA]/60 group-hover:text-[#A78BFA]")}>
+                      <span className={cn("transition-colors duration-300", isActive ? item.iconColor : "text-[#818CF8]/60 group-hover:text-[#818CF8]")}>
                         <Icon className="h-[15px] w-[15px]" />
                       </span>
                       <span className="text-[13px] font-medium">{item.label}</span>

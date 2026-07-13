@@ -133,7 +133,7 @@ export function RealisationsSection() {
   const { t, lp } = useLang();
 
   return (
-    <section id="realisations" className="relative py-24 md:py-32 bg-[#0E0B14] overflow-hidden">
+    <section id="realisations" className="relative py-24 md:py-32 bg-[#0A0E1A] overflow-hidden">
       {/* Halos */}
       <span className="prisme-halo-peach" style={{ top: "0%", right: "-8%" }} />
       <span className="prisme-halo-violet" style={{ bottom: "5%", left: "-10%" }} />
@@ -167,10 +167,10 @@ export function RealisationsSection() {
               transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
             >
               <TiltCard max={6} className="h-full rounded-[28px]">
-                <div className="group h-full bg-white/5 rounded-[28px] border border-white/10 overflow-hidden shadow-[0_12px_40px_-15px_rgba(124,58,237,0.10)] hover:shadow-[0_28px_60px_-20px_rgba(124,58,237,0.24)] hover:-translate-y-1 transition-all duration-500">
+                <div className="group h-full bg-white/5 rounded-[28px] border border-white/10 overflow-hidden shadow-[0_12px_40px_-15px_rgba(99,102,241,0.10)] hover:shadow-[0_28px_60px_-20px_rgba(99,102,241,0.24)] hover:-translate-y-1 transition-all duration-500">
 
                   {/* Image */}
-                  <div className="relative h-36 sm:h-44 md:h-48 overflow-hidden bg-[#1C1028]">
+                  <div className="relative h-36 sm:h-44 md:h-48 overflow-hidden bg-[#10162B]">
                     {p.image ? (
                       <img
                         src={p.image}
@@ -183,7 +183,7 @@ export function RealisationsSection() {
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
-                        <span className="font-syne font-black text-[28px] tracking-tight text-[#7C3AED]/30">
+                        <span className="font-syne font-black text-[28px] tracking-tight text-[#6366F1]/30">
                           {p.title[0]}
                         </span>
                       </div>
@@ -194,7 +194,7 @@ export function RealisationsSection() {
                       aria-hidden
                       className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
                       style={{
-                        background: "linear-gradient(to top, rgba(124,58,237,0.85) 0%, rgba(124,58,237,0.30) 60%, transparent 100%)",
+                        background: "linear-gradient(to top, rgba(99,102,241,0.85) 0%, rgba(99,102,241,0.30) 60%, transparent 100%)",
                       }}
                     />
 
@@ -242,14 +242,14 @@ export function RealisationsSection() {
                       </div>
                       <div className="text-[13.5px]">
                         <dt className="text-white/50 inline">{t("Résultat : ", "Result: ")}</dt>
-                        <dd className="text-[#A78BFA] font-medium inline">{t(p.result, p.resultEn)}</dd>
+                        <dd className="text-[#818CF8] font-medium inline">{t(p.result, p.resultEn)}</dd>
                       </div>
                     </dl>
 
                     <div className="flex items-center gap-4 pt-5 border-t border-white/10">
                       <Link
                         to={lp(p.url)}
-                        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[#A78BFA] hover:gap-2.5 transition-all duration-200"
+                        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[#818CF8] hover:gap-2.5 transition-all duration-200"
                       >
                         {t("Voir le projet", "View project")}
                         <ArrowRight className="h-3.5 w-3.5" />
@@ -259,7 +259,7 @@ export function RealisationsSection() {
                           href={p.externalUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="ml-auto text-white/40 hover:text-[#A78BFA] transition-colors"
+                          className="ml-auto text-white/40 hover:text-[#818CF8] transition-colors"
                           aria-label={t(`Visiter ${p.title}`, `Visit ${p.title}`)}
                         >
                           <ExternalLink className="h-4 w-4" />

@@ -12,15 +12,15 @@ const glowNavItems: GlowMenuItem[] = [
     icon: Globe,
     label: "Web",
     href: "/services/web",
-    gradient: "radial-gradient(circle, rgba(124,58,237,0.18) 0%, rgba(124,58,237,0.06) 50%, transparent 100%)",
-    iconColor: "text-[#7C3AED]",
+    gradient: "radial-gradient(circle, rgba(99,102,241,0.18) 0%, rgba(99,102,241,0.06) 50%, transparent 100%)",
+    iconColor: "text-[#6366F1]",
   },
   {
     icon: Smartphone,
     label: "Mobile",
     href: "/services/mobile",
-    gradient: "radial-gradient(circle, rgba(167,139,250,0.20) 0%, rgba(167,139,250,0.06) 50%, transparent 100%)",
-    iconColor: "text-[#A78BFA]",
+    gradient: "radial-gradient(circle, rgba(129,140,248,0.20) 0%, rgba(129,140,248,0.06) 50%, transparent 100%)",
+    iconColor: "text-[#818CF8]",
   },
   {
     icon: LayoutDashboard,
@@ -40,15 +40,15 @@ const glowNavItems: GlowMenuItem[] = [
     icon: Grid2X2,
     label: "Portfolio",
     href: "/portfolio",
-    gradient: "radial-gradient(circle, rgba(124,58,237,0.18) 0%, rgba(124,58,237,0.06) 50%, transparent 100%)",
-    iconColor: "text-[#7C3AED]",
+    gradient: "radial-gradient(circle, rgba(99,102,241,0.18) 0%, rgba(99,102,241,0.06) 50%, transparent 100%)",
+    iconColor: "text-[#6366F1]",
   },
   {
     icon: Users,
     label: "Studio",
     href: "/studio",
-    gradient: "radial-gradient(circle, rgba(167,139,250,0.20) 0%, rgba(167,139,250,0.06) 50%, transparent 100%)",
-    iconColor: "text-[#A78BFA]",
+    gradient: "radial-gradient(circle, rgba(129,140,248,0.20) 0%, rgba(129,140,248,0.06) 50%, transparent 100%)",
+    iconColor: "text-[#818CF8]",
   },
   {
     icon: BookOpen,
@@ -99,7 +99,7 @@ export function Header() {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-[#0E0B14]/70 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/10"
+          ? "bg-[#0A0E1A]/70 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/10"
           : "border-b border-transparent"
       }`}
       initial={{ y: -80, opacity: 0 }}
@@ -123,7 +123,7 @@ export function Header() {
               <span className="font-syne text-[16px] font-black tracking-[-0.03em] text-white transition-colors duration-500">
                 IMPARTIAL
               </span>
-              <span className="text-[9px] font-semibold tracking-[0.22em] uppercase text-[#A78BFA] transition-colors duration-500">
+              <span className="text-[9px] font-semibold tracking-[0.22em] uppercase text-[#818CF8] transition-colors duration-500">
                 Games
               </span>
             </div>
@@ -194,8 +194,8 @@ export function Header() {
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="bg-[#14101D]/90 backdrop-blur-2xl rounded-2xl p-4 mt-2 border border-white/10 shadow-[0_16px_48px_rgba(0,0,0,0.5)]">
-                <div className="px-4 py-2 text-[#7C3AED] text-[10px] font-semibold uppercase tracking-[0.2em]">
+              <div className="bg-[#0D1120]/90 backdrop-blur-2xl rounded-2xl p-4 mt-2 border border-white/10 shadow-[0_16px_48px_rgba(0,0,0,0.5)]">
+                <div className="px-4 py-2 text-[#6366F1] text-[10px] font-semibold uppercase tracking-[0.2em]">
                   Services
                 </div>
                 {navItems.slice(0, 4).map((item) => (
@@ -205,7 +205,7 @@ export function Header() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`flex items-center gap-3 px-4 py-3 rounded-xl text-[14px] transition-colors ${
                       location.pathname === item.href
-                        ? "bg-[#7C3AED]/15 text-[#A78BFA] font-medium"
+                        ? "bg-[#6366F1]/15 text-[#818CF8] font-medium"
                         : "text-white/80 hover:bg-white/[0.06]"
                     }`}
                   >
@@ -221,7 +221,7 @@ export function Header() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`flex items-center gap-3 px-4 py-3 rounded-xl text-[14px] transition-colors ${
                       location.pathname === item.href
-                        ? "bg-[#7C3AED]/15 text-[#A78BFA] font-medium"
+                        ? "bg-[#6366F1]/15 text-[#818CF8] font-medium"
                         : "text-white/80 hover:bg-white/[0.06]"
                     }`}
                   >

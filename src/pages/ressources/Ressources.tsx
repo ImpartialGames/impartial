@@ -39,7 +39,7 @@ const Ressources = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-neon-violet/10 via-transparent to-transparent" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.25em] text-[#A78BFA] mb-5">
+            <p className="text-[12px] font-semibold uppercase tracking-[0.25em] text-[#818CF8] mb-5">
               {t("Ressources", "Resources")}
             </p>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
@@ -63,9 +63,9 @@ const Ressources = () => {
               <Link
                 key={a.slug}
                 to={lp(`/ressources/${a.slug}`)}
-                className="group block rounded-2xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-[#A78BFA]/40 transition-all duration-300 p-7 md:p-9"
+                className="group block rounded-2xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-[#818CF8]/40 transition-all duration-300 p-7 md:p-9"
               >
-                <div className="flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#A78BFA] mb-4">
+                <div className="flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#818CF8] mb-4">
                   <span>{pick(a.category)}</span>
                   <span className="text-white/25">·</span>
                   <time dateTime={a.date} className="text-white/40 normal-case tracking-normal font-medium">
@@ -77,11 +77,11 @@ const Ressources = () => {
                     {a.readingMinutes} min
                   </span>
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold leading-snug mb-3 group-hover:text-[#CDBAFF] transition-colors">
+                <h2 className="text-xl md:text-2xl font-bold leading-snug mb-3 group-hover:text-[#C7D2FE] transition-colors">
                   {pick(a.title)}
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-5">{pick(a.description)}</p>
-                <span className="inline-flex items-center gap-2 text-[13px] font-semibold text-[#A78BFA]">
+                <span className="inline-flex items-center gap-2 text-[13px] font-semibold text-[#818CF8]">
                   {t("Lire le guide", "Read the guide")}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>

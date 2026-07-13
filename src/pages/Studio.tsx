@@ -132,7 +132,7 @@ const Studio = () => {
         <div
           aria-hidden
           className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-[5]"
-          style={{ background: "linear-gradient(to bottom, transparent, #0E0B14)" }}
+          style={{ background: "linear-gradient(to bottom, transparent, #0A0E1A)" }}
         />
       </section>
 
@@ -205,7 +205,7 @@ const Studio = () => {
               <div className="relative aspect-square rounded-[32px] bg-white/[0.05] backdrop-blur-xl border border-white/10 overflow-hidden flex items-center justify-center">
                 {/* Halo intérieur */}
                 <div className="absolute inset-0 pointer-events-none"
-                  style={{ background: "radial-gradient(ellipse 70% 70% at 50% 40%, rgba(124,58,237,0.08) 0%, transparent 70%)" }} />
+                  style={{ background: "radial-gradient(ellipse 70% 70% at 50% 40%, rgba(99,102,241,0.08) 0%, transparent 70%)" }} />
                 <div className="text-center relative z-10">
                   <div className="font-serif text-[80px] md:text-[96px] leading-none tracking-[-0.04em] prisme-italic-grad mb-4">
                     100%
@@ -249,7 +249,7 @@ const Studio = () => {
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <div className="flex gap-4 md:gap-8 items-start p-5 md:p-8 rounded-[24px] bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_8px_32px_-10px_rgba(124,58,237,0.35)] hover:-translate-y-0.5 transition-all duration-500">
+                  <div className="flex gap-4 md:gap-8 items-start p-5 md:p-8 rounded-[24px] bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-[rgba(99,102,241,0.28)] hover:shadow-[0_8px_32px_-10px_rgba(99,102,241,0.35)] hover:-translate-y-0.5 transition-all duration-500">
                     <div className="font-serif text-[36px] md:text-[44px] leading-none tracking-[-0.03em] prisme-italic-grad shrink-0">
                       {item.year}
                     </div>
@@ -298,9 +298,9 @@ const Studio = () => {
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <div className="group h-full p-8 rounded-[24px] bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_8px_32px_-10px_rgba(124,58,237,0.35)] hover:-translate-y-1 transition-all duration-500 text-center">
-                    <div className="w-12 h-12 rounded-2xl bg-[#7C3AED]/12 border border-white/10 flex items-center justify-center mb-6 mx-auto group-hover:bg-[rgba(124,58,237,0.22)] transition-colors duration-300">
-                      <Icon className="h-5 w-5 text-[#7C3AED]" strokeWidth={1.5} />
+                  <div className="group h-full p-8 rounded-[24px] bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-[rgba(99,102,241,0.28)] hover:shadow-[0_8px_32px_-10px_rgba(99,102,241,0.35)] hover:-translate-y-1 transition-all duration-500 text-center">
+                    <div className="w-12 h-12 rounded-2xl bg-[#6366F1]/12 border border-white/10 flex items-center justify-center mb-6 mx-auto group-hover:bg-[rgba(99,102,241,0.22)] transition-colors duration-300">
+                      <Icon className="h-5 w-5 text-[#6366F1]" strokeWidth={1.5} />
                     </div>
                     <h3 className="font-serif text-[18px] text-white mb-3 leading-snug">{t(value.title, value.titleEn)}</h3>
                     <p className="text-[13px] text-white/60 leading-relaxed">{t(value.description, value.descriptionEn)}</p>
@@ -327,9 +327,9 @@ const Studio = () => {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="relative max-w-3xl mx-auto"
           >
-            <div className="relative bg-[#1C0E42] rounded-[28px] sm:rounded-[36px] p-6 sm:p-9 md:p-14 lg:p-20 text-center overflow-hidden">
+            <div className="relative bg-[#101433] rounded-[28px] sm:rounded-[36px] p-6 sm:p-9 md:p-14 lg:p-20 text-center overflow-hidden">
               <div className="absolute inset-0 pointer-events-none"
-                style={{ background: "radial-gradient(ellipse 70% 50% at 20% 0%, rgba(124,58,237,0.30) 0%, transparent 70%)" }} />
+                style={{ background: "radial-gradient(ellipse 70% 50% at 20% 0%, rgba(99,102,241,0.30) 0%, transparent 70%)" }} />
               <div className="absolute inset-0 pointer-events-none"
                 style={{ background: "radial-gradient(ellipse 60% 40% at 85% 110%, rgba(240,175,200,0.18) 0%, transparent 70%)" }} />
               <div className="absolute inset-0 rounded-[36px] pointer-events-none"
@@ -345,7 +345,7 @@ const Studio = () => {
 
               <div className="relative">
                 <div className="section-label justify-center mb-8"
-                  style={{ color: "#A78BFA", borderColor: "rgba(124,58,237,0.25)", background: "rgba(124,58,237,0.12)" }}>
+                  style={{ color: "#818CF8", borderColor: "rgba(99,102,241,0.25)", background: "rgba(99,102,241,0.12)" }}>
                   {t("Rejoignez l'aventure", "Join the adventure")}
                 </div>
 
@@ -354,7 +354,7 @@ const Studio = () => {
                   <span className="prisme-italic-grad">{t("d'exceptionnel ?", "exceptional?")}</span>
                 </h2>
 
-                <p className="text-[#B8A8D8] text-base md:text-lg leading-relaxed mb-10 max-w-lg mx-auto">
+                <p className="text-[#B4BCF5] text-base md:text-lg leading-relaxed mb-10 max-w-lg mx-auto">
                   {t(
                     "Discutons de votre projet et voyons ensemble comment le rendre inoubliable.",
                     "Let's talk about your project and see together how to make it unforgettable.",

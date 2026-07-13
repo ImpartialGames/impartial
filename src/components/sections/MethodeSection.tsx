@@ -49,7 +49,7 @@ export function MethodeSection() {
   const { t } = useLang();
 
   return (
-    <section id="methode" className="relative py-24 md:py-32 bg-[#0E0B14] overflow-hidden">
+    <section id="methode" className="relative py-24 md:py-32 bg-[#0A0E1A] overflow-hidden">
       {/* Halos */}
       <span className="prisme-halo-peach" style={{ top: "0%", right: "-10%" }} />
       <span className="prisme-halo-violet" style={{ bottom: "0%", left: "-10%" }} />
@@ -79,7 +79,7 @@ export function MethodeSection() {
               transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
               className={"relative " + ["", "lg:mt-8", "lg:mt-16", "lg:mt-24"][i]}
             >
-              <div className="relative h-full p-8 rounded-[28px] bg-white/5 border border-white/10 shadow-[0_12px_40px_-15px_rgba(124,58,237,0.10)] hover:shadow-[0_24px_56px_-20px_rgba(124,58,237,0.22)] hover:-translate-y-1 transition-all duration-500">
+              <div className="relative h-full p-8 rounded-[28px] bg-white/5 border border-white/10 shadow-[0_12px_40px_-15px_rgba(99,102,241,0.10)] hover:shadow-[0_24px_56px_-20px_rgba(99,102,241,0.22)] hover:-translate-y-1 transition-all duration-500">
 
                 {/* Numéro filigrane gradient */}
                 <span
@@ -97,8 +97,8 @@ export function MethodeSection() {
                 </span>
 
                 {/* Icône */}
-                <div className="relative w-12 h-12 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-6 shadow-[0_0_0_4px_rgba(124,58,237,0.06)]">
-                  <step.icon className="h-5 w-5 text-[#7C3AED]" />
+                <div className="relative w-12 h-12 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-6 shadow-[0_0_0_4px_rgba(99,102,241,0.06)]">
+                  <step.icon className="h-5 w-5 text-[#6366F1]" />
                 </div>
 
                 <h3 className="font-serif text-[20px] text-white/90 mb-2.5 leading-tight">{t(step.title, step.titleEn)}</h3>
@@ -108,7 +108,7 @@ export function MethodeSection() {
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/10">
                   <span className="text-[10px] font-medium text-white/50 tracking-wide">{t("Livrable", "Deliverable")}</span>
                   <span className="w-px h-3 bg-white/20" />
-                  <span className="text-[11px] font-semibold text-[#A78BFA]">{t(step.deliverable, step.deliverableEn)}</span>
+                  <span className="text-[11px] font-semibold text-[#818CF8]">{t(step.deliverable, step.deliverableEn)}</span>
                 </div>
               </div>
 
@@ -117,7 +117,7 @@ export function MethodeSection() {
                 <div
                   className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 -translate-y-1/2"
                   style={{
-                    backgroundImage: "linear-gradient(to right, #A78BFA 50%, transparent 50%)",
+                    backgroundImage: "linear-gradient(to right, #818CF8 50%, transparent 50%)",
                     backgroundSize: "8px 2px",
                     backgroundRepeat: "repeat-x",
                     opacity: 0.6,

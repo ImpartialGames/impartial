@@ -135,7 +135,7 @@ export default function Portfolio() {
         <div
           aria-hidden
           className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-[5]"
-          style={{ background: "linear-gradient(to bottom, transparent, #0E0B14)" }}
+          style={{ background: "linear-gradient(to bottom, transparent, #0A0E1A)" }}
         />
       </section>
 
@@ -156,8 +156,8 @@ export default function Portfolio() {
                 onClick={() => setActiveCategory(cat.id)}
                 className={`px-5 py-2 rounded-full text-[13px] font-medium transition-all duration-300 ${
                   activeCategory === cat.id
-                    ? "bg-[#1C0E42] text-white shadow-[0_4px_16px_rgba(124,58,237,0.25)]"
-                    : "bg-white/[0.05] backdrop-blur-xl border border-white/10 text-white/60 hover:border-[rgba(124,58,237,0.35)] hover:text-[#A78BFA]"
+                    ? "bg-[#101433] text-white shadow-[0_4px_16px_rgba(99,102,241,0.25)]"
+                    : "bg-white/[0.05] backdrop-blur-xl border border-white/10 text-white/60 hover:border-[rgba(99,102,241,0.35)] hover:text-[#818CF8]"
                 }`}
               >
                 {t(cat.name, cat.nameEn)}
@@ -194,10 +194,10 @@ export default function Portfolio() {
                   onMouseEnter={() => setHoveredProject(project.id)}
                   onMouseLeave={() => setHoveredProject(null)}
                 >
-                  <div className="rounded-[24px] overflow-hidden bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_12px_48px_-12px_rgba(124,58,237,0.35)] hover:-translate-y-1 transition-all duration-500">
+                  <div className="rounded-[24px] overflow-hidden bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-[rgba(99,102,241,0.28)] hover:shadow-[0_12px_48px_-12px_rgba(99,102,241,0.35)] hover:-translate-y-1 transition-all duration-500">
 
                     {/* Image */}
-                    <div className="relative aspect-[4/3] overflow-hidden bg-[#7C3AED]/12">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-[#6366F1]/12">
                       <ImageWithSkeleton
                         src={project.image}
                         alt={project.title}
@@ -209,7 +209,7 @@ export default function Portfolio() {
                       {/* Overlay hover */}
                       <motion.div
                         className="absolute inset-0 flex items-center justify-center"
-                        style={{ background: "rgba(28,14,66,0.82)" }}
+                        style={{ background: "rgba(16,20,43,0.82)" }}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: hoveredProject === project.id ? 1 : 0 }}
                         transition={{ duration: 0.25 }}
@@ -231,7 +231,7 @@ export default function Portfolio() {
                     <div className="p-6">
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="font-serif text-[18px] text-white leading-snug">{project.title}</h3>
-                        <span className="text-[12px] text-[#9B8EC4] font-medium">{project.year}</span>
+                        <span className="text-[12px] text-[#9AA5D1] font-medium">{project.year}</span>
                       </div>
 
                       <p className="text-[13px] text-white/60 mb-4 line-clamp-2 leading-relaxed">
@@ -240,7 +240,7 @@ export default function Portfolio() {
 
                       <div className="flex flex-wrap gap-1.5">
                         {project.tags.slice(0, 3).map(tag => (
-                          <span key={tag} className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#7C3AED]/12 text-[#A78BFA] border border-[rgba(124,58,237,0.12)]">
+                          <span key={tag} className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#6366F1]/12 text-[#818CF8] border border-[rgba(99,102,241,0.12)]">
                             {tag}
                           </span>
                         ))}
@@ -256,7 +256,7 @@ export default function Portfolio() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-center py-24 text-[#9B8EC4]"
+              className="text-center py-24 text-[#9AA5D1]"
             >
               <p className="font-serif text-[22px] mb-2">{t("Aucun projet dans cette catégorie", "No projects in this category")}</p>
               <p className="text-sm">{t("Revenez bientôt, nous travaillons sur de nouvelles réalisations.", "Check back soon, we're working on new projects.")}</p>
@@ -280,9 +280,9 @@ export default function Portfolio() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="relative max-w-3xl mx-auto"
           >
-            <div className="relative bg-[#1C0E42] rounded-[36px] p-12 md:p-20 text-center overflow-hidden">
+            <div className="relative bg-[#101433] rounded-[36px] p-12 md:p-20 text-center overflow-hidden">
               <div className="absolute inset-0 pointer-events-none"
-                style={{ background: "radial-gradient(ellipse 70% 50% at 20% 0%, rgba(124,58,237,0.30) 0%, transparent 70%)" }} />
+                style={{ background: "radial-gradient(ellipse 70% 50% at 20% 0%, rgba(99,102,241,0.30) 0%, transparent 70%)" }} />
               <div className="absolute inset-0 pointer-events-none"
                 style={{ background: "radial-gradient(ellipse 60% 40% at 85% 110%, rgba(240,175,200,0.18) 0%, transparent 70%)" }} />
               <div className="absolute inset-0 rounded-[36px] pointer-events-none"
@@ -298,7 +298,7 @@ export default function Portfolio() {
 
               <div className="relative">
                 <div className="section-label justify-center mb-8"
-                  style={{ color: "#A78BFA", borderColor: "rgba(124,58,237,0.25)", background: "rgba(124,58,237,0.12)" }}>
+                  style={{ color: "#818CF8", borderColor: "rgba(99,102,241,0.25)", background: "rgba(99,102,241,0.12)" }}>
                   {t("Votre projet", "Your project")}
                 </div>
 
@@ -307,7 +307,7 @@ export default function Portfolio() {
                   <span className="prisme-italic-grad">{t("le vôtre.", "yours.")}</span>
                 </h2>
 
-                <p className="text-[#B8A8D8] text-base md:text-lg leading-relaxed mb-10 max-w-lg mx-auto">
+                <p className="text-[#B4BCF5] text-base md:text-lg leading-relaxed mb-10 max-w-lg mx-auto">
                   {t(
                     "Discutons de votre vision et transformons-la en réalité digitale mémorable.",
                     "Let's talk about your vision and turn it into a memorable digital reality.",

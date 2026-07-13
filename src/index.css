@@ -15,7 +15,7 @@
     --popover: 250 15% 6%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 265 85% 60%;
+    --primary: 239 84% 67%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 250 15% 12%;
@@ -24,7 +24,7 @@
     --muted: 250 15% 15%;
     --muted-foreground: 250 10% 55%;
 
-    --accent: 265 85% 60%;
+    --accent: 239 84% 67%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84% 60%;
@@ -32,7 +32,7 @@
 
     --border: 250 15% 15%;
     --input: 250 15% 15%;
-    --ring: 265 85% 60%;
+    --ring: 239 84% 67%;
 
     --radius: 1.25rem;
 
@@ -41,7 +41,7 @@
     --neon-green: 155 100% 45%;
     --neon-blue: 200 100% 50%;
     --neon-white: 0 0% 100%;
-    --neon-violet: 265 85% 60%;
+    --neon-violet: 239 84% 67%;
 
     /* ========================================
        GLASSMORPHISM PREMIUM DESIGN SYSTEM V2
@@ -58,39 +58,39 @@
     --glass-highlight: 0.12;
     
     /* Glass Surface Colors - Richer */
-    --glass-bg: 265 25% 12%;
-    --glass-border: 265 40% 40%;
+    --glass-bg: 228 30% 12%;
+    --glass-border: 228 40% 40%;
     --glass-highlight-color: 0 0% 100%;
     
     /* Glass Shadows - More depth */
-    --glass-shadow-diffuse: 0 25px 60px -20px hsl(265 50% 15% / 0.5);
+    --glass-shadow-diffuse: 0 25px 60px -20px hsl(230 50% 15% / 0.5);
     --glass-shadow-sharp: 0 10px 40px hsl(0 0% 0% / 0.35);
-    --glass-shadow-glow: 0 0 80px -15px hsl(265 85% 60% / 0.3);
+    --glass-shadow-glow: 0 0 80px -15px hsl(239 84% 67% / 0.3);
     --glass-shadow-inner: inset 0 1px 1px hsl(0 0% 100% / 0.08);
     
     /* Premium Accent Luxe - Iridescent */
-    --accent-luxe: 265 90% 65%;
+    --accent-luxe: 239 84% 67%;
     --accent-luxe-secondary: 200 100% 60%;
     --accent-luxe-tertiary: 320 85% 60%;
     
     /* Atmosphere */
-    --atmosphere-primary: 265 85% 60%;
+    --atmosphere-primary: 239 84% 67%;
     --atmosphere-secondary: 200 100% 50%;
     --atmosphere-tertiary: 320 80% 55%;
 
     /* Card tiers */
     --tier-start: 0 0% 70%;
-    --tier-pro: 265 85% 60%;
+    --tier-pro: 239 84% 67%;
     --tier-custom: 45 93% 55%;
 
     --sidebar-background: 250 15% 4%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 265 85% 60%;
+    --sidebar-primary: 239 84% 67%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 250 15% 10%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 250 15% 15%;
-    --sidebar-ring: 265 85% 60%;
+    --sidebar-ring: 239 84% 67%;
   }
 }
 
@@ -1023,7 +1023,7 @@
   --popover: 0 0% 100%;
   --popover-foreground: 265 30% 6%;
 
-  --primary: 262 83% 58%;          /* #7C3AED violet profond */
+  --primary: 239 84% 67%;          /* #6366F1 violet profond */
   --primary-foreground: 0 0% 100%;
 
   --secondary: 265 30% 96%;        /* lavande poudrée */
@@ -1032,7 +1032,7 @@
   --muted: 265 30% 96%;
   --muted-foreground: 262 12% 42%; /* #6F6580 lilas grisé */
 
-  --accent: 258 90% 76%;           /* #A78BFA violet doux */
+  --accent: 234 89% 74%;           /* #818CF8 violet doux */
   --accent-foreground: 265 30% 6%;
 
   --destructive: 0 84% 58%;
@@ -1040,26 +1040,26 @@
 
   --border: 265 30% 92%;           /* #EEEAF4 */
   --input: 265 30% 92%;
-  --ring: 262 83% 58%;
+  --ring: 239 84% 67%;
 
   --radius: 1.5rem;
 
   /* Couleurs néon remappées prisme (R/G/B iridescent + violet) */
-  --neon-violet: 262 83% 58%;
+  --neon-violet: 239 84% 67%;
   --neon-blue: 230 100% 68%;       /* #5E7AFF */
   --neon-red: 348 100% 68%;        /* #FF5E78 */
   --neon-green: 158 70% 64%;       /* #5EE7B1 */
   --neon-white: 265 30% 6%;
 
-  --accent-luxe: 262 83% 58%;
+  --accent-luxe: 239 84% 67%;
   --accent-luxe-secondary: 335 75% 82%;  /* rose poudre */
   --accent-luxe-tertiary: 20 100% 80%;   /* pêche */
 
-  --atmosphere-primary: 258 90% 76%;
+  --atmosphere-primary: 234 89% 74%;
   --atmosphere-secondary: 335 75% 82%;
   --atmosphere-tertiary: 20 100% 80%;
 
-  --tier-pro: 262 83% 58%;
+  --tier-pro: 239 84% 67%;
   --tier-custom: 20 100% 75%;
   --tier-start: 262 12% 60%;
 
@@ -1075,9 +1075,9 @@
   --glass-highlight: 0;
   --glass-highlight-color: 0 0% 100%;
 
-  --glass-shadow-diffuse: 0 30px 80px -40px hsl(262 50% 40% / 0.18);
-  --glass-shadow-sharp: 0 8px 28px hsl(262 30% 20% / 0.06);
-  --glass-shadow-glow: 0 30px 80px -30px hsl(262 83% 58% / 0.22);
+  --glass-shadow-diffuse: 0 30px 80px -40px hsl(233 50% 40% / 0.18);
+  --glass-shadow-sharp: 0 8px 28px hsl(233 30% 20% / 0.06);
+  --glass-shadow-glow: 0 30px 80px -30px hsl(239 84% 67% / 0.22);
   --glass-shadow-inner: none;
 
   /* Prisme palette (utilisable en var(--prisme-*)) */
@@ -1088,17 +1088,23 @@
   --prisme-ink-soft: #2A2433;
   --prisme-muted: #6F6580;
   --prisme-border: #EEEAF4;
-  --prisme-violet: #7C3AED;
-  --prisme-violet-soft: #A78BFA;
+  --prisme-violet: #6366F1;
+  --prisme-violet-soft: #818CF8;
   --prisme-rose: #F0AFC8;
   --prisme-peach: #FFB996;
   --prisme-red: #FF5E78;
   --prisme-green: #5EE7B1;
   --prisme-blue: #5E7AFF;
 
-  --prisme-gradient: linear-gradient(110deg, #7C3AED 0%, #A78BFA 100%);
-  --prisme-gradient-soft: linear-gradient(110deg, rgba(124,58,237,0.16) 0%, rgba(240,175,200,0.18) 55%, rgba(255,185,150,0.16) 100%);
+  --prisme-gradient: linear-gradient(110deg, #6366F1 0%, #8B5CF6 100%);
+  --prisme-gradient-soft: linear-gradient(110deg, rgba(99, 102, 241,0.16) 0%, rgba(240,175,200,0.18) 55%, rgba(255,185,150,0.16) 100%);
   --prisme-gradient-rgb: linear-gradient(110deg, #FF5E78 0%, #5EE7B1 50%, #5E7AFF 100%);
+
+  /* Palette nuit (maquette agence 2026-07) */
+  --night-0: #05060E;
+  --night-1: #0A0E1A;
+  --night-2: #10162B;
+  --brand-emerald: #34D399;
 
   font-family: 'Inter', system-ui, sans-serif;
   background-color: hsl(var(--background));
@@ -1109,7 +1115,7 @@ body:has(.theme-solaire) {
   background-color: #FBFAF7;
 }
 .theme-solaire ::selection {
-  background: rgba(124, 58, 237, 0.18);
+  background: rgba(99, 102, 241, 0.18);
   color: #0E0B14;
 }
 
@@ -1179,7 +1185,7 @@ body:has(.theme-solaire) {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   border: 1px solid var(--prisme-border) !important;
-  box-shadow: 0 8px 28px rgba(124, 58, 237, 0.06);
+  box-shadow: 0 8px 28px rgba(99, 102, 241, 0.06);
 }
 .theme-solaire .glass-base::before,
 .theme-solaire .glass-base::after,
@@ -1199,8 +1205,8 @@ body:has(.theme-solaire) {
 .theme-solaire .glass-card:hover,
 .theme-solaire .glass-card-specular:hover {
   transform: translateY(-4px);
-  box-shadow: 0 24px 60px -20px rgba(124, 58, 237, 0.22);
-  border-color: rgba(124, 58, 237, 0.35) !important;
+  box-shadow: 0 24px 60px -20px rgba(99, 102, 241, 0.22);
+  border-color: rgba(99, 102, 241, 0.35) !important;
 }
 
 /* Header glass clair */
@@ -1209,7 +1215,7 @@ body:has(.theme-solaire) {
   backdrop-filter: blur(20px) saturate(1.4) !important;
   -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
   border-bottom: 1px solid rgba(238, 234, 244, 0.7) !important;
-  box-shadow: 0 1px 0 rgba(124, 58, 237, 0.03);
+  box-shadow: 0 1px 0 rgba(99, 102, 241, 0.03);
 }
 
 /* Glass button -> bouton clair contour encre */
@@ -1235,7 +1241,7 @@ body:has(.theme-solaire) {
   background-size: 200% 100% !important;
   border: none !important;
   color: #FFFFFF !important;
-  box-shadow: 0 10px 30px -8px rgba(124, 58, 237, 0.45);
+  box-shadow: 0 10px 30px -8px rgba(99, 102, 241, 0.45);
   transition: background-position 0.6s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 .theme-solaire .btn-prisme::before,
@@ -1243,7 +1249,7 @@ body:has(.theme-solaire) {
 .theme-solaire .btn-prisme:hover,
 .theme-solaire .btn-gradient:hover {
   background-position: 100% 0 !important;
-  box-shadow: 0 18px 40px -10px rgba(124, 58, 237, 0.6);
+  box-shadow: 0 18px 40px -10px rgba(99, 102, 241, 0.6);
   transform: translateY(-2px);
 }
 
@@ -1251,35 +1257,35 @@ body:has(.theme-solaire) {
 .theme-solaire .badge-gradient,
 .theme-solaire .prisme-pill {
   background: var(--prisme-lavender) !important;
-  border: 1px solid rgba(124, 58, 237, 0.18) !important;
+  border: 1px solid rgba(99, 102, 241, 0.18) !important;
   backdrop-filter: none !important;
-  color: #5B21B6;
+  color: #4338CA;
 }
 .theme-solaire .badge-gradient::before { display: none; }
 .theme-solaire .prisme-pill-grad {
   background: var(--prisme-gradient) !important;
   color: #FFFFFF !important;
   border: none !important;
-  box-shadow: 0 8px 24px -6px rgba(124, 58, 237, 0.5);
+  box-shadow: 0 8px 24px -6px rgba(99, 102, 241, 0.5);
 }
 
 /* Divider premium dégradé */
 .theme-solaire .divider-premium {
-  background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.4) 50%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.4) 50%, transparent);
 }
 
 /* Card hover violet */
 .theme-solaire .card-hover:hover {
-  border-color: rgba(124, 58, 237, 0.4);
-  box-shadow: 0 30px 60px -20px rgba(124, 58, 237, 0.2);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 30px 60px -20px rgba(99, 102, 241, 0.2);
   transform: translateY(-5px);
 }
 
 /* Grid background — motif violet très discret */
 .theme-solaire .grid-bg {
   background-image:
-    linear-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 58, 237, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
   background-size: 72px 72px;
 }
 
@@ -1290,12 +1296,12 @@ body:has(.theme-solaire) {
 .theme-solaire .neon-glow-green,
 .theme-solaire .neon-glow-white,
 .theme-solaire .neon-glow-gold {
-  box-shadow: 0 0 60px rgba(124, 58, 237, 0.22), 0 0 120px rgba(240, 175, 200, 0.15);
+  box-shadow: 0 0 60px rgba(99, 102, 241, 0.22), 0 0 120px rgba(240, 175, 200, 0.15);
 }
 
 /* Focus visible violet */
 .theme-solaire *:focus-visible {
-  outline: 2px solid #7C3AED;
+  outline: 2px solid #6366F1;
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -1325,7 +1331,7 @@ body:has(.theme-solaire) #root::before {
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #5B21B6;
+  color: #4338CA;
 }
 .theme-solaire .section-label::before {
   content: '';
@@ -1343,7 +1349,7 @@ body:has(.theme-solaire) #root::before {
   height: 520px;
   border-radius: 50%;
   filter: blur(110px);
-  background: radial-gradient(circle, rgba(167, 139, 250, 0.45) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(129, 140, 248, 0.45) 0%, transparent 70%);
   pointer-events: none;
 }
 .theme-solaire .prisme-halo-rose {
@@ -1426,46 +1432,46 @@ body:has(.theme-solaire) #root::before {
    MODE SOMBRE — scope sur .theme-solaire quand dark class active
    ============================================================ */
 html.dark body:has(.theme-solaire) {
-  background-color: #0E0B14;
+  background-color: #05060E;
 }
 
 html.dark .theme-solaire {
   /* shadcn tokens overrides */
-  --background: 265 30% 6%;
+  --background: 233 47% 4%;
   --foreground: 40 30% 98%;
-  --card: 265 20% 10%;
+  --card: 228 30% 10%;
   --card-foreground: 40 30% 98%;
-  --muted: 265 20% 14%;
-  --muted-foreground: 262 12% 60%;
-  --border: 265 20% 20%;
-  --input: 265 20% 20%;
+  --muted: 228 22% 14%;
+  --muted-foreground: 230 15% 65%;
+  --border: 228 22% 20%;
+  --input: 228 22% 20%;
 
   /* Prisme palette dark overrides */
-  --prisme-ivory: #0E0B14;
-  --prisme-cream: #120B24;
-  --prisme-lavender: #1C1028;
+  --prisme-ivory: #05060E;
+  --prisme-cream: #0A0E1A;
+  --prisme-lavender: #10162B;
   --prisme-ink: #F5F3FF;
-  --prisme-ink-soft: #C4B5FD;
-  --prisme-muted: #9F8FB0;
+  --prisme-ink-soft: #C7D2FE;
+  --prisme-muted: #99A2C4;
   --prisme-border: rgba(255,255,255,0.10);
 
   /* Glass devient surface sombre */
-  --glass-bg: 265 25% 12%;
-  --glass-border: 265 30% 25%;
+  --glass-bg: 228 30% 12%;
+  --glass-border: 228 30% 25%;
   --glass-alpha: 0.08;
   --glass-blur: 28px;
   --glass-border-alpha: 0.18;
   --glass-shadow-alpha: 0.25;
-  --glass-shadow-diffuse: 0 25px 60px -20px hsl(265 50% 15% / 0.6);
+  --glass-shadow-diffuse: 0 25px 60px -20px hsl(230 50% 15% / 0.6);
   --glass-shadow-sharp: 0 10px 40px hsl(0 0% 0% / 0.4);
-  --glass-shadow-glow: 0 0 80px -15px hsl(265 85% 60% / 0.35);
+  --glass-shadow-glow: 0 0 80px -15px hsl(239 84% 67% / 0.35);
   --glass-shadow-inner: inset 0 1px 1px hsl(0 0% 100% / 0.06);
 }
 
 /* Body background dark */
 html.dark .theme-solaire,
 html.dark body {
-  background-color: #0E0B14;
+  background-color: #05060E;
   color: #F5F3FF;
 }
 
@@ -1477,7 +1483,7 @@ html.dark .theme-solaire .glass-card-specular,
 html.dark .theme-solaire .glass-modal,
 html.dark .theme-solaire .glass-ultra,
 html.dark .theme-solaire .glass-input {
-  background: rgba(28, 14, 66, 0.85) !important;
+  background: rgba(16, 20, 43, 0.85) !important;
   backdrop-filter: blur(24px) !important;
   -webkit-backdrop-filter: blur(24px) !important;
   border: 1px solid rgba(255,255,255,0.10) !important;
@@ -1486,16 +1492,16 @@ html.dark .theme-solaire .glass-input {
 
 /* Section-label pill en mode sombre */
 html.dark .theme-solaire .section-label {
-  background: rgba(124, 58, 237, 0.15);
-  border-color: rgba(124, 58, 237, 0.25);
-  color: #A78BFA;
+  background: rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.25);
+  color: #818CF8;
 }
 
 /* Prisme pills */
 html.dark .theme-solaire .prisme-pill {
-  background: rgba(124, 58, 237, 0.15);
-  color: #A78BFA;
-  border-color: rgba(124, 58, 237, 0.20);
+  background: rgba(99, 102, 241, 0.15);
+  color: #818CF8;
+  border-color: rgba(99, 102, 241, 0.20);
 }
 
 /* Section-label pour sections always-dark (ServicesSection, EcosystemeSection) */
@@ -1509,7 +1515,7 @@ html.dark .theme-solaire .section-label-dark {
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #A78BFA;
+  color: #818CF8;
 }
 .theme-solaire .section-label-dark::before,
 html.dark .theme-solaire .section-label-dark::before {
@@ -1561,7 +1567,7 @@ html.dark .theme-solaire .prisme-display {
   display: inline-block;
   width: 7px;
   height: 0.85em;
-  background: rgba(167, 139, 250, 0.5);
+  background: rgba(129, 140, 248, 0.5);
   vertical-align: middle;
   margin-left: 2px;
   border-radius: 1px;
@@ -1573,6 +1579,6 @@ html.dark .theme-solaire .prisme-display {
 
 /* ── Accessibilité : focus clavier visible sur fond sombre ───────────── */
 :focus-visible {
-  outline: 2px solid hsl(265 85% 68% / 0.95);
+  outline: 2px solid hsl(235 86% 71% / 0.95);
   outline-offset: 2px;
 }

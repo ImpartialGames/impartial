@@ -104,7 +104,7 @@ export function AnimatedRoutes() {
 
   return (
     <AnimatePresence mode="wait">
-      <Suspense fallback={<div className="min-h-screen bg-[#0E0B14]" aria-hidden />}>
+      <Suspense fallback={<div className="min-h-screen bg-[#0A0E1A]" aria-hidden />}>
         <Routes location={location} key={location.pathname}>
           <Route path="/">
             {publicChildren}

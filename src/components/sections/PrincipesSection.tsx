@@ -13,7 +13,7 @@ export function PrincipesSection() {
   const { t } = useLang();
 
   return (
-    <section className="relative py-24 md:py-32 bg-[#120B24] overflow-hidden">
+    <section className="relative py-24 md:py-32 bg-[#0A0E1A] overflow-hidden">
       {/* Halos prisme */}
       <span className="prisme-halo-violet" style={{ top: "-5%", left: "-10%" }} />
       <span className="prisme-halo-peach"  style={{ top: "-5%", right: "-10%" }} />
@@ -43,7 +43,7 @@ export function PrincipesSection() {
               transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
               className="relative"
             >
-              <div className="relative h-full p-7 rounded-[28px] bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_12px_40px_-15px_rgba(124,58,237,0.10)] hover:shadow-[0_24px_56px_-20px_rgba(124,58,237,0.22)] hover:-translate-y-1 transition-all duration-500">
+              <div className="relative h-full p-7 rounded-[28px] bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_12px_40px_-15px_rgba(99,102,241,0.10)] hover:shadow-[0_24px_56px_-20px_rgba(99,102,241,0.22)] hover:-translate-y-1 transition-all duration-500">
 
                 {/* Numéro filigrane */}
                 <span

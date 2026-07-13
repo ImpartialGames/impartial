@@ -43,8 +43,8 @@ export function Newsletter({ variant = "card" }: NewsletterProps) {
   if (variant === "inline") {
     return (
       <div className="space-y-3">
-        <h4 className="font-semibold text-[#A78BFA] flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-[#A78BFA] shadow-[0_0_10px_rgba(124,58,237,0.5)]" />
+        <h4 className="font-semibold text-[#818CF8] flex items-center gap-2">
+          <div className="w-2 h-2 rounded-full bg-[#818CF8] shadow-[0_0_10px_rgba(99,102,241,0.5)]" />
           Newsletter
         </h4>
         <p className="text-sm text-muted-foreground">
@@ -62,13 +62,13 @@ export function Newsletter({ variant = "card" }: NewsletterProps) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t("votre@email.com", "your@email.com")}
-              className="flex-1 px-4 py-2 text-sm rounded-xl bg-white/[0.05] border border-white/10 text-white placeholder:text-white/35 focus:border-[#A78BFA] focus:outline-none focus:ring-1 focus:ring-[#A78BFA] transition-all"
+              className="flex-1 px-4 py-2 text-sm rounded-xl bg-white/[0.05] border border-white/10 text-white placeholder:text-white/35 focus:border-[#818CF8] focus:outline-none focus:ring-1 focus:ring-[#818CF8] transition-all"
               disabled={isLoading}
             />
             <button
               type="submit"
               disabled={isLoading}
-              className="px-4 py-2 bg-[#7C3AED]/20 border border-[#A78BFA]/40 text-[#A78BFA] rounded-xl hover:bg-[#7C3AED]/30 transition-all disabled:opacity-50"
+              className="px-4 py-2 bg-[#6366F1]/20 border border-[#818CF8]/40 text-[#818CF8] rounded-xl hover:bg-[#6366F1]/30 transition-all disabled:opacity-50"
             >
               {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Mail className="h-4 w-4" />}
             </button>
@@ -80,12 +80,12 @@ export function Newsletter({ variant = "card" }: NewsletterProps) {
 
   return (
     <div className="p-8 glass-surface glass-noise rounded-2xl relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#7C3AED]/10 via-transparent to-neon-violet/10 rounded-[inherit]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#6366F1]/10 via-transparent to-neon-violet/10 rounded-[inherit]" />
       
       <div className="relative z-10">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-3 rounded-xl bg-[#7C3AED]/20 border border-[#A78BFA]/30">
-            <Mail className="h-6 w-6 text-[#A78BFA]" />
+          <div className="p-3 rounded-xl bg-[#6366F1]/20 border border-[#818CF8]/30">
+            <Mail className="h-6 w-6 text-[#818CF8]" />
           </div>
           <div>
             <h3 className="text-xl font-light">{t("Restez informé", "Stay in the loop")}</h3>
@@ -114,14 +114,14 @@ export function Newsletter({ variant = "card" }: NewsletterProps) {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={t("votre@email.com", "your@email.com")}
-                className="w-full pl-12 pr-4 py-3 rounded-xl bg-white/[0.05] border border-white/10 text-white placeholder:text-white/35 focus:border-[#A78BFA] focus:outline-none focus:ring-1 focus:ring-[#A78BFA] focus:shadow-[0_0_20px_rgba(124,58,237,0.25)] transition-all"
+                className="w-full pl-12 pr-4 py-3 rounded-xl bg-white/[0.05] border border-white/10 text-white placeholder:text-white/35 focus:border-[#818CF8] focus:outline-none focus:ring-1 focus:ring-[#818CF8] focus:shadow-[0_0_20px_rgba(99,102,241,0.25)] transition-all"
                 disabled={isLoading}
               />
             </div>
             <button
               type="submit"
               disabled={isLoading}
-              className="group px-6 py-3 bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(124,58,237,0.4)] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+              className="group px-6 py-3 bg-gradient-to-r from-[#6366F1] to-[#4F46E5] text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(99,102,241,0.4)] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
             >
               {isLoading ? (
                 <>

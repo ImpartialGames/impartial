@@ -21,7 +21,7 @@ export function HeroPremium() {
   return (
     <section
       className="relative h-[100svh] flex items-center justify-center overflow-hidden pt-20 pb-8 md:pt-20 md:pb-8"
-      style={{ backgroundColor: "#080410" }}
+      style={{ backgroundColor: "#05060E" }}
     >
       <HeroWavesBackground />
 

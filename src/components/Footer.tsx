@@ -89,14 +89,14 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative w-full bg-[#1C0E42] text-[#9B8EC4] overflow-hidden rounded-t-[40px] md:rounded-t-[56px]">
+    <footer className="relative w-full bg-[#101433] text-[#9AA5D1] overflow-hidden rounded-t-[40px] md:rounded-t-[56px]">
 
       {/* Radial glow top — pattern du template adapté Prisme */}
       <div
         className="absolute top-0 left-0 right-0 h-[320px] pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 180px at 50% 0%, rgba(124,58,237,0.14) 0%, transparent 100%)",
+            "radial-gradient(ellipse 60% 180px at 50% 0%, rgba(99,102,241,0.14) 0%, transparent 100%)",
         }}
       />
 
@@ -123,16 +123,16 @@ export function Footer() {
                 IMPARTIAL
               </span>
             </Link>
-            <p className="text-[14px] leading-relaxed text-[#9B8EC4] max-w-xs">
+            <p className="text-[14px] leading-relaxed text-[#9AA5D1] max-w-xs">
               {t(
                 "Studio digital et éditeur SaaS. On conçoit, développe et opère des produits digitaux pour les marques ambitieuses en France et au Canada.",
                 "Digital studio and SaaS publisher. We design, build, and operate digital products for ambitious brands in France and Canada."
               )}
             </p>
-            <p className="text-[12px] text-[#7B6AAD]">Montréal, QC · Paris, France</p>
+            <p className="text-[12px] text-[#6B76A8]">Montréal, QC · Paris, France</p>
             <a
               href="mailto:studio@impartialgames.com"
-              className="inline-flex items-center gap-2 text-[13px] font-medium text-[#A78BFA] hover:text-white hover:gap-3 transition-all duration-200"
+              className="inline-flex items-center gap-2 text-[13px] font-medium text-[#818CF8] hover:text-white hover:gap-3 transition-all duration-200"
             >
               studio@impartialgames.com
               <ArrowRight className="h-3.5 w-3.5" />
@@ -144,7 +144,7 @@ export function Footer() {
             {sections.map((section, index) => (
               <AnimatedContainer key={section.label} delay={0.1 + index * 0.08}>
                 <div>
-                  <h4 className="text-[10px] font-semibold mb-5 text-[#A78BFA] uppercase tracking-[0.22em]">
+                  <h4 className="text-[10px] font-semibold mb-5 text-[#818CF8] uppercase tracking-[0.22em]">
                     {t(section.label, section.labelEn)}
                   </h4>
                   <ul className="space-y-3">
@@ -153,7 +153,7 @@ export function Footer() {
                         {"internal" in link && link.internal ? (
                           <Link
                             to={"frOnly" in link && link.frOnly ? link.href : lp(link.href)}
-                            className="inline-flex items-center gap-1.5 text-[13.5px] text-[#9B8EC4] hover:text-white transition-colors duration-200"
+                            className="inline-flex items-center gap-1.5 text-[13.5px] text-[#9AA5D1] hover:text-white transition-colors duration-200"
                           >
                             {"icon" in link && link.icon && (
                               <link.icon className="h-3.5 w-3.5 shrink-0" />
@@ -165,7 +165,7 @@ export function Footer() {
                             href={link.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-[13.5px] text-[#9B8EC4] hover:text-white transition-colors duration-200"
+                            className="inline-flex items-center gap-1.5 text-[13.5px] text-[#9AA5D1] hover:text-white transition-colors duration-200"
                           >
                             {"icon" in link && link.icon && (
                               <link.icon className="h-3.5 w-3.5 shrink-0" />
@@ -187,12 +187,12 @@ export function Footer() {
           className="mt-14 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
           style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
         >
-          <p className="text-[12px] text-[#7B6AAD]">
+          <p className="text-[12px] text-[#6B76A8]">
             © {new Date().getFullYear()} IMPARTIAL GAMES. {t("Tous droits réservés.", "All rights reserved.")}
           </p>
           <button
             onClick={openCookieSettings}
-            className="inline-flex items-center gap-1.5 text-[12px] text-[#7B6AAD] hover:text-white transition-colors duration-200"
+            className="inline-flex items-center gap-1.5 text-[12px] text-[#6B76A8] hover:text-white transition-colors duration-200"
           >
             <Cookie className="h-3 w-3" />
             {t("Préférences cookies", "Cookie preferences")}

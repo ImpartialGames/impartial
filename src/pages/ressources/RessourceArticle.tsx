@@ -81,7 +81,7 @@ const RessourceArticle = () => {
           <ul key={i} className="space-y-3 mb-8 list-none">
             {block.items.map((item, j) => (
               <li key={j} className="flex gap-3 text-[16px] leading-relaxed text-white/75">
-                <span className="mt-[10px] h-[5px] w-[5px] rounded-full bg-[#A78BFA] shrink-0" />
+                <span className="mt-[10px] h-[5px] w-[5px] rounded-full bg-[#818CF8] shrink-0" />
                 <span>{pick(item)}</span>
               </li>
             ))}
@@ -126,7 +126,7 @@ const RessourceArticle = () => {
                 <details key={j} className="group rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4 open:bg-white/[0.05]">
                   <summary className="cursor-pointer list-none font-semibold text-white/90 flex items-center justify-between gap-4">
                     {pick(item.q)}
-                    <span className="text-[#A78BFA] transition-transform group-open:rotate-90">
+                    <span className="text-[#818CF8] transition-transform group-open:rotate-90">
                       <ArrowRight className="h-4 w-4" />
                     </span>
                   </summary>
@@ -157,14 +157,14 @@ const RessourceArticle = () => {
           <div className="max-w-3xl mx-auto">
             <Link
               to={lp("/ressources")}
-              className="inline-flex items-center gap-2 text-[13px] font-semibold text-[#A78BFA] hover:text-[#CDBAFF] transition-colors mb-10"
+              className="inline-flex items-center gap-2 text-[13px] font-semibold text-[#818CF8] hover:text-[#C7D2FE] transition-colors mb-10"
             >
               <ArrowLeft className="h-4 w-4" />
               {t("Toutes les ressources", "All resources")}
             </Link>
 
             <header className="mb-12">
-              <div className="flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#A78BFA] mb-5">
+              <div className="flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#818CF8] mb-5">
                 <span>{pick(article.category)}</span>
                 <span className="text-white/25">·</span>
                 <time dateTime={article.updated ?? article.date} className="text-white/40 normal-case tracking-normal font-medium">
@@ -185,7 +185,7 @@ const RessourceArticle = () => {
             {article.blocks.map(renderBlock)}
 
             {/* CTA final */}
-            <aside className="mt-16 rounded-2xl border border-[#A78BFA]/30 bg-gradient-to-br from-[#7C3AED]/15 to-transparent p-8 md:p-10">
+            <aside className="mt-16 rounded-2xl border border-[#818CF8]/30 bg-gradient-to-br from-[#6366F1]/15 to-transparent p-8 md:p-10">
               <h2 className="text-xl md:text-2xl font-bold mb-3">
                 {t("Un projet en tête ?", "Have a project in mind?")}
               </h2>

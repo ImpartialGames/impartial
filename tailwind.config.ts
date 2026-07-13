@@ -23,6 +23,16 @@ export default {
         display: ['"Space Grotesk"', 'sans-serif'],
       },
       colors: {
+        night: {
+          950: "#05060E",
+          900: "#0A0E1A",
+          800: "#10162B",
+        },
+        brand: {
+          indigo: "#6366F1",
+          violet: "#8B5CF6",
+          emerald: "#34D399",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

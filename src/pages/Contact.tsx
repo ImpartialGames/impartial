@@ -22,7 +22,7 @@ const fadeUp: Variants = {
 /* ─── Input styles ──────────────────────────────────────────── */
 
 const inputClass =
-  "w-full px-4 py-3.5 rounded-[14px] bg-white/[0.05] border border-white/10 text-white text-[14px] placeholder:text-white/35 focus:border-[#A78BFA] focus:outline-none focus:ring-2 focus:ring-[rgba(124,58,237,0.12)] transition-all duration-200";
+  "w-full px-4 py-3.5 rounded-[14px] bg-white/[0.05] border border-white/10 text-white text-[14px] placeholder:text-white/35 focus:border-[#818CF8] focus:outline-none focus:ring-2 focus:ring-[rgba(99,102,241,0.12)] transition-all duration-200";
 
 /* ─── Page ──────────────────────────────────────────────────── */
 
@@ -119,7 +119,7 @@ const Contact = () => {
         <div
           aria-hidden
           className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-[5]"
-          style={{ background: "linear-gradient(to bottom, transparent, #0E0B14)" }}
+          style={{ background: "linear-gradient(to bottom, transparent, #0A0E1A)" }}
         />
       </section>
 
@@ -139,7 +139,7 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#A78BFA] mb-6"
+                className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#818CF8] mb-6"
               >
                 {t("Informations", "Information")}
               </motion.p>
@@ -150,7 +150,7 @@ const Contact = () => {
                   label: "Email",
                   content: (
                     <a href="mailto:studio@impartialgames.com"
-                      className="text-[14px] text-white hover:text-[#A78BFA] transition-colors duration-200">
+                      className="text-[14px] text-white hover:text-[#818CF8] transition-colors duration-200">
                       studio@impartialgames.com
                     </a>
                   ),
@@ -184,13 +184,13 @@ const Contact = () => {
                     custom={item.delay * 10}
                     variants={fadeUp}
                   >
-                    <div className="group p-6 rounded-[20px] bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-[rgba(124,58,237,0.28)] hover:shadow-[0_8px_24px_-8px_rgba(124,58,237,0.35)] hover:-translate-y-1 transition-all duration-500">
+                    <div className="group p-6 rounded-[20px] bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-[rgba(99,102,241,0.28)] hover:shadow-[0_8px_24px_-8px_rgba(99,102,241,0.35)] hover:-translate-y-1 transition-all duration-500">
                       <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-[#7C3AED]/12 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-[rgba(124,58,237,0.22)] transition-colors duration-300">
-                          <Icon className="h-4 w-4 text-[#7C3AED]" strokeWidth={1.5} />
+                        <div className="w-10 h-10 rounded-xl bg-[#6366F1]/12 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-[rgba(99,102,241,0.22)] transition-colors duration-300">
+                          <Icon className="h-4 w-4 text-[#6366F1]" strokeWidth={1.5} />
                         </div>
                         <div>
-                          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#A78BFA] mb-1">{item.label}</p>
+                          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#818CF8] mb-1">{item.label}</p>
                           {item.content}
                         </div>
                       </div>
@@ -209,7 +209,7 @@ const Contact = () => {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               >
                 <form onSubmit={handleSubmit} className="p-8 md:p-10 rounded-[28px] bg-white/[0.05] backdrop-blur-xl border border-white/10">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#A78BFA] mb-8">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#818CF8] mb-8">
                     {t("Envoyez-nous un message", "Send us a message")}
                   </p>
 

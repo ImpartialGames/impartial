@@ -45,7 +45,7 @@ const Index = () => {
       <RealisationsSection />
 
       {/* Velocity divider */}
-      <section aria-hidden className="bg-[#0E0B14] py-10 md:py-14 overflow-hidden">
+      <section aria-hidden className="bg-[#0A0E1A] py-10 md:py-14 overflow-hidden">
         <ScrollVelocityText
           text="Design · Code · Impact · Studio · "
           baseVelocity={-2}

@@ -71,7 +71,7 @@ export function CookieBanner() {
         }`}
       >
         <div className="max-w-4xl mx-auto">
-          <div className="relative p-6 rounded-2xl bg-[#14101D]/90 backdrop-blur-2xl border border-white/10 shadow-[0_16px_48px_rgba(0,0,0,0.5)]">
+          <div className="relative p-6 rounded-2xl bg-[#0D1120]/90 backdrop-blur-2xl border border-white/10 shadow-[0_16px_48px_rgba(0,0,0,0.5)]">
           <button
             onClick={rejectAll}
             className="absolute top-4 right-4 p-2 rounded-lg hover:bg-white/10 transition-colors"
