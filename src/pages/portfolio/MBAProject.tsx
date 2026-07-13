@@ -13,7 +13,7 @@ const projectDetails = {
   category: "Back-office SaaS",
   categoryEn: "Back-office SaaS",
   client: "ImpartialGames",
-  year: "2024",
+  year: "2026",
   duration: "5 mois",
   description: `MBA est un produit SaaS conçu, développé et opéré par ImpartialGames pour aider les TPE et PME à centraliser leur gestion opérationnelle : clients, facturation, planning et reporting — dans une seule interface pensée pour aller à l'essentiel.
 
@@ -63,7 +63,7 @@ Now available across 20+ industries, MBA replaces dozens of scattered tools (Exc
     "Automated Stripe billing",
   ],
   results: [
-    { metric: "Live", label: "En production depuis 2024", labelEn: "In production since 2024" },
+    { metric: "Live", label: "En production depuis 2026", labelEn: "In production since 2026" },
     { metric: "150€", label: "À partir de / mois", labelEn: "Starting from / month" },
     { metric: "20+", label: "Secteurs couverts", labelEn: "Industries covered" },
     { metric: "SaaS", label: "Produit ImpartialGames", labelEn: "ImpartialGames product" },
@@ -136,7 +136,7 @@ export default function MBAProject() {
                 className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-medium tracking-wide uppercase overflow-hidden"
               >
                 <span className="absolute inset-0 bg-white rounded-full" />
-                <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span className="relative text-background group-hover:text-white transition-colors duration-500">
                   {t("Démarrer un projet similaire", "Start a similar project")}
                 </span>
@@ -342,7 +342,7 @@ export default function MBAProject() {
               whileTap={{ scale: 0.98 }}
             >
               <span className="absolute inset-0 bg-white rounded-full" />
-              <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative text-background group-hover:text-white transition-colors duration-500">{t("Démarrer un projet", "Start a project")}</span>
             </motion.a>
           </motion.div>

@@ -57,14 +57,14 @@ export function ServicesSection() {
     <section
       id="services"
       className="relative py-24 md:py-32 overflow-hidden"
-      style={{ backgroundColor: "#0E0B14" }}
+      style={{ backgroundColor: "#0A0E1A" }}
     >
       {/* Dot grid background */}
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none select-none"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(124,58,237,0.055) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(99,102,241,0.055) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
         }}
       />
@@ -78,7 +78,7 @@ export function ServicesSection() {
           height: 600,
           top: "-10%",
           right: "-15%",
-          background: "radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 65%)",
+          background: "radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 65%)",
           filter: "blur(60px)",
         }}
       />
@@ -90,7 +90,7 @@ export function ServicesSection() {
           height: 500,
           bottom: "-5%",
           left: "-12%",
-          background: "radial-gradient(circle, rgba(167,139,250,0.14) 0%, transparent 65%)",
+          background: "radial-gradient(circle, rgba(129,140,248,0.14) 0%, transparent 65%)",
           filter: "blur(55px)",
         }}
       />
@@ -137,7 +137,7 @@ export function ServicesSection() {
             >
               <Link
                 to={lp(s.href)}
-                className="group relative flex flex-col h-full p-9 rounded-[28px] bg-white/[0.045] border border-white/[0.09] hover:border-[#7C3AED]/50 hover:bg-white/[0.07] hover:-translate-y-1 shadow-[0_12px_40px_-15px_rgba(0,0,0,0.3)] hover:shadow-[0_28px_60px_-20px_rgba(124,58,237,0.25)] transition-all duration-500 overflow-hidden"
+                className="group relative flex flex-col h-full p-9 rounded-[28px] bg-white/[0.045] border border-white/[0.09] hover:border-[#6366F1]/50 hover:bg-white/[0.07] hover:-translate-y-1 shadow-[0_12px_40px_-15px_rgba(0,0,0,0.3)] hover:shadow-[0_28px_60px_-20px_rgba(99,102,241,0.25)] transition-all duration-500 overflow-hidden"
               >
                 {/* Numéro en filigrane */}
                 <span
@@ -154,8 +154,8 @@ export function ServicesSection() {
                 </span>
 
                 {/* Icône */}
-                <div className="w-12 h-12 rounded-2xl bg-white/[0.08] flex items-center justify-center mb-7 group-hover:scale-110 group-hover:bg-[#7C3AED]/20 transition-all duration-300">
-                  <s.icon className="h-5 w-5 text-[#A78BFA]" />
+                <div className="w-12 h-12 rounded-2xl bg-white/[0.08] flex items-center justify-center mb-7 group-hover:scale-110 group-hover:bg-[#6366F1]/20 transition-all duration-300">
+                  <s.icon className="h-5 w-5 text-[#818CF8]" />
                 </div>
 
                 <h3 className="font-syne font-bold text-[22px] md:text-[26px] text-white mb-3 leading-tight tracking-tight">
@@ -178,7 +178,7 @@ export function ServicesSection() {
                 </div>
 
                 {/* Link */}
-                <div className="inline-flex items-center gap-2 text-[13px] font-medium text-[#A78BFA] group-hover:gap-3 transition-all duration-300">
+                <div className="inline-flex items-center gap-2 text-[13px] font-medium text-[#818CF8] group-hover:gap-3 transition-all duration-300">
                   <span>{t("Découvrir", "Learn more")}</span>
                   <ArrowRight className="h-3.5 w-3.5" />
                 </div>

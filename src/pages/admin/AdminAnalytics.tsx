@@ -520,7 +520,7 @@ export default function AdminAnalytics() {
                       <Tooltip content={<CustomTooltip />} />
                       <Legend wrapperStyle={{ fontSize: tickFontSize }} />
                       <Line type="monotone" dataKey="objectif" name="Objectif" stroke="hsl(250, 10%, 45%)" strokeDasharray="5 5" strokeWidth={1.5} dot={false} />
-                      <Line type="monotone" dataKey="caTotal" name="CA Total" stroke="hsl(265, 85%, 60%)" strokeWidth={2.5} dot={isMobile ? false : { r: 3, fill: "hsl(265, 85%, 60%)" }} />
+                      <Line type="monotone" dataKey="caTotal" name="CA Total" stroke="hsl(239, 84%, 67%)" strokeWidth={2.5} dot={isMobile ? false : { r: 3, fill: "hsl(239, 84%, 67%)" }} />
                       <Line type="monotone" dataKey="encaissements" name="Encaissements" stroke="hsl(155, 100%, 45%)" strokeWidth={2} dot={isMobile ? false : { r: 3, fill: "hsl(155, 100%, 45%)" }} />
                     </LineChart>
                   </ResponsiveContainer>
@@ -540,7 +540,7 @@ export default function AdminAnalytics() {
                       <Tooltip content={<CustomTooltip />} />
                       <Legend wrapperStyle={{ fontSize: tickFontSize }} />
                       <Bar yAxisId="left" dataKey="dossiers" name="Dossiers" fill="hsl(200, 100%, 50%)" radius={[4, 4, 0, 0]} opacity={0.8} />
-                      <Bar yAxisId="left" dataKey="panierMoyen" name="Panier moyen" fill="hsl(265, 85%, 60%)" radius={[4, 4, 0, 0]} opacity={0.8} />
+                      <Bar yAxisId="left" dataKey="panierMoyen" name="Panier moyen" fill="hsl(239, 84%, 67%)" radius={[4, 4, 0, 0]} opacity={0.8} />
                       <Bar yAxisId="right" dataKey="conversion" name="Conversion %" fill="hsl(155, 100%, 45%)" radius={[4, 4, 0, 0]} opacity={0.6} />
                     </BarChart>
                   </ResponsiveContainer>
@@ -558,7 +558,7 @@ export default function AdminAnalytics() {
                       <YAxis tick={{ fill: "hsl(250, 10%, 55%)", fontSize: tickFontSize }} width={isMobile ? 35 : 60} />
                       <Tooltip content={<CustomTooltip />} />
                       <Legend wrapperStyle={{ fontSize: tickFontSize }} />
-                      <Bar dataKey="Site web" name="Site web" stackId="a" fill="hsl(265, 85%, 60%)" />
+                      <Bar dataKey="Site web" name="Site web" stackId="a" fill="hsl(239, 84%, 67%)" />
                       <Bar dataKey="App mobile" name="App mobile" stackId="a" fill="hsl(200, 100%, 50%)" />
                       <Bar dataKey="E-commerce" name="E-commerce" stackId="a" fill="hsl(155, 100%, 45%)" />
                       <Bar dataKey="Back-office" name="Back-office" stackId="a" fill="hsl(45, 93%, 55%)" />
@@ -755,7 +755,7 @@ export default function AdminAnalytics() {
                     <XAxis type="number" tick={{ fill: "hsl(250, 10%, 55%)", fontSize: tickFontSize }} />
                     <YAxis dataKey="nom" type="category" tick={{ fill: "hsl(250, 10%, 55%)", fontSize: tickFontSize }} width={isMobile ? 80 : 120} />
                     <Tooltip content={<CustomTooltip />} />
-                    <Bar dataKey="ca" name="CA €" fill="hsl(265, 85%, 60%)" radius={[0, 4, 4, 0]} opacity={0.85} />
+                    <Bar dataKey="ca" name="CA €" fill="hsl(239, 84%, 67%)" radius={[0, 4, 4, 0]} opacity={0.85} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>

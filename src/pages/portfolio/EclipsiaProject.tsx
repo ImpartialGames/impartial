@@ -13,7 +13,7 @@ const projectDetails = {
   category: "Site Web",
   categoryEn: "Website",
   client: "Eclipsia",
-  year: "2025",
+  year: "2026",
   duration: "5 semaines",
   url: "https://eclipsiagence.fr",
   description: `Eclipsia est une agence de communication et marketing qui accompagne ses clients dans la construction de leur image de marque et leur présence digitale. Le site devait incarner l'identité créative de l'agence tout en mettant en valeur ses expertises et réalisations.
@@ -139,7 +139,7 @@ export default function EclipsiaProject() {
               whileTap={{ scale: 0.98 }}
             >
               <span className="absolute inset-0 bg-white rounded-full" />
-              <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative text-background group-hover:text-white transition-colors duration-500">
                 {t("Visiter le site", "Visit the website")}
               </span>
@@ -364,7 +364,7 @@ export default function EclipsiaProject() {
               whileTap={{ scale: 0.98 }}
             >
               <span className="absolute inset-0 bg-white rounded-full" />
-              <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative text-background group-hover:text-white transition-colors duration-500">
                 {t("Démarrer un projet", "Start a project")}
               </span>

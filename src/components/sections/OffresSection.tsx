@@ -122,15 +122,15 @@ export function OffresSection() {
             height="80"
             patternUnits="userSpaceOnUse"
           >
-            <path d="M0 40 H28 M52 40 H80" stroke="#7C3AED" strokeWidth="0.8" fill="none" />
-            <path d="M40 0 V28 M40 52 V80" stroke="#7C3AED" strokeWidth="0.8" fill="none" />
-            <circle cx="40" cy="40" r="4" fill="none" stroke="#7C3AED" strokeWidth="0.8" />
-            <circle cx="0" cy="40" r="2" fill="#7C3AED" />
-            <circle cx="80" cy="40" r="2" fill="#7C3AED" />
-            <circle cx="40" cy="0" r="2" fill="#7C3AED" />
-            <circle cx="40" cy="80" r="2" fill="#7C3AED" />
-            <path d="M28 40 V16 H64" stroke="#7C3AED" strokeWidth="0.5" fill="none" opacity="0.55" />
-            <path d="M52 40 V64 H16" stroke="#7C3AED" strokeWidth="0.5" fill="none" opacity="0.55" />
+            <path d="M0 40 H28 M52 40 H80" stroke="#6366F1" strokeWidth="0.8" fill="none" />
+            <path d="M40 0 V28 M40 52 V80" stroke="#6366F1" strokeWidth="0.8" fill="none" />
+            <circle cx="40" cy="40" r="4" fill="none" stroke="#6366F1" strokeWidth="0.8" />
+            <circle cx="0" cy="40" r="2" fill="#6366F1" />
+            <circle cx="80" cy="40" r="2" fill="#6366F1" />
+            <circle cx="40" cy="0" r="2" fill="#6366F1" />
+            <circle cx="40" cy="80" r="2" fill="#6366F1" />
+            <path d="M28 40 V16 H64" stroke="#6366F1" strokeWidth="0.5" fill="none" opacity="0.55" />
+            <path d="M52 40 V64 H16" stroke="#6366F1" strokeWidth="0.5" fill="none" opacity="0.55" />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#circuit)" />
@@ -208,16 +208,16 @@ export function OffresSection() {
                       top: "-50%",
                       left: "-50%",
                       background:
-                        "conic-gradient(transparent 0deg, transparent 195deg, #7C3AED 225deg, #A78BFA 268deg, #F0AFC8 292deg, transparent 312deg)",
+                        "conic-gradient(transparent 0deg, transparent 195deg, #6366F1 225deg, #8B5CF6 268deg, #A5B4FC 292deg, transparent 312deg)",
                     }}
                   />
                   {/* Carte intérieure */}
-                  <div className="relative z-10 h-full flex flex-col p-9 md:p-10 rounded-[28px] bg-gradient-to-br from-[#1C0E42] via-[#2D1065] to-[#1C0E42] shadow-[0_30px_70px_-20px_rgba(124,58,237,0.5)]">
+                  <div className="relative z-10 h-full flex flex-col p-9 md:p-10 rounded-[28px] bg-gradient-to-br from-[#101433] via-[#1E1D59] to-[#101433] shadow-[0_30px_70px_-20px_rgba(99,102,241,0.5)]">
                     <CardContent pack={pack} t={t} lp={lp} />
                   </div>
                 </div>
               ) : (
-                <div className="relative h-full flex flex-col p-9 md:p-10 rounded-[28px] bg-white/[0.05] backdrop-blur-xl border border-white/10 shadow-[0_12px_40px_-15px_rgba(0,0,0,0.4)] hover:shadow-[0_24px_60px_-20px_rgba(124,58,237,0.35)] hover:-translate-y-1 transition-all duration-500">
+                <div className="relative h-full flex flex-col p-9 md:p-10 rounded-[28px] bg-white/[0.05] backdrop-blur-xl border border-white/10 shadow-[0_12px_40px_-15px_rgba(0,0,0,0.4)] hover:shadow-[0_24px_60px_-20px_rgba(99,102,241,0.35)] hover:-translate-y-1 transition-all duration-500">
                   <CardContent pack={pack} t={t} lp={lp} />
                 </div>
               )}
@@ -260,7 +260,7 @@ function CardContent({
         </h3>
         <p
           className={`text-[15px] leading-relaxed ${
-            pack.recommended ? "text-[#B8A8D8]" : "text-white/60"
+            pack.recommended ? "text-[#B4BCF5]" : "text-white/60"
           }`}
         >
           {t(pack.description, pack.descriptionEn)}
@@ -272,7 +272,7 @@ function CardContent({
           pack.recommended ? "border-white/15" : "border-white/10"
         }`}
       >
-        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] mb-5 text-[#A78BFA]">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] mb-5 text-[#818CF8]">
           {t("Inclus", "What's included")}
         </p>
         <ul className="space-y-3.5">
@@ -283,12 +283,12 @@ function CardContent({
                 style={{
                   background: pack.recommended
                     ? "var(--prisme-gradient)"
-                    : "rgba(124, 58, 237, 0.1)",
+                    : "rgba(99,102,241, 0.1)",
                 }}
               >
                 <Check
                   className="h-3 w-3"
-                  style={{ color: pack.recommended ? "#FFFFFF" : "#A78BFA" }}
+                  style={{ color: pack.recommended ? "#FFFFFF" : "#818CF8" }}
                   strokeWidth={3}
                 />
               </span>
@@ -309,7 +309,7 @@ function CardContent({
       >
         <p
           className={`mb-1.5 text-[13px] font-medium ${
-            pack.recommended ? "text-[#B8A8D8]" : "text-white/60"
+            pack.recommended ? "text-[#B4BCF5]" : "text-white/60"
           }`}
         >
           {t("À partir de", "From")}
@@ -317,14 +317,14 @@ function CardContent({
         <div className="inline-flex items-baseline gap-1 justify-center">
           <span
             className={`font-display font-bold text-[34px] sm:text-[40px] leading-none whitespace-nowrap ${
-              pack.recommended ? "text-[#C4B5FD]" : "text-[#A78BFA]"
+              pack.recommended ? "text-[#C7D2FE]" : "text-[#818CF8]"
             }`}
           >
             {t(pack.price, pack.priceEn)}
           </span>
           <span
             className={`text-[18px] font-semibold leading-none mb-auto ${
-              pack.recommended ? "text-[#C4B5FD]" : "text-[#A78BFA]"
+              pack.recommended ? "text-[#C7D2FE]" : "text-[#818CF8]"
             }`}
           >
             *
@@ -333,7 +333,7 @@ function CardContent({
         {pack.delay && (
           <p
             className={`mt-2 text-sm flex items-center justify-center gap-1.5 ${
-              pack.recommended ? "text-[#B8A8D8]" : "text-white/60"
+              pack.recommended ? "text-[#B4BCF5]" : "text-white/60"
             }`}
           >
             <Clock className="h-3.5 w-3.5" />

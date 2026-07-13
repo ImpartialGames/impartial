@@ -1,20 +1,47 @@
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/Layout";
-import { FAQ } from "@/components/FAQ";
-import { ScrollVelocityText } from "@/components/wow";
+import { FAQ, faqs } from "@/components/FAQ";
 import {
-  HeroPremium,
+  HeroAgency,
+  ResultsBand,
+  ExpertisesSection,
+  FeaturedWorkSection,
   OffresSection,
-  ServicesSection,
-  RealisationsSection,
-  MethodeSection,
-  PrincipesSection,
   CTAFinal,
 } from "@/components/sections";
-import { CroissanceSection } from "@/components/sections/CroissanceSection";
 import { EcosystemeSection } from "@/components/sections/EcosystemeSection";
+import { useLang } from "@/contexts/LanguageContext";
 
 const Index = () => {
+  const { lang } = useLang();
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ImpartialGames",
+    "url": "https://impartialgames.com",
+    "logo": "https://impartialgames.com/og-image.jpg",
+    "email": "studio@impartialgames.com",
+    "address": [
+      { "@type": "PostalAddress", "addressLocality": "Montréal", "addressRegion": "QC", "addressCountry": "CA" },
+      { "@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR" }
+    ],
+    "sameAs": []
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((f) => ({
+      "@type": "Question",
+      "name": lang === "en" ? f.questionEn : f.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": lang === "en" ? f.answerEn : f.answer,
+      },
+    })),
+  };
+
   return (
     <Layout>
       <SEO
@@ -23,38 +50,14 @@ const Index = () => {
         titleEn="Digital Studio Montreal & Paris | Websites, Apps, SaaS"
         descriptionEn="Premium digital studio in Montreal and Paris. Custom websites, mobile apps and SaaS. Sharp design, solid code. 30+ clients served."
         canonical="/"
-        schemaJson={{
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "ImpartialGames",
-          "url": "https://impartialgames.com",
-          "logo": "https://impartialgames.com/og-image.jpg",
-          "email": "studio@impartialgames.com",
-          "address": [
-            { "@type": "PostalAddress", "addressLocality": "Montréal", "addressRegion": "QC", "addressCountry": "CA" },
-            { "@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR" }
-          ],
-          "sameAs": []
-        }}
+        schemaJson={[organizationSchema, faqSchema]}
       />
-      <HeroPremium />
-      <CroissanceSection />
+      <HeroAgency />
+      <ResultsBand />
+      <ExpertisesSection />
+      <FeaturedWorkSection />
       <OffresSection />
-      <ServicesSection />
       <EcosystemeSection />
-      <RealisationsSection />
-
-      {/* Velocity divider */}
-      <section aria-hidden className="bg-[#0E0B14] py-10 md:py-14 overflow-hidden">
-        <ScrollVelocityText
-          text="Design · Code · Impact · Studio · "
-          baseVelocity={-2}
-          className="text-white/10"
-        />
-      </section>
-
-      <MethodeSection />
-      <PrincipesSection />
       <FAQ />
       <CTAFinal />
     </Layout>

@@ -14,7 +14,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="theme-solaire min-h-screen bg-[#0E0B14] relative flex flex-col items-center justify-center overflow-hidden">
+    <div className="theme-solaire min-h-screen bg-[#0A0E1A] relative flex flex-col items-center justify-center overflow-hidden">
 
       {/* Halos */}
       <span className="prisme-halo-violet" style={{ top: "-10%", right: "-10%" }} />
@@ -39,7 +39,7 @@ const NotFound = () => {
             <span className="font-syne text-[15px] font-black tracking-[-0.03em] text-white/90">
               IMPARTIAL
             </span>
-            <span className="text-[8px] font-semibold tracking-[0.22em] uppercase text-[#7C3AED]">
+            <span className="text-[8px] font-semibold tracking-[0.22em] uppercase text-[#6366F1]">
               Games
             </span>
           </div>

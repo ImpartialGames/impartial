@@ -13,7 +13,7 @@ const projectDetails = {
   category: "Application SaaS",
   categoryEn: "SaaS application",
   client: "ImpartialGames",
-  year: "2024",
+  year: "2026",
   duration: "4 mois",
   url: "https://myelev8.app",
   description: `ELEV8 est un produit SaaS conçu, développé et opéré directement par ImpartialGames. L'application permet aux coachs sportifs de gérer leur clientèle, créer des programmes sur-mesure et suivre la progression de leurs élèves — depuis un seul tableau de bord.
@@ -64,7 +64,7 @@ This is not a project delivered to a client: it's a product we run ourselves. Th
     "Advanced analytics dashboard",
   ],
   results: [
-    { metric: "Live", label: "En production depuis 2024", labelEn: "In production since 2024" },
+    { metric: "Live", label: "En production depuis 2026", labelEn: "In production since 2026" },
     { metric: "59€", label: "À partir de / mois", labelEn: "Starting from / month" },
     { metric: "SaaS", label: "Produit ImpartialGames", labelEn: "ImpartialGames product" },
     { metric: "iOS+", label: "Android disponible", labelEn: "Android available" },
@@ -139,7 +139,7 @@ export default function Elev8Project() {
               whileTap={{ scale: 0.98 }}
             >
               <span className="absolute inset-0 bg-white rounded-full" />
-              <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative text-background group-hover:text-white transition-colors duration-500">{t("Visiter myelev8.app", "Visit myelev8.app")}</span>
               <ExternalLink className="relative h-3.5 w-3.5 sm:h-4 sm:w-4 text-background group-hover:text-white transition-colors duration-500" />
             </motion.a>
@@ -343,7 +343,7 @@ export default function Elev8Project() {
               whileTap={{ scale: 0.98 }}
             >
               <span className="absolute inset-0 bg-white rounded-full" />
-              <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative text-background group-hover:text-white transition-colors duration-500">{t("Démarrer un projet", "Start a project")}</span>
             </motion.a>
           </motion.div>

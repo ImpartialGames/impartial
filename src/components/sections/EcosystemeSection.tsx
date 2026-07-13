@@ -51,7 +51,7 @@ export function EcosystemeSection() {
   return (
     <section
       className="relative py-24 md:py-32 overflow-hidden"
-      style={{ backgroundColor: "#0E0B14" }}
+      style={{ backgroundColor: "#0A0E1A" }}
     >
       {/* Constellation SVG pattern */}
       <svg
@@ -69,39 +69,39 @@ export function EcosystemeSection() {
             patternUnits="userSpaceOnUse"
           >
             {/* Étoiles / dots */}
-            <circle cx="18"  cy="28"  r="1.2" fill="#A78BFA" />
-            <circle cx="62"  cy="12"  r="1.5" fill="#A78BFA" />
-            <circle cx="105" cy="42"  r="1.2" fill="#A78BFA" />
-            <circle cx="155" cy="18"  r="1.8" fill="#A78BFA" />
-            <circle cx="190" cy="55"  r="1.2" fill="#A78BFA" />
-            <circle cx="142" cy="82"  r="1.5" fill="#A78BFA" />
-            <circle cx="78"  cy="90"  r="1.2" fill="#A78BFA" />
-            <circle cx="28"  cy="74"  r="1.8" fill="#A78BFA" />
-            <circle cx="55"  cy="138" r="1.2" fill="#A78BFA" />
-            <circle cx="118" cy="115" r="1.5" fill="#A78BFA" />
-            <circle cx="172" cy="144" r="1.2" fill="#A78BFA" />
-            <circle cx="38"  cy="168" r="1.2" fill="#A78BFA" />
-            <circle cx="92"  cy="185" r="1.5" fill="#A78BFA" />
-            <circle cx="162" cy="178" r="1.8" fill="#A78BFA" />
-            <circle cx="210" cy="110" r="1.2" fill="#A78BFA" />
+            <circle cx="18"  cy="28"  r="1.2" fill="#818CF8" />
+            <circle cx="62"  cy="12"  r="1.5" fill="#818CF8" />
+            <circle cx="105" cy="42"  r="1.2" fill="#818CF8" />
+            <circle cx="155" cy="18"  r="1.8" fill="#818CF8" />
+            <circle cx="190" cy="55"  r="1.2" fill="#818CF8" />
+            <circle cx="142" cy="82"  r="1.5" fill="#818CF8" />
+            <circle cx="78"  cy="90"  r="1.2" fill="#818CF8" />
+            <circle cx="28"  cy="74"  r="1.8" fill="#818CF8" />
+            <circle cx="55"  cy="138" r="1.2" fill="#818CF8" />
+            <circle cx="118" cy="115" r="1.5" fill="#818CF8" />
+            <circle cx="172" cy="144" r="1.2" fill="#818CF8" />
+            <circle cx="38"  cy="168" r="1.2" fill="#818CF8" />
+            <circle cx="92"  cy="185" r="1.5" fill="#818CF8" />
+            <circle cx="162" cy="178" r="1.8" fill="#818CF8" />
+            <circle cx="210" cy="110" r="1.2" fill="#818CF8" />
             {/* Lignes de constellation */}
-            <line x1="18"  y1="28"  x2="62"  y2="12"  stroke="#A78BFA" strokeWidth="0.4" />
-            <line x1="62"  y1="12"  x2="105" y2="42"  stroke="#A78BFA" strokeWidth="0.4" />
-            <line x1="105" y1="42"  x2="155" y2="18"  stroke="#A78BFA" strokeWidth="0.4" />
-            <line x1="155" y1="18"  x2="190" y2="55"  stroke="#A78BFA" strokeWidth="0.4" />
-            <line x1="190" y1="55"  x2="142" y2="82"  stroke="#A78BFA" strokeWidth="0.4" />
-            <line x1="142" y1="82"  x2="105" y2="42"  stroke="#A78BFA" strokeWidth="0.3" />
-            <line x1="78"  y1="90"  x2="28"  y2="74"  stroke="#A78BFA" strokeWidth="0.4" />
-            <line x1="28"  y1="74"  x2="18"  y2="28"  stroke="#A78BFA" strokeWidth="0.4" />
-            <line x1="78"  y1="90"  x2="55"  y2="138" stroke="#A78BFA" strokeWidth="0.4" />
-            <line x1="55"  y1="138" x2="38"  y2="168" stroke="#A78BFA" strokeWidth="0.4" />
-            <line x1="55"  y1="138" x2="118" y2="115" stroke="#A78BFA" strokeWidth="0.4" />
-            <line x1="118" y1="115" x2="172" y2="144" stroke="#A78BFA" strokeWidth="0.4" />
-            <line x1="172" y1="144" x2="162" y2="178" stroke="#A78BFA" strokeWidth="0.4" />
-            <line x1="92"  y1="185" x2="38"  y2="168" stroke="#A78BFA" strokeWidth="0.4" />
-            <line x1="92"  y1="185" x2="162" y2="178" stroke="#A78BFA" strokeWidth="0.4" />
-            <line x1="210" y1="110" x2="172" y2="144" stroke="#A78BFA" strokeWidth="0.4" />
-            <line x1="210" y1="110" x2="190" y2="55"  stroke="#A78BFA" strokeWidth="0.3" />
+            <line x1="18"  y1="28"  x2="62"  y2="12"  stroke="#818CF8" strokeWidth="0.4" />
+            <line x1="62"  y1="12"  x2="105" y2="42"  stroke="#818CF8" strokeWidth="0.4" />
+            <line x1="105" y1="42"  x2="155" y2="18"  stroke="#818CF8" strokeWidth="0.4" />
+            <line x1="155" y1="18"  x2="190" y2="55"  stroke="#818CF8" strokeWidth="0.4" />
+            <line x1="190" y1="55"  x2="142" y2="82"  stroke="#818CF8" strokeWidth="0.4" />
+            <line x1="142" y1="82"  x2="105" y2="42"  stroke="#818CF8" strokeWidth="0.3" />
+            <line x1="78"  y1="90"  x2="28"  y2="74"  stroke="#818CF8" strokeWidth="0.4" />
+            <line x1="28"  y1="74"  x2="18"  y2="28"  stroke="#818CF8" strokeWidth="0.4" />
+            <line x1="78"  y1="90"  x2="55"  y2="138" stroke="#818CF8" strokeWidth="0.4" />
+            <line x1="55"  y1="138" x2="38"  y2="168" stroke="#818CF8" strokeWidth="0.4" />
+            <line x1="55"  y1="138" x2="118" y2="115" stroke="#818CF8" strokeWidth="0.4" />
+            <line x1="118" y1="115" x2="172" y2="144" stroke="#818CF8" strokeWidth="0.4" />
+            <line x1="172" y1="144" x2="162" y2="178" stroke="#818CF8" strokeWidth="0.4" />
+            <line x1="92"  y1="185" x2="38"  y2="168" stroke="#818CF8" strokeWidth="0.4" />
+            <line x1="92"  y1="185" x2="162" y2="178" stroke="#818CF8" strokeWidth="0.4" />
+            <line x1="210" y1="110" x2="172" y2="144" stroke="#818CF8" strokeWidth="0.4" />
+            <line x1="210" y1="110" x2="190" y2="55"  stroke="#818CF8" strokeWidth="0.3" />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#constellation)" />
@@ -116,7 +116,7 @@ export function EcosystemeSection() {
           height: 650,
           top: "5%",
           right: "-15%",
-          background: "radial-gradient(circle, rgba(124,58,237,0.16) 0%, transparent 65%)",
+          background: "radial-gradient(circle, rgba(99,102,241,0.16) 0%, transparent 65%)",
           filter: "blur(70px)",
         }}
       />
@@ -161,7 +161,7 @@ export function EcosystemeSection() {
               transition={{ delay: i * 0.08, duration: 0.5 }}
               className={`group p-6 rounded-2xl flex flex-col gap-3 bg-white/[0.05] border border-white/[0.09] transition-all duration-400 ${i % 2 === 1 ? "lg:mt-10 " : ""}${
                 p.url !== "#"
-                  ? "hover:border-[#7C3AED]/40 hover:bg-white/[0.08] hover:-translate-y-1 hover:shadow-[0_16px_48px_-16px_rgba(124,58,237,0.28)] cursor-pointer"
+                  ? "hover:border-[#6366F1]/40 hover:bg-white/[0.08] hover:-translate-y-1 hover:shadow-[0_16px_48px_-16px_rgba(99,102,241,0.28)] cursor-pointer"
                   : "cursor-default"
               }`}
             >
@@ -169,14 +169,14 @@ export function EcosystemeSection() {
                 <span className="font-syne font-black text-[15px] tracking-wide text-white">
                   {p.name}
                 </span>
-                <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#7C3AED]/15 text-[#A78BFA] border border-[#7C3AED]/25">
+                <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#6366F1]/15 text-[#818CF8] border border-[#6366F1]/25">
                   {t(p.tag, p.tagEn)}
                 </span>
               </div>
               <p className="text-[13px] text-white/60 font-medium">{t(p.description, p.descriptionEn)}</p>
               <p className="text-[12px] text-white/40 leading-snug">{t(p.price, p.priceEn)}</p>
               {p.url !== "#" && (
-                <div className="flex items-center gap-1 text-[11px] text-[#A78BFA] font-semibold mt-auto group-hover:gap-2 transition-all">
+                <div className="flex items-center gap-1 text-[11px] text-[#818CF8] font-semibold mt-auto group-hover:gap-2 transition-all">
                   {t("Voir le produit", "View product")} <ExternalLink className="h-3 w-3" />
                 </div>
               )}

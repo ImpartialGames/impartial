@@ -20,8 +20,8 @@ interface Ribbon {
 }
 
 const RIBBONS: Ribbon[] = [
-  { baseY: 0.66, tilt: 0.16, amp: 70, amp2: 26, freq: 1.4, speed: 0.22, rows: 15, rgb: [124, 58, 237], alpha: 0.5 },
-  { baseY: 0.84, tilt: -0.1, amp: 90, amp2: 34, freq: 1.1, speed: -0.16, rows: 17, rgb: [167, 139, 250], alpha: 0.42 },
+  { baseY: 0.66, tilt: 0.16, amp: 70, amp2: 26, freq: 1.4, speed: 0.22, rows: 15, rgb: [99, 102, 241], alpha: 0.32 },
+  { baseY: 0.84, tilt: -0.1, amp: 90, amp2: 34, freq: 1.1, speed: -0.16, rows: 17, rgb: [139, 92, 246], alpha: 0.28 },
 ];
 
 function drawFrame(ctx: CanvasRenderingContext2D, w: number, h: number, t: number) {
@@ -57,8 +57,8 @@ function drawFrame(ctx: CanvasRenderingContext2D, w: number, h: number, t: numbe
     (hx - w / 2) * RIBBONS[0].tilt +
     Math.sin((hx / w) * Math.PI * 2 * RIBBONS[0].freq + t * RIBBONS[0].speed) * RIBBONS[0].amp;
   const grad = ctx.createRadialGradient(hx, hy, 0, hx, hy, 120);
-  grad.addColorStop(0, "rgba(167,139,250,0.30)");
-  grad.addColorStop(1, "rgba(167,139,250,0)");
+  grad.addColorStop(0, "rgba(129,140,248,0.30)");
+  grad.addColorStop(1, "rgba(129,140,248,0)");
   ctx.fillStyle = grad;
   ctx.fillRect(hx - 120, hy - 120, 240, 240);
 }
@@ -124,7 +124,7 @@ export function HeroWavesBackground() {
           top: "-8%",
           right: "-6%",
           background:
-            "radial-gradient(circle, rgba(124,58,237,0.42) 0%, rgba(124,58,237,0.12) 45%, transparent 70%)",
+            "radial-gradient(circle, rgba(99,102,241,0.32) 0%, rgba(99,102,241,0.10) 45%, transparent 70%)",
           filter: "blur(70px)",
           willChange: "transform, opacity",
         }}
@@ -138,8 +138,8 @@ export function HeroWavesBackground() {
         viewBox="0 0 900 700"
         fill="none"
       >
-        <ellipse cx="560" cy="330" rx="420" ry="300" stroke="rgba(167,139,250,0.16)" strokeWidth="1" transform="rotate(-24 560 330)" />
-        <ellipse cx="600" cy="300" rx="330" ry="240" stroke="rgba(167,139,250,0.10)" strokeWidth="1" transform="rotate(-24 600 300)" />
+        <ellipse cx="560" cy="330" rx="420" ry="300" stroke="rgba(129,140,248,0.16)" strokeWidth="1" transform="rotate(-24 560 330)" />
+        <ellipse cx="600" cy="300" rx="330" ry="240" stroke="rgba(129,140,248,0.10)" strokeWidth="1" transform="rotate(-24 600 300)" />
       </svg>
 
       {/* Rubans de particules */}
@@ -149,7 +149,7 @@ export function HeroWavesBackground() {
       <div
         className="absolute top-[22%] right-[4%] w-[120px] h-[64px] opacity-50"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(167,139,250,0.35) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(129,140,248,0.35) 1px, transparent 1px)",
           backgroundSize: "14px 14px",
           maskImage: "linear-gradient(135deg, black 30%, transparent 90%)",
           WebkitMaskImage: "linear-gradient(135deg, black 30%, transparent 90%)",
@@ -158,7 +158,7 @@ export function HeroWavesBackground() {
       <div
         className="absolute bottom-[8%] left-[3%] w-[110px] h-[56px] opacity-40"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(167,139,250,0.32) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(129,140,248,0.32) 1px, transparent 1px)",
           backgroundSize: "14px 14px",
           maskImage: "linear-gradient(315deg, black 30%, transparent 90%)",
           WebkitMaskImage: "linear-gradient(315deg, black 30%, transparent 90%)",
@@ -174,7 +174,7 @@ export function HeroWavesBackground() {
       ].map((p, i) => (
         <motion.span
           key={i}
-          className="absolute text-[#A78BFA]"
+          className="absolute text-[#818CF8]"
           style={{ ...p, fontSize: 14, lineHeight: 1 }}
           animate={{ opacity: [0.15, 0.7, 0.15] }}
           transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: p.d }}
@@ -182,13 +182,13 @@ export function HeroWavesBackground() {
           +
         </motion.span>
       ))}
-      <span className="absolute top-[30%] left-[14%] w-[5px] h-[5px] rounded-full bg-[#A78BFA]/70 shadow-[0_0_12px_rgba(167,139,250,0.8)]" />
-      <span className="absolute bottom-[30%] right-[10%] w-[4px] h-[4px] rounded-full bg-[#A78BFA]/60 shadow-[0_0_10px_rgba(167,139,250,0.7)]" />
+      <span className="absolute top-[30%] left-[14%] w-[5px] h-[5px] rounded-full bg-[#818CF8]/70 shadow-[0_0_12px_rgba(129,140,248,0.8)]" />
+      <span className="absolute bottom-[30%] right-[10%] w-[4px] h-[4px] rounded-full bg-[#818CF8]/60 shadow-[0_0_10px_rgba(129,140,248,0.7)]" />
 
       {/* Vignette bas pour raccord avec la section suivante */}
       <div
         className="absolute inset-x-0 bottom-0 h-40"
-        style={{ background: "linear-gradient(to bottom, transparent, #0E0B14)" }}
+        style={{ background: "linear-gradient(to bottom, transparent, #0A0E1A)" }}
       />
     </div>
   );

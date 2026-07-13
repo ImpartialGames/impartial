@@ -37,13 +37,13 @@ export function PrismObject({ className = "" }: { className?: string }) {
         >
           <defs>
             <linearGradient id="ribbon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#7C3AED" stopOpacity="0.18" />
+              <stop offset="0%" stopColor="#6366F1" stopOpacity="0.18" />
               <stop offset="50%" stopColor="#F0AFC8" stopOpacity="0.22" />
               <stop offset="100%" stopColor="#FFB996" stopOpacity="0.18" />
             </linearGradient>
             <linearGradient id="thin-grad" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#5E7AFF" stopOpacity="0.7" />
-              <stop offset="50%" stopColor="#A78BFA" stopOpacity="0.7" />
+              <stop offset="50%" stopColor="#818CF8" stopOpacity="0.7" />
               <stop offset="100%" stopColor="#FF5E78" stopOpacity="0.7" />
             </linearGradient>
           </defs>
@@ -82,7 +82,7 @@ export function PrismObject({ className = "" }: { className?: string }) {
           animate={{ rotate: [0, 4, -3, 0] }}
           transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
         >
-          <svg viewBox="0 0 400 400" className="w-full h-full drop-shadow-[0_30px_60px_rgba(124,58,237,0.18)]">
+          <svg viewBox="0 0 400 400" className="w-full h-full drop-shadow-[0_30px_60px_rgba(99,102,241,0.18)]">
             <defs>
               <linearGradient id="prism-red" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.95" />

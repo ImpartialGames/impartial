@@ -1,70 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Globe, Smartphone, LayoutDashboard, Layers, Grid2X2, Users, Mail, BookOpen } from "lucide-react";
+import { Menu, X, Globe, Grid2X2, Users, Mail, BookOpen, Tag } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { GlowMenu, GlowMenuItem } from "@/components/ui/glow-menu";
+import { HeaderNav, NAV_SERVICES, isPlainLeftClick } from "@/components/HeaderNav";
 import logoHero from "@/assets/logo-hero.webp";
 import { CalendlyQuiz } from "@/components/CalendlyQuiz";
 import { useLang } from "@/contexts/LanguageContext";
-
-const glowNavItems: GlowMenuItem[] = [
-  {
-    icon: Globe,
-    label: "Web",
-    href: "/services/web",
-    gradient: "radial-gradient(circle, rgba(124,58,237,0.18) 0%, rgba(124,58,237,0.06) 50%, transparent 100%)",
-    iconColor: "text-[#7C3AED]",
-  },
-  {
-    icon: Smartphone,
-    label: "Mobile",
-    href: "/services/mobile",
-    gradient: "radial-gradient(circle, rgba(167,139,250,0.20) 0%, rgba(167,139,250,0.06) 50%, transparent 100%)",
-    iconColor: "text-[#A78BFA]",
-  },
-  {
-    icon: LayoutDashboard,
-    label: "Backoffice",
-    href: "/services/backoffice",
-    gradient: "radial-gradient(circle, rgba(240,175,200,0.22) 0%, rgba(240,175,200,0.07) 50%, transparent 100%)",
-    iconColor: "text-[#C084A0]",
-  },
-  {
-    icon: Layers,
-    label: "360°",
-    href: "/services/360",
-    gradient: "radial-gradient(circle, rgba(255,185,150,0.22) 0%, rgba(255,185,150,0.07) 50%, transparent 100%)",
-    iconColor: "text-[#D97B4F]",
-  },
-  {
-    icon: Grid2X2,
-    label: "Portfolio",
-    href: "/portfolio",
-    gradient: "radial-gradient(circle, rgba(124,58,237,0.18) 0%, rgba(124,58,237,0.06) 50%, transparent 100%)",
-    iconColor: "text-[#7C3AED]",
-  },
-  {
-    icon: Users,
-    label: "Studio",
-    href: "/studio",
-    gradient: "radial-gradient(circle, rgba(167,139,250,0.20) 0%, rgba(167,139,250,0.06) 50%, transparent 100%)",
-    iconColor: "text-[#A78BFA]",
-  },
-  {
-    icon: BookOpen,
-    label: "Ressources",
-    href: "/ressources",
-    gradient: "radial-gradient(circle, rgba(255,185,150,0.22) 0%, rgba(255,185,150,0.07) 50%, transparent 100%)",
-    iconColor: "text-[#D97B4F]",
-  },
-  {
-    icon: Mail,
-    label: "Contact",
-    href: "/contact",
-    gradient: "radial-gradient(circle, rgba(240,175,200,0.22) 0%, rgba(240,175,200,0.07) 50%, transparent 100%)",
-    iconColor: "text-[#C084A0]",
-  },
-];
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -74,12 +15,19 @@ export function Header() {
   const location = useLocation();
   const { lang, setLang, t, lp } = useLang();
 
-  // Liens de navigation localisés ("/studio" → "/en/studio" côté anglais).
-  const navItems = glowNavItems.map((item) => ({
-    ...item,
-    label: item.label === "Ressources" ? t("Ressources", "Resources") : item.label,
-    href: lp(item.href),
+  // Groupes du menu mobile — mêmes services que la nav desktop (source partagée).
+  const mobileServices = NAV_SERVICES.map((s) => ({
+    icon: s.icon,
+    label: t(s.label, s.labelEn),
+    href: lp(s.href),
   }));
+  const mobileLinks = [
+    { icon: Grid2X2, label: t("Réalisations", "Work"), href: lp("/portfolio") },
+    { icon: Users, label: t("À propos", "About"), href: lp("/studio") },
+    { icon: Tag, label: t("Tarifs", "Pricing"), href: lp("/") + "#offres", anchor: "offres" },
+    { icon: BookOpen, label: t("Ressources", "Resources"), href: lp("/ressources") },
+    { icon: Mail, label: t("Contact", "Contact"), href: lp("/contact") },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -92,14 +40,11 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const activeLabel =
-    navItems.find((item) => item.href === location.pathname)?.label ?? "";
-
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-[#0E0B14]/70 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/10"
+          ? "bg-[#05060E]/70 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/10"
           : "border-b border-transparent"
       }`}
       initial={{ y: -80, opacity: 0 }}
@@ -123,15 +68,15 @@ export function Header() {
               <span className="font-syne text-[16px] font-black tracking-[-0.03em] text-white transition-colors duration-500">
                 IMPARTIAL
               </span>
-              <span className="text-[9px] font-semibold tracking-[0.22em] uppercase text-[#A78BFA] transition-colors duration-500">
+              <span className="text-[9px] font-semibold tracking-[0.22em] uppercase text-[#818CF8] transition-colors duration-500">
                 Games
               </span>
             </div>
           </Link>
 
-          {/* GlowMenu — nav centre */}
+          {/* Nav centre */}
           <div className="hidden lg:block absolute left-1/2 -translate-x-1/2">
-            <GlowMenu items={navItems} activeItem={activeLabel} />
+            <HeaderNav />
           </div>
 
           {/* CTA droite */}
@@ -140,7 +85,7 @@ export function Header() {
             <button
               onClick={() => setLang(lang === "fr" ? "en" : "fr")}
               className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-white/70 hover:text-white border border-white/20 hover:border-white/40 hover:bg-white/[0.06] px-4 py-2 rounded-full transition-colors duration-300"
-              aria-label="Changer la langue"
+              aria-label={t("Passer en anglais", "Switch to French")}
             >
               <Globe className="h-3.5 w-3.5" />
               {lang === "fr" ? "EN" : "FR"}
@@ -157,7 +102,9 @@ export function Header() {
           <button
             className="lg:hidden p-2 rounded-xl border border-white/15 bg-white/[0.06] backdrop-blur-lg transition-colors duration-300"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-label={isMobileMenuOpen ? t("Fermer le menu", "Close menu") : t("Ouvrir le menu", "Open menu")}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="header-mobile-menu"
           >
             <AnimatePresence mode="wait">
               {isMobileMenuOpen ? (
@@ -188,24 +135,25 @@ export function Header() {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
+              id="header-mobile-menu"
               className="lg:hidden overflow-hidden pb-6"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="bg-[#14101D]/90 backdrop-blur-2xl rounded-2xl p-4 mt-2 border border-white/10 shadow-[0_16px_48px_rgba(0,0,0,0.5)]">
-                <div className="px-4 py-2 text-[#7C3AED] text-[10px] font-semibold uppercase tracking-[0.2em]">
+              <div className="bg-[#0D1120]/90 backdrop-blur-2xl rounded-2xl p-4 mt-2 border border-white/10 shadow-[0_16px_48px_rgba(0,0,0,0.5)]">
+                <div className="px-4 py-2 text-[#818CF8] text-[10px] font-semibold uppercase tracking-[0.2em]">
                   Services
                 </div>
-                {navItems.slice(0, 4).map((item) => (
+                {mobileServices.map((item) => (
                   <Link
                     key={item.href}
                     to={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`flex items-center gap-3 px-4 py-3 rounded-xl text-[14px] transition-colors ${
                       location.pathname === item.href
-                        ? "bg-[#7C3AED]/15 text-[#A78BFA] font-medium"
+                        ? "bg-[#6366F1]/15 text-[#818CF8] font-medium"
                         : "text-white/80 hover:bg-white/[0.06]"
                     }`}
                   >
@@ -214,14 +162,23 @@ export function Header() {
                   </Link>
                 ))}
                 <div className="h-px my-3 bg-white/10" />
-                {navItems.slice(4).map((item) => (
+                {mobileLinks.map((item) => (
                   <Link
                     key={item.href}
                     to={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      setIsMobileMenuOpen(false);
+                      if (item.anchor && isPlainLeftClick(e)) {
+                        const el = document.getElementById(item.anchor);
+                        if (el) {
+                          e.preventDefault();
+                          el.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                      }
+                    }}
                     className={`flex items-center gap-3 px-4 py-3 rounded-xl text-[14px] transition-colors ${
                       location.pathname === item.href
-                        ? "bg-[#7C3AED]/15 text-[#A78BFA] font-medium"
+                        ? "bg-[#6366F1]/15 text-[#818CF8] font-medium"
                         : "text-white/80 hover:bg-white/[0.06]"
                     }`}
                   >

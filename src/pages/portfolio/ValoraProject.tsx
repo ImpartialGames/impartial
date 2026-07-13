@@ -13,7 +13,7 @@ const projectDetails = {
   category: "Application web",
   categoryEn: "Web application",
   client: "Valora",
-  year: "2025",
+  year: "2026",
   duration: "6 semaines",
   description: `Valora est une plateforme web destinée aux professionnels de la finance et de l'investissement pour visualiser, analyser et gérer leurs actifs en temps réel. Le défi principal : rendre des données complexes lisibles et actionnables dans une interface sobre et professionnelle.
 
@@ -136,7 +136,7 @@ export default function ValoraProject() {
                 className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-medium tracking-wide uppercase overflow-hidden"
               >
                 <span className="absolute inset-0 bg-white rounded-full" />
-                <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span className="relative text-background group-hover:text-white transition-colors duration-500">
                   {t("Démarrer un projet similaire", "Start a similar project")}
                 </span>
@@ -342,7 +342,7 @@ export default function ValoraProject() {
               whileTap={{ scale: 0.98 }}
             >
               <span className="absolute inset-0 bg-white rounded-full" />
-              <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative text-background group-hover:text-white transition-colors duration-500">{t("Démarrer un projet", "Start a project")}</span>
             </motion.a>
           </motion.div>
