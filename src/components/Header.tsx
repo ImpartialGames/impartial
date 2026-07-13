@@ -1,70 +1,23 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Globe, Smartphone, LayoutDashboard, Layers, Grid2X2, Users, Mail, BookOpen } from "lucide-react";
+import {
+  Menu,
+  X,
+  Globe,
+  Smartphone,
+  Database,
+  Layers,
+  Grid2X2,
+  Users,
+  Mail,
+  BookOpen,
+  Tag,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { GlowMenu, GlowMenuItem } from "@/components/ui/glow-menu";
+import { HeaderNav } from "@/components/HeaderNav";
 import logoHero from "@/assets/logo-hero.webp";
 import { CalendlyQuiz } from "@/components/CalendlyQuiz";
 import { useLang } from "@/contexts/LanguageContext";
-
-const glowNavItems: GlowMenuItem[] = [
-  {
-    icon: Globe,
-    label: "Web",
-    href: "/services/web",
-    gradient: "radial-gradient(circle, rgba(99,102,241,0.18) 0%, rgba(99,102,241,0.06) 50%, transparent 100%)",
-    iconColor: "text-[#6366F1]",
-  },
-  {
-    icon: Smartphone,
-    label: "Mobile",
-    href: "/services/mobile",
-    gradient: "radial-gradient(circle, rgba(129,140,248,0.20) 0%, rgba(129,140,248,0.06) 50%, transparent 100%)",
-    iconColor: "text-[#818CF8]",
-  },
-  {
-    icon: LayoutDashboard,
-    label: "Backoffice",
-    href: "/services/backoffice",
-    gradient: "radial-gradient(circle, rgba(240,175,200,0.22) 0%, rgba(240,175,200,0.07) 50%, transparent 100%)",
-    iconColor: "text-[#C084A0]",
-  },
-  {
-    icon: Layers,
-    label: "360°",
-    href: "/services/360",
-    gradient: "radial-gradient(circle, rgba(255,185,150,0.22) 0%, rgba(255,185,150,0.07) 50%, transparent 100%)",
-    iconColor: "text-[#D97B4F]",
-  },
-  {
-    icon: Grid2X2,
-    label: "Portfolio",
-    href: "/portfolio",
-    gradient: "radial-gradient(circle, rgba(99,102,241,0.18) 0%, rgba(99,102,241,0.06) 50%, transparent 100%)",
-    iconColor: "text-[#6366F1]",
-  },
-  {
-    icon: Users,
-    label: "Studio",
-    href: "/studio",
-    gradient: "radial-gradient(circle, rgba(129,140,248,0.20) 0%, rgba(129,140,248,0.06) 50%, transparent 100%)",
-    iconColor: "text-[#818CF8]",
-  },
-  {
-    icon: BookOpen,
-    label: "Ressources",
-    href: "/ressources",
-    gradient: "radial-gradient(circle, rgba(255,185,150,0.22) 0%, rgba(255,185,150,0.07) 50%, transparent 100%)",
-    iconColor: "text-[#D97B4F]",
-  },
-  {
-    icon: Mail,
-    label: "Contact",
-    href: "/contact",
-    gradient: "radial-gradient(circle, rgba(240,175,200,0.22) 0%, rgba(240,175,200,0.07) 50%, transparent 100%)",
-    iconColor: "text-[#C084A0]",
-  },
-];
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -74,12 +27,20 @@ export function Header() {
   const location = useLocation();
   const { lang, setLang, t, lp } = useLang();
 
-  // Liens de navigation localisés ("/studio" → "/en/studio" côté anglais).
-  const navItems = glowNavItems.map((item) => ({
-    ...item,
-    label: item.label === "Ressources" ? t("Ressources", "Resources") : item.label,
-    href: lp(item.href),
-  }));
+  // Groupes du menu mobile — même structure que la nav desktop.
+  const mobileServices = [
+    { icon: Globe, label: t("Sites Web", "Websites"), href: lp("/services/web") },
+    { icon: Smartphone, label: t("Apps Mobiles", "Mobile Apps"), href: lp("/services/mobile") },
+    { icon: Database, label: t("Logiciels & SaaS", "Software & SaaS"), href: lp("/services/backoffice") },
+    { icon: Layers, label: t("Écosystème 360°", "360° Ecosystem"), href: lp("/services/360") },
+  ];
+  const mobileLinks = [
+    { icon: Grid2X2, label: t("Réalisations", "Work"), href: lp("/portfolio") },
+    { icon: Users, label: t("À propos", "About"), href: lp("/studio") },
+    { icon: Tag, label: t("Tarifs", "Pricing"), href: lp("/") + "#offres" },
+    { icon: BookOpen, label: t("Ressources", "Resources"), href: lp("/ressources") },
+    { icon: Mail, label: t("Contact", "Contact"), href: lp("/contact") },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -92,14 +53,11 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const activeLabel =
-    navItems.find((item) => item.href === location.pathname)?.label ?? "";
-
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-[#0A0E1A]/70 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/10"
+          ? "bg-[#05060E]/70 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/10"
           : "border-b border-transparent"
       }`}
       initial={{ y: -80, opacity: 0 }}
@@ -129,9 +87,9 @@ export function Header() {
             </div>
           </Link>
 
-          {/* GlowMenu — nav centre */}
+          {/* Nav centre */}
           <div className="hidden lg:block absolute left-1/2 -translate-x-1/2">
-            <GlowMenu items={navItems} activeItem={activeLabel} />
+            <HeaderNav />
           </div>
 
           {/* CTA droite */}
@@ -195,10 +153,10 @@ export function Header() {
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="bg-[#0D1120]/90 backdrop-blur-2xl rounded-2xl p-4 mt-2 border border-white/10 shadow-[0_16px_48px_rgba(0,0,0,0.5)]">
-                <div className="px-4 py-2 text-[#6366F1] text-[10px] font-semibold uppercase tracking-[0.2em]">
+                <div className="px-4 py-2 text-[#818CF8] text-[10px] font-semibold uppercase tracking-[0.2em]">
                   Services
                 </div>
-                {navItems.slice(0, 4).map((item) => (
+                {mobileServices.map((item) => (
                   <Link
                     key={item.href}
                     to={item.href}
@@ -214,7 +172,7 @@ export function Header() {
                   </Link>
                 ))}
                 <div className="h-px my-3 bg-white/10" />
-                {navItems.slice(4).map((item) => (
+                {mobileLinks.map((item) => (
                   <Link
                     key={item.href}
                     to={item.href}

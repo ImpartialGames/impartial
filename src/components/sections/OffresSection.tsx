@@ -208,7 +208,7 @@ export function OffresSection() {
                       top: "-50%",
                       left: "-50%",
                       background:
-                        "conic-gradient(transparent 0deg, transparent 195deg, #6366F1 225deg, #818CF8 268deg, #F0AFC8 292deg, transparent 312deg)",
+                        "conic-gradient(transparent 0deg, transparent 195deg, #6366F1 225deg, #8B5CF6 268deg, #A5B4FC 292deg, transparent 312deg)",
                     }}
                   />
                   {/* Carte intérieure */}

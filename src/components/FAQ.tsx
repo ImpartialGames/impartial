@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import { useLang } from "@/contexts/LanguageContext";
 
-const faqs = [
+export const faqs = [
   {
     question: "Quels sont vos délais de réalisation ?",
     questionEn: "How long does a project take?",

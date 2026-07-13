@@ -1,117 +1,131 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, BadgeCheck, Clock, Mail, MapPin, Route } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, MagneticButton } from "@/components/wow";
 import { CalendlyQuiz } from "@/components/CalendlyQuiz";
 import { useLang } from "@/contexts/LanguageContext";
 
+/** CTA final — bannière dégradée pleine largeur + barre de confiance (maquette agence). */
 export function CTAFinal() {
   const [quizOpen, setQuizOpen] = useState(false);
   const { t, lp } = useLang();
 
+  const trust = [
+    {
+      icon: Clock,
+      title: t("Réponse en 24-48h", "Reply within 24-48h"),
+      sub: t("On vous répond rapidement", "We get back to you fast"),
+    },
+    {
+      icon: BadgeCheck,
+      title: t("Devis gratuit", "Free quote"),
+      sub: t("Sans engagement", "No commitment"),
+    },
+    {
+      icon: MapPin,
+      title: t("Montréal & Paris", "Montreal & Paris"),
+      sub: t("France et Canada", "France and Canada"),
+    },
+    {
+      icon: Route,
+      title: t("Accompagnement", "Full support"),
+      sub: t("De A à Z et au-delà", "From A to Z and beyond"),
+    },
+  ];
+
   return (
-    <section id="contact" className="relative py-20 md:py-28 bg-[#0A0E1A] overflow-hidden">
-
-      {/* Halos extérieurs */}
-      <span className="prisme-halo-violet" style={{ bottom: "-10%", left: "-8%" }} />
-      <span className="prisme-halo-peach"  style={{ top: "-10%", right: "-8%" }} />
-
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="contact" className="relative py-20 md:py-28 bg-[#05060E] overflow-hidden">
+      <div className="w-full px-6 lg:px-12 xl:px-16 relative z-10 max-w-[1600px] mx-auto">
         <motion.div
-          initial={{ opacity: 0, scale: 0.97, y: 24 }}
+          initial={{ opacity: 0, scale: 0.98, y: 24 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="relative max-w-3xl mx-auto"
+          className="relative"
         >
-          {/* Carte principale */}
-          <div className="relative bg-[#101433] rounded-[28px] sm:rounded-[36px] p-6 sm:p-9 md:p-14 lg:p-20 text-center overflow-hidden">
+          {/* Bannière dégradée */}
+          <div
+            className="relative rounded-[28px] sm:rounded-[32px] px-6 py-12 sm:px-12 md:px-16 md:py-16 overflow-hidden shadow-[0_30px_80px_-25px_rgba(99,102,241,0.5)]"
+            style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
+          >
+            <Sparkles count={18} color="#FFFFFF" />
 
-            {/* Sparkles avec couleurs prisme */}
-            <Sparkles count={22} color="#818CF8" />
-            <Sparkles count={10} color="#F0AFC8" />
-
-            {/* Gradient top-left violet */}
+            {/* reflets */}
             <div
+              aria-hidden
               className="absolute inset-0 pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(ellipse 70% 50% at 20% 0%, rgba(99,102,241,0.30) 0%, transparent 70%)",
-              }}
+              style={{ background: "radial-gradient(ellipse 60% 80% at 15% 0%, rgba(255,255,255,0.16) 0%, transparent 60%)" }}
             />
-            {/* Gradient bottom-right rose */}
             <div
+              aria-hidden
               className="absolute inset-0 pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(ellipse 60% 40% at 85% 110%, rgba(240,175,200,0.18) 0%, transparent 70%)",
-              }}
+              style={{ background: "radial-gradient(ellipse 50% 60% at 90% 110%, rgba(5,6,14,0.25) 0%, transparent 70%)" }}
             />
 
-            {/* Bordure gradient prisme */}
-            <div
-              className="absolute inset-0 rounded-[36px] pointer-events-none"
-              style={{
-                padding: "1.5px",
-                background: "var(--prisme-gradient)",
-                WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
-                WebkitMaskComposite: "xor",
-                maskComposite: "exclude",
-                opacity: 0.5,
-              }}
-            />
-
-            {/* Contenu */}
-            <div className="relative">
-              <div className="section-label justify-center mb-8" style={{ color: "#818CF8", borderColor: "rgba(99,102,241,0.25)", background: "rgba(99,102,241,0.12)" }}>
-                {t("Travaillons ensemble", "Let's work together")}
-              </div>
-
-              <h2 className="font-serif text-[26px] sm:text-[32px] md:text-[44px] lg:text-[52px] leading-[1.05] tracking-[-0.02em] text-white mb-6">
-                <span className="block">{t("Prêt à lancer", "Ready to launch")}</span>
-                <span className="block prisme-italic-grad">{t("ton projet ?", "your project?")}</span>
-              </h2>
-
-              <p className="text-[#B4BCF5] text-base md:text-lg leading-relaxed mb-12 max-w-xl mx-auto">
-                {t(
-                  "On te répond sous 24–48h avec une proposition claire et sans engagement.",
-                  "We get back to you within 24–48h with a clear, no-commitment proposal."
-                )}
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <MagneticButton
-                  as="button"
-                  onClick={() => setQuizOpen(true)}
-                  className="btn-prisme inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white font-medium text-[15px]"
-                >
-                  {t("Planifier un appel", "Book a call")}
-                  <ArrowRight className="h-4 w-4" />
-                </MagneticButton>
-
-                <MagneticButton
-                  as={Link}
-                  to={lp("/contact")}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white/80 font-medium text-[15px] hover:border-white/50 hover:text-white transition-colors duration-200"
-                >
-                  <Mail className="h-4 w-4" />
-                  {t("Écrire un message", "Send a message")}
-                </MagneticButton>
-              </div>
-
-              <div
-                className="mt-10 pt-6"
-                style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
-              >
+            <div className="relative flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12">
+              <div className="flex-1">
+                <h2 className="font-serif text-[28px] sm:text-[36px] md:text-[44px] leading-[1.05] tracking-[-0.02em] text-white">
+                  {t("Prêt à faire décoller votre projet ?", "Ready to launch your project?")}
+                </h2>
+                <p className="mt-4 text-[15px] md:text-[16.5px] text-white/85 leading-relaxed max-w-2xl">
+                  {t(
+                    "Réservez un appel gratuit avec l'un de nos experts et parlons de votre projet. Réponse sous 24-48h, proposition claire et sans engagement.",
+                    "Book a free call with one of our experts and let's talk about your project. Reply within 24-48h, clear proposal, no commitment.",
+                  )}
+                </p>
                 <a
                   href="mailto:studio@impartialgames.com"
-                  className="text-[13px] text-[#6B76A8] hover:text-[#818CF8] transition-colors duration-200"
+                  className="mt-5 inline-flex items-center gap-2 text-[13.5px] text-white/70 hover:text-white transition-colors duration-200"
                 >
+                  <Mail className="h-4 w-4" aria-hidden />
                   studio@impartialgames.com
                 </a>
               </div>
+
+              <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
+                <MagneticButton
+                  as="button"
+                  onClick={() => setQuizOpen(true)}
+                  className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#1E1B4B] font-semibold text-[15px] shadow-[0_12px_32px_-8px_rgba(5,6,14,0.4)] hover:shadow-[0_18px_44px_-10px_rgba(5,6,14,0.55)] transition-shadow duration-300"
+                >
+                  {t("Réserver un appel gratuit", "Book a free call")}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden />
+                </MagneticButton>
+                <MagneticButton
+                  as={Link}
+                  to={lp("/contact")}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/40 text-white font-medium text-[15px] hover:bg-white/10 hover:border-white/70 transition-all duration-300"
+                >
+                  {t("Écrire un message", "Send a message")}
+                </MagneticButton>
+              </div>
             </div>
+          </div>
+
+          {/* Barre de confiance */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8 mt-12 px-2">
+            {trust.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  className="flex items-start gap-3.5"
+                >
+                  <span className="grid place-items-center w-10 h-10 rounded-xl bg-indigo-500/15 text-indigo-300 shrink-0">
+                    <Icon className="h-[18px] w-[18px]" aria-hidden />
+                  </span>
+                  <span className="flex flex-col">
+                    <span className="text-[14px] font-semibold text-white">{item.title}</span>
+                    <span className="mt-0.5 text-[12.5px] text-white/45">{item.sub}</span>
+                  </span>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       </div>
