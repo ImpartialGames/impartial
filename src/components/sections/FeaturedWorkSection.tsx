@@ -6,9 +6,9 @@ import { StatCard } from "@/components/StatCard";
 import type { StatAccent } from "@/components/StatCard";
 import { useLang } from "@/contexts/LanguageContext";
 import eclipsiaImg from "@/assets/portfolio/eclipsia.webp";
-import wecloseImg from "@/assets/portfolio/weclose.webp";
+import elev8Img from "@/assets/portfolio/elev8.webp";
 import fitbyvalImg from "@/assets/portfolio/fitbyval.webp";
-import altarysImg from "@/assets/portfolio/altarys.webp";
+import valoraImg from "@/assets/portfolio/valora.webp";
 
 /**
  * Réalisations phares — 4 projets avec leurs résultats chiffrés réels
@@ -39,21 +39,21 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "We Close Agency",
-    category: "Site + conversion",
-    categoryEn: "Site + conversion",
-    image: wecloseImg,
-    href: "/portfolio/weclose",
+    title: "ELEV8",
+    category: "App de coaching sportif",
+    categoryEn: "Sports coaching app",
+    image: elev8Img,
+    href: "/portfolio/elev8",
     accent: "emerald",
     metrics: [
-      { value: "+70 %", valueEn: "+70%", label: "de conversion", labelEn: "conversion" },
-      { value: "+150 %", valueEn: "+150%", label: "de leads", labelEn: "leads" },
+      { value: "Live", valueEn: "Live", label: "en production depuis 2024", labelEn: "in production since 2024" },
+      { value: "59 €", valueEn: "€59", label: "par mois — produit opéré", labelEn: "per month — our own product" },
     ],
   },
   {
     title: "Fitbyval",
-    category: "App coaching",
-    categoryEn: "Coaching app",
+    category: "Page de vente",
+    categoryEn: "Sales page",
     image: fitbyvalImg,
     href: "/portfolio/fitbyval",
     accent: "violet",
@@ -63,15 +63,15 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "Altarys Group",
-    category: "Plateforme DeFi",
-    categoryEn: "DeFi platform",
-    image: altarysImg,
-    href: "/portfolio/altarys",
+    title: "Valora",
+    category: "Cercle privé",
+    categoryEn: "Private members club",
+    image: valoraImg,
+    href: "/portfolio/valora",
     accent: "cyan",
     metrics: [
-      { value: "+85 %", valueEn: "+85%", label: "d'efficacité", labelEn: "efficiency" },
-      { value: "−50 %", valueEn: "−50%", label: "de temps admin", labelEn: "admin time" },
+      { value: "100 %", valueEn: "100%", label: "sur-mesure et sécurisé", labelEn: "custom-built and secure" },
+      { value: "<1 s", valueEn: "<1s", label: "temps de réponse", labelEn: "response time" },
     ],
   },
 ];
