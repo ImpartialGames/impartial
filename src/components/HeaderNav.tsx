@@ -8,10 +8,11 @@ import { useLang } from "@/contexts/LanguageContext";
 /**
  * Nav desktop du header — pilule centrale avec dropdown « Services »
  * (structure maquette : Services ▾ · Réalisations · À propos · Tarifs · Ressources).
- * Fermé par défaut (SSR-safe), ouvert au survol/clic, accessible clavier.
+ * Fermé par défaut (SSR-safe), ouvert au survol souris/clic/focus,
+ * refermable à Escape et au clic extérieur.
  */
 
-type ServiceEntry = {
+export type ServiceEntry = {
   icon: LucideIcon;
   label: string;
   labelEn: string;
@@ -20,7 +21,7 @@ type ServiceEntry = {
   href: string;
 };
 
-const services: ServiceEntry[] = [
+export const NAV_SERVICES: ServiceEntry[] = [
   {
     icon: Globe,
     label: "Sites Web",
@@ -55,24 +56,59 @@ const services: ServiceEntry[] = [
   },
 ];
 
+/** Clic « normal » : sans touche modificatrice ni bouton du milieu (sinon on laisse le navigateur gérer). */
+export function isPlainLeftClick(e: React.MouseEvent) {
+  return e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey;
+}
+
 export function HeaderNav() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
   const { t, lp } = useLang();
   const closeTimer = useRef<ReturnType<typeof setTimeout>>();
+  const rootRef = useRef<HTMLDivElement>(null);
 
   // Fermer le dropdown à chaque navigation.
   useEffect(() => {
     setServicesOpen(false);
   }, [location.pathname]);
 
+  // Nettoyage du timer au démontage.
+  useEffect(() => () => clearTimeout(closeTimer.current), []);
+
+  // Escape + clic/tap extérieur.
+  useEffect(() => {
+    if (!servicesOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setServicesOpen(false);
+    };
+    const onPointerDown = (e: PointerEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) {
+        setServicesOpen(false);
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointerDown);
+    };
+  }, [servicesOpen]);
+
   const open = () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
+    clearTimeout(closeTimer.current);
     setServicesOpen(true);
   };
   const scheduleClose = () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
+    clearTimeout(closeTimer.current);
     closeTimer.current = setTimeout(() => setServicesOpen(false), 150);
+  };
+  // Survol réservé à la souris — au tactile, seul le clic pilote l'ouverture.
+  const hoverOpen = (e: React.PointerEvent) => {
+    if (e.pointerType === "mouse") open();
+  };
+  const hoverClose = (e: React.PointerEvent) => {
+    if (e.pointerType === "mouse") scheduleClose();
   };
 
   const isServicesActive = location.pathname.includes("/services/");
@@ -94,13 +130,12 @@ export function HeaderNav() {
       className="flex items-center gap-0.5 px-1.5 py-1.5 rounded-full bg-white/[0.06] backdrop-blur-2xl border border-white/10"
     >
       {/* Services ▾ */}
-      <div className="relative" onMouseEnter={open} onMouseLeave={scheduleClose}>
+      <div ref={rootRef} className="relative" onPointerEnter={hoverOpen} onPointerLeave={hoverClose}>
         <button
           type="button"
           aria-expanded={servicesOpen}
-          aria-haspopup="true"
+          aria-controls="header-services-panel"
           onClick={() => setServicesOpen((v) => !v)}
-          onFocus={open}
           className={`inline-flex items-center gap-1.5 ${itemClass(isServicesActive)}`}
         >
           {t("Services", "Services")}
@@ -113,17 +148,17 @@ export function HeaderNav() {
         <AnimatePresence>
           {servicesOpen && (
             <motion.div
+              id="header-services-panel"
               initial={{ opacity: 0, y: 8, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 8, scale: 0.98 }}
               transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
               className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 w-[340px] p-2 rounded-2xl bg-[#0D1120]/95 backdrop-blur-2xl border border-white/10 shadow-[0_24px_60px_-15px_rgba(0,0,0,0.6)]"
-              onFocus={open}
               onBlur={(e) => {
                 if (!e.currentTarget.contains(e.relatedTarget as Node)) scheduleClose();
               }}
             >
-              {services.map((s) => {
+              {NAV_SERVICES.map((s) => {
                 const Icon = s.icon;
                 return (
                   <Link
@@ -153,6 +188,7 @@ export function HeaderNav() {
           onClick={
             link.anchor
               ? (e) => {
+                  if (!isPlainLeftClick(e)) return;
                   const el = document.getElementById(link.anchor as string);
                   if (el) {
                     e.preventDefault();

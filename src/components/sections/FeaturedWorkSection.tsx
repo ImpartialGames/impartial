@@ -22,7 +22,7 @@ type Project = {
   image: string;
   href: string;
   accent: StatAccent;
-  metrics: { value: string; label: string; labelEn: string }[];
+  metrics: { value: string; valueEn: string; label: string; labelEn: string }[];
 };
 
 const projects: Project[] = [
@@ -34,8 +34,8 @@ const projects: Project[] = [
     href: "/portfolio/eclipsia",
     accent: "indigo",
     metrics: [
-      { value: "+85 %", label: "de visibilité", labelEn: "visibility" },
-      { value: "+120 %", label: "de demandes", labelEn: "inquiries" },
+      { value: "+85 %", valueEn: "+85%", label: "de visibilité", labelEn: "visibility" },
+      { value: "+120 %", valueEn: "+120%", label: "de demandes", labelEn: "inquiries" },
     ],
   },
   {
@@ -46,8 +46,8 @@ const projects: Project[] = [
     href: "/portfolio/weclose",
     accent: "emerald",
     metrics: [
-      { value: "+70 %", label: "de conversion", labelEn: "conversion" },
-      { value: "+150 %", label: "de leads", labelEn: "leads" },
+      { value: "+70 %", valueEn: "+70%", label: "de conversion", labelEn: "conversion" },
+      { value: "+150 %", valueEn: "+150%", label: "de leads", labelEn: "leads" },
     ],
   },
   {
@@ -58,8 +58,8 @@ const projects: Project[] = [
     href: "/portfolio/fitbyval",
     accent: "violet",
     metrics: [
-      { value: "+60 %", label: "de réservations", labelEn: "bookings" },
-      { value: "−80 %", label: "de temps admin", labelEn: "admin time" },
+      { value: "+60 %", valueEn: "+60%", label: "de réservations", labelEn: "bookings" },
+      { value: "−80 %", valueEn: "−80%", label: "de temps admin", labelEn: "admin time" },
     ],
   },
   {
@@ -70,8 +70,8 @@ const projects: Project[] = [
     href: "/portfolio/altarys",
     accent: "cyan",
     metrics: [
-      { value: "+85 %", label: "d'efficacité", labelEn: "efficiency" },
-      { value: "−50 %", label: "de temps admin", labelEn: "admin time" },
+      { value: "+85 %", valueEn: "+85%", label: "d'efficacité", labelEn: "efficiency" },
+      { value: "−50 %", valueEn: "−50%", label: "de temps admin", labelEn: "admin time" },
     ],
   },
 ];
@@ -154,7 +154,7 @@ export function FeaturedWorkSection() {
                       flat
                       size="md"
                       accent={p.accent}
-                      value={m.value}
+                      value={t(m.value, m.valueEn)}
                       label={t(m.label, m.labelEn)}
                       className="!p-3"
                     />

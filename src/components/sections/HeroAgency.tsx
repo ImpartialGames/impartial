@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { MagneticButton, RevealText } from "@/components/wow";
+import { MagneticButton } from "@/components/wow";
 import { CalendlyQuiz } from "@/components/CalendlyQuiz";
 import { HeroWavesBackground } from "@/components/sections/HeroWavesBackground";
 import { HeroComposite } from "@/components/sections/HeroComposite";
@@ -42,11 +42,15 @@ export function HeroAgency() {
               </span>
             </motion.div>
 
+            {/* H1 animé en CSS pur : peint avant l'hydratation JS (LCP). */}
             <h1 className="mt-6 font-serif text-[38px] sm:text-[52px] lg:text-[64px] xl:text-[76px] leading-[1.02] tracking-[-0.03em] text-white">
-              <RevealText by="word" stagger={0.06}>
+              <span className="block animate-fade-in-up">
                 {t("On crée vos outils.", "We build your tools.")}
-              </RevealText>
-              <span className="block">
+              </span>
+              <span
+                className="block animate-fade-in-up"
+                style={{ animationDelay: "0.15s", animationFillMode: "both" }}
+              >
                 <span className="prisme-italic-grad">
                   {t("Vous gagnez plus.", "You earn more.")}
                 </span>
@@ -116,14 +120,14 @@ export function HeroAgency() {
               transition={{ duration: 0.7, delay: 1.05 }}
               className="mt-10"
             >
-              <div className="text-[11px] font-medium tracking-[0.18em] uppercase text-white/35">
+              <div className="text-[11px] font-medium tracking-[0.18em] uppercase text-white/50">
                 {t("Ils nous font confiance", "They trust us")}
               </div>
               <div className="mt-4 flex flex-wrap items-center gap-x-7 gap-y-3">
                 {["Eclipsia", "Altarys Group", "We Close", "Umel Couture", "Fitbyval"].map((name) => (
                   <span
                     key={name}
-                    className="font-syne font-semibold text-[14px] tracking-wide text-white/40 hover:text-white/75 transition duration-300"
+                    className="font-syne font-semibold text-[14px] tracking-wide text-white/55 hover:text-white/85 transition duration-300"
                   >
                     {name}
                   </span>

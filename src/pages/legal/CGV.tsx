@@ -3,7 +3,7 @@ const CGV = () => {
   return <Layout>
       <section className="relative pt-32 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-neon-violet/10 via-transparent to-transparent" />
-        <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-purple-600/15 rounded-full blur-[120px] animate-pulse-glow" />
+        <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-violet-500/15 rounded-full blur-[120px] animate-pulse-glow" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">

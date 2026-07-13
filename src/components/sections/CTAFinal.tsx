@@ -45,10 +45,8 @@ export function CTAFinal() {
           className="relative"
         >
           {/* Bannière dégradée */}
-          <div
-            className="relative rounded-[28px] sm:rounded-[32px] px-6 py-12 sm:px-12 md:px-16 md:py-16 overflow-hidden shadow-[0_30px_80px_-25px_rgba(99,102,241,0.5)]"
-            style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
-          >
+          {/* indigo-600 → violet-600 : garde un contraste AA avec le texte blanc */}
+          <div className="relative rounded-[28px] sm:rounded-[32px] px-6 py-12 sm:px-12 md:px-16 md:py-16 overflow-hidden shadow-[0_30px_80px_-25px_rgba(99,102,241,0.5)] bg-gradient-to-br from-indigo-600 to-violet-600">
             <Sparkles count={18} color="#FFFFFF" />
 
             {/* reflets */}
@@ -68,7 +66,7 @@ export function CTAFinal() {
                 <h2 className="font-serif text-[28px] sm:text-[36px] md:text-[44px] leading-[1.05] tracking-[-0.02em] text-white">
                   {t("Prêt à faire décoller votre projet ?", "Ready to launch your project?")}
                 </h2>
-                <p className="mt-4 text-[15px] md:text-[16.5px] text-white/85 leading-relaxed max-w-2xl">
+                <p className="mt-4 text-[15px] md:text-[16.5px] text-white leading-relaxed max-w-2xl">
                   {t(
                     "Réservez un appel gratuit avec l'un de nos experts et parlons de votre projet. Réponse sous 24-48h, proposition claire et sans engagement.",
                     "Book a free call with one of our experts and let's talk about your project. Reply within 24-48h, clear proposal, no commitment.",
@@ -76,7 +74,7 @@ export function CTAFinal() {
                 </p>
                 <a
                   href="mailto:studio@impartialgames.com"
-                  className="mt-5 inline-flex items-center gap-2 text-[13.5px] text-white/70 hover:text-white transition-colors duration-200"
+                  className="mt-5 inline-flex items-center gap-2 text-[13.5px] text-white/90 hover:text-white transition-colors duration-200"
                 >
                   <Mail className="h-4 w-4" aria-hidden />
                   studio@impartialgames.com
@@ -121,7 +119,7 @@ export function CTAFinal() {
                   </span>
                   <span className="flex flex-col">
                     <span className="text-[14px] font-semibold text-white">{item.title}</span>
-                    <span className="mt-0.5 text-[12.5px] text-white/45">{item.sub}</span>
+                    <span className="mt-0.5 text-[12.5px] text-white/55">{item.sub}</span>
                   </span>
                 </motion.div>
               );

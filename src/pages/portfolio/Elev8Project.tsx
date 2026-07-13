@@ -139,7 +139,7 @@ export default function Elev8Project() {
               whileTap={{ scale: 0.98 }}
             >
               <span className="absolute inset-0 bg-white rounded-full" />
-              <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative text-background group-hover:text-white transition-colors duration-500">{t("Visiter myelev8.app", "Visit myelev8.app")}</span>
               <ExternalLink className="relative h-3.5 w-3.5 sm:h-4 sm:w-4 text-background group-hover:text-white transition-colors duration-500" />
             </motion.a>
@@ -343,7 +343,7 @@ export default function Elev8Project() {
               whileTap={{ scale: 0.98 }}
             >
               <span className="absolute inset-0 bg-white rounded-full" />
-              <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <span className="absolute inset-0 bg-gradient-to-r from-neon-violet to-violet-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative text-background group-hover:text-white transition-colors duration-500">{t("Démarrer un projet", "Start a project")}</span>
             </motion.a>
           </motion.div>

@@ -31,23 +31,27 @@ function FloatWrap({
   delay?: number;
   className?: string;
 }) {
+  // Deux couches : l'extérieure joue l'entrée (opacity + y), l'intérieure
+  // boucle le flottement — sinon framer saute à la 1re keyframe du loop.
   return (
     <motion.div
       className={className}
       initial={{ opacity: 0, y: 14 }}
-      animate={{ opacity: 1, y: [0, -7, 0] }}
-      transition={{
-        opacity: { duration: 0.6, delay: 0.4 + delay * 0.15 },
-        y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay },
-      }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.4 + delay * 0.15, ease: [0.22, 1, 0.36, 1] }}
     >
-      {children}
+      <motion.div
+        animate={{ y: [0, -7, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay }}
+      >
+        {children}
+      </motion.div>
     </motion.div>
   );
 }
 
 export function HeroComposite() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const reduced = useReducedMotion();
   const { scrollY } = useScroll();
   const parallaxY = useTransform(scrollY, [0, 600], [0, -40]);
@@ -135,7 +139,7 @@ export function HeroComposite() {
 
               {/* KPI */}
               <div className="grid grid-cols-3 gap-2">
-                <StatCard flat size="md" accent="emerald" value="+127 %" label={t("CA moyen", "Avg revenue")} className="!p-2.5 md:!p-3" />
+                <StatCard flat size="md" accent="emerald" value={t("+127 %", "+127%")} label={t("CA moyen", "Avg revenue")} className="!p-2.5 md:!p-3" />
                 <StatCard flat size="md" accent="violet" value={t("×2,4", "×2.4")} label={t("Clients", "Clients")} className="!p-2.5 md:!p-3" />
                 <StatCard flat size="md" accent="cyan" value="+38K" label={t("Audience", "Audience")} className="!p-2.5 md:!p-3" />
               </div>
@@ -198,12 +202,12 @@ export function HeroComposite() {
               {t("Revenus", "Revenue")}
             </div>
             <div className="font-display font-bold text-[26px] md:text-[30px] leading-none text-emerald-400 tabular-nums">
-              <CountUp to={127} format={(n) => `+${Math.round(n)} %`} />
+              <CountUp to={127} format={(n) => (lang === "en" ? `+${Math.round(n)}%` : `+${Math.round(n)} %`)} />
             </div>
             <Sparkline stroke="rgba(34,211,238,0.6)" dotColor="#22D3EE" className="w-full h-6 mt-1" />
             <div className="flex justify-between text-[9px] text-white/50">
               <span>{t("Ce mois", "This month")}</span>
-              <span className="text-emerald-400/90">+18 %</span>
+              <span className="text-emerald-400/90">{t("+18 %", "+18%")}</span>
             </div>
             <div className="flex justify-between text-[9px] text-white/50">
               <span>{t("Leads", "Leads")}</span>
@@ -215,7 +219,7 @@ export function HeroComposite() {
 
       {/* ─── Cartes flottantes ─── */}
       <FloatWrap className="absolute -top-14 left-0 lg:-top-7 lg:-left-8 z-30" delay={0}>
-        <StatCard size="sm" accent="emerald" icon={TrendingUp} value="+127 %" label={t("CA moyen clients", "Avg client revenue")} />
+        <StatCard size="sm" accent="emerald" icon={TrendingUp} value={t("+127 %", "+127%")} label={t("CA moyen clients", "Avg client revenue")} />
       </FloatWrap>
 
       <FloatWrap className="absolute top-[34%] -right-3 lg:-right-8 z-30 hidden md:block" delay={1.2}>

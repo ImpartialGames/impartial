@@ -10,7 +10,7 @@ const typeConfig: Record<EmailLog["type"], { icon: typeof Mail; label: string; c
   devis: { icon: FileText, label: "Devis", color: "hsl(200, 100%, 50%)" },
   paiement: { icon: CheckCircle, label: "Paiement", color: "hsl(155, 100%, 45%)" },
   demande: { icon: Send, label: "Demande", color: "hsl(45, 93%, 55%)" },
-  validation: { icon: CheckCircle, label: "Validation", color: "hsl(265, 85%, 60%)" },
+  validation: { icon: CheckCircle, label: "Validation", color: "hsl(239, 84%, 67%)" },
 };
 
 interface EmailLogPanelProps {

@@ -26,6 +26,7 @@ const metrics: Metric[] = [
   {
     to: 127,
     format: (n) => `+${Math.round(n)} %`,
+    formatEn: (n) => `+${Math.round(n)}%`,
     label: "de chiffre d'affaires en moyenne",
     labelEn: "average revenue growth",
     sub: "sur les 12 mois après lancement",
@@ -48,7 +49,7 @@ const metrics: Metric[] = [
   },
   {
     to: 38,
-    format: (n) => `+${Math.round(n)} K`,
+    format: (n) => `+${Math.round(n)}K`,
     label: "d'audience générée",
     labelEn: "audience generated",
     sub: "abonnés, toutes plateformes",
@@ -109,7 +110,7 @@ export function ResultsBand() {
                     <span className="mt-1.5 text-[12.5px] font-medium text-white/70 leading-snug">
                       {t(m.label, m.labelEn)}
                     </span>
-                    <span className="mt-0.5 text-[11.5px] text-white/40 leading-snug">
+                    <span className="mt-0.5 text-[11.5px] text-white/55 leading-snug">
                       {t(m.sub, m.subEn)}
                     </span>
                   </span>

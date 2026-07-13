@@ -1,20 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import {
-  Menu,
-  X,
-  Globe,
-  Smartphone,
-  Database,
-  Layers,
-  Grid2X2,
-  Users,
-  Mail,
-  BookOpen,
-  Tag,
-} from "lucide-react";
+import { Menu, X, Globe, Grid2X2, Users, Mail, BookOpen, Tag } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { HeaderNav } from "@/components/HeaderNav";
+import { HeaderNav, NAV_SERVICES, isPlainLeftClick } from "@/components/HeaderNav";
 import logoHero from "@/assets/logo-hero.webp";
 import { CalendlyQuiz } from "@/components/CalendlyQuiz";
 import { useLang } from "@/contexts/LanguageContext";
@@ -27,17 +15,16 @@ export function Header() {
   const location = useLocation();
   const { lang, setLang, t, lp } = useLang();
 
-  // Groupes du menu mobile — même structure que la nav desktop.
-  const mobileServices = [
-    { icon: Globe, label: t("Sites Web", "Websites"), href: lp("/services/web") },
-    { icon: Smartphone, label: t("Apps Mobiles", "Mobile Apps"), href: lp("/services/mobile") },
-    { icon: Database, label: t("Logiciels & SaaS", "Software & SaaS"), href: lp("/services/backoffice") },
-    { icon: Layers, label: t("Écosystème 360°", "360° Ecosystem"), href: lp("/services/360") },
-  ];
+  // Groupes du menu mobile — mêmes services que la nav desktop (source partagée).
+  const mobileServices = NAV_SERVICES.map((s) => ({
+    icon: s.icon,
+    label: t(s.label, s.labelEn),
+    href: lp(s.href),
+  }));
   const mobileLinks = [
     { icon: Grid2X2, label: t("Réalisations", "Work"), href: lp("/portfolio") },
     { icon: Users, label: t("À propos", "About"), href: lp("/studio") },
-    { icon: Tag, label: t("Tarifs", "Pricing"), href: lp("/") + "#offres" },
+    { icon: Tag, label: t("Tarifs", "Pricing"), href: lp("/") + "#offres", anchor: "offres" },
     { icon: BookOpen, label: t("Ressources", "Resources"), href: lp("/ressources") },
     { icon: Mail, label: t("Contact", "Contact"), href: lp("/contact") },
   ];
@@ -98,7 +85,7 @@ export function Header() {
             <button
               onClick={() => setLang(lang === "fr" ? "en" : "fr")}
               className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-white/70 hover:text-white border border-white/20 hover:border-white/40 hover:bg-white/[0.06] px-4 py-2 rounded-full transition-colors duration-300"
-              aria-label="Changer la langue"
+              aria-label={t("Passer en anglais", "Switch to French")}
             >
               <Globe className="h-3.5 w-3.5" />
               {lang === "fr" ? "EN" : "FR"}
@@ -115,7 +102,9 @@ export function Header() {
           <button
             className="lg:hidden p-2 rounded-xl border border-white/15 bg-white/[0.06] backdrop-blur-lg transition-colors duration-300"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-label={isMobileMenuOpen ? t("Fermer le menu", "Close menu") : t("Ouvrir le menu", "Open menu")}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="header-mobile-menu"
           >
             <AnimatePresence mode="wait">
               {isMobileMenuOpen ? (
@@ -146,6 +135,7 @@ export function Header() {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
+              id="header-mobile-menu"
               className="lg:hidden overflow-hidden pb-6"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
@@ -176,7 +166,16 @@ export function Header() {
                   <Link
                     key={item.href}
                     to={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      setIsMobileMenuOpen(false);
+                      if (item.anchor && isPlainLeftClick(e)) {
+                        const el = document.getElementById(item.anchor);
+                        if (el) {
+                          e.preventDefault();
+                          el.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                      }
+                    }}
                     className={`flex items-center gap-3 px-4 py-3 rounded-xl text-[14px] transition-colors ${
                       location.pathname === item.href
                         ? "bg-[#6366F1]/15 text-[#818CF8] font-medium"
