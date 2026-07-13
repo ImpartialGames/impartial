@@ -214,11 +214,11 @@ export function HeroComposite() {
       </motion.div>
 
       {/* ─── Cartes flottantes ─── */}
-      <FloatWrap className="absolute -top-5 -left-3 lg:-top-7 lg:-left-8 z-30" delay={0}>
+      <FloatWrap className="absolute -top-14 left-0 lg:-top-7 lg:-left-8 z-30" delay={0}>
         <StatCard size="sm" accent="emerald" icon={TrendingUp} value="+127 %" label={t("CA moyen clients", "Avg client revenue")} />
       </FloatWrap>
 
-      <FloatWrap className="absolute top-[16%] -right-3 lg:-right-8 z-30 hidden md:block" delay={1.2}>
+      <FloatWrap className="absolute top-[34%] -right-3 lg:-right-8 z-30 hidden md:block" delay={1.2}>
         <div className="flex items-center gap-3 w-[230px] rounded-2xl bg-white/[0.07] backdrop-blur-md border border-white/10 p-3 shadow-[0_10px_36px_-12px_rgba(99,102,241,0.4)]">
           <span className="grid place-items-center w-[34px] h-[34px] rounded-xl bg-gradient-to-br from-indigo-500 to-violet-500 shrink-0">
             <CheckCircle2 className="h-4 w-4 text-white" />

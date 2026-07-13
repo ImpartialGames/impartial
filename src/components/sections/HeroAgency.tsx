@@ -7,8 +7,6 @@ import { CalendlyQuiz } from "@/components/CalendlyQuiz";
 import { HeroWavesBackground } from "@/components/sections/HeroWavesBackground";
 import { HeroComposite } from "@/components/sections/HeroComposite";
 import { useLang } from "@/contexts/LanguageContext";
-import altarysLogo from "@/assets/portfolio/altarys-logo.webp";
-import wecloseLogo from "@/assets/portfolio/weclose-logo.webp";
 
 /** Hero « agence » — 2 colonnes : promesse + composite dashboard (2026-07). */
 export function HeroAgency() {
@@ -122,23 +120,7 @@ export function HeroAgency() {
                 {t("Ils nous font confiance", "They trust us")}
               </div>
               <div className="mt-4 flex flex-wrap items-center gap-x-7 gap-y-3">
-                <img
-                  src={altarysLogo}
-                  alt="Altarys Group"
-                  className="h-6 w-auto opacity-50 grayscale hover:opacity-90 hover:grayscale-0 transition duration-300"
-                  loading="lazy"
-                  width={96}
-                  height={24}
-                />
-                <img
-                  src={wecloseLogo}
-                  alt="We Close Agency"
-                  className="h-6 w-auto opacity-50 grayscale hover:opacity-90 hover:grayscale-0 transition duration-300"
-                  loading="lazy"
-                  width={96}
-                  height={24}
-                />
-                {["Eclipsia", "Umel Couture", "Fitbyval"].map((name) => (
+                {["Eclipsia", "Altarys Group", "We Close", "Umel Couture", "Fitbyval"].map((name) => (
                   <span
                     key={name}
                     className="font-syne font-semibold text-[14px] tracking-wide text-white/40 hover:text-white/75 transition duration-300"
