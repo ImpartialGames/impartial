@@ -5,6 +5,8 @@ export { TiltCard } from "./TiltCard";
 export { Marquee } from "./Marquee";
 export { Sparkles } from "./Sparkles";
 export { RevealText } from "./RevealText";
+export { CountUp } from "./CountUp";
+export { Sparkline } from "./Sparkline";
 export { ScrollVelocityText } from "./ScrollVelocityText";
 export { CursorFollower } from "./CursorFollower";
 export { PrismObject } from "./PrismObject";

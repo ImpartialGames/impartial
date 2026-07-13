@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { TrendingUp } from "lucide-react";
 import { useLang } from "@/contexts/LanguageContext";
+import { CountUp } from "@/components/wow/CountUp";
+import { Sparkline } from "@/components/wow/Sparkline";
 
 /**
  * Section « Votre croissance » — juste sous le hero.
@@ -45,50 +47,6 @@ const metrics = [
     subEn: "on redesigned journeys",
   },
 ];
-
-/** Compteur animé — rend la valeur finale côté serveur (SEO), anime à l'entrée en vue. */
-function CountUp({ to, format }: { to: number; format: (n: number) => string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
-  const [val, setVal] = useState(to);
-
-  useEffect(() => {
-    if (!inView) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setVal(to);
-      return;
-    }
-    const start = performance.now();
-    const dur = 1400;
-    let raf: number;
-    const tick = (now: number) => {
-      const p = Math.min(1, (now - start) / dur);
-      const eased = 1 - Math.pow(1 - p, 3);
-      setVal(to * eased);
-      if (p < 1) raf = requestAnimationFrame(tick);
-    };
-    setVal(0);
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [inView, to]);
-
-  return <span ref={ref}>{format(val)}</span>;
-}
-
-/** Mini-courbe décorative dans chaque carte. */
-function Sparkline() {
-  return (
-    <svg viewBox="0 0 120 28" className="w-full h-6 mt-4" aria-hidden fill="none">
-      <path
-        d="M2 24 C 30 22, 55 18, 78 12 S 112 4, 118 3"
-        stroke="rgba(255,255,255,0.22)"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      <circle cx="118" cy="3" r="2.5" fill="#818CF8" />
-    </svg>
-  );
-}
 
 export function CroissanceSection() {
   const { lang, t } = useLang();
